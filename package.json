@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/olegdemchenko/TMDBClone/issues"
   },
-  "homepage": "https://github.com/olegdemchenko/TMDBClone#readme"
+  "homepage": "https://github.com/olegdemchenko/TMDBClone#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
 }
