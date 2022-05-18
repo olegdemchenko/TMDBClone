@@ -21,7 +21,7 @@ module.exports = {
       tls: false,
     }
   },
-  plugin: [
+  plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new MiniCSSExtractPlugin(),
     new NodePolyfillPlugin()
