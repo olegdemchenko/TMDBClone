@@ -1,0 +1,19 @@
+{
+  "name": "tmdbclone",
+  "version": "1.0.0",
+  "description": "TMDB clone app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olegdemchenko/TMDBClone.git"
+  },
+  "author": "Oleh Demchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olegdemchenko/TMDBClone/issues"
+  },
+  "homepage": "https://github.com/olegdemchenko/TMDBClone#readme"
+}
