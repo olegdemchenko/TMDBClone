@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -22,6 +23,7 @@ module.exports = {
   },
   plugin: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new MiniCSSExtractPlugin(),
     new NodePolyfillPlugin()
   ],
   module: {
@@ -30,7 +32,15 @@ module.exports = {
         test: /.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          { loader: MiniCSSExtractPlugin.loader },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
     ]
   }
 }
