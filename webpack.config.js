@@ -3,8 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
+const mode = process.env.NODE_ENV || 'development';
+
 module.exports = {
-  mode: 'development',
+  mode,
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
