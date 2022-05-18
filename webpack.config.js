@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     open: true,
@@ -19,12 +19,12 @@ module.exports = {
       fs: false,
       net: false,
       tls: false,
-    }
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new MiniCSSExtractPlugin(),
-    new NodePolyfillPlugin()
+    new NodePolyfillPlugin(),
   ],
   module: {
     rules: [
@@ -41,6 +41,6 @@ module.exports = {
           { loader: 'sass-loader' },
         ],
       },
-    ]
-  }
-}
+    ],
+  },
+};
