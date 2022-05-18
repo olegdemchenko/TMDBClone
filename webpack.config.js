@@ -11,7 +11,19 @@ module.exports = {
   devServer: {
     open: true,
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   plugin: [
     new HtmlWebpackPlugin({ template: './src/index.html' })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      }
+    ]
+  }
 }
