@@ -4,7 +4,10 @@
   "description": "TMDB clone app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production npx webpack --mode production",
+    "test": "jest",
+    "lint": "npx eslint .",
+    "start": "npx webpack serve"
   },
   "repository": {
     "type": "git",
