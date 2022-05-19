@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../assets/img/logo.png';
-import NavContent from './NavContent';
+import Menu from './Menu';
 import Options from './Options';
 
 function Header() {
@@ -8,7 +8,7 @@ function Header() {
     <header>
       <img src={Logo} alt="logo" />
       <nav>
-        <NavContent />
+        <Menu />
         <Options />
       </nav>
     </header>

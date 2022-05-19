@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from './Dropdown';
 
-function NavContent() {
+function Menu() {
   const menu = {
     movies: ['popular', 'now playing', 'top rated', 'upcoming'],
     'tv shows': ['popular', 'airing today', 'on tv', 'top rated'],
@@ -16,4 +16,4 @@ function NavContent() {
   );
 }
 
-export default NavContent;
+export default Menu;
