@@ -6,6 +6,13 @@
     "jsx": "react",
     "moduleResolution": "node",
     "target": "ES6",
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+  },
+  "include": [
+    ".eslintrc.js",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
