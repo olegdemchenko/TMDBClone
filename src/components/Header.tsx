@@ -1,9 +1,10 @@
 import React from 'react';
+import Logo from '../assets/img/logo.png';
 
 function Header() {
   return (
     <header>
-      <img src="../assets/img/logo.png" alt="logo" />
+      <img src={Logo} alt="logo" />
       <nav>
         <ul>
           <li>Movies</li>
