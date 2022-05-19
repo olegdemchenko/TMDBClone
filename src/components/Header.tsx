@@ -1,17 +1,13 @@
 import React from 'react';
 import Logo from '../assets/img/logo.png';
+import NavContent from './NavContent';
 
 function Header() {
   return (
     <header>
       <img src={Logo} alt="logo" />
       <nav>
-        <ul>
-          <li>Movies</li>
-          <li>TV Shows</li>
-          <li>People</li>
-          <li>More</li>
-        </ul>
+        <NavContent />
         <ul>
           <li>+</li>
           <li>Eng</li>
