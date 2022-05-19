@@ -2,6 +2,7 @@ import React from 'react';
 import AddMovie from './AddMovie';
 import SelectLanguage from './SelectLanguage';
 import Login from './Login';
+import Join from './Join';
 
 function Options() {
   return (
@@ -9,7 +10,7 @@ function Options() {
       <AddMovie />
       <SelectLanguage />
       <Login />
-      <li>Join TMDB</li>
+      <Join />
       <li>Search</li>
     </div>
   );
