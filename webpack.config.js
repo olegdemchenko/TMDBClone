@@ -40,11 +40,20 @@ module.exports = {
         type: 'asset/resource',
       },
       {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           { loader: MiniCSSExtractPlugin.loader },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' },
+          { loader: 'resolve-url-loader' },
+          { loader: 'sass-loader', 
+            options: {
+              sourceMap: true,
+            } 
+          },
         ],
       },
     ],
