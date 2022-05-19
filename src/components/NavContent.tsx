@@ -1,13 +1,18 @@
 import React from 'react';
+import Dropdown from './Dropdown';
 
 function NavContent() {
+  const menu = {
+    movies: ['popular', 'now playing', 'top rated', 'upcoming'],
+    'tv shows': ['popular', 'airing today', 'on tv', 'top rated'],
+    people: ['popular people'],
+    more: ['discussions', 'leaderboard', 'support', 'api'],
+  };
+
   return (
-    <ul>
-      <li>Movies</li>
-      <li>TV Shows</li>
-      <li>People</li>
-      <li>More</li>
-    </ul>
+    <>
+      {Object.entries(menu).map(([name, list]) => <Dropdown name={name} list={list} />)}
+    </>
   );
 }
 
