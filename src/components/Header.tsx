@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../assets/img/logo.png';
 import NavContent from './NavContent';
+import Options from './NavOptions';
 
 function Header() {
   return (
@@ -8,13 +9,7 @@ function Header() {
       <img src={Logo} alt="logo" />
       <nav>
         <NavContent />
-        <ul>
-          <li>+</li>
-          <li>Eng</li>
-          <li>Login</li>
-          <li>Join TMDB</li>
-          <li>Search</li>
-        </ul>
+        <Options />
       </nav>
     </header>
   );
