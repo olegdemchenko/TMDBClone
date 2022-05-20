@@ -6,8 +6,8 @@ import Options from './Options';
 function Header() {
   return (
     <header className="header">
-      <div className="container">
-        <img src={Logo} alt="logo" />
+      <div className="container inner-wrapper">
+        <img className="logo" src={Logo} alt="logo" />
         <nav>
           <Menu />
           <Options />
