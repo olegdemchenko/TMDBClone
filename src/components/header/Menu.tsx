@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
 
 function Menu() {
   const menu = {
@@ -11,7 +11,7 @@ function Menu() {
 
   return (
     <>
-      {Object.entries(menu).map(([name, list]) => <Dropdown name={name} list={list} />)}
+      {Object.entries(menu).map(([name, list]) => <DropdownMenu name={name} list={list} />)}
     </>
   );
 }

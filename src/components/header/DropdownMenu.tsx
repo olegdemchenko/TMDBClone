@@ -5,7 +5,7 @@ interface DropdownProps {
   list: string[],
 }
 
-function Dropdown({ name, list }: DropdownProps) {
+function DropdownMenu({ name, list }: DropdownProps) {
   return (
     <div>
       <div>{name}</div>
@@ -14,4 +14,4 @@ function Dropdown({ name, list }: DropdownProps) {
   );
 }
 
-export default Dropdown;
+export default DropdownMenu;
