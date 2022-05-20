@@ -1,5 +1,2 @@
-@import '../../../node_modules/normalize-scss/sass/normalize';
-@import 'base/reset';
-@import 'base/fonts';
-@import 'base/layout';
-@import 'components/header';
+@import "~bootstrap/scss/bootstrap";
+@import "components/header";
