@@ -72,6 +72,10 @@
     },
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(jpeg|jpg|png)": "<rootDir>/__mocks__/fileMock.ts",
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
   }
 }
