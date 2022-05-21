@@ -4,15 +4,16 @@ import React from 'react';
 import App from '../src/components/App';
 
 test('check header behavior', async () => {
-  const { container } = render(<App />);
-  const logo = screen.getByRole('img', { name: /logo/i });
-  expect(logo).toBeInTheDocument();
-  fireEvent.scroll(container, { y: 100 });
+  render(<App />);
+  const header = screen.getByRole('banner');
+  expect(header).toBeInTheDocument();
+  fireEvent.scroll(window, { target: { scrollY: 300 } });
   await waitFor(() => {
-    expect(logo).not.toBeVisible();
+    expect(header).toHaveClass('hidden');
   });
-  fireEvent.scroll(container, { y: -100 });
+  fireEvent.scroll(window, { target: { scrollY: -100 } });
+  console.log(window.scrollY);
   await waitFor(() => {
-    expect(logo).toBeVisible();
+    expect(header).toHaveClass('visible');
   });
 });
