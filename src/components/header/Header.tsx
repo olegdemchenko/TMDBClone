@@ -10,14 +10,14 @@ function Header() {
   return (
     <header className="header">
       <Container>
-        <Nav>
+        <Nav className="p-3">
           <Nav.Item>
-            <Nav.Link href="#">
-              <img className="logo" src={Logo} alt="logo" />
+            <Nav.Link href="#" className="p-0 pe-3">
+              <img className="align-bottom logo" src={Logo} alt="logo" />
             </Nav.Link>
           </Nav.Item>
           <Row className="justify-content-between flex-grow-1">
-            <Col>
+            <Col className="d-flex align-items-end">
               <Nav.Item>
                 <Menu />
               </Nav.Item>
