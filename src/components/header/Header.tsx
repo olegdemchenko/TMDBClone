@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Logo from '../../assets/img/logo.png';
 import Menu from './Menu';
-import Options from './Options';
 
 function Header() {
   return (
@@ -21,11 +20,6 @@ function Header() {
             <Col>
               <Nav.Item>
                 <Menu />
-              </Nav.Item>
-            </Col>
-            <Col>
-              <Nav.Item>
-                <Options />
               </Nav.Item>
             </Col>
           </Row>
