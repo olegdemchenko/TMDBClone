@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,8 +8,26 @@ import Logo from '../../assets/img/logo.png';
 import Menu from './Menu';
 
 function Header() {
+  const [position, setPosition] = useState(0);
+  const [isVisible, setVisibility] = useState(true);
+  const toggleHeader = () => {
+    const isMoveUp = (window.scrollY - position) < 0;
+    setVisibility(isMoveUp);
+    setPosition(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleHeader);
+    return () => window.removeEventListener('scroll', toggleHeader);
+  });
+
+  const headerClasses = cn('header', {
+    visible: isVisible,
+    hidden: !isVisible,
+  });
+
   return (
-    <header className="header">
+    <header className={headerClasses}>
       <Container>
         <Nav className="p-3">
           <Nav.Item>
