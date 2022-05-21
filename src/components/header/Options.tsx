@@ -3,7 +3,6 @@ import AddMovie from './AddMovie';
 import SelectLanguage from './SelectLanguage';
 import Login from './Login';
 import Join from './Join';
-import Search from './Search';
 
 function Options() {
   return (
@@ -12,7 +11,6 @@ function Options() {
       <SelectLanguage />
       <Login />
       <Join />
-      <Search />
     </div>
   );
 }
