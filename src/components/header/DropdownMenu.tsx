@@ -1,4 +1,6 @@
 import React from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import capitalize from '../../utils';
 
 interface DropdownProps {
   name: string,
@@ -7,10 +9,14 @@ interface DropdownProps {
 
 function DropdownMenu({ name, list }: DropdownProps) {
   return (
-    <div>
-      <div>{name}</div>
-      <ul>{list.map((item) => <li>{item}</li>)}</ul>
-    </div>
+    <Dropdown>
+      <Dropdown.Toggle className="border-0 pb-0 shadow-none bg-transparent dropdown-btn">
+        {capitalize(name)}
+      </Dropdown.Toggle>
+      <Dropdown.Menu>
+        {list.map((item) => <Dropdown.Item href="#/action-1">{capitalize(item)}</Dropdown.Item>)}
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 

@@ -10,9 +10,9 @@ function Menu() {
   };
 
   return (
-    <>
+    <div className="d-flex">
       {Object.entries(menu).map(([name, list]) => <DropdownMenu name={name} list={list} />)}
-    </>
+    </div>
   );
 }
 
