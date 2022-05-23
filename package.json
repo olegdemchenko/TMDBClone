@@ -6,6 +6,7 @@
   "scripts": {
     "build": "set NODE_ENV=production&&npx webpack --mode production",
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "lint": "npx eslint .",
     "start": "npx webpack serve"
   },
@@ -69,6 +70,8 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jsdom",
+    "collectCoverage": true,
+    "collectCoverageFrom": ["./src/**"],
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },
