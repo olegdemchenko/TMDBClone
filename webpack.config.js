@@ -49,10 +49,11 @@ module.exports = {
           { loader: MiniCSSExtractPlugin.loader },
           { loader: 'css-loader' },
           { loader: 'resolve-url-loader' },
-          { loader: 'sass-loader', 
+          {
+            loader: 'sass-loader',
             options: {
               sourceMap: true,
-            } 
+            },
           },
         ],
       },
