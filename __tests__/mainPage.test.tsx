@@ -21,3 +21,9 @@ test('check header behavior', async () => {
     expect(header).toHaveClass('visible');
   });
 });
+
+test('check footer presence', async () => {
+  render(<App />);
+  const footer = screen.getByRole('contentinfo');
+  expect(footer).toBeInTheDocument();
+});
