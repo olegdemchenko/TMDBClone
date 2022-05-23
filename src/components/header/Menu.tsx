@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import DropdownMenu from './DropdownMenu';
 
 function Menu() {
@@ -11,7 +12,9 @@ function Menu() {
 
   return (
     <div className="d-flex">
-      {Object.entries(menu).map(([name, list]) => <DropdownMenu name={name} list={list} />)}
+      {Object.entries(menu).map(([name, list]) => (
+        <DropdownMenu key={_.uniqueId()} name={name} list={list} />
+      ))}
     </div>
   );
 }
