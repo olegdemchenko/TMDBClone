@@ -1,5 +1,10 @@
 import '@testing-library/jest-dom';
-import { screen, waitFor, render, fireEvent } from '@testing-library/react';
+import {
+  screen,
+  waitFor,
+  render,
+  fireEvent,
+} from '@testing-library/react';
 import React from 'react';
 import App from '../src/components/App';
 
