@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -10,7 +10,11 @@ import Menu from './Menu';
 function Header() {
   const [position, setPosition] = useState(0);
   const [isVisible, setVisibility] = useState(true);
+  const headerRef = useRef<HTMLBodyElement | null>(null);
   const toggleHeader = () => {
+    if (headerRef.current && window.scrollY < headerRef.current.clientHeight) {
+      return;
+    }
     const isMoveUp = (window.scrollY - position) < 0;
     setVisibility(isMoveUp);
     setPosition(window.scrollY);
@@ -27,7 +31,7 @@ function Header() {
   });
 
   return (
-    <header className={headerClasses}>
+    <header className={headerClasses} ref={headerRef}>
       <Container>
         <Nav className="p-3">
           <Nav.Item>
