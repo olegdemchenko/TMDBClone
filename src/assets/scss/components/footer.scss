@@ -1,0 +1,11 @@
+@import '../helpers/variables';
+
+.footer {
+  background-color: $dark-blue;
+  text-align: center;
+
+  h2 {
+    color: $light-blue;
+    font-weight: bold;
+  }
+}
