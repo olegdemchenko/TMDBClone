@@ -11,7 +11,10 @@
   "include": [
     ".eslintrc.js",
     "src/**/*",
-    "index.d.ts"
+    "index.d.ts",
+    "webpack.config.js",
+    "__tests__/**/*",
+    "__mocks__/**/*",
   ],
   "exclude": [
     "node_modules"
