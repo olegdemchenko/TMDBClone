@@ -32,7 +32,7 @@ function Header() {
 
   return (
     <header className={headerClasses} ref={headerRef}>
-      <Container>
+      <Container fluid="lg">
         <Nav className="p-3">
           <Nav.Item>
             <Nav.Link href="#" className="p-0 pe-3">
