@@ -1,11 +1,11 @@
 @import '../helpers/variables';
+@import '../helpers/mixins';
 
 .header {
   position:sticky;
   top: 0;
   left: 0;
-  background-color: $dark-blue;
-  color: white;
+  @include theme;
 }
 
 .visible {

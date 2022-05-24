@@ -1,0 +1,6 @@
+@import "_variables";
+
+@mixin theme {
+  background-color: $dark-blue;
+  color: white;
+}
