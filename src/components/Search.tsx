@@ -10,7 +10,10 @@ function Search() {
       <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
       <Form>
         <Form.Group className="position-relative">
-          <Form.Control className="p-2 border-0 rounded-pill" />
+          <Form.Control
+            className="p-2 ps-3 border-0 rounded-pill"
+            placeholder="Search for a movie, tv show, person..."
+          />
           <Button className="py-2 px-4 border-0 position-absolute top-0 end-0 rounded-pill fw-bold">Search</Button>
         </Form.Group>
       </Form>
