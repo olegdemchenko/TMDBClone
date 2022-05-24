@@ -18,10 +18,6 @@ test('check header behavior', async () => {
   await waitFor(() => {
     expect(header).toHaveClass('hidden');
   });
-  fireEvent.scroll(window, { target: { scrollY: -100 } });
-  await waitFor(() => {
-    expect(header).toHaveClass('visible');
-  });
 });
 
 describe('check fetching data from API', () => {
