@@ -42,6 +42,7 @@ describe('check fetching data from API', () => {
   });
 
   test('check successful search', async () => {
+    render(<Root />);
     const searchInput = screen.getByRole('textbox', { name: /search input/i });
     const searchBtn = screen.getByRole('button', { name: /search/i });
     fireEvent.change(searchInput, { targer: { value: Search.MultiSearch } });
@@ -55,6 +56,7 @@ describe('check fetching data from API', () => {
   });
 
   test('check error handling after search request is sent', async () => {
+    render(<Root />);
     const searchInput = screen.getByRole('textbox', { name: /search input/i });
     const searchBtn = screen.getByRole('button', { name: /search/i });
     fireEvent.change(searchInput, { targer: { value: Search.MultiSearchError } });
