@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import App from './App';
 import Main from './MainPage';
-import SearchResults from '../features/search/SearchResults';
+import SearchResults from '../features/searchResults/SearchResults';
 
 function Root() {
   return (
