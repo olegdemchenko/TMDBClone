@@ -1,6 +1,6 @@
 const origin = 'https://api.themoviedb.org';
 const version = '3';
-const APIKey = '93e4398b13ae3ceac59da2647741318';
+const APIKey = '93e4398b13ae3ceac59da26477413183';
 
 type RouteFunc = (...params: string[]) => URL;
 
