@@ -5,7 +5,11 @@ import routes from '../../routes';
 import { Error } from '../../APIInterfaces';
 import Form from './Form';
 
-function Search() {
+interface SearchProps {
+  mode: 'main' | 'results';
+}
+
+function Search(props: SearchProps) {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
