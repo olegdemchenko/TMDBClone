@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header/Header';
 import Footer from './Footer';
-import Search from './Search';
+import Search from '../features/search/Search';
 
 function MainPage() {
   return (
