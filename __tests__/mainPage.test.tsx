@@ -7,8 +7,8 @@ import {
 } from '@testing-library/react';
 import React from 'react';
 import Root from '../src/components/Root';
-import server from '../src/mocks/server';
-import Search from '../src/mocks/testQueries';
+import server from '../__mocks__/server';
+import Search from '../__mocks__/testQueries';
 
 test('check header behavior', async () => {
   render(<Root />);
