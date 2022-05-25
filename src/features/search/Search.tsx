@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import axios, { AxiosError } from 'axios';
 import routes from '../../routes';
 import { Error } from '../../APIInterfaces';
 import Form from './Form';
 
-function handleSubmit(errorCallback: (err: string) => void) {
-  return async (e: React.SyntheticEvent) => {
+function Search() {
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     const target = e.target as typeof e.target & {
       'search input': {
@@ -16,23 +18,21 @@ function handleSubmit(errorCallback: (err: string) => void) {
     try {
       const url = routes.getMultiSearch(query);
       const { data } = await axios.get(url);
-      console.log(data);
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        const errorData: Error = error.response?.data;
-        errorCallback(errorData.status_message);
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        const errorData: Error = err.response?.data;
+        setError(errorData.status_message);
       }
     }
-  };
-}
+  }
 
-function Search() {
-  const [error, setError] = useState<string | null>(null);
+  const memoizedHandleSubmit = useCallback(handleSubmit, []);
+
   return (
     <Form
       error={error}
       onChange={() => setError(null)}
-      onSubmit={handleSubmit(setError)}
+      onSubmit={memoizedHandleSubmit}
     />
   );
 }
