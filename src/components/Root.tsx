@@ -4,8 +4,8 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import App from './components/App';
-import Main from './components/MainPage';
+import App from './App';
+import Main from './MainPage';
 
 function Root() {
   return (
