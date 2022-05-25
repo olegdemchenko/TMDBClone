@@ -1,11 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import axios, { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 import routes from '../../routes';
 import { Error } from '../../APIInterfaces';
 import Form from './Form';
 
 function Search() {
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -18,6 +20,7 @@ function Search() {
     try {
       const url = routes.getMultiSearch(query);
       const { data } = await axios.get(url);
+      navigate(`/search?query=${query}`);
     } catch (err) {
       if (err instanceof AxiosError) {
         const errorData: Error = err.response?.data;
