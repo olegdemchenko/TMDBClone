@@ -6,12 +6,12 @@ import {
   fireEvent,
 } from '@testing-library/react';
 import React from 'react';
-import App from '../src/components/App';
+import Root from '../src/components/Root';
 import server from '../src/mocks/server';
 import Search from '../src/mocks/testQueries';
 
 test('check header behavior', async () => {
-  render(<App />);
+  render(<Root />);
   const header = screen.getByRole('banner');
   expect(header).toBeInTheDocument();
   fireEvent.scroll(window, { target: { scrollY: 300 } });
@@ -28,7 +28,7 @@ describe('check fetching data from API', () => {
   afterAll(() => server.close());
 
   test('check blocking search elems after search request is sent', async () => {
-    render(<App />);
+    render(<Root />);
     const searchInput = screen.getByRole('textbox', { name: /search input/i });
     const searchBtn = screen.getByRole('button', { name: /search/i });
     fireEvent.change(searchInput, { targer: { value: Search.MultiSearch } });
@@ -69,7 +69,7 @@ describe('check fetching data from API', () => {
 });
 
 test('check footer presence', async () => {
-  render(<App />);
+  render(<Root />);
   const footer = screen.getByRole('contentinfo');
   expect(footer).toBeInTheDocument();
 });
