@@ -1,7 +1,8 @@
 import React from 'react';
+import Search from '../search/Search';
 
 function SearchResults() {
-  return <div>Here will be search results!!!</div>;
+  return <div><Search mode="results" /></div>;
 }
 
 export default SearchResults;
