@@ -12,7 +12,7 @@ function SearchResults() {
           <Search mode="results" />
         </Container>
       </div>
-      <Container fluid="lg" className="px-4 d-flex">
+      <Container fluid="lg" className="p-4 d-flex">
         <div className="statistics-wrapper">
           <Statistics />
         </div>
