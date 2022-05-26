@@ -3,13 +3,14 @@ import axios, { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import routes from '../../routes';
 import { Error } from '../../APIInterfaces';
-import Form from './Form';
+import MainPageRepresenation from './MainPageRepresentation';
+import ResultsPageRepresentation from './ResultsPageRepresentation';
 
 interface SearchProps {
   mode: 'main' | 'results';
 }
 
-function Search(props: SearchProps) {
+function Search({ mode }: SearchProps) {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -34,9 +35,9 @@ function Search(props: SearchProps) {
   }
 
   const memoizedHandleSubmit = useCallback(handleSubmit, []);
-
+  const Representation = mode === 'main' ? MainPageRepresenation : ResultsPageRepresentation;
   return (
-    <Form
+    <Representation
       error={error}
       onChange={() => setError(null)}
       onSubmit={memoizedHandleSubmit}
