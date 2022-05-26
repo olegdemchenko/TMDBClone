@@ -13,7 +13,7 @@ function SearchResults() {
         </Container>
       </div>
       <Container fluid="lg" className="p-4 d-flex">
-        <div className="statistics-wrapper">
+        <div className="statistics-wrapper flex-shrink-0">
           <Statistics />
         </div>
         <div className="flex-grow-1 overflow-hidden">
