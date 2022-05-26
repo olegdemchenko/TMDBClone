@@ -1,3 +1,37 @@
+@import "../helpers/variables";
+
 .statistics-wrapper {
-  width: 300px;
+  width: 260px;
+}
+
+.statistics {
+  border-radius: 10px;
+  border: 2px solid $light-gray;
+  
+  h6 {
+    border-radius: 10px 10px 0 0;
+    background-color: $light-blue;
+  }
+}
+
+.category:hover {
+  background-color: $light-gray;
+}
+
+.category-count {
+  background-color: $light-gray;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.primary {
+  background-color: $light-gray;
+
+  .category-name {
+    font-weight: bold;
+  }
+
+  .category-count {
+    background-color: white;
+  }
 }
