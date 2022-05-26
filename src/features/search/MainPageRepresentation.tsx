@@ -15,7 +15,7 @@ export default function ({
   error,
 }: SearchUIProps) {
   return (
-    <Container fluid="lg" className="px-4 search">
+    <Container fluid="lg" className="px-4 search-main">
       <h1 className="fw-bold mb-0">Welcome.</h1>
       <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
       <Form onSubmit={onSubmit}>
