@@ -35,3 +35,20 @@
     background-color: white;
   }
 }
+
+.result-elem {
+  height: 170px;
+  border-radius: 10px;
+  border: 2px solid $light-gray;
+}
+
+.logo-wrapper {
+  width: 100px;
+  height: 170px;
+  border-radius: 10px 0 0 10px;
+  background-color: cadetblue;
+}
+
+.data-wrapper {
+  padding: 15px;
+}
