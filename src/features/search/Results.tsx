@@ -1,10 +1,10 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Search from '../search';
+import Search from '.';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 
-function SearchResults() {
+function Results() {
   return (
     <div>
       <div className="border-bottom">
@@ -24,4 +24,4 @@ function SearchResults() {
   );
 }
 
-export default SearchResults;
+export default Results;
