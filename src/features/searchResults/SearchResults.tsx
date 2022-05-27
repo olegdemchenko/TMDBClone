@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Search from '../search/Search';
+import Search from '../search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 

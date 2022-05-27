@@ -3,8 +3,8 @@ import axios, { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import routes from '../../routes/routes';
 import { Error } from '../../app/APIInterfaces';
-import MainPageRepresenation from './MainPageRepresentation';
-import ResultsPageRepresentation from './ResultsPageRepresentation';
+import MainPageRepresenation from './MainPageRepr';
+import ResultsPageRepresentation from './ResultsPageRepr';
 
 interface SearchProps {
   mode: 'main' | 'results';

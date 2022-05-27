@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../search/Search';
+import Search from '../search';
 
 function MainPage() {
   return <Search mode="main" />;
