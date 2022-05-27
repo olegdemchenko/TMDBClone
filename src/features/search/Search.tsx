@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import routes from '../../routes';
-import { Error } from '../../APIInterfaces';
+import routes from '../../routes/routes';
+import { Error } from '../../app/APIInterfaces';
 import MainPageRepresenation from './MainPageRepresentation';
 import ResultsPageRepresentation from './ResultsPageRepresentation';
 

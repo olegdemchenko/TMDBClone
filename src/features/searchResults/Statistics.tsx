@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import _ from 'lodash';
-import capitalize from '../../utils';
+import capitalize from '../../common/utils';
 
 function Statistics() {
   const categories = ['people', 'movies', 'tv shows', 'collections', 'companies', 'keywords', 'networks'];

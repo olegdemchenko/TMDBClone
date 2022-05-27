@@ -4,15 +4,15 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import App from './App';
-import Main from './MainPage';
+import Root from './Root';
+import Main from '../features/mainPage/MainPage';
 import SearchResults from '../features/searchResults/SearchResults';
 
-function Root() {
+function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route path="/" element={<Root />}>
           <Route index element={<Main />} />
           <Route path="search" element={<SearchResults />} />
         </Route>
@@ -21,4 +21,4 @@ function Root() {
   );
 }
 
-export default Root;
+export default App;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../features/header/Header';
-import Footer from './Footer';
+import Footer from '../features/footer/Footer';
 
-function App() {
+function Root() {
   return (
     <div style={{ height: '2000px' }}>
       <Header />
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;

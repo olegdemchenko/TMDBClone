@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { MultiSearchResults, TVSearchInfo, Error } from '../../src/APIInterfaces';
+import { MultiSearchResults, TVSearchInfo, Error } from '../../src/app/APIInterfaces';
 import SearchQueries from '../testQueries';
 
 const movieSearchRes: TVSearchInfo = {
