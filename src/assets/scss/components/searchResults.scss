@@ -16,6 +16,10 @@
 
 .category:hover {
   background-color: $light-gray;
+
+  .category-count {
+    background-color: white;
+  }
 }
 
 .category-count {
