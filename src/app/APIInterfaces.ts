@@ -50,7 +50,7 @@ export interface Error {
 
 export interface MultiSearchResults {
   page: number;
-  total_page: number;
+  total_pages: number;
   total_results: number;
   results: MovieSearchInfo | TVSearchInfo | PersonSearchInfo;
 }
