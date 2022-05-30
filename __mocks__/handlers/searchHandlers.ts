@@ -25,7 +25,7 @@ const multiSearchRes: MultiSearchResults = {
   page: 1,
   total_pages: 1,
   total_results: 1,
-  results: movieSearchRes,
+  results: [movieSearchRes],
 };
 
 const error: Error = {

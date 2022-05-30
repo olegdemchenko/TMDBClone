@@ -52,5 +52,5 @@ export interface MultiSearchResults {
   page: number;
   total_pages: number;
   total_results: number;
-  results: MovieSearchInfo | TVSearchInfo | PersonSearchInfo;
+  results: (MovieSearchInfo | TVSearchInfo | PersonSearchInfo)[];
 }
