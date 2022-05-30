@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
+import { MultiSearchResults, Error } from '../../app/APIInterfaces';
 import routes from '../../routes/routes';
 import Search from '.';
 import Statistics from './Statistics';
@@ -14,10 +15,18 @@ enum SearchResultsState {
   success = 'success',
   error = 'error',
 }
+
+const defaultSearchResults: MultiSearchResults = {
+  page: 1,
+  results: [],
+  total_pages: 0,
+  total_results: 0,
+};
+
 function Results() {
   const [state, setState] = useState<SearchResultsState>(SearchResultsState.fetching);
 
-  const [results, setResults] = useState({});
+  const [results, setResults] = useState<MultiSearchResults>(defaultSearchResults);
 
   const [error, setError] = useState<string | null>(null);
 
@@ -35,8 +44,9 @@ function Results() {
         setResults(data);
       } catch (err) {
         if (err instanceof AxiosError) {
+          const e = err.response?.data as Error;
           setState(SearchResultsState.error);
-          setError(err.response?.data?.status_message);
+          setError(e.status_message);
         }
         throw err;
       }
