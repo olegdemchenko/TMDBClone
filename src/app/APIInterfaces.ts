@@ -1,4 +1,4 @@
-interface MovieSearchInfo {
+export interface MovieSearchInfo {
   poster_path?: string | null;
   adult?: boolean;
   overview?: string;
@@ -33,7 +33,7 @@ export interface TVSearchInfo {
   original_name?: string;
 }
 
-interface PersonSearchInfo {
+export interface PersonSearchInfo {
   profile_path: string | null;
   adult: boolean;
   id: number;
