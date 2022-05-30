@@ -1,8 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import axios, { AxiosError } from 'axios';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import routes from '../../routes/routes';
-import { Error } from '../../app/APIInterfaces';
 import MainPageRepresenation from './MainPageRepr';
 import ResultsPageRepresentation from './ResultsPageRepr';
 
@@ -11,7 +8,6 @@ interface SearchProps {
 }
 
 function Search({ mode }: SearchProps) {
-  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   async function handleSubmit(e: React.SyntheticEvent) {
@@ -22,24 +18,13 @@ function Search({ mode }: SearchProps) {
       }
     };
     const query = target['search input'].value;
-    try {
-      const url = routes.getMultiSearch(query);
-      const { data } = await axios.get(url);
-      navigate(`/search?query=${query}`);
-    } catch (err) {
-      if (err instanceof AxiosError) {
-        const errorData: Error = err.response?.data;
-        setError(errorData.status_message);
-      }
-    }
+    navigate(`/search?query=${query}`);
   }
 
   const memoizedHandleSubmit = useCallback(handleSubmit, []);
   const Representation = mode === 'main' ? MainPageRepresenation : ResultsPageRepresentation;
   return (
     <Representation
-      error={error}
-      onChange={() => setError(null)}
       onSubmit={memoizedHandleSubmit}
     />
   );

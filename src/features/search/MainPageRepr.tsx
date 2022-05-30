@@ -5,14 +5,10 @@ import Button from 'react-bootstrap/Button';
 
 export interface SearchUIProps {
   onSubmit: (e: React.SyntheticEvent) => void;
-  onChange: () => void;
-  error: string | null;
 }
 
 export default function ({
   onSubmit,
-  onChange,
-  error,
 }: SearchUIProps) {
   return (
     <Container fluid="lg" className="px-4 search-main">
@@ -24,10 +20,7 @@ export default function ({
             name="search input"
             className="p-2 ps-3 border-0 rounded-pill"
             placeholder="Search for a movie, tv show, person..."
-            onChange={onChange}
-            isInvalid={!!error}
           />
-          <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
           <Button type="submit" className="py-2 px-4 border-0 position-absolute top-0 end-0 rounded-pill fw-bold">Search</Button>
         </Form.Group>
       </Form>
