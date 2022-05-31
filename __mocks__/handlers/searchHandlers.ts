@@ -1,5 +1,10 @@
 import { rest } from 'msw';
-import { MultiSearchResults, TVSearchInfo, Error } from '../../src/app/APIInterfaces';
+import { 
+  MultiSearchResults, 
+  TVSearchInfo, 
+  Error,
+  MediaTypes
+} from '../../src/app/APIInterfaces';
 import SearchQueries from '../testQueries';
 
 const movieSearchRes: TVSearchInfo = {
@@ -9,7 +14,7 @@ const movieSearchRes: TVSearchInfo = {
   overview: '',
   backdrop_path: null,
   vote_average: 0,
-  media_type: 'tv',
+  media_type: MediaTypes.tv,
   first_air_date: '',
   origin_country: [
     'GB',
