@@ -39,7 +39,6 @@ function Results() {
       setState(SearchResultsState.fetching);
       try {
         const { data } = await axios.get(url);
-        console.log(data);
         setState(SearchResultsState.success);
         setResults(data);
       } catch (err) {
@@ -79,7 +78,7 @@ function Results() {
       </div>
       <Container fluid="lg" className="p-4 d-flex">
         <div className="statistics-wrapper flex-shrink-0">
-          <Statistics />
+          <Statistics searchData={results.results} />
         </div>
         <div className="flex-grow-1 overflow-hidden">
           <ResultsList />
