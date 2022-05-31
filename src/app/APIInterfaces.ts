@@ -15,7 +15,7 @@ export interface MovieSearchInfo {
   media_type: MediaTypes.movie;
   original_language?: string;
   title?: string;
-  backdrop_path?: string;
+  backdrop_path?: string | null;
   popularity?: number;
   vote_count?: number;
   video?: boolean;
