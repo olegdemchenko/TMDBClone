@@ -44,9 +44,8 @@ export interface PersonSearchInfo {
   adult: boolean;
   id: number;
   media_type: MediaTypes.person;
-  known_for: TVSearchInfo | MovieSearchInfo;
+  known_for: (TVSearchInfo | MovieSearchInfo)[];
   name: string;
-  total_pages: number;
 }
 
 export interface Error {
