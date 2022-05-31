@@ -1,3 +1,9 @@
+export enum MediaTypes {
+  movie = 'movie',
+  tv = 'tv',
+  person = 'person',
+}
+
 export interface MovieSearchInfo {
   poster_path?: string | null;
   adult?: boolean;
@@ -6,7 +12,7 @@ export interface MovieSearchInfo {
   original_date?: string;
   genre_ids?: number[];
   id: number;
-  media_type: 'movie';
+  media_type: MediaTypes.movie;
   original_language?: string;
   title?: string;
   backdrop_path?: string;
@@ -22,7 +28,7 @@ export interface TVSearchInfo {
   id?: number;
   overview?: string;
   backdrop_path?: string | null;
-  media_type: 'tv';
+  media_type: MediaTypes.tv;
   first_air_date?: string;
   origin_country?: string[];
   genre_ids?: number[];
@@ -37,7 +43,7 @@ export interface PersonSearchInfo {
   profile_path: string | null;
   adult: boolean;
   id: number;
-  media_type: 'person';
+  media_type: MediaTypes.person;
   known_for: TVSearchInfo | MovieSearchInfo;
   name: string;
   total_pages: number;
