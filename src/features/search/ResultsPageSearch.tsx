@@ -10,7 +10,7 @@ function ResultsPageSearch({
     <Form className="position-relative search-results" onSubmit={onSubmit}>
       <Form.Control
         className="border-0 ps-4"
-        name="search input"
+        name="searchInput"
       />
       <Button variant="light" className="border-0 p-0 position-absolute fs-4 top-0 start-0" type="submit">{'\u2315'}</Button>
     </Form>

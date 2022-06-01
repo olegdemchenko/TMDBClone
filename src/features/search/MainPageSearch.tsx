@@ -17,7 +17,7 @@ function MainPageSearch({
       <Form onSubmit={onSubmit}>
         <Form.Group className="position-relative">
           <Form.Control
-            name="search input"
+            name="searchInput"
             className="p-2 ps-3 border-0 rounded-pill"
             placeholder="Search for a movie, tv show, person..."
           />

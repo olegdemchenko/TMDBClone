@@ -13,11 +13,13 @@ function Search({ mode }: SearchProps) {
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     const target = e.target as typeof e.target & {
-      'search input': {
-        value: string
+      'elements': {
+        'searchInput': {
+          value: string
+        }
       }
     };
-    const query = target['search input'].value;
+    const query = target.elements.searchInput.value;
     navigate(`/search?query=${query}`);
   }
 
