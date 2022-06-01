@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     'linebreak-style': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/require-default-props': 'off',
     'import/no-extraneous-dependencies': 'off',
   },
 };
