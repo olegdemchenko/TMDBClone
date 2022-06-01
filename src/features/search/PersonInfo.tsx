@@ -4,6 +4,7 @@ import {
   TVSearchInfo,
   MediaTypes,
 } from '../../app/APIInterfaces';
+import noAvatar from '../../assets/img/noAvatar.jpg';
 
 interface PersonInfoProps {
   name: string;
@@ -16,10 +17,11 @@ function PersonInfo({
   avatar,
   works,
 }: PersonInfoProps) {
+  const photo = avatar ? `https://image.tmdb.org/t/p/w92/${avatar}` : noAvatar;
   return (
     <div className="d-flex mb-3">
-      <div className="photo flex-shrink-0">
-        <img src="" alt="icon" />
+      <div className="photo flex-shrink-0 overflow-hidden">
+        <img src={photo} alt="icon" />
       </div>
       <div className="d-flex flex-column info flex-grow-1 ps-3 justify-content-center">
         <h6 className="fw-bold m-0 name">{name}</h6>
