@@ -5,6 +5,7 @@ import {
   Error,
   MediaTypes
 } from '../../src/app/APIInterfaces';
+import { getUrl } from '../../src/routes/routes';
 import SearchQueries from '../testQueries';
 
 const movieSearchRes: TVSearchInfo = {
@@ -39,7 +40,7 @@ const error: Error = {
 };
 
 const handlers = [
-  rest.get('/3/search/multi', (req, res, ctx) => {
+  rest.get(getUrl('search', 'multi').toString(), (req, res, ctx) => {
     const searchQuery = req.url.searchParams.get('query');
     if (searchQuery === SearchQueries.MultiSearch) {
       return res(
