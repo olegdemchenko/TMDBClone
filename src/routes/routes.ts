@@ -4,9 +4,11 @@ const APIKey = '93e4398b13ae3ceac59da26477413183';
 
 type RouteFunc = (...params: (string | null)[]) => URL;
 
+export const getUrl = (...path: string[]) => new URL([origin, version, ...path].join('/'));
+
 const routes = {
   getMultiSearch: (query:string | null) => {
-    const url = new URL([origin, version, 'search', 'multi'].join('/'));
+    const url = getUrl('search', 'multi');
     if (query) {
       url.searchParams.append('query', query);
     }
