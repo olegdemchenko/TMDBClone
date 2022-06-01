@@ -17,7 +17,7 @@ function ResultElem({
 }: ResultElemProps) {
   const icon = logo ? `https://image.tmdb.org/t/p/w92/${logo}` : notFound;
   return (
-    <div className="mb-3 d-flex result-elem">
+    <div className="mb-3 d-flex result-elem overflow-hidden">
       <div className="logo-wrapper flex-shrink-0">
         <img src={icon} alt="logo" />
       </div>
