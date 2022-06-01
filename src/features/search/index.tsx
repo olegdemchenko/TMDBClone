@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import MainPageRepresenation from './MainPageRepr';
-import ResultsPageRepresentation from './ResultsPageRepr';
+import MainPageSearch from './MainPageSearch';
+import ResultsPageSearch from './ResultsPageSearch';
 
 interface SearchProps {
   mode: 'main' | 'results';
@@ -22,9 +22,9 @@ function Search({ mode }: SearchProps) {
   }
 
   const memoizedHandleSubmit = useCallback(handleSubmit, []);
-  const Representation = mode === 'main' ? MainPageRepresenation : ResultsPageRepresentation;
+  const SearchRepr = mode === 'main' ? MainPageSearch : ResultsPageSearch;
   return (
-    <Representation
+    <SearchRepr
       onSubmit={memoizedHandleSubmit}
     />
   );

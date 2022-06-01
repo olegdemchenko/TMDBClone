@@ -1,9 +1,9 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { SearchUIProps } from './MainPageRepr';
+import { SearchUIProps } from './MainPageSearch';
 
-function ResultsPageRepresentation({
+function ResultsPageSearch({
   onSubmit,
 }: SearchUIProps) {
   return (
@@ -17,4 +17,4 @@ function ResultsPageRepresentation({
   );
 }
 
-export default ResultsPageRepresentation;
+export default ResultsPageSearch;
