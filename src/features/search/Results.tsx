@@ -81,7 +81,12 @@ function Results() {
           <Statistics searchData={results.results} />
         </div>
         <div className="flex-grow-1 overflow-hidden">
-          <ResultsList />
+          <ResultsList
+            results={results.results}
+            page={results.page}
+            total_pages={results.total_pages}
+            total_results={results.total_results}
+          />
         </div>
       </Container>
     </div>
