@@ -7,7 +7,7 @@ export interface SearchUIProps {
   onSubmit: (e: React.SyntheticEvent) => void;
 }
 
-export default function ({
+function MainPageSearch({
   onSubmit,
 }: SearchUIProps) {
   return (
@@ -27,3 +27,5 @@ export default function ({
     </Container>
   );
 }
+
+export default MainPageSearch;
