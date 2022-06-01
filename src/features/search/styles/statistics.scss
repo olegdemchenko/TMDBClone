@@ -1,4 +1,4 @@
-@import "../../../styles/helpers/variables";
+@import '../../../styles/helpers/variables';
 
 .statistics-wrapper {
   width: 260px;
@@ -39,29 +39,3 @@
     background-color: white;
   }
 }
-
-.result-elem {
-  border-radius: 10px;
-  border: 2px solid $light-gray;
-}
-
-.logo-wrapper {
-  width: 92px;
-  height: 138px;
-  border-radius: 10px 0 0 10px;
-}
-
-.data-wrapper {
-  padding: 15px 15px 0 15px;
-}
-
-.photo {
-  width: 92px;
-  height: 92px;
-  border-radius: 10px;
-
-  img {
-    margin-top: -15px;
-  }
-}
-
