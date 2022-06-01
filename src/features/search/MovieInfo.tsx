@@ -9,7 +9,7 @@ interface ResultElemProps {
   description?: string;
 }
 
-function ResultElem({
+function MovieInfo({
   title,
   logo,
   date,
@@ -36,4 +36,4 @@ function ResultElem({
   );
 }
 
-export default ResultElem;
+export default MovieInfo;
