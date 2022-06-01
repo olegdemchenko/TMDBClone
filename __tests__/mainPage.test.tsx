@@ -42,16 +42,14 @@ describe('check fetching data from API', () => {
 
   test('check error handling after search request is sent', async () => {
     render(<App />);
-    const searchInput = screen.getByRole('textbox', { name: /search input/i });
+    const searchInput = screen.getByPlaceholderText(/search/i);
     const searchBtn = screen.getByRole('button', { name: /search/i });
-    fireEvent.change(searchInput, { targer: { value: Search.MultiSearchError } });
-    fireEvent.click(searchBtn);
+    await userEvent.type(searchInput, Search.MultiSearchError);
+    await userEvent.click(searchBtn);
     await waitFor(() => {
-      expect(window.location.pathname).toBe('/');
+      expect(window.location.pathname).toBe('/search');
     });
-    await waitFor(() => {
-      expect(screen.getByRole('alert', { name: /search error/i })).toBeInTheDocument();
-    });
+    await screen.findByRole('alert');
   });
 });
 
