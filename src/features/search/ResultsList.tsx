@@ -1,5 +1,5 @@
 import React from 'react';
-import { MultiSearchResults, MediaTypes, PersonSearchInfo } from '../../app/APIInterfaces';
+import { MultiSearchResults, MediaTypes } from '../../app/APIInterfaces';
 import MovieInfo from './MovieInfo';
 import PersonInfo from './PersonInfo';
 
