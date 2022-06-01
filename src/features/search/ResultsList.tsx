@@ -17,7 +17,13 @@ function ResultsList({ results }: MultiSearchResults) {
             />
           );
         }
-        return <PersonInfo info={res} />;
+        return (
+          <PersonInfo
+            name={res.name}
+            avatar={res.profile_path}
+            works={res.known_for}
+          />
+        );
       })}
     </div>
   );
