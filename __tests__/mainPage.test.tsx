@@ -27,20 +27,6 @@ describe('check fetching data from API', () => {
 
   afterAll(() => server.close());
 
-  test('check blocking search elems after search request is sent', async () => {
-    render(<App />);
-    const searchInput = screen.getByRole('textbox', { name: /search input/i });
-    const searchBtn = screen.getByRole('button', { name: /search/i });
-    fireEvent.change(searchInput, { targer: { value: Search.MultiSearch } });
-    fireEvent.click(searchBtn);
-    await waitFor(() => {
-      expect(searchBtn).toBeDisabled();
-    });
-    await waitFor(() => {
-      expect(searchInput).toBeDisabled();
-    });
-  });
-
   test('check successful search', async () => {
     render(<App />);
     const searchInput = screen.getByRole('textbox', { name: /search input/i });
