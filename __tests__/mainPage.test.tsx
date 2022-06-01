@@ -5,6 +5,7 @@ import {
   render,
   fireEvent,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../src/app/App';
 import server from '../__mocks__/server';
@@ -29,16 +30,14 @@ describe('check fetching data from API', () => {
 
   test('check successful search', async () => {
     render(<App />);
-    const searchInput = screen.getByRole('textbox', { name: /search input/i });
+    const searchInput = screen.getByPlaceholderText(/search/i);
     const searchBtn = screen.getByRole('button', { name: /search/i });
-    fireEvent.change(searchInput, { targer: { value: Search.MultiSearch } });
-    fireEvent.click(searchBtn);
+    await userEvent.type(searchInput, Search.MultiSearch);
+    await userEvent.click(searchBtn);
     await waitFor(() => {
       expect(window.location.pathname).toBe('/search');
     });
-    await waitFor(() => {
-      expect(screen.getByRole('heading', { name: /search results/i })).toBeInTheDocument();
-    });
+    await screen.findByRole('heading', { name: /search results/i });
   });
 
   test('check error handling after search request is sent', async () => {
