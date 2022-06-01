@@ -45,7 +45,8 @@ function Results() {
         if (err instanceof AxiosError) {
           const e = err.response?.data as Error;
           setState(SearchResultsState.error);
-          setError(e.status_message);
+          setError(e.status_message ?? err.message);
+          return;
         }
         throw err;
       }
@@ -64,7 +65,7 @@ function Results() {
   if (state === SearchResultsState.error) {
     return (
       <Container fluid="lg" className="py-4">
-        <Alert className="m-0" variant="danger">{error}</Alert>
+        <Alert className="m-0" variant="danger">{`Error: ${error}`}</Alert>
       </Container>
     );
   }
