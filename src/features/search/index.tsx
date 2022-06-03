@@ -1,33 +1,41 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import MainPageSearch from './MainPageSearch';
+import { useFormik, FormikErrors } from 'formik';
+import MainPageSearch, { SearchFormValues } from './MainPageSearch';
 import ResultsPageSearch from './ResultsPageSearch';
 
 interface SearchProps {
   mode: 'main' | 'results';
 }
 
+function validate(values: SearchFormValues) {
+  const errors: FormikErrors<SearchFormValues> = {};
+  if (!values.searchQuery) {
+    errors.searchQuery = 'Please, enter some information';
+  }
+  return errors;
+}
+
 function Search({ mode }: SearchProps) {
   const navigate = useNavigate();
 
-  async function handleSubmit(e: React.SyntheticEvent) {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-      'elements': {
-        'searchInput': {
-          value: string
-        }
-      }
-    };
-    const query = target.elements.searchInput.value;
-    navigate(`/search?query=${query}`);
-  }
-
-  const memoizedHandleSubmit = useCallback(handleSubmit, []);
+  const formik = useFormik({
+    initialValues: {
+      searchQuery: '',
+    },
+    validate,
+    onSubmit: ({ searchQuery }: SearchFormValues) => {
+      navigate(`/search?query=${searchQuery}`);
+    },
+  });
+  const memoizedHandleSubmit = useCallback(formik.handleSubmit, []);
+  const memoizedHandleChange = useCallback(formik.handleChange, []);
   const SearchRepr = mode === 'main' ? MainPageSearch : ResultsPageSearch;
   return (
     <SearchRepr
-      onSubmit={memoizedHandleSubmit}
+      handleSubmit={memoizedHandleSubmit}
+      handleChange={memoizedHandleChange}
+      errors={formik.errors}
     />
   );
 }
