@@ -25,7 +25,7 @@ function Search({ mode }: SearchProps) {
     },
     validate,
     onSubmit: ({ searchQuery }: SearchFormValues) => {
-      navigate(`/search?query=${searchQuery}`);
+      navigate(`/search?query=${searchQuery}&page=1`);
     },
   });
   const memoizedHandleSubmit = useCallback(formik.handleSubmit, []);

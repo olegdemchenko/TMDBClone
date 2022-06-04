@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import { MultiSearchResults, Error } from '../../app/APIInterfaces';
 import routes from '../../routes/routes';
-import Search from '.';
+import Search from './Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 
