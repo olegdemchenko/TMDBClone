@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -22,7 +23,9 @@ function Header() {
         <Nav className="p-3">
           <Nav.Item>
             <Nav.Link href="#" className="p-0 pe-3">
-              <img className="align-bottom logo" src={Logo} alt="logo" />
+              <Link to="/">
+                <img className="align-bottom logo" src={Logo} alt="logo" />
+              </Link>
             </Nav.Link>
           </Nav.Item>
           <Row className="justify-content-between flex-grow-1">
