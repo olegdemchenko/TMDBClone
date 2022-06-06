@@ -10,6 +10,7 @@ function ResultsList({ results }: MultiSearchResults) {
         if (res.media_type === MediaTypes.movie || res.media_type === MediaTypes.tv) {
           return (
             <MovieInfo
+              key={res.id}
               title={res.media_type === MediaTypes.movie ? res.title : res.name}
               logo={res.poster_path}
               date={res.media_type === MediaTypes.movie ? res.original_date : res.first_air_date}
@@ -19,6 +20,7 @@ function ResultsList({ results }: MultiSearchResults) {
         }
         return (
           <PersonInfo
+            key={res.id}
             name={res.name}
             avatar={res.profile_path}
             works={res.known_for}
