@@ -9,6 +9,7 @@ import routes from '../../routes/routes';
 import Search from './Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
+import Pagination from './Pagination';
 
 enum SearchResultsState {
   fetching = 'fetching',
@@ -32,10 +33,11 @@ function Results() {
 
   const [params] = useSearchParams();
   const searchQuery = params.get('query');
+  const page = params.get('page');
 
   useEffect(() => {
     async function fetchSearchQueryRes() {
-      const url = routes.getMultiSearch(searchQuery);
+      const url = routes.getMultiSearch(searchQuery, page);
       setState(SearchResultsState.fetching);
       try {
         const { data } = await axios.get(url);
@@ -52,7 +54,7 @@ function Results() {
       }
     }
     fetchSearchQueryRes();
-  }, [searchQuery]);
+  }, [searchQuery, page]);
 
   if (state === SearchResultsState.fetching) {
     return (
@@ -87,6 +89,10 @@ function Results() {
             page={results.page}
             total_pages={results.total_pages}
             total_results={results.total_results}
+          />
+          <Pagination
+            currentPage={results.page}
+            total={results.total_pages}
           />
         </div>
       </Container>
