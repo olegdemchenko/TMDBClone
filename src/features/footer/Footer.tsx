@@ -1,9 +1,10 @@
 import React from 'react';
+import logo from '../../assets/img/footerLogo.svg';
 
 function Footer() {
   return (
     <footer className="p-4 footer">
-      <h2>The Movie Database Clone</h2>
+      <img src={logo} alt="footer logo" />
     </footer>
   );
 }
