@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
-import Logo from '../../assets/img/logo.png';
+import Logo from '../../assets/img/headerLogo.svg';
 import Menu from './Menu';
 import useHideOnScroll from '../../common/hooks';
 
