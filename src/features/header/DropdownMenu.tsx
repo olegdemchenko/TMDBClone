@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import _ from 'lodash';
-import capitalize from '../../common/utils';
+import { capitalize } from '../../common/utils';
 
 interface DropdownProps {
   name: string,

@@ -7,7 +7,7 @@ import {
   TVSearchInfo,
   MediaTypes,
 } from '../../app/APIInterfaces';
-import capitalize from '../../common/utils';
+import { capitalize } from '../../common/utils';
 
 interface StatisticsProps {
   searchData: (MovieSearchInfo | PersonSearchInfo | TVSearchInfo)[]
