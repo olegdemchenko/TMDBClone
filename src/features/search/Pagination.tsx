@@ -24,8 +24,8 @@ function CustomPagination({
     setSearchParams(urlSearchParams);
   };
 
-  const next = currentPage < total ? <Pagination.Next onClick={handleClick(`${currentPage + 1}`)} /> : null;
-  const prev = currentPage > 1 ? <Pagination.Prev onClick={handleClick(`${currentPage - 1}`)} /> : null;
+  const next = currentPage < total ? <Pagination.Next onClick={handleClick(`${currentPage + 1}`)}>Next</Pagination.Next> : null;
+  const prev = currentPage > 1 ? <Pagination.Prev onClick={handleClick(`${currentPage - 1}`)}>Prev</Pagination.Prev> : null;
   const paginationComponents = visiblePages.reduce((acc, page, index, pages) => {
     const paginationPage = (
       <Pagination.Item

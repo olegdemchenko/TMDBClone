@@ -90,10 +90,12 @@ function Results() {
             total_pages={results.total_pages}
             total_results={results.total_results}
           />
-          <Pagination
-            currentPage={results.page}
-            total={results.total_pages}
-          />
+          <div className="d-flex justify-content-center">
+            <Pagination
+              currentPage={results.page}
+              total={results.total_pages}
+            />
+          </div>
         </div>
       </Container>
     </div>
