@@ -2,22 +2,14 @@ import '@testing-library/jest-dom';
 import {
   screen,
   waitFor,
-  render,
   fireEvent,
 } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../src/app/App';
 import server from '../__mocks__/server';
 import SearchQueries from '../__mocks__/testQueries';
-
-const renderWithWrapper = (ui: JSX.Element, { route = '/' } = {}) => {
-  window.history.pushState({}, 'Test page', route);
-  return {
-    ...render(ui, { wrapper: BrowserRouter }),
-  };
-};
+import renderWithWrapper from './utils';
 
 test('check header behavior', async () => {
   renderWithWrapper(<App />);
