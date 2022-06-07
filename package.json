@@ -41,6 +41,7 @@
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
+    "jest-transformer-svg": "^2.0.0",
     "mini-css-extract-plugin": "^2.6.0",
     "msw": "^0.39.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
@@ -78,7 +79,8 @@
     "preset": "ts-jest",
     "testEnvironment": "jsdom",
     "transform": {
-      "^.+\\.ts?$": "ts-jest"
+      "^.+\\.ts?$": "ts-jest",
+      "^.+\\.svg$": "jest-transformer-svg"
     },
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
