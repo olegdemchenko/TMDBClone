@@ -56,6 +56,10 @@ function Results() {
     fetchSearchQueryRes();
   }, [searchQuery, page]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [searchQuery, page]);
+
   if (state === SearchResultsState.fetching) {
     return (
       <Container fluid="lg" className="d-flex vh-100 justify-content-center align-items-center">
