@@ -5,9 +5,11 @@ import Footer from '../features/footer/Footer';
 
 function Root() {
   return (
-    <div style={{ height: '2000px' }}>
-      <Header />
-      <Outlet />
+    <div className="d-flex min-vh-100 flex-column justify-content-between">
+      <div>
+        <Header />
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
