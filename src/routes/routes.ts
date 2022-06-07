@@ -24,7 +24,7 @@ const routes: Routes<Getters, RouteFunc> = {
 };
 
 function addKey(routesFunc: RouteFunc) {
-  return (...params: (string | null)[]) => {
+  return (...params: (string | number | null)[]) => {
     const url = routesFunc(...params);
     url.searchParams.set('api_key', APIKey);
     return url.toString();
