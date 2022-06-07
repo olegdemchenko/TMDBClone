@@ -84,7 +84,7 @@
       "<rootDir>/node_modules/"
     ],
     "moduleNameMapper": {
-      "\\.(jpeg|jpg|png)": "<rootDir>/__mocks__/fileMock.ts",
+      "\\.(jpeg|jpg|png|svg)": "<rootDir>/__mocks__/fileMock.ts",
       "\\.(css|scss)$": "identity-obj-proxy"
     }
   }
