@@ -4,13 +4,19 @@ const APIKey = '93e4398b13ae3ceac59da26477413183';
 
 type RouteFunc = (...params: (string | number | null)[]) => URL;
 
+type Getters = 'multiSearch';
+
+type Routes<Keys extends string, PathFunc> = {
+  [Key in Keys as `get${Capitalize<Key>}`]: PathFunc
+};
+
 export const getUrl = (...path: string[]) => new URL([origin, version, ...path].join('/'));
 
-const routes = {
-  getMultiSearch: (query:string | null, page: number) => {
+const routes: Routes<Getters, RouteFunc> = {
+  getMultiSearch: (query, page) => {
     const url = getUrl('search', 'multi');
     if (query) {
-      url.searchParams.append('query', query);
+      url.searchParams.append('query', query as string);
     }
     url.searchParams.append('page', String(page));
     return url;
