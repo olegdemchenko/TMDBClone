@@ -18,6 +18,11 @@ test('check header behavior', async () => {
   });
 });
 
+test('check fetching popular movies info', async () => {
+  renderWithWrapper(<App />);
+  expect(await screen.findAllByAltText(/popular/)).toHaveLength(20);
+});
+
 test('check footer presence', async () => {
   renderWithWrapper(<App />);
   const footer = screen.getByRole('contentinfo');
