@@ -4,7 +4,7 @@ const APIKey = '93e4398b13ae3ceac59da26477413183';
 
 type RouteFunc = (...params: (string | number | null)[]) => URL;
 
-type Getters = 'multiSearch';
+type Getters = 'multiSearch' | 'popularMovies';
 
 type Routes<Keys extends string, PathFunc> = {
   [Key in Keys as `get${Capitalize<Key>}`]: PathFunc
@@ -18,6 +18,11 @@ const routes: Routes<Getters, RouteFunc> = {
     if (query) {
       url.searchParams.append('query', query as string);
     }
+    url.searchParams.append('page', String(page));
+    return url;
+  },
+  getPopularMovies: (page) => {
+    const url = getUrl('movies', 'popular');
     url.searchParams.append('page', String(page));
     return url;
   },
