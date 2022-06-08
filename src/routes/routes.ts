@@ -22,7 +22,7 @@ const routes: Routes<Getters, RouteFunc> = {
     return url;
   },
   getPopularMovies: (page) => {
-    const url = getUrl('movies', 'popular');
+    const url = getUrl('movie', 'popular');
     url.searchParams.append('page', String(page));
     return url;
   },
