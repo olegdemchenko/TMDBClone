@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Logo from '../../assets/img/headerLogo.svg';
 import Menu from './Menu';
-import useHideOnScroll from '../../common/hooks';
+import { useHideOnScroll } from '../../common/hooks';
 
 function Header() {
   const [headerRef, isVisible] = useHideOnScroll();
