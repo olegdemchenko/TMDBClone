@@ -59,3 +59,10 @@ export interface MultiSearchResults {
   total_results: number;
   results: (MovieSearchInfo | TVSearchInfo | PersonSearchInfo)[];
 }
+
+export interface MovieListResults {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: (MovieSearchInfo)[]
+}
