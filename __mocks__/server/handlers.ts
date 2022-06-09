@@ -6,7 +6,7 @@ import {
   MediaTypes,
   MovieListResultsMedia
 } from '../../src/app/APIInterfaces';
-import { getUrl } from '../../src/routes/routes';
+import { paths } from '../../src/routes/routes';
 import SearchQueries from './testQueries';
 
 const movieSearchRes: TVListResultsMedia = {
@@ -61,7 +61,7 @@ const error: Error = {
 };
 
 const handlers = [
-  rest.get(getUrl('search', 'multi').toString(), (req, res, ctx) => {
+  rest.get(paths.multiSearch, (req, res, ctx) => {
     const searchQuery = req.url.searchParams.get('query');
     if (searchQuery === SearchQueries.MultiSearch) {
       return res(
@@ -74,7 +74,7 @@ const handlers = [
       ctx.json(error),
     );
   }),
-  rest.get(getUrl('movie', 'popular').toString(), (req, res, ctx) => {
+  rest.get(paths.popularMovies, (req, res, ctx) => {
     const resp: MultiSearchResults = {
       page: 1,
       results: Array(20).fill(movieListResult).map((movie) => ({ ...movie, id: Math.random() })),

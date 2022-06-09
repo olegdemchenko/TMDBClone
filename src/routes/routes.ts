@@ -1,20 +1,20 @@
-const origin = 'https://api.themoviedb.org';
-const version = '3';
+const origin = 'https://api.themoviedb.org/3';
 const APIKey = '93e4398b13ae3ceac59da26477413183';
 
 type RouteFunc = (...params: (string | number | null)[]) => URL;
 
-type Getters = 'multiSearch' | 'popularMovies';
-
-type Routes<Keys extends string, PathFunc> = {
-  [Key in Keys as `get${Capitalize<Key>}`]: PathFunc
+type Routes = {
+  [Key in keyof typeof paths as `get${Capitalize<Key>}`]: RouteFunc
 };
 
-export const getUrl = (...path: string[]) => new URL([origin, version, ...path].join('/'));
+export const paths = {
+  multiSearch: `${origin}/search/multi`,
+  popularMovies: `${origin}/movie/popular`,
+};
 
-const routes: Routes<Getters, RouteFunc> = {
+const routes: Routes = {
   getMultiSearch: (query, page) => {
-    const url = getUrl('search', 'multi');
+    const url = new URL(paths.multiSearch);
     if (query) {
       url.searchParams.append('query', query as string);
     }
@@ -22,7 +22,7 @@ const routes: Routes<Getters, RouteFunc> = {
     return url;
   },
   getPopularMovies: (page) => {
-    const url = getUrl('movie', 'popular');
+    const url = new URL(paths.popularMovies);
     url.searchParams.append('page', String(page));
     return url;
   },
