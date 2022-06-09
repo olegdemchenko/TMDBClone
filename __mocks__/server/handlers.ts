@@ -7,7 +7,7 @@ import {
   MovieSearchInfo
 } from '../../src/app/APIInterfaces';
 import { getUrl } from '../../src/routes/routes';
-import SearchQueries from '../testQueries';
+import SearchQueries from './testQueries';
 
 const movieSearchRes: TVSearchInfo = {
   poster_path: null,

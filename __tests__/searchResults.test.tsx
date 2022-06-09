@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../src/app/App';
 import server from '../__mocks__/server';
-import SearchQueries from '../__mocks__/testQueries';
+import SearchQueries from '../__mocks__/server/testQueries';
 import renderWithWrapper from './utils';
 
 beforeAll(() => server.listen());
