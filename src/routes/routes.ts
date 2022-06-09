@@ -12,22 +12,6 @@ export const paths = {
   popularMovies: `${origin}/movie/popular`,
 };
 
-const routes: Routes = {
-  getMultiSearch: (query, page) => {
-    const url = new URL(paths.multiSearch);
-    if (query) {
-      url.searchParams.append('query', query as string);
-    }
-    url.searchParams.append('page', String(page));
-    return url;
-  },
-  getPopularMovies: (page) => {
-    const url = new URL(paths.popularMovies);
-    url.searchParams.append('page', String(page));
-    return url;
-  },
-};
-
 function addKey(routesFunc: RouteFunc) {
   return (...params: (string | number | null)[]) => {
     const url = routesFunc(...params);
@@ -35,6 +19,22 @@ function addKey(routesFunc: RouteFunc) {
     return url.toString();
   };
 }
+
+function addPage(url: URL, page: number) {
+  url.searchParams.set('page', String(page));
+  return url;
+}
+
+const routes: Routes = {
+  getMultiSearch: (query, page:number) => {
+    const url = new URL(paths.multiSearch);
+    if (query) {
+      url.searchParams.append('query', query as string);
+    }
+    return addPage(url, page);
+  },
+  getPopularMovies: (page: number) => addPage(new URL(paths.popularMovies), page),
+};
 
 const ApiKeyRoutes = Object.fromEntries(
   Object.entries(routes).map(([funcName, funcBody]) => ([funcName, addKey(funcBody)])),
