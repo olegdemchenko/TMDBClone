@@ -56,7 +56,7 @@ const handlers = [
   rest.get(getUrl('movie', 'popular').toString(), (req, res, ctx) => {
     const resp: MultiSearchResults = {
       page: 1,
-      results: Array(20).fill(movieSearchRes),
+      results: Array(20).fill(movieSearchRes).map((movie) => ({ ...movie, id: Math.random() })),
       total_pages: 1,
       total_results: 100
     }
