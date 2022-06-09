@@ -53,6 +53,18 @@ const handlers = [
       ctx.json(error),
     );
   }),
+  rest.get(getUrl('movie', 'popular').toString(), (req, res, ctx) => {
+    const resp: MultiSearchResults = {
+      page: 1,
+      results: Array(20).fill(movieSearchRes),
+      total_pages: 1,
+      total_results: 100
+    }
+    return res(
+      ctx.status(200),
+      ctx.json(resp)
+    )
+  })
 ];
 
 export default handlers;
