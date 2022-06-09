@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/olegdemchenko/TMDBClone#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.2.0",
@@ -30,6 +32,7 @@
     "@types/testing-library__user-event": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
+    "babel-jest": "^28.1.1",
     "css-loader": "^6.7.1",
     "eslint": "^8.15.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -83,10 +86,11 @@
       "**/?(*.)+(spec|test).ts?(x)"
     ],
     "transform": {
-      "^.+\\.ts?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.jsx?$": "babel-jest"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/(?!(request-animation-number))"
     ],
     "moduleNameMapper": {
       "\\.(jpeg|jpg|png|svg)": "<rootDir>/__mocks__/fileMock.ts",
