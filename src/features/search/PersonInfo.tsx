@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  MovieSearchInfo,
-  TVSearchInfo,
+  MovieListResultsMedia,
+  TVListResultsMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
 import noAvatar from '../../assets/img/noAvatar.jpg';
@@ -9,7 +9,7 @@ import noAvatar from '../../assets/img/noAvatar.jpg';
 interface PersonInfoProps {
   name: string;
   avatar: string | null;
-  works: (MovieSearchInfo | TVSearchInfo)[];
+  works: (MovieListResultsMedia | TVListResultsMedia)[];
 }
 
 function PersonInfo({

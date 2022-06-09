@@ -1,15 +1,15 @@
 import { rest } from 'msw';
 import { 
   MultiSearchResults, 
-  TVSearchInfo, 
+  TVListResultsMedia, 
   Error,
   MediaTypes,
-  MovieSearchInfo
+  MovieListResultsMedia
 } from '../../src/app/APIInterfaces';
 import { getUrl } from '../../src/routes/routes';
 import SearchQueries from './testQueries';
 
-const movieSearchRes: TVSearchInfo = {
+const movieSearchRes: TVListResultsMedia = {
   poster_path: null,
   popularity: 1,
   id: 24511,
@@ -28,7 +28,7 @@ const movieSearchRes: TVSearchInfo = {
   original_name: 'Bradley',
 };
 
-export const movieListResult: MovieSearchInfo = {
+export const movieListResult: MovieListResultsMedia = {
   poster_path: "/lIv1QinFqz4dlp5U4lQ6HaiskOZ.jpg",
   adult: false,
   overview: "Under the direction of a ruthless instructor, a talented young drummer begins to pursue perfection at any cost, even his humanity.",

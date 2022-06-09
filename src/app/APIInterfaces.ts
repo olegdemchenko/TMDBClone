@@ -4,7 +4,7 @@ export enum MediaTypes {
   person = 'person',
 }
 
-export interface MovieSearchInfo {
+export interface MovieListResultsMedia {
   poster_path?: string | null;
   adult?: boolean;
   overview?: string;
@@ -22,7 +22,7 @@ export interface MovieSearchInfo {
   vote_average?: number;
 }
 
-export interface TVSearchInfo {
+export interface TVListResultsMedia {
   poster_path?: string | null;
   popularity?: number;
   id?: number;
@@ -39,12 +39,12 @@ export interface TVSearchInfo {
   original_name?: string;
 }
 
-export interface PersonSearchInfo {
+export interface PersonListResultsMedia {
   profile_path: string | null;
   adult: boolean;
   id: number;
   media_type: MediaTypes.person;
-  known_for: (TVSearchInfo | MovieSearchInfo)[];
+  known_for: (TVListResultsMedia | MovieListResultsMedia)[];
   name: string;
 }
 
@@ -57,12 +57,12 @@ export interface MultiSearchResults {
   page: number;
   total_pages: number;
   total_results: number;
-  results: (MovieSearchInfo | TVSearchInfo | PersonSearchInfo)[];
+  results: (MovieListResultsMedia | TVListResultsMedia | PersonListResultsMedia)[];
 }
 
 export interface MovieListResults {
   page: number;
   total_pages: number;
   total_results: number;
-  results: (MovieSearchInfo)[]
+  results: (MovieListResultsMedia)[]
 }

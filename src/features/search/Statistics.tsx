@@ -2,15 +2,15 @@ import React from 'react';
 import cn from 'classnames';
 import _ from 'lodash';
 import {
-  MovieSearchInfo,
-  PersonSearchInfo,
-  TVSearchInfo,
+  MovieListResultsMedia,
+  PersonListResultsMedia,
+  TVListResultsMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
 import { capitalize } from '../../common/utils';
 
 interface StatisticsProps {
-  searchData: (MovieSearchInfo | PersonSearchInfo | TVSearchInfo)[]
+  searchData: (MovieListResultsMedia | PersonListResultsMedia | TVListResultsMedia)[]
 }
 
 function Statistics({
