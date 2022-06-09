@@ -19,7 +19,7 @@ function CarouselSlide({
   return (
     <div className="slide">
       <div>
-        <img src={icon} alt={`${title} poster`} />
+        <img src={icon} alt={title} />
       </div>
       <div className="progressbarContainer">
         <Progressbar

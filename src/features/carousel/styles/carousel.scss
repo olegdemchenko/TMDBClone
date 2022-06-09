@@ -1,7 +1,14 @@
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(20, auto);
-  column-gap: 25px;
+  display: flex;
+  flex-wrap: nowrap;
+
+  > div {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .shadow-inner {

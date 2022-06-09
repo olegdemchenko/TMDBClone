@@ -3,11 +3,13 @@ import {
   screen,
   waitFor,
   fireEvent,
+  findAllByText,
 } from '@testing-library/react';
 import React from 'react';
 import App from '../src/app/App';
 import renderWithWrapper from './utils';
 import server from '../__mocks__/server';
+import { movieListResult } from '../__mocks__/server/handlers';
 
 test('check header behavior', async () => {
   renderWithWrapper(<App />);
@@ -28,7 +30,13 @@ describe('check fetching movies lists', () => {
 
   test('check fetching popular movies info', async () => {
     renderWithWrapper(<App />);
-    expect(await screen.findAllByAltText(/popular/)).toHaveLength(20);
+    const popularMoviesHeading = screen.getByRole('heading', { name: /popular/i });
+    expect(
+      await findAllByText(
+        popularMoviesHeading.parentElement as HTMLBodyElement,
+        movieListResult.title as string,
+      ),
+    ).not.toHaveLength(0);
   });
 });
 
