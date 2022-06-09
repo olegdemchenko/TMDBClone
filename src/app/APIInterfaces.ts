@@ -60,7 +60,7 @@ export interface MultiSearchResults {
   results: (MovieListResultsMedia | TVListResultsMedia | PersonListResultsMedia)[];
 }
 
-export interface MovieListResults {
+export interface MovieList {
   page: number;
   total_pages: number;
   total_results: number;

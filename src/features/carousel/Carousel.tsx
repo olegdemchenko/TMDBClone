@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import { MovieListResults } from '../../app/APIInterfaces';
+import { MovieList } from '../../app/APIInterfaces';
 import { useFetch, FetchState } from '../../common/hooks';
 import CarouselSlide from './CarouselSlide';
 
@@ -15,7 +15,7 @@ function Carousel({
   heading,
   slidesDataLink,
 }: CarouselProps) {
-  const [state, response, error] = useFetch<MovieListResults>(slidesDataLink);
+  const [state, response, error] = useFetch<MovieList>(slidesDataLink);
   let components: React.ReactNode;
   if (state === FetchState.fetching) {
     components = <div className="d-flex justify-content-center py-3"><Spinner animation="grow" /></div>;
