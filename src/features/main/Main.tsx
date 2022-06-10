@@ -11,6 +11,18 @@ function MainPage() {
         heading="What's popular"
         slidesDataLink={routes.getPopularMovies(1)}
       />
+      <Carousel
+        heading="Upcoming movies"
+        slidesDataLink={routes.getUpcomingMovies(1)}
+      />
+      <Carousel
+        heading="Top rated movies"
+        slidesDataLink={routes.getTopRatedMovies(1)}
+      />
+      <Carousel
+        heading="Now playing movies"
+        slidesDataLink={routes.getNowPlayingMovies(1)}
+      />
     </>
   );
 }
