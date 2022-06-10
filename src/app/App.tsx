@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Root from './Root';
+import Root from '../features/layout/Layout';
 import Main from '../features/main/Main';
 import Results from '../features/search/Results';
 
