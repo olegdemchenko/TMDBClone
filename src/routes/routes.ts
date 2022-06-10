@@ -12,6 +12,11 @@ export const paths = {
   popularMovies: `${origin}/movie/popular`,
 };
 
+export const imagePaths = {
+  searchResIcon: 'https://image.tmdb.org/t/p/w92/',
+  carouselSlidePoster: 'https://image.tmdb.org/t/p/w154/',
+};
+
 function setSearchParam(url: URL, name: string, value: string) {
   url.searchParams.set(name, value);
   return url;

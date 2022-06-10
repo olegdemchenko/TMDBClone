@@ -1,6 +1,7 @@
 import React from 'react';
 import Progressbar from 'react-js-progressbar';
 import notFound from '../../assets/img/notFound.png';
+import { imagePaths } from '../../routes/routes';
 
 interface CarouselSlideProps {
   poster?: string | null;
@@ -15,7 +16,7 @@ function CarouselSlide({
   date,
   rate = 0,
 }: CarouselSlideProps) {
-  const icon = poster ? `https://image.tmdb.org/t/p/w154/${poster}` : notFound;
+  const icon = poster ? `${imagePaths.carouselSlidePoster}${poster}` : notFound;
   return (
     <div className="slide">
       <div>

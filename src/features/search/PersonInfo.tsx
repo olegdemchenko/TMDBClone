@@ -5,6 +5,7 @@ import {
   MediaTypes,
 } from '../../app/APIInterfaces';
 import noAvatar from '../../assets/img/noAvatar.jpg';
+import { imagePaths } from '../../routes/routes';
 
 interface PersonInfoProps {
   name: string;
@@ -17,7 +18,7 @@ function PersonInfo({
   avatar,
   works,
 }: PersonInfoProps) {
-  const photo = avatar ? `https://image.tmdb.org/t/p/w92/${avatar}` : noAvatar;
+  const photo = avatar ? `${imagePaths.searchResIcon}${avatar}` : noAvatar;
   return (
     <div className="d-flex mb-3">
       <div className="photo flex-shrink-0 overflow-hidden">

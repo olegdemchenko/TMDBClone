@@ -1,6 +1,7 @@
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import notFound from '../../assets/img/notFound.png';
+import { imagePaths } from '../../routes/routes';
 
 interface ResultElemProps {
   title?: string;
@@ -15,7 +16,7 @@ function MovieInfo({
   date,
   description,
 }: ResultElemProps) {
-  const icon = logo ? `https://image.tmdb.org/t/p/w92/${logo}` : notFound;
+  const icon = logo ? `${imagePaths.searchResIcon}${logo}` : notFound;
   return (
     <div className="mb-3 d-flex result-elem overflow-hidden">
       <div className="logo-wrapper flex-shrink-0">
