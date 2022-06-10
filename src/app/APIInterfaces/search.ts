@@ -1,25 +1,13 @@
+import { MovieListResults } from './movie';
+
 export enum MediaTypes {
   movie = 'movie',
   tv = 'tv',
   person = 'person',
 }
 
-export interface MovieListResultsMedia {
-  poster_path?: string | null;
-  adult?: boolean;
-  overview?: string;
-  release_date?: string;
-  original_date?: string;
-  genre_ids?: number[];
-  id: number;
+export interface MovieListResultsMedia extends MovieListResults {
   media_type: MediaTypes.movie;
-  original_language?: string;
-  title?: string;
-  backdrop_path?: string | null;
-  popularity?: number;
-  vote_count?: number;
-  video?: boolean;
-  vote_average?: number;
 }
 
 export interface TVListResultsMedia {
