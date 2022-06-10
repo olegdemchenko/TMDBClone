@@ -22,11 +22,9 @@ function Header() {
       <Container fluid="lg">
         <Nav className="p-3">
           <Nav.Item>
-            <Nav.Link href="#" className="p-0 pe-3">
-              <Link to="/">
-                <img className="align-bottom logo" src={Logo} alt="logo" />
-              </Link>
-            </Nav.Link>
+            <Link to="/">
+              <img className="align-bottom logo" src={Logo} alt="logo" />
+            </Link>
           </Nav.Item>
           <Row className="justify-content-between flex-grow-1">
             <Col className="d-flex align-items-end">
