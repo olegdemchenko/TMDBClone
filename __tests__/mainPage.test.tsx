@@ -38,6 +38,39 @@ describe('check fetching movies lists', () => {
       ),
     ).not.toHaveLength(0);
   });
+
+  test('check fetching now playing movies info', async () => {
+    renderWithWrapper(<App />);
+    const nowPlayingMoviesHeading = screen.getByRole('heading', { name: /playing/i });
+    expect(
+      await findAllByText(
+        nowPlayingMoviesHeading.parentElement as HTMLBodyElement,
+        movieListResult.title as string,
+      ),
+    ).not.toHaveLength(0);
+  });
+
+  test('check fetching top rated movies info', async () => {
+    renderWithWrapper(<App />);
+    const topRatedMoviesHeading = screen.getByRole('heading', { name: /rated/i });
+    expect(
+      await findAllByText(
+        topRatedMoviesHeading.parentElement as HTMLBodyElement,
+        movieListResult.title as string,
+      ),
+    ).not.toHaveLength(0);
+  });
+
+  test('check fetching upcoming movies info', async () => {
+    renderWithWrapper(<App />);
+    const upcomingMoviesHeading = screen.getByRole('heading', { name: /upcoming/i });
+    expect(
+      await findAllByText(
+        upcomingMoviesHeading.parentElement as HTMLBodyElement,
+        movieListResult.title as string,
+      ),
+    ).not.toHaveLength(0);
+  });
 });
 
 test('check footer presence', async () => {

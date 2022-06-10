@@ -85,6 +85,42 @@ const handlers = [
       ctx.status(200),
       ctx.json(resp)
     )
+  }),
+  rest.get(paths.nowPlayingMovies, (req, res, ctx) => {
+    const resp: MultiSearchResults = {
+      page: 1,
+      results: Array(20).fill(movieListResult).map((movie) => ({ ...movie, id: Math.random() })),
+      total_pages: 1,
+      total_results: 100
+    }
+    return res(
+      ctx.status(200),
+      ctx.json(resp)
+    )
+  }),
+  rest.get(paths.topRatedMovies, (req, res, ctx) => {
+    const resp: MultiSearchResults = {
+      page: 1,
+      results: Array(20).fill(movieListResult).map((movie) => ({ ...movie, id: Math.random() })),
+      total_pages: 1,
+      total_results: 100
+    }
+    return res(
+      ctx.status(200),
+      ctx.json(resp)
+    )
+  }),
+  rest.get(paths.upcomingMovies, (req, res, ctx) => {
+    const resp: MultiSearchResults = {
+      page: 1,
+      results: Array(20).fill(movieListResult).map((movie) => ({ ...movie, id: Math.random() })),
+      total_pages: 1,
+      total_results: 100
+    }
+    return res(
+      ctx.status(200),
+      ctx.json(resp)
+    )
   })
 ];
 
