@@ -4,7 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Root from './Root';
-import Main from '../features/mainPage/MainPage';
+import Main from '../features/main/Main';
 import Results from '../features/search/Results';
 
 function App() {
