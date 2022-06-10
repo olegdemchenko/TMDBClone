@@ -6,7 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import { MultiSearchResults } from '../../app/APIInterfaces';
 import routes from '../../routes/routes';
 import { useFetch, FetchState } from '../../common/hooks';
-import Search from './Search';
+import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 import Pagination from './Pagination';

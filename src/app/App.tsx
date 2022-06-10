@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Root from '../features/layout/Layout';
 import Main from '../features/main/Main';
-import Results from '../features/search/Results';
+import Results from '../features/results/Results';
 
 function App() {
   return (
