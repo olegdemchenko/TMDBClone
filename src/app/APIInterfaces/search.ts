@@ -48,21 +48,9 @@ export interface PersonListResultsMedia {
   name: string;
 }
 
-export interface Error {
-  status_code: number;
-  status_message: string;
-}
-
 export interface MultiSearchResults {
   page: number;
   total_pages: number;
   total_results: number;
   results: (MovieListResultsMedia | TVListResultsMedia | PersonListResultsMedia)[];
-}
-
-export interface MovieList {
-  page: number;
-  total_pages: number;
-  total_results: number;
-  results: (MovieListResultsMedia)[]
 }
