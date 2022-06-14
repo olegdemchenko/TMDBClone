@@ -1,15 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
+import { useTranslation } from 'react-i18next';
 import DropdownMenu from './DropdownMenu';
 
 function Menu() {
-  const menu = {
-    movies: ['popular', 'now playing', 'top rated', 'upcoming'],
-    'tv shows': ['popular', 'airing today', 'on tv', 'top rated'],
-    people: ['popular people'],
-    more: ['discussions', 'leaderboard', 'support', 'api'],
-  };
-
+  const { t } = useTranslation('header');
+  const menu = t('menu', { returnObjects: true }) as { [key: string]: string[] };
   return (
     <div className="d-flex">
       {Object.entries(menu).map(([name, list]) => (

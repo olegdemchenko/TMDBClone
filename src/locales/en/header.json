@@ -1,0 +1,8 @@
+{
+  "menu": {
+    "movies": ["popular", "now playing", "top rated", "upcoming"],
+    "tv shows": ["popular", "airing today", "on tv", "top rated"],
+    "people": ["popular people"],
+    "more": ["discussions", "leaderboard", "support", "api"]
+  }
+}
