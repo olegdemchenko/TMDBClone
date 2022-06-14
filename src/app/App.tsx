@@ -3,9 +3,9 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Root from '../features/layout/Layout';
-import Main from '../features/main/Main';
-import Results from '../features/results/Results';
+import Root from '../components/layout/Layout';
+import Main from '../components/main/Main';
+import Results from '../components/results/Results';
 
 function App() {
   return (
