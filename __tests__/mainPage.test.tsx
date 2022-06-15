@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom';
 import {
   screen,
-  waitFor,
-  fireEvent,
   findAllByText,
 } from '@testing-library/react';
 import '../src/i18n';
@@ -11,16 +9,6 @@ import App from '../src/app/App';
 import renderWithWrapper from './utils';
 import server from '../__mocks__/server';
 import { movieListResult } from '../__mocks__/server/handlers';
-
-test('check header behavior', async () => {
-  renderWithWrapper(<App />);
-  const header = screen.getByRole('banner');
-  expect(header).toBeInTheDocument();
-  fireEvent.scroll(window, { target: { scrollY: 300 } });
-  await waitFor(() => {
-    expect(header).toHaveClass('hidden');
-  });
-});
 
 describe('check fetching movies lists', () => {
   beforeAll(() => server.listen());
