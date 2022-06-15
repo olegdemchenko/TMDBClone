@@ -1,17 +1,15 @@
 import '@testing-library/jest-dom';
+import React from 'react';
 import {
   screen,
-  findAllByText,
   waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '../src/i18n';
-import React from 'react';
 import App from '../src/app/App';
 import renderWithWrapper from './utils';
 import server from '../__mocks__/server';
 import SearchQueries from '../__mocks__/server/testQueries';
-import { movieListResult } from '../__mocks__/server/handlers';
 
 beforeAll(() => server.listen());
 
@@ -19,48 +17,13 @@ afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
 
-test('check fetching popular movies info', async () => {
+test.only('check fetching popular movies info', () => {
   renderWithWrapper(<App />);
-  const popularMoviesHeading = screen.getByRole('heading', { name: /popular/i });
-  expect(
-    await findAllByText(
-      popularMoviesHeading.parentElement as HTMLBodyElement,
-      movieListResult.title as string,
-    ),
-  ).not.toHaveLength(0);
-});
-
-test('check fetching now playing movies info', async () => {
-  renderWithWrapper(<App />);
-  const nowPlayingMoviesHeading = screen.getByRole('heading', { name: /playing/i });
-  expect(
-    await findAllByText(
-      nowPlayingMoviesHeading.parentElement as HTMLBodyElement,
-      movieListResult.title as string,
-    ),
-  ).not.toHaveLength(0);
-});
-
-test('check fetching top rated movies info', async () => {
-  renderWithWrapper(<App />);
-  const topRatedMoviesHeading = screen.getByRole('heading', { name: /rated/i });
-  expect(
-    await findAllByText(
-      topRatedMoviesHeading.parentElement as HTMLBodyElement,
-      movieListResult.title as string,
-    ),
-  ).not.toHaveLength(0);
-});
-
-test('check fetching upcoming movies info', async () => {
-  renderWithWrapper(<App />);
-  const upcomingMoviesHeading = screen.getByRole('heading', { name: /upcoming/i });
-  expect(
-    await findAllByText(
-      upcomingMoviesHeading.parentElement as HTMLBodyElement,
-      movieListResult.title as string,
-    ),
-  ).not.toHaveLength(0);
+  ['popular', 'playing', 'rated', 'upcoming'].forEach(async (type) => {
+    const typeRegExp = new RegExp(type, 'i');
+    expect(screen.getByRole('heading', { name: typeRegExp })).toBeInTheDocument();
+    expect(await screen.findAllByAltText(typeRegExp)).not.toHaveLength(0);
+  });
 });
 
 test('check successful search', async () => {
