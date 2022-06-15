@@ -1,0 +1,8 @@
+{
+  "movies": {
+    "popular": "What's popular",
+    "upcoming": "Upcoming movies",
+    "top": "Top rated movies",
+    "playing": "Now playing movies"
+  }
+}
