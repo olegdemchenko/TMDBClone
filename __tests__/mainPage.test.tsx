@@ -5,6 +5,7 @@ import {
   fireEvent,
   findAllByText,
 } from '@testing-library/react';
+import '../src/i18n';
 import React from 'react';
 import App from '../src/app/App';
 import renderWithWrapper from './utils';

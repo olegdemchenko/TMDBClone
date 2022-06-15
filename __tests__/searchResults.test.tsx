@@ -3,6 +3,7 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
+import '../src/i18n';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../src/app/App';
