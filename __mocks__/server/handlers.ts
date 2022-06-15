@@ -48,11 +48,12 @@ export const movieListResult: MovieListResultsMedia = {
   vote_average: 8.29
 }
 
+const moviesPerPage = 20;
 const multiSearchRes: MultiSearchResults = {
   page: 1,
-  total_pages: 1,
-  total_results: 1,
-  results: [movieSearchRes],
+  total_pages: 1000,
+  total_results: 1000,
+  results: [...Array.from({ length: moviesPerPage }, () => ({ ...movieListResult, id: Math.random() }))],
 };
 
 const error: Error = {
@@ -63,10 +64,11 @@ const error: Error = {
 const handlers = [
   rest.get(paths.multiSearch, (req, res, ctx) => {
     const searchQuery = req.url.searchParams.get('query');
+    const page = req.url.searchParams.get('page');
     if (searchQuery === SearchQueries.MultiSearch) {
       return res(
         ctx.status(200),
-        ctx.json(multiSearchRes),
+        ctx.json({ ...multiSearchRes, page }),
       );
     }
     return res(

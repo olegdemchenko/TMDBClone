@@ -10,6 +10,7 @@ import App from '../src/app/App';
 import renderWithWrapper from './utils';
 import server from '../__mocks__/server';
 import SearchQueries from '../__mocks__/server/testQueries';
+import { movieListResult } from '../__mocks__/server/handlers';
 
 beforeAll(() => server.listen());
 
@@ -36,6 +37,18 @@ test('check successful search', async () => {
     expect(window.location.pathname).toBe('/search');
   });
   await screen.findByRole('heading', { name: /search results/i });
+  const secondPageLink = await screen.findByTestId(2);
+  await userEvent.click(secondPageLink);
+  await waitFor(() => {
+    expect(new URL(window.location.href).searchParams.get('page')).toBe('2');
+  });
+  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
+  const firstPageLink = await screen.findByTestId(1);
+  await userEvent.click(firstPageLink);
+  await waitFor(() => {
+    expect(new URL(window.location.href).searchParams.get('page')).toBe('1');
+  });
+  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
 });
 
 test('check error handling after search request is sent', async () => {

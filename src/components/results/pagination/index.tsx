@@ -31,6 +31,7 @@ function CustomPagination({
       <Pagination.Item
         active={page === currentPage}
         onClick={handleClick(`${page}`)}
+        data-testid={page}
       >
         {page}
       </Pagination.Item>
