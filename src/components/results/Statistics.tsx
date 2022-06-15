@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
 import {
   MovieListResultsMedia,
   PersonListResultsMedia,
@@ -17,6 +18,7 @@ interface StatisticsProps {
 function Statistics({
   searchData,
 }: StatisticsProps) {
+  const [params] = useSearchParams();
   const { t } = useTranslation('results');
   const categories = t('categories', { returnObjects: true }) as { [Key in MediaTypes]: string };
   const primaryMediaType = searchData[0]?.media_type ?? 'movie';
@@ -36,7 +38,7 @@ function Statistics({
 
   return (
     <div className="pb-3 statistics">
-      <h6 className="fw-bold p-4 text-white">{t('searchResults')}</h6>
+      <h6 className="fw-bold p-4 text-white">{`${t('searchResults')}: ${params.get('page')}`}</h6>
       {orderedCategoriesByPrimaryType.map((category, index) => {
         const containerClass = cn('d-flex', 'justify-content-between', 'px-4', 'py-2', 'category', {
           primary: index === 0,
