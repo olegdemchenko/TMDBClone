@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useTranslation } from 'react-i18next';
 import { SearchUIProps } from './MainPageSearch';
 
 function ResultsPageSearch({
@@ -8,13 +9,14 @@ function ResultsPageSearch({
   handleSubmit,
   errors,
 }: SearchUIProps) {
+  const { t } = useTranslation('search');
   return (
     <Form className="position-relative search-results" onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Control
           className="border-0 ps-4"
           name="searchQuery"
-          placeholder="Search for a movie, tv show, person..."
+          placeholder={t('common.placeholder')}
           onChange={handleChange}
           isInvalid={!!errors.searchQuery}
         />

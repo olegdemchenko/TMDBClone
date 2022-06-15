@@ -1,0 +1,10 @@
+{
+  "common": {
+    "placeholder": "Search for a movie, tv show, person..."
+  },
+  "main": {
+    "greeting": "Welcome",
+    "slogan": "Millions of movies, TV shows and people to discover. Explore now.",
+    "search": "search"
+  }
+}
