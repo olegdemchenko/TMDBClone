@@ -1,32 +1,12 @@
 import { rest } from 'msw';
 import { 
-  MultiSearchResults, 
-  TVListResultsMedia, 
+  MultiSearchResults,  
   Error,
   MediaTypes,
   MovieListResultsMedia
 } from '../../src/app/APIInterfaces';
 import { paths } from '../../src/routes/routes';
 import SearchQueries from './testQueries';
-
-const movieSearchRes: TVListResultsMedia = {
-  poster_path: null,
-  popularity: 1,
-  id: 24511,
-  overview: '',
-  backdrop_path: null,
-  vote_average: 0,
-  media_type: MediaTypes.tv,
-  first_air_date: '',
-  origin_country: [
-    'GB',
-  ],
-  genre_ids: [],
-  original_language: 'en',
-  vote_count: 0,
-  name: 'Bradley',
-  original_name: 'Bradley',
-};
 
 export const movieListResult: MovieListResultsMedia = {
   poster_path: "/lIv1QinFqz4dlp5U4lQ6HaiskOZ.jpg",
