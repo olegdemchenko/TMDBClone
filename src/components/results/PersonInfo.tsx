@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   MovieListResultsMedia,
   TVListResultsMedia,
@@ -18,6 +19,7 @@ function PersonInfo({
   avatar,
   works,
 }: PersonInfoProps) {
+  const { t } = useTranslation('results');
   const photo = avatar ? `${imagePaths.searchResIcon}${avatar}` : noAvatar;
   return (
     <div className="d-flex mb-3">
@@ -27,7 +29,8 @@ function PersonInfo({
       <div className="d-flex flex-column info flex-grow-1 ps-3 justify-content-center">
         <h6 className="fw-bold m-0 name">{name}</h6>
         <div className="movies">
-          Acting:
+          {t('acting')}
+          :
           {works.map((elem) => (
             elem.media_type === MediaTypes.movie ? elem.title : elem.name
           )).join(', ')}

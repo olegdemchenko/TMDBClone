@@ -1,0 +1,9 @@
+{
+  "searchResults": "Search results",
+  "categories": {
+    "movie": "movies",
+    "tv": "tv shows",
+    "person": "people"
+  },
+  "acting": "acting"
+}
