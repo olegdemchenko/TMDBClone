@@ -1,4 +1,4 @@
-import { findVisiblePages } from '../src/common/utils';
+import findVisiblePages from './utils';
 
 test.each([
   [1, 15, [1, 2, 3, 4, 5, 6, 7, 14, 15]],

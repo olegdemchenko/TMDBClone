@@ -9,7 +9,7 @@ import { useFetch, FetchState } from '../../common/hooks';
 import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
-import Pagination from './Pagination';
+import Pagination from './pagination';
 
 function Results() {
   const [params] = useSearchParams();

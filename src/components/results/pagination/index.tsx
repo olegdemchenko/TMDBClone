@@ -1,7 +1,7 @@
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import { useSearchParams } from 'react-router-dom';
-import { findVisiblePages } from '../../common/utils';
+import findVisiblePages from './utils';
 
 interface PaginationProps {
   currentPage: number;
