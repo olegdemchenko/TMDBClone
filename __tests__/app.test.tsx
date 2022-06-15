@@ -17,7 +17,7 @@ afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
 
-test.only('check fetching popular movies info', () => {
+test('check fetching popular movies info', () => {
   renderWithWrapper(<App />);
   ['popular', 'playing', 'rated', 'upcoming'].forEach(async (type) => {
     const typeRegExp = new RegExp(type, 'i');
