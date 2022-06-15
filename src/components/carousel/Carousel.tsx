@@ -33,6 +33,7 @@ function Carousel({
             title={elem.title}
             date={elem.release_date}
             rate={elem.vote_average}
+            alt={`${heading}: ${elem.title ?? ''}`}
           />
         ))}
       </div>

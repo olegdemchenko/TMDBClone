@@ -8,6 +8,7 @@ interface CarouselSlideProps {
   title?: string;
   date?: string;
   rate?: number;
+  alt: string;
 }
 
 function CarouselSlide({
@@ -15,12 +16,13 @@ function CarouselSlide({
   title,
   date,
   rate = 0,
+  alt,
 }: CarouselSlideProps) {
   const icon = poster ? `${imagePaths.carouselSlidePoster}${poster}` : notFound;
   return (
     <div className="slide">
       <div>
-        <img src={icon} alt={title} />
+        <img src={icon} alt={alt} />
       </div>
       <div className="progressbarContainer">
         <Progressbar
