@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
 import { css } from '@emotion/react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
