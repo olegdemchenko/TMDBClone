@@ -47,6 +47,7 @@ function Header() {
     <header
       ref={headerRef}
       css={headerStyles}
+      data-visibility={isVisible ? 'visible' : 'invisible'}
     >
       <Container fluid="lg">
         <Nav className="p-3">

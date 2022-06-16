@@ -19,6 +19,6 @@ test('check header behavior', async () => {
   expect(header).toBeInTheDocument();
   fireEvent.scroll(window, { target: { scrollY: 300 } });
   await waitFor(() => {
-    expect(header).toHaveClass('hidden');
+    expect(header).toHaveAttribute('data-visibility', 'invisible');
   });
 });
