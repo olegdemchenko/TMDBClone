@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/react';
 import Pagination from 'react-bootstrap/Pagination';
 import { useSearchParams } from 'react-router-dom';
 import findVisiblePages from './utils';
@@ -7,6 +8,26 @@ interface PaginationProps {
   currentPage: number;
   total: number;
 }
+
+const pageItemStyles = css({
+  '&.active .page-link': {
+    border: '2px solid black',
+    backgroundColor: 'white',
+    color: 'black',
+    fontWeight: 'normal',
+  },
+  '&:first-child .page-link': {
+    borderRadius: 0,
+  },
+});
+
+const pageLinkStyles = css({
+  '& .page-link': {
+    border: 'none',
+    color: 'black',
+    fontWeight: 'bold',
+  },
+});
 
 function CustomPagination({
   currentPage,
@@ -30,6 +51,7 @@ function CustomPagination({
     const paginationPage = (
       <Pagination.Item
         active={page === currentPage}
+        css={pageItemStyles}
         onClick={handleClick(`${page}`)}
         data-testid={page}
       >
@@ -45,7 +67,7 @@ function CustomPagination({
     return [...acc, paginationPage];
   }, []);
   return (
-    <Pagination>
+    <Pagination css={pageLinkStyles}>
       {prev}
       {...paginationComponents}
       {next}
