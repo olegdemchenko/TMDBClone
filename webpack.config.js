@@ -40,17 +40,10 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           { loader: MiniCSSExtractPlugin.loader },
           { loader: 'css-loader' },
-          { loader: 'resolve-url-loader' },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
         ],
       },
     ],
