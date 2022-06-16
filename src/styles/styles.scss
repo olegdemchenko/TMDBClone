@@ -1,4 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
-@import "../components/header/styles/style";
+@import './helpers/mixins';
 @import "../components/search/styles/style";
 @import "../components/results/styles/styles";
