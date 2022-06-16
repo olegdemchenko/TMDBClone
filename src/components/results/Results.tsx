@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { css } from '@emotion/react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
@@ -10,6 +11,10 @@ import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 import Pagination from './pagination';
+
+const statisticsWrapperStyles = css({
+  width: 260,
+});
 
 function Results() {
   const [params] = useSearchParams();
@@ -46,7 +51,7 @@ function Results() {
           </Container>
         </div>
         <Container fluid="lg" className="p-4 d-flex">
-          <div className="statistics-wrapper flex-shrink-0">
+          <div className="flex-shrink-0" css={statisticsWrapperStyles}>
             <Statistics searchData={response.results} />
           </div>
           <div className="flex-grow-1 overflow-hidden">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { css } from '@emotion/react';
 import {
   MovieListResultsMedia,
   TVListResultsMedia,
@@ -14,6 +15,15 @@ interface PersonInfoProps {
   works: (MovieListResultsMedia | TVListResultsMedia)[];
 }
 
+const photoStyles = css({
+  width: 92,
+  height: 92,
+  borderRadius: 10,
+  img: {
+    marginTop: -15,
+  },
+});
+
 function PersonInfo({
   name,
   avatar,
@@ -23,7 +33,7 @@ function PersonInfo({
   const photo = avatar ? `${imagePaths.searchResIcon}${avatar}` : noAvatar;
   return (
     <div className="d-flex mb-3">
-      <div className="photo flex-shrink-0 overflow-hidden">
+      <div className="flex-shrink-0 overflow-hidden" css={photoStyles}>
         <img src={photo} alt="icon" />
       </div>
       <div className="d-flex flex-column info flex-grow-1 ps-3 justify-content-center">

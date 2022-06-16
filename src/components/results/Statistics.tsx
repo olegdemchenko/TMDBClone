@@ -1,6 +1,6 @@
 import React from 'react';
-import cn from 'classnames';
 import _ from 'lodash';
+import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import {
@@ -9,11 +9,47 @@ import {
   TVListResultsMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
+import { ThemeColors } from '../../common/styles';
 import capitalize from '../../common/utils';
 
 interface StatisticsProps {
   searchData: (MovieListResultsMedia | PersonListResultsMedia | TVListResultsMedia)[]
 }
+
+const statisticsContainerStyles = css({
+  borderRadius: 10,
+  border: `2px solid ${ThemeColors.lightGray}`,
+});
+
+const statisticsHeaderStyles = css({
+  borderRadius: '10px 10px 0 0',
+  backgroundColor: ThemeColors.lightBlue,
+});
+
+const categoryCountStyles = css({
+  backgroundColor: ThemeColors.lightGray,
+  padding: '0 10px',
+  borderRadius: 5,
+});
+
+const categoryStyles = css({
+  '&:hover': {
+    backgroundColor: ThemeColors.lightGray,
+    '.category-count': {
+      backgroundColor: 'white',
+    },
+  },
+});
+
+const primaryCategoryStyles = css({
+  backgroundColor: ThemeColors.lightGray,
+  '.category-name': {
+    fontWeight: 'bold',
+  },
+  '.category-count': {
+    backgroundColor: 'white',
+  },
+});
 
 function Statistics({
   searchData,
@@ -37,19 +73,21 @@ function Statistics({
   };
 
   return (
-    <div className="pb-3 statistics">
-      <h6 className="fw-bold p-4 text-white">{`${t('searchResults')}: ${params.get('page')}`}</h6>
-      {orderedCategoriesByPrimaryType.map((category, index) => {
-        const containerClass = cn('d-flex', 'justify-content-between', 'px-4', 'py-2', 'category', {
-          primary: index === 0,
-        });
-        return (
-          <div key={_.uniqueId()} className={containerClass}>
-            <span className="category-name">{capitalize(category)}</span>
-            <span className="category-count">{categoriesCounts[category]}</span>
-          </div>
-        );
-      })}
+    <div className="pb-3" css={statisticsContainerStyles}>
+      <h6 className="fw-bold p-4 text-white" css={statisticsHeaderStyles}>{`${t('searchResults')}: ${params.get('page')}`}</h6>
+      {orderedCategoriesByPrimaryType.map((category, index) => (
+        <div
+          key={_.uniqueId()}
+          className="d-flex justify-content-between px-4 py-2"
+          css={css(
+            categoryStyles,
+            index === 0 ? primaryCategoryStyles : {},
+          )}
+        >
+          <span className="category-name">{capitalize(category)}</span>
+          <span className="category-count" css={categoryCountStyles}>{categoriesCounts[category]}</span>
+        </div>
+      ))}
     </div>
   );
 }
