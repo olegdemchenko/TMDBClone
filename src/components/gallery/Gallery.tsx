@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 import { MovieList } from '../../app/APIInterfaces';
 import GallerySpinner from './GallerySpinner';
 import { useFetch, FetchState } from '../../common/hooks';
-import GalleryItem from './GalleryItem';
+import GalleryItemsList from './GalleryItemsList';
 import Wrapper from './GalleryWrapper';
 
 interface CarouselProps {
@@ -25,18 +25,10 @@ function Carousel({
   }
   if (response) {
     components = (
-      <div className="pt-3 d-flex flex-no-wrap">
-        {response.results.map((elem) => (
-          <GalleryItem
-            key={elem.id}
-            poster={elem.poster_path}
-            title={elem.title}
-            date={elem.release_date}
-            rate={elem.vote_average}
-            alt={`${heading}: ${elem.title ?? ''}`}
-          />
-        ))}
-      </div>
+      <GalleryItemsList
+        heading={heading}
+        list={response.results}
+      />
     );
   }
   return (
