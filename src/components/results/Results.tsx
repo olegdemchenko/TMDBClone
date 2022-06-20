@@ -5,10 +5,12 @@ import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMultiSearchQuery } from '../../app/store/tmdbServices';
+import { isDataDefined } from '../../common/utils';
 import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 import Pagination from './pagination';
+import { MultiSearchResults } from '../../app/APIInterfaces';
 
 const statisticsWrapperStyles = css({
   width: 260,
@@ -22,7 +24,6 @@ function Results() {
     data,
     error,
     isFetching,
-    isSuccess,
     isError,
   } = useGetMultiSearchQuery({ query: searchQuery as string, page: Number(page) as number });
   useEffect(() => {
@@ -45,35 +46,32 @@ function Results() {
     );
   }
 
-  if (isSuccess) {
-    return (
-      <div>
-        <div className="border-bottom">
-          <Container fluid="lg" className="px-4">
-            <Search mode="results" />
-          </Container>
-        </div>
-        <Container fluid="lg" className="p-4 d-flex">
-          <div className="flex-shrink-0" css={statisticsWrapperStyles}>
-            <Statistics searchData={data.results} />
-          </div>
-          <div className="flex-grow-1 overflow-hidden">
-            <ResultsList
-              results={data.results}
-            />
-            <div className="d-flex justify-content-center">
-              <Pagination
-                currentPage={data.page}
-                total={data.total_pages}
-              />
-            </div>
-          </div>
+  isDataDefined<MultiSearchResults>(data);
+  return (
+    <div>
+      <div className="border-bottom">
+        <Container fluid="lg" className="px-4">
+          <Search mode="results" />
         </Container>
       </div>
-    );
-  }
-
-  return null;
+      <Container fluid="lg" className="p-4 d-flex">
+        <div className="flex-shrink-0" css={statisticsWrapperStyles}>
+          <Statistics searchData={data.results} />
+        </div>
+        <div className="flex-grow-1 overflow-hidden">
+          <ResultsList
+            results={data.results}
+          />
+          <div className="d-flex justify-content-center">
+            <Pagination
+              currentPage={data.page}
+              total={data.total_pages}
+            />
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
 }
 
 export default Results;
