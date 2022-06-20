@@ -4,9 +4,7 @@ import { css } from '@emotion/react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import { MultiSearchResults } from '../../app/APIInterfaces';
-import routes from '../../routes/routes';
-import { useFetch, FetchState } from '../../common/hooks';
+import { useGetMultiSearchQuery } from '../../app/store/tmdbServices';
 import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
@@ -20,13 +18,18 @@ function Results() {
   const [params] = useSearchParams();
   const searchQuery = params.get('query');
   const page = params.get('page');
-  const url = routes.getMultiSearch(searchQuery, page);
-  const [state, response, error] = useFetch<MultiSearchResults>(url);
+  const {
+    data,
+    error,
+    isFetching,
+    isSuccess,
+    isError,
+  } = useGetMultiSearchQuery({ query: searchQuery as string, page: Number(page) as number });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
-  if (state === FetchState.fetching) {
+  if (isFetching) {
     return (
       <Container fluid="lg" className="d-flex vh-100 justify-content-center align-items-center">
         <Spinner animation="border" />
@@ -34,7 +37,7 @@ function Results() {
     );
   }
 
-  if (state === FetchState.error) {
+  if (isError) {
     return (
       <Container fluid="lg" className="py-4">
         <Alert className="m-0" variant="danger">{`Error: ${error}`}</Alert>
@@ -42,7 +45,7 @@ function Results() {
     );
   }
 
-  if (response) {
+  if (isSuccess) {
     return (
       <div>
         <div className="border-bottom">
@@ -52,19 +55,19 @@ function Results() {
         </div>
         <Container fluid="lg" className="p-4 d-flex">
           <div className="flex-shrink-0" css={statisticsWrapperStyles}>
-            <Statistics searchData={response.results} />
+            <Statistics searchData={data.results} />
           </div>
           <div className="flex-grow-1 overflow-hidden">
             <ResultsList
-              results={response.results}
-              page={response.page}
-              total_pages={response.total_pages}
-              total_results={response.total_results}
+              results={data.results}
+              page={data.page}
+              total_pages={data.total_pages}
+              total_results={data.total_results}
             />
             <div className="d-flex justify-content-center">
               <Pagination
-                currentPage={response.page}
-                total={response.total_pages}
+                currentPage={data.page}
+                total={data.total_pages}
               />
             </div>
           </div>
