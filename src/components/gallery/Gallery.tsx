@@ -5,7 +5,7 @@ import Alert from 'react-bootstrap/Alert';
 import { css } from '@emotion/react';
 import { MovieList } from '../../app/APIInterfaces';
 import { useFetch, FetchState } from '../../common/hooks';
-import CarouselSlide from './CarouselSlide';
+import GalleryItem from './GalleryItem';
 
 interface CarouselProps {
   heading: string,
@@ -45,7 +45,7 @@ function Carousel({
     components = (
       <div className="pt-3 d-flex flex-no-wrap">
         {response.results.map((elem) => (
-          <CarouselSlide
+          <GalleryItem
             key={elem.id}
             poster={elem.poster_path}
             title={elem.title}

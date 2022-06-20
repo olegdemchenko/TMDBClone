@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Search from '../search/Search';
-import Carousel from '../carousel/Carousel';
+import Gallery from '../gallery/Gallery';
 import routes from '../../routes/routes';
 
 function MainPage() {
@@ -9,19 +9,19 @@ function MainPage() {
   return (
     <>
       <Search mode="main" />
-      <Carousel
+      <Gallery
         heading={t('movies.popular')}
         slidesDataLink={routes.getPopularMovies(1)}
       />
-      <Carousel
+      <Gallery
         heading={t('movies.upcoming')}
         slidesDataLink={routes.getUpcomingMovies(1)}
       />
-      <Carousel
+      <Gallery
         heading={t('movies.top')}
         slidesDataLink={routes.getTopRatedMovies(1)}
       />
-      <Carousel
+      <Gallery
         heading={t('movies.playing')}
         slidesDataLink={routes.getNowPlayingMovies(1)}
       />
