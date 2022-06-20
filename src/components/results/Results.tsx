@@ -60,9 +60,6 @@ function Results() {
           <div className="flex-grow-1 overflow-hidden">
             <ResultsList
               results={data.results}
-              page={data.page}
-              total_pages={data.total_pages}
-              total_results={data.total_results}
             />
             <div className="d-flex justify-content-center">
               <Pagination
