@@ -7,4 +7,6 @@ function capitalize(phrase:string) {
   }).join(' ');
 }
 
-export default capitalize;
+export {
+  capitalize,
+};
