@@ -1,9 +1,9 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import { css } from '@emotion/react';
 import { MovieList } from '../../app/APIInterfaces';
+import GallerySpinner from './GallerySpinner';
 import { useFetch, FetchState } from '../../common/hooks';
 import GalleryItem from './GalleryItem';
 
@@ -36,7 +36,7 @@ function Carousel({
   const [state, response, error] = useFetch<MovieList>(slidesDataLink);
   let components: React.ReactNode;
   if (state === FetchState.fetching) {
-    components = <div className="d-flex justify-content-center py-3"><Spinner animation="grow" /></div>;
+    components = <GallerySpinner />;
   }
   if (state === FetchState.error) {
     components = <Alert variant="danger">{error}</Alert>;
