@@ -1,6 +1,7 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { MovieList } from '../../app/APIInterfaces';
+import { isDataDefined } from '../../common/utils';
 import GallerySpinner from './GallerySpinner';
 import { useFetch, FetchState } from '../../common/hooks';
 import GalleryItemsList from './GalleryItemsList';
@@ -16,25 +17,28 @@ function Carousel({
   slidesDataLink,
 }: CarouselProps) {
   const [state, response, error] = useFetch<MovieList>(slidesDataLink);
-  let components: React.ReactNode;
   if (state === FetchState.fetching) {
-    components = <GallerySpinner />;
+    return (
+      <Wrapper>
+        <GallerySpinner />
+      </Wrapper>
+    );
   }
   if (state === FetchState.error) {
-    components = <Alert variant="danger">{error}</Alert>;
+    return (
+      <Wrapper>
+        <Alert variant="danger">{error}</Alert>
+      </Wrapper>
+    );
   }
-  if (response) {
-    components = (
+  isDataDefined(response);
+  return (
+    <Wrapper>
+      <h4>{heading}</h4>
       <GalleryItemsList
         heading={heading}
         list={response.results}
       />
-    );
-  }
-  return (
-    <Wrapper>
-      <h4>{heading}</h4>
-      {components}
     </Wrapper>
   );
 }
