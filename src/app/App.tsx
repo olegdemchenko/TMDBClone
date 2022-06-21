@@ -8,6 +8,7 @@ import { store } from './store/store';
 import Root from '../components/layout/Layout';
 import Main from '../components/main/Main';
 import Results from '../components/results/Results';
+import MoviesRoutes from '../components/moviesRoutes/MoviesRoutes';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route index element={<Main />} />
           <Route path="search" element={<Results />} />
+          <Route path="movie/*" element={<MoviesRoutes />} />
         </Route>
       </Routes>
     </Provider>
