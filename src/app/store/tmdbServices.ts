@@ -1,8 +1,10 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { MultiSearchResults } from '../APIInterfaces';
+import {
+  MultiSearchResults,
+  MovieList,
+} from '../APIInterfaces';
 import axiosBaseQuery from './axiosBaseQuery';
 
-const baseUrl = 'https://api.themoviedb.org/3';
 type MultiSearchRequest = {
   query: string;
   page: number;
@@ -17,7 +19,25 @@ export const tmdbApi = createApi({
         { url: '/search/multi', method: 'get', params: { query, page } }
       ),
     }),
+    getPopularMovies: builder.query<MovieList, void>({
+      query: () => ({ url: '/movie/popular', method: 'get', params: {} }),
+    }),
+    getNowPlayingMovies: builder.query<MovieList, void>({
+      query: () => ({ url: '/movie/now_playing', method: 'get', params: {} }),
+    }),
+    getTopRatedMovies: builder.query<MovieList, void>({
+      query: () => ({ url: '/movie/top_rated', method: 'get', params: {} }),
+    }),
+    getUpcomingMovies: builder.query<MovieList, void>({
+      query: () => ({ url: '/movie/upcoming', method: 'get', params: {} }),
+    }),
   }),
 });
 
-export const { useGetMultiSearchQuery } = tmdbApi;
+export const {
+  useGetMultiSearchQuery,
+  useGetPopularMoviesQuery,
+  useGetTopRatedMoviesQuery,
+  useGetNowPlayingMoviesQuery,
+  useGetUpcomingMoviesQuery,
+} = tmdbApi;
