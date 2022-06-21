@@ -1,9 +1,8 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/query';
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
+import { Error } from '../APIInterfaces';
 
-const axiosBaseQuery = (
-  { baseUrl }: { baseUrl: string } = { baseUrl: '' },
-): BaseQueryFn<
+const axiosBaseQuery: BaseQueryFn<
 {
   url: string
   method: AxiosRequestConfig['method']
@@ -12,14 +11,15 @@ const axiosBaseQuery = (
 },
 unknown,
 unknown
-> => (
+> = (
   async ({
     url,
     method,
     data,
     params,
   }) => {
-    const apiKey = '93e4398b13ae3ceac59da26477413183';
+    const baseUrl = 'https://api.themoviedb.org/3';
+    const apiKey = '93e4398b13ae3ceac59da2647741318';
     try {
       const result = await axios({
         url: baseUrl + url,
@@ -37,6 +37,7 @@ unknown
         },
       };
     }
-  });
+  }
+);
 
 export default axiosBaseQuery;
