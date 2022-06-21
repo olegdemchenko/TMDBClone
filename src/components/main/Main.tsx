@@ -24,11 +24,11 @@ function MainPage() {
       />
       <Gallery
         heading={t('movies.top')}
-        sendQuery={useGetNowPlayingMoviesQuery}
+        sendQuery={useGetTopRatedMoviesQuery}
       />
       <Gallery
         heading={t('movies.playing')}
-        sendQuery={useGetTopRatedMoviesQuery}
+        sendQuery={useGetNowPlayingMoviesQuery}
       />
     </>
   );
