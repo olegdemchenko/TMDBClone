@@ -22,8 +22,8 @@ test('check fetching popular movies info', () => {
   renderWithWrapper(<App />);
   ['popular', 'playing', 'rated', 'upcoming'].forEach(async (type) => {
     const typeRegExp = new RegExp(type, 'i');
-    expect(screen.getByRole('heading', { name: typeRegExp })).toBeInTheDocument();
-    expect(await screen.findAllByAltText(typeRegExp)).not.toHaveLength(0);
+    expect(await screen.findByRole('heading', { name: typeRegExp })).toBeInTheDocument();
+    expect(screen.getAllByAltText(typeRegExp)).not.toHaveLength(0);
   });
 });
 
