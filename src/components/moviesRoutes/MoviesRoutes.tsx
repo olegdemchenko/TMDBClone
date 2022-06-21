@@ -10,14 +10,14 @@ import {
 import Gallery from '../gallery/Gallery';
 
 function MoviesRoutes() {
-  const { t } = useTranslation('main');
+  const { t } = useTranslation('movies');
   return (
     <Routes>
       <Route
         index
         element={(
           <Gallery
-            heading={t('movies.popular')}
+            heading={t('popular')}
             sendQuery={useGetPopularMoviesQuery}
           />
         )}
@@ -26,7 +26,7 @@ function MoviesRoutes() {
         path="upcoming"
         element={(
           <Gallery
-            heading={t('movies.upcoming')}
+            heading={t('upcoming')}
             sendQuery={useGetUpcomingMoviesQuery}
           />
         )}
@@ -35,7 +35,7 @@ function MoviesRoutes() {
         path="top-rated"
         element={(
           <Gallery
-            heading={t('movies.top')}
+            heading={t('top')}
             sendQuery={useGetTopRatedMoviesQuery}
           />
         )}
@@ -44,7 +44,7 @@ function MoviesRoutes() {
         path="now-playing"
         element={(
           <Gallery
-            heading={t('movies.playing')}
+            heading={t('playing')}
             sendQuery={useGetNowPlayingMoviesQuery}
           />
         )}
