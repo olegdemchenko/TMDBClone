@@ -11,7 +11,10 @@ export const paths = {
 
 export const imagePaths = {
   searchResIcon: 'https://image.tmdb.org/t/p/w92/',
-  carouselSlidePoster: 'https://image.tmdb.org/t/p/w154/',
+  gallerySlidePoster: {
+    medium: 'https://image.tmdb.org/t/p/w154/',
+    large: 'https://image.tmdb.org/t/p/w300/',
+  },
 };
 
 type Routes = {
