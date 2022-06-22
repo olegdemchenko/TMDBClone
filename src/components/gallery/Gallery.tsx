@@ -1,12 +1,9 @@
 import React from 'react';
-import Alert from 'react-bootstrap/Alert';
+
 import { SerializedError } from '@reduxjs/toolkit';
 import { AxiosBaseQueryErr } from '../../app/store/axiosBaseQuery';
 import { MovieList } from '../../app/APIInterfaces';
-import { isDataDefined } from '../../common/utils';
-import GallerySpinner from './GallerySpinner';
-import GalleryItemsList from './GalleryItemsList';
-import Wrapper from './GalleryWrapper';
+import GalleryMain from './GalleryMain';
 
 type UseQueryResult = {
   data?: MovieList;
@@ -20,43 +17,35 @@ type UseQuery = () => UseQueryResult;
 
 interface CarouselProps {
   heading: string;
+  mode: 'row' | 'multiline';
   sendQuery: UseQuery;
 }
 
 function Carousel({
   heading,
+  mode,
   sendQuery,
 }: CarouselProps) {
   const {
-    isFetching,
     isError,
-    data,
+    isFetching,
     error,
+    data,
   } = sendQuery();
-  if (isFetching) {
+  if (mode === 'row') {
     return (
-      <Wrapper>
-        <GallerySpinner />
-      </Wrapper>
-    );
-  }
-  if (isError) {
-    return (
-      <Wrapper>
-        <Alert variant="danger">{ error?.message ?? 'Unknown error has happened.' }</Alert>
-      </Wrapper>
-    );
-  }
-  isDataDefined(data);
-  return (
-    <Wrapper>
-      <h4>{heading}</h4>
-      <GalleryItemsList
+      <GalleryMain
         heading={heading}
-        list={data.results}
+        contentState={{
+          isError,
+          isFetching,
+          error,
+          data,
+        }}
       />
-    </Wrapper>
-  );
+    );
+  }
+  return null;
 }
 
 export default Carousel;

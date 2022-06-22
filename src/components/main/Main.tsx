@@ -15,18 +15,22 @@ function MainPage() {
     <>
       <Search mode="main" />
       <Gallery
+        mode="row"
         heading={t('movies.popular')}
         sendQuery={useGetPopularMoviesQuery}
       />
       <Gallery
+        mode="row"
         heading={t('movies.upcoming')}
         sendQuery={useGetUpcomingMoviesQuery}
       />
       <Gallery
+        mode="row"
         heading={t('movies.top')}
         sendQuery={useGetTopRatedMoviesQuery}
       />
       <Gallery
+        mode="row"
         heading={t('movies.playing')}
         sendQuery={useGetNowPlayingMoviesQuery}
       />
