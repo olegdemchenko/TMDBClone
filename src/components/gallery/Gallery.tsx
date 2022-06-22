@@ -15,17 +15,17 @@ type UseQueryResult = {
 
 type UseQuery = () => UseQueryResult;
 
-interface CarouselProps {
+interface GalleryProps {
   heading: string;
   mode: 'row' | 'multiline';
   sendQuery: UseQuery;
 }
 
-function Carousel({
+function Gallery({
   heading,
   mode,
   sendQuery,
-}: CarouselProps) {
+}: GalleryProps) {
   const {
     isError,
     isFetching,
@@ -48,4 +48,4 @@ function Carousel({
   return null;
 }
 
-export default Carousel;
+export default Gallery;
