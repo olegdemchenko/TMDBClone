@@ -9,9 +9,10 @@ interface GalleryListItemsProps {
   mode: 'row' | 'multiline',
 }
 
+const listGap = 25;
 const commonStyles = css({
   display: 'flex',
-  gap: 25,
+  gap: listGap,
 });
 
 const RowListStyles = css({
@@ -20,7 +21,20 @@ const RowListStyles = css({
 });
 
 const multilineListStyles = css({
-  flexWrap: 'wrap',
+  display: 'grid',
+  gridTemplateColumns: `repeat(5, calc((100% - ${4 * listGap}px) / 5))`,
+  '@media (max-width: 1200px)': {
+    gridTemplateColumns: `repeat(4, calc((100% - ${3 * listGap}px) / 4))`,
+  },
+  '@media (max-width: 1000px)': {
+    gridTemplateColumns: `repeat(3, calc((100% - ${2 * listGap}px) / 3))`,
+  },
+  '@media (max-width: 850px)': {
+    gridTemplateColumns: `repeat(2, calc((100% - ${listGap}px) / 2))`,
+  },
+  '@media (max-width: 700px)': {
+    gridTemplateColumns: '100%',
+  },
 });
 
 function GalleryItemsList({
