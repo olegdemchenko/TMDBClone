@@ -16,14 +16,34 @@ interface GalleryItemProps {
   size: 'medium' | 'large'
 }
 
-const slideStyles = css({
-  position: 'relative',
-  width: 154,
-});
+const containerStyles = {
+  medium: css({
+    position: 'relative',
+    width: 154,
+  }),
+  large: css({
+    position: 'relative',
+    borderRadius: 10,
+    border: `2px solid ${ThemeColors.lightGray}`,
+  }),
+};
 
-const iconStyles = css({
-  borderRadius: 10,
-});
+const iconStyles = {
+  medium: css({
+    borderRadius: 10,
+  }),
+  large: css({
+    width: '100%',
+    borderRadius: '10px 10px 0 0',
+  }),
+};
+
+const textStyles = {
+  medium: {},
+  large: css({
+    padding: 15,
+  }),
+};
 
 const progressbarContainerStyles = css({
   position: 'absolute',
@@ -45,11 +65,11 @@ function GalleryItem({
   },
   size,
 }: GalleryItemProps) {
-  const icon = poster ? `${imagePaths.carouselSlidePoster}${poster}` : notFound;
+  const icon = poster ? `${imagePaths.gallerySlidePoster[size]}${poster}` : notFound;
   return (
-    <div css={size === 'medium' ? slideStyles : {}}>
+    <div css={containerStyles[size]}>
       <div>
-        <img src={icon} alt={alt} css={iconStyles} />
+        <img src={icon} alt={alt} css={iconStyles[size]} />
       </div>
       <div css={progressbarContainerStyles}>
         <Progressbar
@@ -62,8 +82,10 @@ function GalleryItem({
           }}
         />
       </div>
-      <p className="m-0 mt-4 fw-bolder">{title}</p>
-      <p className="m-0 text-secondary">{date}</p>
+      <div css={textStyles[size]}>
+        <p className="m-0 mt-4 fw-bolder">{title}</p>
+        <p className="m-0 text-secondary">{date}</p>
+      </div>
     </div>
   );
 }
