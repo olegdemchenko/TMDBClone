@@ -19,12 +19,8 @@ interface GalleryItemProps {
 const slideStyles = css({
   position: 'relative',
   width: 154,
-  marginRight: 25,
   img: {
     borderRadius: 10,
-  },
-  '&:last-child': {
-    marginRight: 0,
   },
 });
 

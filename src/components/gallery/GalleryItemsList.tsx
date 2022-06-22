@@ -14,6 +14,7 @@ const GalleryListStyles = css({
   paddingTop: '3rem',
   display: 'flex',
   flexWrap: 'nowrap',
+  gap: 25,
 });
 
 function GalleryItemsList({
