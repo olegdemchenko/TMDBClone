@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 import { css } from '@emotion/react';
 import { MovieListResults } from '../../app/APIInterfaces';
 import GalleryItem from './GalleryItem';
@@ -10,11 +9,18 @@ interface GalleryListItemsProps {
   mode: 'row' | 'multiline',
 }
 
-const GalleryListStyles = css({
-  paddingTop: '3rem',
+const commonStyles = css({
   display: 'flex',
-  flexWrap: 'nowrap',
   gap: 25,
+});
+
+const RowListStyles = css({
+  paddingTop: '3rem',
+  flexWrap: 'nowrap',
+});
+
+const multilineListStyles = css({
+  flexWrap: 'wrap',
 });
 
 function GalleryItemsList({
@@ -22,8 +28,9 @@ function GalleryItemsList({
   heading,
   mode,
 }: GalleryListItemsProps) {
+  const changeableStyles = mode === 'row' ? RowListStyles : multilineListStyles;
   return (
-    <div css={GalleryListStyles}>
+    <div css={css(commonStyles, changeableStyles)}>
       {list.map((elem) => (
         <GalleryItem
           key={elem.id}
@@ -34,7 +41,7 @@ function GalleryItemsList({
             rate: elem.vote_average,
             alt: `${heading}: ${elem.title ?? ''}`,
           }}
-          size="medium"
+          size={mode === 'row' ? 'medium' : 'large'}
         />
       ))}
     </div>
