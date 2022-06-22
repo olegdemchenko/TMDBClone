@@ -3,7 +3,7 @@ import React from 'react';
 import { SerializedError } from '@reduxjs/toolkit';
 import { AxiosBaseQueryErr } from '../../app/store/axiosBaseQuery';
 import { MovieList } from '../../app/APIInterfaces';
-import GalleryMain from './GalleryMain';
+import GalleryRow from './GalleryRow';
 
 type UseQueryResult = {
   data?: MovieList;
@@ -34,7 +34,7 @@ function Carousel({
   } = sendQuery();
   if (mode === 'row') {
     return (
-      <GalleryMain
+      <GalleryRow
         heading={heading}
         contentState={{
           isError,

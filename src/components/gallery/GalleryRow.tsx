@@ -8,7 +8,7 @@ import GallerySpinner from './GallerySpinner';
 import GalleryItemsList from './GalleryItemsList';
 import Wrapper from './GalleryWrapper';
 
-interface GalleryMainProps {
+interface GalleryRowProps {
   heading: string;
   contentState: {
     data?: MovieList;
@@ -18,7 +18,7 @@ interface GalleryMainProps {
   }
 }
 
-function GalleryMain({
+function GalleryRow({
   heading,
   contentState: {
     data,
@@ -26,7 +26,7 @@ function GalleryMain({
     isError,
     isFetching,
   },
-}:GalleryMainProps) {
+}:GalleryRowProps) {
   if (isFetching) {
     return (
       <Wrapper mode="row">
@@ -54,4 +54,4 @@ function GalleryMain({
   );
 }
 
-export default GalleryMain;
+export default GalleryRow;
