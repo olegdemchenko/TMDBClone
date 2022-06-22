@@ -19,9 +19,10 @@ interface GalleryItemProps {
 const slideStyles = css({
   position: 'relative',
   width: 154,
-  img: {
-    borderRadius: 10,
-  },
+});
+
+const iconStyles = css({
+  borderRadius: 10,
 });
 
 const progressbarContainerStyles = css({
@@ -48,7 +49,7 @@ function GalleryItem({
   return (
     <div css={size === 'medium' ? slideStyles : {}}>
       <div>
-        <img src={icon} alt={alt} />
+        <img src={icon} alt={alt} css={iconStyles} />
       </div>
       <div css={progressbarContainerStyles}>
         <Progressbar
