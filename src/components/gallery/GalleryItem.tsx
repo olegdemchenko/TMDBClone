@@ -50,7 +50,7 @@ function GalleryItem({
 }: GalleryItemProps) {
   const icon = poster ? `${imagePaths.carouselSlidePoster}${poster}` : notFound;
   return (
-    <div css={slideStyles}>
+    <div css={size === 'medium' ? slideStyles : {}}>
       <div>
         <img src={icon} alt={alt} />
       </div>
