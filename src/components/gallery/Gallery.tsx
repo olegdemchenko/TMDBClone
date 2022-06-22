@@ -49,6 +49,7 @@ function Gallery({
   if (mode === 'multiline') {
     return (
       <GalleryMultiline
+        heading={heading}
         setPage={setPage}
         contentState={{
           isError,
