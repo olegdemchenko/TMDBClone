@@ -5,7 +5,7 @@ import notFound from '../../assets/img/notFound.png';
 import { imagePaths } from '../../routes/routes';
 import { ThemeColors } from '../../common/styles';
 
-interface CarouselSlideProps {
+interface GalleryItemProps {
   poster?: string | null;
   title?: string;
   date?: string;
@@ -35,13 +35,13 @@ const progressbarContainerStyles = css({
   borderRadius: '50%',
 });
 
-function CarouselSlide({
+function GalleryItem({
   poster,
   title,
   date,
   rate = 0,
   alt,
-}: CarouselSlideProps) {
+}: GalleryItemProps) {
   const icon = poster ? `${imagePaths.carouselSlidePoster}${poster}` : notFound;
   return (
     <div css={slideStyles}>
@@ -65,4 +65,4 @@ function CarouselSlide({
   );
 }
 
-export default CarouselSlide;
+export default GalleryItem;
