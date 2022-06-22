@@ -20,16 +20,16 @@ export const tmdbApi = createApi({
       ),
     }),
     getPopularMovies: builder.query<MovieList, void>({
-      query: () => ({ url: '/movie/popular', method: 'get', params: {} }),
+      query: (page) => ({ url: '/movie/popular', method: 'get', params: { page } }),
     }),
     getNowPlayingMovies: builder.query<MovieList, void>({
-      query: () => ({ url: '/movie/now_playing', method: 'get', params: {} }),
+      query: (page) => ({ url: '/movie/now_playing', method: 'get', params: { page } }),
     }),
     getTopRatedMovies: builder.query<MovieList, void>({
-      query: () => ({ url: '/movie/top_rated', method: 'get', params: {} }),
+      query: (page) => ({ url: '/movie/top_rated', method: 'get', params: { page } }),
     }),
     getUpcomingMovies: builder.query<MovieList, void>({
-      query: () => ({ url: '/movie/upcoming', method: 'get', params: {} }),
+      query: (page) => ({ url: '/movie/upcoming', method: 'get', params: { page } }),
     }),
   }),
 });
