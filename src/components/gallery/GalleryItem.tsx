@@ -6,11 +6,14 @@ import { imagePaths } from '../../routes/routes';
 import { ThemeColors } from '../../common/styles';
 
 interface GalleryItemProps {
-  poster?: string | null;
-  title?: string;
-  date?: string;
-  rate?: number;
-  alt: string;
+  data: {
+    poster?: string | null;
+    title?: string;
+    date?: string;
+    rate?: number;
+    alt: string;
+  },
+  size: 'medium' | 'large'
 }
 
 const slideStyles = css({
@@ -36,11 +39,14 @@ const progressbarContainerStyles = css({
 });
 
 function GalleryItem({
-  poster,
-  title,
-  date,
-  rate = 0,
-  alt,
+  data: {
+    poster,
+    title,
+    date,
+    rate = 0,
+    alt,
+  },
+  size,
 }: GalleryItemProps) {
   const icon = poster ? `${imagePaths.carouselSlidePoster}${poster}` : notFound;
   return (

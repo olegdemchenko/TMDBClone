@@ -26,11 +26,14 @@ function GalleryItemsList({
       {list.map((elem) => (
         <GalleryItem
           key={elem.id}
-          poster={elem.poster_path}
-          title={elem.title}
-          date={elem.release_date}
-          rate={elem.vote_average}
-          alt={`${heading}: ${elem.title ?? ''}`}
+          data={{
+            poster: elem.poster_path,
+            title: elem.title,
+            date: elem.release_date,
+            rate: elem.vote_average,
+            alt: `${heading}: ${elem.title ?? ''}`,
+          }}
+          size="medium"
         />
       ))}
     </div>
