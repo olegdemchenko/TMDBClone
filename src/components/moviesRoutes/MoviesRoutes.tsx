@@ -7,7 +7,7 @@ import {
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
 } from '../../app/store/tmdbServices';
-import Gallery from '../gallery/Gallery';
+import MovieCollection from '../collection/MovieCollection';
 
 function MoviesRoutes() {
   const { t } = useTranslation('movies');
@@ -16,7 +16,7 @@ function MoviesRoutes() {
       <Route
         index
         element={(
-          <Gallery
+          <MovieCollection
             heading={t('popular')}
             sendQuery={useGetPopularMoviesQuery}
           />
@@ -25,7 +25,7 @@ function MoviesRoutes() {
       <Route
         path="upcoming"
         element={(
-          <Gallery
+          <MovieCollection
             heading={t('upcoming')}
             sendQuery={useGetUpcomingMoviesQuery}
           />
@@ -34,7 +34,7 @@ function MoviesRoutes() {
       <Route
         path="top-rated"
         element={(
-          <Gallery
+          <MovieCollection
             heading={t('top')}
             sendQuery={useGetTopRatedMoviesQuery}
           />
@@ -43,7 +43,7 @@ function MoviesRoutes() {
       <Route
         path="now-playing"
         element={(
-          <Gallery
+          <MovieCollection
             heading={t('playing')}
             sendQuery={useGetNowPlayingMoviesQuery}
           />
