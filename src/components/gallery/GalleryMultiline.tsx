@@ -5,12 +5,13 @@ import { AxiosBaseQueryErr } from '../../app/store/axiosBaseQuery';
 import { isDataDefined } from '../../common/utils';
 import { MovieList } from '../../app/APIInterfaces';
 import Wrapper from './GalleryWrapper';
-import GallerySpinner from './GallerySpinner';
+import Spinner from '../spinner';
 import GalleryItemsList from './GalleryItemsList';
+import GalleryScroll from './GalleryScroll';
 
 interface GalleryMultilineProps {
   heading: string;
-  setPage: (page: number) => void;
+  setPage: (setState:(page: number) => number) => void;
   contentState: {
     data?: MovieList;
     error?: AxiosBaseQueryErr | SerializedError;
@@ -31,7 +32,7 @@ function GalleryMultiline({
   if (isFetching) {
     return (
       <Wrapper mode="screen">
-        <GallerySpinner />
+        <Spinner />
       </Wrapper>
     );
   }
@@ -44,14 +45,16 @@ function GalleryMultiline({
   }
   isDataDefined(data);
   return (
-    <Wrapper mode="screen">
-      <h3>{heading}</h3>
-      <GalleryItemsList
-        mode="multiline"
-        heading={heading}
-        list={data.results}
-      />
-    </Wrapper>
+    <GalleryScroll callback={() => setPage((page: number) => page + 1)}>
+      <Wrapper mode="screen">
+        <h3 className="m-0 pb-4">{heading}</h3>
+        <GalleryItemsList
+          mode="multiline"
+          heading={heading}
+          list={data.results}
+        />
+      </Wrapper>
+    </GalleryScroll>
   );
 }
 

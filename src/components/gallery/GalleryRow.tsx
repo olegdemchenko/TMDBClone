@@ -4,7 +4,7 @@ import { SerializedError } from '@reduxjs/toolkit';
 import { AxiosBaseQueryErr } from '../../app/store/axiosBaseQuery';
 import { isDataDefined } from '../../common/utils';
 import { MovieList } from '../../app/APIInterfaces';
-import GallerySpinner from './GallerySpinner';
+import Spinner from '../spinner';
 import GalleryItemsList from './GalleryItemsList';
 import Wrapper from './GalleryWrapper';
 
@@ -30,7 +30,7 @@ function GalleryRow({
   if (isFetching) {
     return (
       <Wrapper mode="row">
-        <GallerySpinner />
+        <Spinner />
       </Wrapper>
     );
   }
