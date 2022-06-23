@@ -62,3 +62,13 @@ test('check error handling after search request is sent', async () => {
   });
   await screen.findByRole('alert');
 });
+
+test('check movies tab behavior', async () => {
+  renderWithWrapper(<App />);
+  await userEvent.click(screen.getByRole('button', { name: /movies/i }));
+  await userEvent.click(screen.getByRole('button', { name: /popular/i }));
+  await waitFor(() => {
+    expect(window.location.pathname).toBe('/movie/');
+  });
+  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
+});
