@@ -3,7 +3,6 @@ import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
 import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
 import axiosBaseQuery from '../../app/store/axiosBaseQuery';
 import { MovieList } from '../../app/APIInterfaces';
-import GalleryRow from './GalleryRow';
 import GalleryMultiline from './GalleryMultiline';
 
 interface GalleryProps {
@@ -24,19 +23,6 @@ function Gallery({
     error,
     data,
   } = sendQuery(page);
-  if (mode === 'row') {
-    return (
-      <GalleryRow
-        heading={heading}
-        contentState={{
-          isError,
-          isFetching,
-          error,
-          data,
-        }}
-      />
-    );
-  }
   if (mode === 'multiline') {
     return (
       <GalleryMultiline

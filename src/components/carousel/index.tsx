@@ -1,32 +1,29 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
-import { SerializedError } from '@reduxjs/toolkit';
-import { AxiosBaseQueryErr } from '../../app/store/axiosBaseQuery';
+import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
+import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
+import axiosBaseQuery from '../../app/store/axiosBaseQuery';
 import { isDataDefined } from '../../common/utils';
 import { MovieList } from '../../app/APIInterfaces';
 import Spinner from '../spinner';
-import GalleryItemsList from './GalleryItemsList';
-import Wrapper from './GalleryWrapper';
+import GalleryItemsList from '../gallery/GalleryItemsList';
+import Wrapper from '../gallery/GalleryWrapper';
 
-interface GalleryRowProps {
-  heading: string;
-  contentState: {
-    data?: MovieList;
-    error?: AxiosBaseQueryErr | SerializedError;
-    isFetching: boolean;
-    isError: boolean;
-  }
+interface CarouselProps {
+  heading: string,
+  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieList>>
 }
 
-function GalleryRow({
+function Carousel({
   heading,
-  contentState: {
-    data,
-    error,
+  sendQuery,
+}:CarouselProps) {
+  const {
     isError,
     isFetching,
-  },
-}:GalleryRowProps) {
+    error,
+    data,
+  } = sendQuery(1);
   if (isFetching) {
     return (
       <Wrapper mode="row">
@@ -54,4 +51,4 @@ function GalleryRow({
   );
 }
 
-export default GalleryRow;
+export default Carousel;
