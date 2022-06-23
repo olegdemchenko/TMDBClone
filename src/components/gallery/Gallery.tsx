@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
-import { SerializedError } from '@reduxjs/toolkit';
-import { AxiosBaseQueryErr } from '../../app/store/axiosBaseQuery';
+import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
+import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
+import axiosBaseQuery from '../../app/store/axiosBaseQuery';
 import { MovieList } from '../../app/APIInterfaces';
 import GalleryRow from './GalleryRow';
 import GalleryMultiline from './GalleryMultiline';
 
-type UseQueryResult = {
-  data?: MovieList;
-  currentData?: MovieList;
-  error?: AxiosBaseQueryErr | SerializedError;
-  isFetching: boolean;
-  isError: boolean;
-};
-
-type UseQuery = (page: number) => UseQueryResult;
-
 interface GalleryProps {
   heading: string;
   mode: 'row' | 'multiline';
-  sendQuery: UseQuery;
+  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieList>>;
 }
 
 function Gallery({
