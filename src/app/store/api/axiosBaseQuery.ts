@@ -1,6 +1,6 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/query';
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
-import { Error } from '../APIInterfaces';
+import { Error } from '../../APIInterfaces';
 
 export interface AxiosBaseQueryErr {
   status?: number;

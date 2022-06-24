@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import {
   MultiSearchResults,
   MovieList,
-} from '../APIInterfaces';
+} from '../../APIInterfaces';
 import axiosBaseQuery from './axiosBaseQuery';
 
 type MultiSearchRequest = {

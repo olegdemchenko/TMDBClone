@@ -5,7 +5,7 @@ import {
   useGetNowPlayingMoviesQuery,
   useGetPopularMoviesQuery,
   useGetTopRatedMoviesQuery,
-} from '../../app/store/tmdbServices';
+} from '../../app/store/api';
 import Search from '../search/Search';
 import Carousel from '../carousel';
 

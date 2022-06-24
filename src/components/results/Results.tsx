@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import { useGetMultiSearchQuery } from '../../app/store/tmdbServices';
+import { useGetMultiSearchQuery } from '../../app/store/api';
 import { isDataDefined } from '../../common/utils';
 import Search from '../search/Search';
 import Statistics from './Statistics';

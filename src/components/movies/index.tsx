@@ -6,7 +6,7 @@ import {
   useGetNowPlayingMoviesQuery,
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
-} from '../../app/store/tmdbServices';
+} from '../../app/store/api';
 import MovieCollection from '../movieCollection';
 
 function MoviesRoutes() {

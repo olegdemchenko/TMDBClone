@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
 import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
-import axiosBaseQuery from '../../app/store/axiosBaseQuery';
+import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
 import { isDataDefined } from '../../common/utils';
 import { MovieList } from '../../app/APIInterfaces';
 import Wrapper from '../gallery/GalleryWrapper';
