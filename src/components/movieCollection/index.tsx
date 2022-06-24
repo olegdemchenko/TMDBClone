@@ -2,21 +2,25 @@ import React, { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
 import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
+import { useSelector, Selector } from 'react-redux';
 import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
+import { RootState } from '../../app/store/store';
 import { isDataDefined } from '../../common/utils';
-import { MovieListResult } from '../../app/APIInterfaces';
+import { MovieListItem, MovieListResult } from '../../app/APIInterfaces';
 import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from '../spinner';
 import GalleryItemsList from '../gallery/GalleryItemsList';
 
 interface MovieCollectionProps {
   heading: string,
-  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieListResult>>
+  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieListResult>>,
+  selector: Selector<RootState, (MovieListItem | undefined)[]>
 }
 
 function MovieCollection({
   heading,
   sendQuery,
+  selector,
 }: MovieCollectionProps) {
   const [page, setPage] = useState<number>(1);
   useEffect(() => {
@@ -33,7 +37,7 @@ function MovieCollection({
     error,
     data,
   } = sendQuery(page);
-
+  const movies = useSelector(selector) as MovieListItem[];
   if (isFetching) {
     return (
       <Wrapper mode="screen">
@@ -55,7 +59,7 @@ function MovieCollection({
       <GalleryItemsList
         mode="multiline"
         heading={heading}
-        list={data.results}
+        list={movies}
       />
     </Wrapper>
   );
