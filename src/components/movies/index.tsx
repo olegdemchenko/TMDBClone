@@ -7,7 +7,7 @@ import {
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
 } from '../../app/store/tmdbServices';
-import MovieCollection from '../collection/MovieCollection';
+import MovieCollection from '../movieCollection';
 
 function MoviesRoutes() {
   const { t } = useTranslation('movies');
