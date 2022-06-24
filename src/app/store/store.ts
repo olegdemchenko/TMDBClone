@@ -9,3 +9,5 @@ export const store = configureStore({
     getDefaultMiddleware().concat(tmdbApi.middleware)
   ),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
