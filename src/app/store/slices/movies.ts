@@ -1,4 +1,4 @@
-/* eslint no-param-reassign: "off" */
+/* eslint-disable no-param-reassign, import/no-cycle */
 import { createSlice, createEntityAdapter, createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { MovieListItem } from '../../APIInterfaces';

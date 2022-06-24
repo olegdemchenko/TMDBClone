@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign, import/no-cycle */
 import { configureStore } from '@reduxjs/toolkit/';
 import { tmdbApi } from './api';
 import moviesSlice from './slices/movies';
