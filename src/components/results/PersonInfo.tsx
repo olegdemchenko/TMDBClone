@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
 import {
-  MovieListResultsMedia,
-  TVListResultsMedia,
+  MovieListItemMedia,
+  TVListItemMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
 import noAvatar from '../../assets/img/noAvatar.jpg';
@@ -12,7 +12,7 @@ import { imagePaths } from '../../routes/routes';
 interface PersonInfoProps {
   name: string;
   avatar: string | null;
-  works: (MovieListResultsMedia | TVListResultsMedia)[];
+  works: (MovieListItemMedia | TVListItemMedia)[];
 }
 
 const photoStyles = css({

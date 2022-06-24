@@ -4,16 +4,16 @@ import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import {
-  MovieListResultsMedia,
-  PersonListResultsMedia,
-  TVListResultsMedia,
+  MovieListItemMedia,
+  PersonListItemMedia,
+  TVListItemMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
 import { ThemeColors } from '../../common/styles';
 import { capitalize } from '../../common/utils';
 
 interface StatisticsProps {
-  searchData: (MovieListResultsMedia | PersonListResultsMedia | TVListResultsMedia)[]
+  searchData: (MovieListItemMedia | PersonListItemMedia | TVListItemMedia)[]
 }
 
 const statisticsContainerStyles = css({

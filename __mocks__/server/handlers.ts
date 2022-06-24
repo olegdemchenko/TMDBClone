@@ -3,12 +3,12 @@ import {
   MultiSearchResults,  
   Error,
   MediaTypes,
-  MovieListResultsMedia
+  MovieListItemMedia
 } from '../../src/app/APIInterfaces';
 import { paths } from '../../src/routes/routes';
 import SearchQueries from './testQueries';
 
-export const movieListResult: MovieListResultsMedia = {
+export const movieListResult: MovieListItemMedia = {
   poster_path: "/lIv1QinFqz4dlp5U4lQ6HaiskOZ.jpg",
   adult: false,
   overview: "Under the direction of a ruthless instructor, a talented young drummer begins to pursue perfection at any cost, even his humanity.",
