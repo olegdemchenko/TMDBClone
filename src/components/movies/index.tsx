@@ -7,6 +7,12 @@ import {
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
 } from '../../app/store/api';
+import {
+  selectPopularMovies,
+  selectNowPlayingMovies,
+  selectTopRatedMovies,
+  selectUpcomingMovies,
+} from '../../app/store/slices/movies';
 import MovieCollection from '../movieCollection';
 
 function MoviesRoutes() {
@@ -19,6 +25,7 @@ function MoviesRoutes() {
           <MovieCollection
             heading={t('popular')}
             sendQuery={useGetPopularMoviesQuery}
+            selector={selectPopularMovies}
           />
         )}
       />
@@ -28,6 +35,7 @@ function MoviesRoutes() {
           <MovieCollection
             heading={t('upcoming')}
             sendQuery={useGetUpcomingMoviesQuery}
+            selector={selectUpcomingMovies}
           />
         )}
       />
@@ -37,6 +45,7 @@ function MoviesRoutes() {
           <MovieCollection
             heading={t('top')}
             sendQuery={useGetTopRatedMoviesQuery}
+            selector={selectTopRatedMovies}
           />
         )}
       />
@@ -46,6 +55,7 @@ function MoviesRoutes() {
           <MovieCollection
             heading={t('playing')}
             sendQuery={useGetNowPlayingMoviesQuery}
+            selector={selectNowPlayingMovies}
           />
         )}
       />
