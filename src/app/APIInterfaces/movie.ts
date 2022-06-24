@@ -1,4 +1,4 @@
-export interface MovieListResults {
+export interface MovieListItem {
   poster_path?: string | null;
   adult?: boolean;
   overview?: string;
@@ -15,9 +15,9 @@ export interface MovieListResults {
   vote_average?: number;
 }
 
-export interface MovieList {
+export interface MovieListResult {
   page: number;
   total_pages: number;
   total_results: number;
-  results: (MovieListResults)[]
+  results: (MovieListItem)[]
 }

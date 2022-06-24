@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { MovieListResults } from '../../app/APIInterfaces';
+import { MovieListItem } from '../../app/APIInterfaces';
 import GalleryItem from './GalleryItem';
 
 interface GalleryListItemsProps {
-  list: MovieListResults[];
+  list: MovieListItem[];
   heading: string,
   mode: 'row' | 'multiline',
 }

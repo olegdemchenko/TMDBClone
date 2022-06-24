@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import {
   MultiSearchResults,
-  MovieList,
+  MovieListResult,
 } from '../../APIInterfaces';
 import axiosBaseQuery from './axiosBaseQuery';
 
@@ -19,16 +19,16 @@ export const tmdbApi = createApi({
         { url: '/search/multi', method: 'get', params: { query, page } }
       ),
     }),
-    getPopularMovies: builder.query<MovieList, number>({
+    getPopularMovies: builder.query<MovieListResult, number>({
       query: (page) => ({ url: '/movie/popular', method: 'get', params: { page } }),
     }),
-    getNowPlayingMovies: builder.query<MovieList, number>({
+    getNowPlayingMovies: builder.query<MovieListResult, number>({
       query: (page) => ({ url: '/movie/now_playing', method: 'get', params: { page } }),
     }),
-    getTopRatedMovies: builder.query<MovieList, number>({
+    getTopRatedMovies: builder.query<MovieListResult, number>({
       query: (page) => ({ url: '/movie/top_rated', method: 'get', params: { page } }),
     }),
-    getUpcomingMovies: builder.query<MovieList, number>({
+    getUpcomingMovies: builder.query<MovieListResult, number>({
       query: (page) => ({ url: '/movie/upcoming', method: 'get', params: { page } }),
     }),
   }),

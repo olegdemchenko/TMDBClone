@@ -4,14 +4,14 @@ import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
 import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
 import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
 import { isDataDefined } from '../../common/utils';
-import { MovieList } from '../../app/APIInterfaces';
+import { MovieListResult } from '../../app/APIInterfaces';
 import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from '../spinner';
 import GalleryItemsList from '../gallery/GalleryItemsList';
 
 interface MovieCollectionProps {
   heading: string,
-  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieList>>
+  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieListResult>>
 }
 
 function MovieCollection({

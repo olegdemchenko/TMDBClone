@@ -1,4 +1,4 @@
-import { MovieListResults } from './movie';
+import { MovieListItem } from './movie';
 
 export enum MediaTypes {
   movie = 'movie',
@@ -6,7 +6,7 @@ export enum MediaTypes {
   person = 'person',
 }
 
-export interface MovieListResultsMedia extends MovieListResults {
+export interface MovieListResultsMedia extends MovieListItem {
   media_type: MediaTypes.movie;
 }
 
