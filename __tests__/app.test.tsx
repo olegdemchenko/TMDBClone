@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import {
+  fireEvent,
   screen,
   waitFor,
 } from '@testing-library/react';
@@ -70,5 +71,11 @@ test('check movies tab behavior', async () => {
   await waitFor(() => {
     expect(window.location.pathname).toBe('/movie/');
   });
+  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
+  const loadBtn = screen.getByRole('button', { name: /load more/i });
+  userEvent.click(loadBtn);
+  expect(await screen.findByTestId('collectionSpinner')).toBeInTheDocument();
+  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
+  fireEvent.scroll(window, { target: { scrollY: 3000 } });
   expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
 });
