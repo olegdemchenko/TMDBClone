@@ -21,7 +21,7 @@ const spinnerSizeStyles = css({
 });
 
 function CollectionSpinner() {
-  return <div css={collectionSpinnerStyles}><Spinner css={spinnerSizeStyles} animation="border" variant="primary" /></div>;
+  return <div css={collectionSpinnerStyles} data-testid="collectionSpinner"><Spinner css={spinnerSizeStyles} animation="border" variant="primary" /></div>;
 }
 
 export default CollectionSpinner;
