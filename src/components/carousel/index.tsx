@@ -1,17 +1,14 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
-import { UseQuery } from '@reduxjs/toolkit/dist/query/react/buildHooks';
-import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
-import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
+import { SendQuery } from '../../common/hooks/useStoredUseQuery';
 import { isDataDefined } from '../../common/utils';
-import { MovieListResult } from '../../app/APIInterfaces';
 import Spinner from '../spinner';
 import GalleryItemsList from '../gallery/GalleryItemsList';
 import Wrapper from '../gallery/GalleryWrapper';
 
 interface CarouselProps {
   heading: string,
-  sendQuery: UseQuery<QueryDefinition<number, typeof axiosBaseQuery, any, MovieListResult>>
+  sendQuery: SendQuery
 }
 
 function Carousel({
@@ -45,7 +42,7 @@ function Carousel({
       <GalleryItemsList
         mode="row"
         heading={heading}
-        list={data.results}
+        list={data}
       />
     </Wrapper>
   );

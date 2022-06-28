@@ -6,6 +6,13 @@ import {
   useGetPopularMoviesQuery,
   useGetTopRatedMoviesQuery,
 } from '../../app/store/api';
+import useStoredUseQuery from '../../common/hooks/useStoredUseQuery';
+import {
+  selectPopularMovies,
+  selectNowPlayingMovies,
+  selectTopRatedMovies,
+  selectUpcomingMovies,
+} from '../../app/store/slices/movies';
 import Search from '../search/Search';
 import Carousel from '../carousel';
 
@@ -16,19 +23,19 @@ function MainPage() {
       <Search mode="main" />
       <Carousel
         heading={t('movies.popular')}
-        sendQuery={useGetPopularMoviesQuery}
+        sendQuery={useStoredUseQuery(useGetPopularMoviesQuery, selectPopularMovies)}
       />
       <Carousel
         heading={t('movies.upcoming')}
-        sendQuery={useGetUpcomingMoviesQuery}
+        sendQuery={useStoredUseQuery(useGetUpcomingMoviesQuery, selectUpcomingMovies)}
       />
       <Carousel
         heading={t('movies.top')}
-        sendQuery={useGetTopRatedMoviesQuery}
+        sendQuery={useStoredUseQuery(useGetTopRatedMoviesQuery, selectTopRatedMovies)}
       />
       <Carousel
         heading={t('movies.playing')}
-        sendQuery={useGetNowPlayingMoviesQuery}
+        sendQuery={useStoredUseQuery(useGetNowPlayingMoviesQuery, selectNowPlayingMovies)}
       />
     </>
   );
