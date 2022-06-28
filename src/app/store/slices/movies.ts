@@ -55,22 +55,22 @@ const moviesSlice = createSlice({
 
 export const selectPopularMovies = createSelector(
   (state: RootState) => state.movies,
-  (movies) => movies.popularIds.reduce((acc, id) => [...acc, movies.entities[id]], []),
+  (movies) => movies.popularIds.map((id) => movies.entities[id]),
 );
 
 export const selectUpcomingMovies = createSelector(
   (state: RootState) => state.movies,
-  (movies) => movies.upcomingIds.reduce((acc, id) => [...acc, movies.entities[id]], []),
+  (movies) => movies.upcomingIds.map((id) => movies.entities[id]),
 );
 
 export const selectTopRatedMovies = createSelector(
   (state: RootState) => state.movies,
-  (movies) => movies.topIds.reduce((acc, id) => [...acc, movies.entities[id]], []),
+  (movies) => movies.topIds.map((id) => movies.entities[id]),
 );
 
 export const selectNowPlayingMovies = createSelector(
   (state: RootState) => state.movies,
-  (movies) => movies.nowPlayingIds.reduce((acc, id) => [...acc, movies.entities[id]], []),
+  (movies) => movies.nowPlayingIds.map((id) => movies.entities[id]),
 );
 
 export default moviesSlice;
