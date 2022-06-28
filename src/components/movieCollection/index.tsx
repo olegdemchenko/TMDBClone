@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Alert from 'react-bootstrap/Alert';
+import useUpdatePageAfterScroll from '../../common/hooks/useUpdatePageAfterScroll';
 import { SendQuery } from '../../common/hooks/useStoredUseQuery';
 import { isDataDefined } from '../../common/utils';
 import { MovieListItem } from '../../app/APIInterfaces';
@@ -16,15 +17,7 @@ function MovieCollection({
   heading,
   sendQuery,
 }: MovieCollectionProps) {
-  const [page, setPage] = useState<number>(1);
-  useEffect(() => {
-    function fetchExtraMovies() {
-      setPage((currPage: number) => currPage + 1);
-    }
-
-    window.addEventListener('scroll', fetchExtraMovies);
-    return () => window.removeEventListener('scroll', fetchExtraMovies);
-  }, []);
+  const page = useUpdatePageAfterScroll();
   const {
     isError,
     isFetching,
