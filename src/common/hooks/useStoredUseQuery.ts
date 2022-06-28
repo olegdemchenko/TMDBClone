@@ -16,6 +16,7 @@ any,
 MovieListResult>
 >;
 type SelectorType = Selector<RootState, Results>;
+export type SendQuery = ReturnType<typeof useStoredUseQuery>;
 
 export default function useStoredUseQuery(
   useQueryHook: UseQueryHookType,
