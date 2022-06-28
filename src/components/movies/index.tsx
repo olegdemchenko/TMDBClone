@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useCashedUseQuery from '../../common/hooks/useCashedUseQuery';
 import {
   useGetPopularMoviesQuery,
   useGetNowPlayingMoviesQuery,
@@ -24,8 +25,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('popular')}
-            sendQuery={useGetPopularMoviesQuery}
-            selector={selectPopularMovies}
+            sendQuery={useCashedUseQuery(useGetPopularMoviesQuery, selectPopularMovies)}
           />
         )}
       />
@@ -34,8 +34,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('upcoming')}
-            sendQuery={useGetUpcomingMoviesQuery}
-            selector={selectUpcomingMovies}
+            sendQuery={useCashedUseQuery(useGetUpcomingMoviesQuery, selectUpcomingMovies)}
           />
         )}
       />
@@ -44,8 +43,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('top')}
-            sendQuery={useGetTopRatedMoviesQuery}
-            selector={selectTopRatedMovies}
+            sendQuery={useCashedUseQuery(useGetTopRatedMoviesQuery, selectTopRatedMovies)}
           />
         )}
       />
@@ -54,8 +52,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('playing')}
-            sendQuery={useGetNowPlayingMoviesQuery}
-            selector={selectNowPlayingMovies}
+            sendQuery={useCashedUseQuery(useGetNowPlayingMoviesQuery, selectNowPlayingMovies)}
           />
         )}
       />
