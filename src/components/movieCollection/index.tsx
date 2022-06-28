@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
-import useCashedUseQuery from '../../common/hooks/useCashedUseQuery';
+import useStoredUseQuery from '../../common/hooks/useStoredUseQuery';
 import { isDataDefined } from '../../common/utils';
 import { MovieListItem } from '../../app/APIInterfaces';
 import Wrapper from '../gallery/GalleryWrapper';
@@ -9,7 +9,7 @@ import GalleryItemsList from '../gallery/GalleryItemsList';
 
 interface MovieCollectionProps {
   heading: string,
-  sendQuery: ReturnType<typeof useCashedUseQuery>
+  sendQuery: ReturnType<typeof useStoredUseQuery>
 }
 
 function MovieCollection({

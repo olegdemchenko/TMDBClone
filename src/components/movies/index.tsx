@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import useCashedUseQuery from '../../common/hooks/useCashedUseQuery';
+import useStoredUseQuery from '../../common/hooks/useStoredUseQuery';
 import {
   useGetPopularMoviesQuery,
   useGetNowPlayingMoviesQuery,
@@ -25,7 +25,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('popular')}
-            sendQuery={useCashedUseQuery(useGetPopularMoviesQuery, selectPopularMovies)}
+            sendQuery={useStoredUseQuery(useGetPopularMoviesQuery, selectPopularMovies)}
           />
         )}
       />
@@ -34,7 +34,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('upcoming')}
-            sendQuery={useCashedUseQuery(useGetUpcomingMoviesQuery, selectUpcomingMovies)}
+            sendQuery={useStoredUseQuery(useGetUpcomingMoviesQuery, selectUpcomingMovies)}
           />
         )}
       />
@@ -43,7 +43,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('top')}
-            sendQuery={useCashedUseQuery(useGetTopRatedMoviesQuery, selectTopRatedMovies)}
+            sendQuery={useStoredUseQuery(useGetTopRatedMoviesQuery, selectTopRatedMovies)}
           />
         )}
       />
@@ -52,7 +52,7 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('playing')}
-            sendQuery={useCashedUseQuery(useGetNowPlayingMoviesQuery, selectNowPlayingMovies)}
+            sendQuery={useStoredUseQuery(useGetNowPlayingMoviesQuery, selectNowPlayingMovies)}
           />
         )}
       />

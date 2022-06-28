@@ -17,7 +17,7 @@ MovieListResult>
 >;
 type SelectorType = Selector<RootState, Results>;
 
-export default function useCashedUseQuery(
+export default function useStoredUseQuery(
   useQueryHook: UseQueryHookType,
   querySelector: SelectorType,
 ) {
