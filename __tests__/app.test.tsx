@@ -4,6 +4,7 @@ import {
   fireEvent,
   screen,
   waitFor,
+  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '../src/i18n';
@@ -64,18 +65,24 @@ test('check error handling after search request is sent', async () => {
   await screen.findByRole('alert');
 });
 
-test('check movies tab behavior', async () => {
+test.only('check movies tab behavior', async () => {
   renderWithWrapper(<App />);
   await userEvent.click(screen.getByRole('button', { name: /movies/i }));
   await userEvent.click(screen.getByRole('button', { name: /popular/i }));
   await waitFor(() => {
     expect(window.location.pathname).toBe('/movie/');
   });
-  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
+  const movies = await screen.findAllByText(movieListResult.title as string);
+  const moviesCount = movies.length;
+  expect(moviesCount).toBeGreaterThan(0);
   const loadBtn = screen.getByRole('button', { name: /load more/i });
-  userEvent.click(loadBtn);
-  expect(await screen.findByTestId('collectionSpinner')).toBeInTheDocument();
-  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
-  fireEvent.scroll(window, { target: { scrollY: 3000 } });
-  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
+  await userEvent.click(loadBtn);
+  fireEvent.scroll(window, { target: { scrollY: 700 } });
+  await waitFor(() => {
+    expect(screen.getByTestId('collectionSpinner')).toBeInTheDocument();
+  });
+  await waitForElementToBeRemoved(() => screen.getByTestId('collectionSpinner'));
+  expect(
+    (await screen.findAllByText(movieListResult.title as string)).length,
+  ).toBeGreaterThan(moviesCount);
 });
