@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import useUpdatePageAfterScroll from '../../common/hooks/useUpdatePageAfterScroll';
 import { SendQuery } from '../../common/hooks/useStoredUseQuery';
 import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from './spinner';
 import ErrorMessage from './ErrorMessage';
+import Button from './Button';
 import GalleryItemsList from '../gallery/GalleryItemsList';
 
 interface MovieCollectionProps {
@@ -15,7 +17,10 @@ function MovieCollection({
   heading,
   sendQuery,
 }: MovieCollectionProps) {
-  const page = useUpdatePageAfterScroll();
+  const { t } = useTranslation('movieCollection');
+  const [isLoadingActive, activateLoading] = useState<boolean>(false);
+  const updatedPage = useUpdatePageAfterScroll();
+  const page = isLoadingActive ? updatedPage : 1;
   const {
     isError,
     isFetching,
@@ -32,6 +37,7 @@ function MovieCollection({
         heading={heading}
         list={data}
       />
+      { isLoadingActive ? null : <Button text={t('loadMore')} onClick={() => activateLoading(true)} /> }
     </Wrapper>
   );
 }
