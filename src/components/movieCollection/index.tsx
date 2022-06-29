@@ -21,32 +21,32 @@ function MovieCollection({
   const {
     isError,
     isFetching,
+    isSuccess,
     error,
     data,
   } = sendQuery(page);
+  let content: React.ReactNode;
   if (isFetching) {
-    return (
-      <Wrapper mode="screen">
-        <Spinner />
-      </Wrapper>
-    );
+    content = <Spinner />;
   }
   if (isError) {
-    return (
-      <Wrapper mode="screen">
-        <Alert variant="danger">{ error?.message ?? 'Unknown error has happened.' }</Alert>
-      </Wrapper>
+    content = <Alert variant="danger">{ error?.message ?? 'Unknown error has happened.' }</Alert>;
+  }
+  if (isSuccess) {
+    content = (
+      <>
+        <h3 className="m-0 pb-4">{heading}</h3>
+        <GalleryItemsList
+          mode="multiline"
+          heading={heading}
+          list={data as (MovieListItem)[]}
+        />
+      </>
     );
   }
-  isDataDefined(data);
   return (
     <Wrapper mode="screen">
-      <h3 className="m-0 pb-4">{heading}</h3>
-      <GalleryItemsList
-        mode="multiline"
-        heading={heading}
-        list={data as (MovieListItem)[]}
-      />
+      { content }
     </Wrapper>
   );
 }
