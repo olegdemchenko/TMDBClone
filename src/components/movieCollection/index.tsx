@@ -19,8 +19,7 @@ function MovieCollection({
 }: MovieCollectionProps) {
   const { t } = useTranslation('movieCollection');
   const [isLoadingActive, activateLoading] = useState<boolean>(false);
-  const updatedPage = useUpdatePageAfterScroll();
-  const page = isLoadingActive ? updatedPage : 1;
+  const page = useUpdatePageAfterScroll(isLoadingActive);
   const {
     isError,
     isFetching,
