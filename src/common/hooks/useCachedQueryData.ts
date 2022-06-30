@@ -35,7 +35,7 @@ const selectCachedData = (endpoint: Endpoint, page: number) => {
   );
 };
 
-export default function useCachedQueryData(
+export function useCachedQueryData(
   endpoint: Endpoint,
 ) {
   return (param: QueryHookParams) => {

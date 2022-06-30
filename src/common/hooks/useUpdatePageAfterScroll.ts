@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useUpdatePageAfterScroll() {
+export function useUpdatePageAfterScroll() {
   const [page, setPage] = useState<number>(1);
   useEffect(() => {
     function fetchExtraMovies() {

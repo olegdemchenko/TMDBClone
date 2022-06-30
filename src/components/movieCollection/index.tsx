@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useUpdatePageAfterScroll from '../../common/hooks/useUpdatePageAfterScroll';
+import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from './spinner';

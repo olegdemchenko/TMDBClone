@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { tmdbApi } from '../../app/store/api';
-import useCachedQueryData from '../../common/hooks/useCachedQueryData';
+import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import MovieCollection from '../movieCollection';
 
 function MoviesRoutes() {
