@@ -1,6 +1,6 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
-import { SendQuery } from '../../common/hooks/useStoredUseQuery';
+import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
 import Spinner from '../spinner';
 import GalleryItemsList from '../gallery/GalleryItemsList';

@@ -1,18 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  useGetUpcomingMoviesQuery,
-  useGetNowPlayingMoviesQuery,
-  useGetPopularMoviesQuery,
-  useGetTopRatedMoviesQuery,
-} from '../../app/store/api';
-import useStoredUseQuery from '../../common/hooks/useStoredUseQuery';
-import {
-  selectPopularMovies,
-  selectNowPlayingMovies,
-  selectTopRatedMovies,
-  selectUpcomingMovies,
-} from '../../app/store/slices/movies';
+import { tmdbApi } from '../../app/store/api';
+import useCachedQueryData from '../../common/hooks/useCachedQueryData';
 import Search from '../search/Search';
 import Carousel from '../carousel';
 
@@ -23,19 +12,19 @@ function MainPage() {
       <Search mode="main" />
       <Carousel
         heading={t('movies.popular')}
-        sendQuery={useStoredUseQuery(useGetPopularMoviesQuery, selectPopularMovies)}
+        sendQuery={useCachedQueryData(tmdbApi.endpoints.getPopularMovies)}
       />
       <Carousel
         heading={t('movies.upcoming')}
-        sendQuery={useStoredUseQuery(useGetUpcomingMoviesQuery, selectUpcomingMovies)}
+        sendQuery={useCachedQueryData(tmdbApi.endpoints.getUpcomingMovies)}
       />
       <Carousel
         heading={t('movies.top')}
-        sendQuery={useStoredUseQuery(useGetTopRatedMoviesQuery, selectTopRatedMovies)}
+        sendQuery={useCachedQueryData(tmdbApi.endpoints.getTopRatedMovies)}
       />
       <Carousel
         heading={t('movies.playing')}
-        sendQuery={useStoredUseQuery(useGetNowPlayingMoviesQuery, selectNowPlayingMovies)}
+        sendQuery={useCachedQueryData(tmdbApi.endpoints.getNowPlayingMovies)}
       />
     </>
   );
