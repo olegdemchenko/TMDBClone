@@ -65,7 +65,7 @@ test('check error handling after search request is sent', async () => {
   await screen.findByRole('alert');
 });
 
-test.only('check movies tab behavior', async () => {
+test('check movies tab behavior', async () => {
   renderWithWrapper(<App />);
   await userEvent.click(screen.getByRole('button', { name: /movies/i }));
   await userEvent.click(screen.getByRole('button', { name: /popular/i }));
