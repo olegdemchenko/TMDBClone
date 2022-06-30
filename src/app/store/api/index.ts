@@ -37,8 +37,4 @@ export const tmdbApi = createApi({
 
 export const {
   useGetMultiSearchQuery,
-  useGetPopularMoviesQuery,
-  useGetTopRatedMoviesQuery,
-  useGetNowPlayingMoviesQuery,
-  useGetUpcomingMoviesQuery,
 } = tmdbApi;
