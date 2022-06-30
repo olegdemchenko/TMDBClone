@@ -13,6 +13,7 @@ type MultiSearchRequest = {
 export const tmdbApi = createApi({
   reducerPath: 'tmdbApi',
   baseQuery: axiosBaseQuery,
+  keepUnusedDataFor: 3600,
   endpoints: (builder) => ({
     getMultiSearch: builder.query<MultiSearchResults, MultiSearchRequest>({
       query: ({ query, page }) => (
