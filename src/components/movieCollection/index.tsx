@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import Wrapper from '../gallery/GalleryWrapper';
-import Spinner from './spinner';
+import Spinner from './Spinner';
 import ErrorMessage from './ErrorMessage';
 import Button from './Button';
 import GalleryItemsList from '../gallery/GalleryItemsList';
