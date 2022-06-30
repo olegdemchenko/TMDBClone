@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { tmdbApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
-import MovieCollection from '../movieCollection';
+import MovieCollection from '../collection';
 
 function MoviesRoutes() {
   const { t } = useTranslation('movies');
