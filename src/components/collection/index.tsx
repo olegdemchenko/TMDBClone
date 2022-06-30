@@ -17,7 +17,7 @@ function MovieCollection({
   heading,
   sendQuery,
 }: MovieCollectionProps) {
-  const { t } = useTranslation('movieCollection');
+  const { t } = useTranslation('collection');
   const [isLoadingActive, activateLoading] = useState<boolean>(false);
   const page = useUpdatePageAfterScroll(isLoadingActive);
   const {
