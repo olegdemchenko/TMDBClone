@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useUpdatePageAfterScroll from '../../common/hooks/useUpdatePageAfterScroll';
-import { SendQuery } from '../../common/hooks/useStoredUseQuery';
+import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from './spinner';
 import ErrorMessage from './ErrorMessage';

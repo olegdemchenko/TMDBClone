@@ -1,19 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import useStoredUseQuery from '../../common/hooks/useStoredUseQuery';
-import {
-  useGetPopularMoviesQuery,
-  useGetNowPlayingMoviesQuery,
-  useGetTopRatedMoviesQuery,
-  useGetUpcomingMoviesQuery,
-} from '../../app/store/api';
-import {
-  selectPopularMovies,
-  selectNowPlayingMovies,
-  selectTopRatedMovies,
-  selectUpcomingMovies,
-} from '../../app/store/slices/movies';
+import { tmdbApi } from '../../app/store/api';
+import useCachedQueryData from '../../common/hooks/useCachedQueryData';
 import MovieCollection from '../movieCollection';
 
 function MoviesRoutes() {
@@ -25,7 +14,11 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('popular')}
-            sendQuery={useStoredUseQuery(useGetPopularMoviesQuery, selectPopularMovies)}
+            sendQuery={
+              useCachedQueryData(
+                tmdbApi.endpoints.getPopularMovies,
+              )
+            }
           />
         )}
       />
@@ -34,7 +27,11 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('upcoming')}
-            sendQuery={useStoredUseQuery(useGetUpcomingMoviesQuery, selectUpcomingMovies)}
+            sendQuery={
+              useCachedQueryData(
+                tmdbApi.endpoints.getUpcomingMovies,
+              )
+            }
           />
         )}
       />
@@ -43,7 +40,11 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('top')}
-            sendQuery={useStoredUseQuery(useGetTopRatedMoviesQuery, selectTopRatedMovies)}
+            sendQuery={
+              useCachedQueryData(
+                tmdbApi.endpoints.getTopRatedMovies,
+              )
+            }
           />
         )}
       />
@@ -52,7 +53,11 @@ function MoviesRoutes() {
         element={(
           <MovieCollection
             heading={t('playing')}
-            sendQuery={useStoredUseQuery(useGetNowPlayingMoviesQuery, selectNowPlayingMovies)}
+            sendQuery={
+              useCachedQueryData(
+                tmdbApi.endpoints.getNowPlayingMovies,
+              )
+            }
           />
         )}
       />
