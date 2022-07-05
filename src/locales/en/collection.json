@@ -1,3 +1,68 @@
 {
-  "loadMore": "Load more"
+  "loadMore": "Load more",
+  "filter": {
+    "sort": {
+      "name": "Sort by",
+      "heading": "Sort results by",
+      "options": {
+        "popularityAsc": "Popularity Ascending",
+        "popularityDesc": "Popularity Descending",
+        "rateAsc": "Rating Ascending",
+        "rateDesc": "Rating Descending",
+        "releaseDateAsc": "Release date Ascending",
+        "releaseDateDesc": "Release date Descending",
+        "titleAZ": "Title (A-Z)",
+        "titleZA": "Title (Z-A)"
+      }
+    },
+    "filters": {
+      "name": "Filters",
+      "dates": {
+        "name": "Release dates",
+        "from": "From",
+        "to": "To"
+      },
+      "genres": {
+        "name": "Genres",
+        "action": "Action",
+        "adventure": "Adventure",
+        "animation": "Animation",
+        "western": "Western",
+        "war": "War",
+        "mystery": "Mystery",
+        "documentary": "Documentary",
+        "drama": "Drama",
+        "history": "History",
+        "comedy": "Comedy",
+        "crime": "Crime",
+        "romance": "Romance",
+        "musical": "Musical",
+        "family": "Family",
+        "tvMovie": "TV Movie",
+        "thriller": "Thriller",
+        "horror": "Horror",
+        "sci-fi": "Science-Fiction",
+        "fantasy": "Fantasy"
+      },
+      "languages": {
+        "name": "Languages",
+        "none": "None selected",
+        "en": "English",
+        "zh": "Chinese",
+        "hi": "Hindi",
+        "es": "Spanish",
+        "fr": "French",
+        "ar": "Arabic",
+        "ru": "Russian",
+        "pt": "Portuguese",
+        "in": "Indonesian"
+      },
+      "age": {
+        "name": "Age",
+        "adult": "adult"
+      },
+      "userScore": "User Score",
+      "userVotes": "Minimum User Votes"
+    }
+  }
 }
