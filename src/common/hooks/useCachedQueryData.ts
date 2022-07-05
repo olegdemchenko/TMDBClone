@@ -9,7 +9,7 @@ import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
 
 type QueryHookParams = number;
 
-type MovieEndpointQuery = QueryDefinition<
+type MovieQuery = QueryDefinition<
 QueryHookParams,
 typeof axiosBaseQuery,
 any,
@@ -18,9 +18,9 @@ MovieListResult>;
 export type SendQuery = ReturnType<typeof useCachedQueryData>;
 
 type Endpoint = ApiEndpointQuery<
-MovieEndpointQuery,
-{ [K in Exclude<keyof typeof tmdbApi.endpoints, 'getMultiSearch'>]: MovieEndpointQuery }
-> & QueryHooks<MovieEndpointQuery>;
+MovieQuery,
+{ [K in Exclude<keyof typeof tmdbApi.endpoints, 'getMultiSearch'>]: MovieQuery }
+> & QueryHooks<MovieQuery>;
 
 const selectCachedData = (endpoint: Endpoint, page: number) => {
   const selectors = Array.from(
