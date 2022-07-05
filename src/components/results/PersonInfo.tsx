@@ -6,6 +6,7 @@ import {
   TVListItemMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
+import { BorderRadiuses } from '../../common/styles';
 import noAvatar from '../../assets/img/noAvatar.jpg';
 import { imagePaths } from '../../routes/routes';
 
@@ -18,7 +19,7 @@ interface PersonInfoProps {
 const photoStyles = css({
   width: 92,
   height: 92,
-  borderRadius: 10,
+  borderRadius: BorderRadiuses.medium,
   img: {
     marginTop: -15,
   },

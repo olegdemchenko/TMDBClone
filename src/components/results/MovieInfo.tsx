@@ -3,7 +3,10 @@ import { css } from '@emotion/react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import notFound from '../../assets/img/notFound.png';
 import { imagePaths } from '../../routes/routes';
-import { ThemeColors } from '../../common/styles';
+import {
+  ThemeColors,
+  BorderRadiuses,
+} from '../../common/styles';
 
 interface ResultElemProps {
   title?: string;
@@ -13,14 +16,14 @@ interface ResultElemProps {
 }
 
 const movieInfoStyle = css({
-  borderRadius: 10,
+  borderRadius: BorderRadiuses.medium,
   border: `2px solid ${ThemeColors.lightGray}`,
 });
 
 const logoWrapperStyle = css({
   width: 92,
   height: 138,
-  borderRadius: '10px 0 0 10px',
+  borderRadius: `${BorderRadiuses.medium}px 0 0 ${BorderRadiuses.medium}px`,
 });
 
 const infoWrapperStyle = css({

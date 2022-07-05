@@ -1,5 +1,8 @@
 import { css } from '@emotion/react';
-import { ThemeColors } from '../../../common/styles';
+import {
+  ThemeColors,
+  BorderRadiuses,
+} from '../../../common/styles';
 
 export const headingStyles = css({
   display: 'block',
@@ -13,7 +16,7 @@ export const selectStyles = css({
   position: 'relative',
   padding: 5,
   border: 'none',
-  borderRadius: 5,
+  borderRadius: BorderRadiuses.small,
   outline: 0,
   backgroundColor: ThemeColors.lightGray,
 });

@@ -2,7 +2,10 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
-import { ThemeColors } from '../../../common/styles';
+import {
+  ThemeColors,
+  BorderRadiuses,
+} from '../../../common/styles';
 import arrowRight from '../../../assets/img/arrowRight.png';
 import arrowDown from '../../../assets/img/arrowDown.png';
 import SortTypes from './SortTypes';
@@ -22,7 +25,7 @@ const accordionCustomStyles = css({
   '& .accordion-item': {
     marginBottom: 10,
     border: `2px solid ${ThemeColors.lightGray}`,
-    borderRadius: 10,
+    borderRadius: BorderRadiuses.medium,
   },
   '& .accordion-button': {
     fontWeight: 'bold',

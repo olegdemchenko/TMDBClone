@@ -1,7 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
-import { ThemeColors } from '../../../common/styles';
+import {
+  ThemeColors,
+  BorderRadiuses,
+} from '../../../common/styles';
 import {
   headingStyles,
   containerStyles,
@@ -16,14 +19,14 @@ const labelsStyles = css({
 const datesWrapperStyles = css({
   width: 150,
   position: 'relative',
-  borderRadius: 5,
+  borderRadius: BorderRadiuses.small,
 });
 
 const textInputStyles = css({
   width: '100%',
   position: 'relative',
   border: `2px solid ${ThemeColors.lightGray}`,
-  borderRadius: 5,
+  borderRadius: BorderRadiuses.small,
   outline: 'none',
   backgroundColor: 'transparent',
   '&:focus': {

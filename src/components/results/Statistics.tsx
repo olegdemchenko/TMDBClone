@@ -9,7 +9,10 @@ import {
   TVListItemMedia,
   MediaTypes,
 } from '../../app/APIInterfaces';
-import { ThemeColors } from '../../common/styles';
+import {
+  ThemeColors,
+  BorderRadiuses,
+} from '../../common/styles';
 import { capitalize } from '../../common/utils';
 
 interface StatisticsProps {
@@ -17,19 +20,19 @@ interface StatisticsProps {
 }
 
 const statisticsContainerStyles = css({
-  borderRadius: 10,
+  borderRadius: BorderRadiuses.medium,
   border: `2px solid ${ThemeColors.lightGray}`,
 });
 
 const statisticsHeaderStyles = css({
-  borderRadius: '10px 10px 0 0',
+  borderRadius: `${BorderRadiuses.medium}px ${BorderRadiuses.medium}px 0 0`,
   backgroundColor: ThemeColors.lightBlue,
 });
 
 const categoryCountStyles = css({
   backgroundColor: ThemeColors.lightGray,
   padding: '0 10px',
-  borderRadius: 5,
+  borderRadius: BorderRadiuses.small,
 });
 
 const categoryStyles = css({

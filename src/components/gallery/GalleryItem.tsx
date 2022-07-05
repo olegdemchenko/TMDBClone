@@ -3,7 +3,10 @@ import { css } from '@emotion/react';
 import Progressbar from 'react-js-progressbar';
 import notFound from '../../assets/img/notFound.png';
 import { imagePaths } from '../../routes/routes';
-import { ThemeColors } from '../../common/styles';
+import {
+  ThemeColors,
+  BorderRadiuses,
+} from '../../common/styles';
 
 interface GalleryItemProps {
   data: {
@@ -23,18 +26,18 @@ const containerStyles = {
   }),
   large: css({
     position: 'relative',
-    borderRadius: 10,
+    borderRadius: BorderRadiuses.medium,
     border: `2px solid ${ThemeColors.lightGray}`,
   }),
 };
 
 const iconStyles = {
   medium: css({
-    borderRadius: 10,
+    borderRadius: BorderRadiuses.medium,
   }),
   large: css({
     width: '100%',
-    borderRadius: '10px 10px 0 0',
+    borderRadius: `${BorderRadiuses.medium}px ${BorderRadiuses.medium}px 0 0`,
   }),
 };
 
