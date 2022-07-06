@@ -5,7 +5,7 @@ import {
   headingStyles,
   containerStyles,
   noBorderStyles,
-} from './styles';
+} from '../styles';
 
 function SortTypes() {
   const { t } = useTranslation('collection');

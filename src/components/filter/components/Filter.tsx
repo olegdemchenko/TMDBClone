@@ -5,9 +5,9 @@ import { css } from '@emotion/react';
 import {
   ThemeColors,
   BorderRadiuses,
-} from '../../common/styles';
-import arrowRight from '../../assets/img/arrowRight.png';
-import arrowDown from '../../assets/img/arrowDown.png';
+} from '../../../common/styles';
+import arrowRight from '../../../assets/img/arrowRight.png';
+import arrowDown from '../../../assets/img/arrowDown.png';
 import SortTypes from './SortTypes';
 import Dates from './Dates';
 import Genres from './Genres';

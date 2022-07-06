@@ -4,7 +4,7 @@ import {
   selectStyles,
   headingStyles,
   containerStyles,
-} from './styles';
+} from '../styles';
 
 function Languages() {
   const { t } = useTranslation('collection');

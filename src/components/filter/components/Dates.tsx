@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import {
   ThemeColors,
   BorderRadiuses,
-} from '../../common/styles';
+} from '../../../common/styles';
 import {
   headingStyles,
   containerStyles,
-} from './styles';
-import calendar from '../../assets/img/calendar.svg';
+} from '../styles';
+import calendar from '../../../assets/img/calendar.svg';
 
 const labelsStyles = css({
   fontSize: '0.9rem',

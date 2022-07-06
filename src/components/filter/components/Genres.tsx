@@ -5,7 +5,7 @@ import {
   headingStyles,
   containerStyles,
   buttonStyles,
-} from './styles';
+} from '../styles';
 
 const buttonWrapperStyles = css({
   display: 'flex',

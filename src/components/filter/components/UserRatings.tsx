@@ -5,7 +5,7 @@ import {
   headingStyles,
   containerStyles,
   noBorderStyles,
-} from './styles';
+} from '../styles';
 
 const commonRangeStyles = css({
   width: '100%',

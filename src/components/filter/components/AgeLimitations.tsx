@@ -4,7 +4,7 @@ import {
   headingStyles,
   containerStyles,
   buttonStyles,
-} from './styles';
+} from '../styles';
 
 function AgeLimitations() {
   const { t } = useTranslation('collection');
