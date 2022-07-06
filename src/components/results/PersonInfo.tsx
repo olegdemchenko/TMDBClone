@@ -5,7 +5,7 @@ import {
   MovieListItemMedia,
   TVListItemMedia,
   MediaTypes,
-} from '../../app/APIInterfaces';
+} from '../../app/APIInfo';
 import { BorderRadiuses } from '../../common/styles';
 import noAvatar from '../../assets/img/noAvatar.jpg';
 import { imagePaths } from '../../routes/routes';

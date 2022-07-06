@@ -4,7 +4,7 @@ import {
   Error,
   MediaTypes,
   MovieListItemMedia
-} from '../../src/app/APIInterfaces';
+} from '../../src/app/APIInfo';
 import { paths } from '../../src/routes/routes';
 import SearchQueries from './testQueries';
 

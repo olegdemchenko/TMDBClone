@@ -3,7 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import { QueryDefinition } from '@reduxjs/toolkit/dist/query';
 import { ApiEndpointQuery } from '@reduxjs/toolkit/dist/query/core/module';
 import { useSelector } from 'react-redux';
-import { MovieListResult } from '../../app/APIInterfaces';
+import { MovieListResult } from '../../app/APIInfo';
 import { tmdbApi } from '../../app/store/api';
 import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
 
