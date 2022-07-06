@@ -18,7 +18,7 @@ import {
   SortAlg,
   UserScore,
   UserVotes,
-} from '../src/components/collection/filter/constants';
+} from '../src/components/filter/constants';
 
 beforeAll(() => server.listen());
 

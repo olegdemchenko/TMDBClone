@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { MovieListItem } from '../../app/APIInfo';
 import GalleryItemsList from '../gallery/GalleryItemsList';
-import Filter from './filter/Filter';
+import Filter from '../filter/Filter';
 
 interface ContentProps {
   heading: string
