@@ -13,6 +13,12 @@ import renderWithWrapper from './utils';
 import server from '../__mocks__/server';
 import SearchQueries from '../__mocks__/server/testQueries';
 import { movieListResult } from '../__mocks__/server/handlers';
+import {
+  Languages,
+  SortAlg,
+  UserScore,
+  UserVotes,
+} from '../src/components/collection/filter/constants';
 
 beforeAll(() => server.listen());
 
@@ -65,7 +71,7 @@ test('check error handling after search request is sent', async () => {
   await screen.findByRole('alert');
 });
 
-test('check movies tab behavior', async () => {
+test('check movies tab scroll behavior', async () => {
   renderWithWrapper(<App />);
   await userEvent.click(screen.getByRole('button', { name: /movies/i }));
   await userEvent.click(screen.getByRole('button', { name: /popular/i }));
@@ -85,4 +91,40 @@ test('check movies tab behavior', async () => {
   expect(
     (await screen.findAllByText(movieListResult.title as string)).length,
   ).toBeGreaterThan(moviesCount);
+});
+
+test('check movies tab filter behavior', async () => {
+  renderWithWrapper(<App />);
+  await userEvent.click(screen.getByRole('button', { name: /movies/i }));
+  await userEvent.click(screen.getByRole('button', { name: /popular/i }));
+  const sortAlg = screen.getByLabelText(/sort/i);
+  const dateFrom = screen.getByLabelText(/from/i);
+  const dateTo = screen.getByLabelText(/to/i);
+  const genres = screen.getByText(/genres/i);
+  const language = screen.getByLabelText(/language/i);
+  const age = screen.getByText(/^age$/i);
+  const userScore = screen.getByLabelText(/user score/i);
+  const userVotes = screen.getByLabelText(/user votes/i);
+  userEvent.selectOptions(sortAlg, [SortAlg.titleAZ]);
+  userEvent.type(dateFrom, '1/1/1');
+  userEvent.type(dateTo, '1/1/1');
+  genres.querySelectorAll('button').forEach((btn) => userEvent.click(btn));
+  userEvent.selectOptions(language, [Languages.zh]);
+  age.querySelectorAll('button').forEach((btn) => userEvent.click(btn));
+  fireEvent.change(userScore, { target: { value: UserScore.max } });
+  fireEvent.change(userVotes, { target: { value: UserVotes.max } });
+  await waitFor(() => {
+    expect(screen.getByText(movieListResult.title as string)).not.toBeInTheDocument();
+  });
+  userEvent.deselectOptions(sortAlg, [SortAlg.titleAZ]);
+  userEvent.type(dateFrom, '');
+  userEvent.type(dateTo, '');
+  genres.querySelectorAll('button').forEach((btn) => userEvent.click(btn));
+  userEvent.selectOptions(language, [Languages.en]);
+  age.querySelectorAll('button').forEach((btn) => userEvent.click(btn));
+  fireEvent.change(userScore, { target: { value: UserScore.min } });
+  fireEvent.change(userVotes, { target: { value: UserScore.max } });
+  await waitFor(() => {
+    expect(screen.getByText(movieListResult.title as string)).toBeInTheDocument();
+  });
 });
