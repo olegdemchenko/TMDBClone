@@ -6,6 +6,7 @@ import { ThemeColors } from '../../common/styles';
 
 const ButtonStyles = css({
   width: '100%',
+  margin: '25px 0 40px 0',
   backgroundColor: ThemeColors.lightBlue,
   color: 'white',
   fontSize: '2rem',
