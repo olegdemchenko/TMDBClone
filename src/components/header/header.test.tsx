@@ -5,7 +5,7 @@ import {
   waitFor,
   fireEvent,
 } from '@testing-library/react';
-import renderWithWrapper from '../../../__tests__/utils';
+import { renderWithWrapper } from '../../common/utils';
 import '../../i18n';
 import Header from './Header';
 
