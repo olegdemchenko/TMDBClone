@@ -10,7 +10,6 @@ import userEvent from '@testing-library/user-event';
 import '../src/i18n';
 import App from '../src/app/App';
 import { renderWithWrapper } from '../src/common/utils';
-import server from '../__mocks__/server';
 import SearchQueries from '../__mocks__/server/testQueries';
 import { movieListResult } from '../__mocks__/server/handlers';
 import {
@@ -19,12 +18,6 @@ import {
   UserScore,
   UserVotes,
 } from '../src/components/filter/constants';
-
-beforeAll(() => server.listen());
-
-afterEach(() => server.resetHandlers());
-
-afterAll(() => server.close());
 
 test('check fetching popular movies info', () => {
   renderWithWrapper(<App />);
