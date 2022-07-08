@@ -35,7 +35,7 @@ export const movieList: MovieListResult = {
   total_results: moviesPerPage
 }
 
-export default rest.get(paths.popularMovies.replace('popular', '*'), (req, res, ctx) => {
+export default rest.get(paths.popularMovies, (req, res, ctx) => {
   return res(
     ctx.status(200),
     ctx.json(movieList)

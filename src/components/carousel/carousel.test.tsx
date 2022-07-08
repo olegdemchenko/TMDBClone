@@ -1,4 +1,5 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import {
   screen,
   waitFor,
@@ -11,7 +12,7 @@ import { renderWithWrapper } from '../../common/utils';
 import { movie, movieList } from '../../../__mocks__/server/handlers/getPopularMovies';
 import Carousel from './index';
 
-test('check fetching popular movies info', async () => {
+test('check fetching movies', async () => {
   const heading = 'Popular';
   renderWithWrapper(
     <Provider store={store}>
@@ -23,5 +24,20 @@ test('check fetching popular movies info', async () => {
   );
   await waitFor(() => {
     expect(screen.getAllByText(movie.title as string)).toHaveLength(movieList.results.length);
+  });
+});
+
+test('check error handling', async () => {
+  const heading = 'Upcoming';
+  renderWithWrapper(
+    <Provider store={store}>
+      <Carousel
+        heading={heading}
+        sendQuery={useCachedQueryData(tmdbApi.endpoints.getUpcomingMovies)}
+      />
+    </Provider>,
+  );
+  await waitFor(() => {
+    expect(screen.getByRole('alert')).toBeInTheDocument();
   });
 });
