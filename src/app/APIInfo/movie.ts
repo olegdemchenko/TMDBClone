@@ -7,6 +7,7 @@ export interface MovieListItem {
   genre_ids?: number[];
   id: number;
   original_language?: string;
+  original_title?: string;
   title?: string;
   backdrop_path?: string | null;
   popularity?: number;
