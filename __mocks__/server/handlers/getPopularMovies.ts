@@ -5,7 +5,7 @@ import {
 } from '../../../src/app/APIInfo';
 import { paths } from '../../../src/routes/routes';
 
-const movie: MovieListItem = {
+export const movie: MovieListItem = {
   poster_path: "/e1mjopzAS2KNsvpbpahQ1a6SkSn.jpg",
   adult: false,
   overview: "From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.",
@@ -28,7 +28,7 @@ const movie: MovieListItem = {
 
 const moviesPerPage = 20;
 
-const movieList: MovieListResult = {
+export const movieList: MovieListResult = {
   page: 1,
   results: Array(moviesPerPage).fill(movie).map((movie) => ({ ...movie, id: Math.random() })),
   total_pages: 1,

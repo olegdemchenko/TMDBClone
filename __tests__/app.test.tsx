@@ -10,23 +10,16 @@ import userEvent from '@testing-library/user-event';
 import '../src/i18n';
 import App from '../src/app/App';
 import { renderWithWrapper } from '../src/common/utils';
-import SearchQueries from '../__mocks__/server/testQueries';
-import { movieListResult } from '../__mocks__/server/handlers';
+import {
+  SearchQueries,
+  movieListResult,
+} from '../__mocks__/server/handlers/getMultiSearch';
 import {
   Languages,
   SortAlg,
   UserScore,
   UserVotes,
 } from '../src/components/filter/constants';
-
-test('check fetching popular movies info', () => {
-  renderWithWrapper(<App />);
-  ['popular', 'playing', 'rated', 'upcoming'].forEach(async (type) => {
-    const typeRegExp = new RegExp(type, 'i');
-    expect(await screen.findByRole('heading', { name: typeRegExp })).toBeInTheDocument();
-    expect(screen.getAllByAltText(typeRegExp)).not.toHaveLength(0);
-  });
-});
 
 test('check successful search', async () => {
   renderWithWrapper(<App />);
