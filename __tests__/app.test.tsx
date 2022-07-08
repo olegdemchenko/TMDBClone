@@ -27,9 +27,6 @@ test('check successful search', async () => {
   const searchBtn = screen.getByRole('button', { name: /search/i });
   await userEvent.type(searchInput, SearchQueries.MultiSearch);
   await userEvent.click(searchBtn);
-  await waitFor(() => {
-    expect(window.location.pathname).toBe('/search');
-  });
   await screen.findByRole('heading', { name: /search results/i });
   const secondPageLink = await screen.findByTestId(2);
   await userEvent.click(secondPageLink);
