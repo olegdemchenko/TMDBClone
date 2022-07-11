@@ -20,6 +20,12 @@ module.exports = {
     'react',
     '@typescript-eslint',
   ],
+  overrides: [
+    {
+      files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
   rules: {
     'linebreak-style': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
