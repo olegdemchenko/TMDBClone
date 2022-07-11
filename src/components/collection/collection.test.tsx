@@ -40,7 +40,7 @@ test('check fetching on scroll', async () => {
   await waitFor(() => {
     expect(screen.getByTestId('collectionSpinner')).toBeInTheDocument();
   });
-  await waitForElementToBeRemoved(() => screen.getByTestId('collectionSpinner'));
+  await waitForElementToBeRemoved(() => screen.queryByTestId('collectionSpinner'));
   expect(
     (await screen.findAllByText(movie.title as string)).length,
   ).toBeGreaterThan(moviesCount);

@@ -34,5 +34,5 @@ test('check page changing', async () => {
     expect(getPage(window.location.search)).toBe('5');
   });
   userEvent.click(screen.getByTestId(lastPage));
-  await waitForElementToBeRemoved(() => screen.getByRole('button', { name: next }));
+  await waitForElementToBeRemoved(() => screen.queryByRole('button', { name: next }));
 });
