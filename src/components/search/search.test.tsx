@@ -5,7 +5,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import '../../i18n';
+import i18n from '../../i18n';
 import { renderWithWrapper } from '../../common/utils';
 import { SearchQueries } from '../../../__mocks__/server/handlers/getMultiSearch';
 import Search from './Search';
@@ -27,6 +27,6 @@ test('check error handling', async () => {
   const searchBtn = screen.getByRole('button');
   userEvent.click(searchBtn);
   await waitFor(() => {
-    expect(screen.getByText(/enter some information/)).toBeInTheDocument();
+    expect(screen.getByText(i18n.t('search:errors.emptyQuery') as string)).toBeInTheDocument();
   });
 });
