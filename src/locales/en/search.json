@@ -6,5 +6,8 @@
     "greeting": "Welcome",
     "slogan": "Millions of movies, TV shows and people to discover. Explore now.",
     "search": "search"
+  },
+  "errors": {
+    "emptyQuery": "Please, enter some information"
   }
 }
