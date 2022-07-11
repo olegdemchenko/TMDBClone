@@ -22,11 +22,6 @@ import {
 
 test('check movies tab scroll behavior', async () => {
   renderWithWrapper(<App />);
-  await userEvent.click(screen.getByRole('button', { name: /movies/i }));
-  await userEvent.click(screen.getByRole('button', { name: /popular/i }));
-  await waitFor(() => {
-    expect(window.location.pathname).toBe('/movie/');
-  });
   const movies = await screen.findAllByText(movieListResult.title as string);
   const moviesCount = movies.length;
   expect(moviesCount).toBeGreaterThan(0);
