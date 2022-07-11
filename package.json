@@ -85,8 +85,8 @@
   "jest": {
     "preset": "ts-jest",
     "setupFilesAfterEnv": [
-      "<rootDir>/__tests__/setup/window.ts",
-      "<rootDir>/__tests__/setup/jest.setup.ts"
+      "<rootDir>/testsSetup/window.ts",
+      "<rootDir>/testsSetup/jest.setup.ts"
     ],
     "testEnvironment": "jsdom",
     "testMatch": [

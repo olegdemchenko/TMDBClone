@@ -1,4 +1,4 @@
-import server from '../../__mocks__/server';
+import server from '../__mocks__/server';
 
 beforeAll(() => server.listen());
 
