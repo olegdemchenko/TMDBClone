@@ -4,7 +4,6 @@ import {
   fireEvent,
   screen,
   waitFor,
-  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '../src/i18n';
@@ -19,23 +18,6 @@ import {
   UserScore,
   UserVotes,
 } from '../src/components/filter/constants';
-
-test('check movies tab scroll behavior', async () => {
-  renderWithWrapper(<App />);
-  const movies = await screen.findAllByText(movieListResult.title as string);
-  const moviesCount = movies.length;
-  expect(moviesCount).toBeGreaterThan(0);
-  const loadBtn = screen.getByRole('button', { name: /load more/i });
-  await userEvent.click(loadBtn);
-  fireEvent.scroll(window, { target: { scrollY: 700 } });
-  await waitFor(() => {
-    expect(screen.getByTestId('collectionSpinner')).toBeInTheDocument();
-  });
-  await waitForElementToBeRemoved(() => screen.getByTestId('collectionSpinner'));
-  expect(
-    (await screen.findAllByText(movieListResult.title as string)).length,
-  ).toBeGreaterThan(moviesCount);
-});
 
 test('check movies tab filter behavior', async () => {
   renderWithWrapper(<App />);
