@@ -14,11 +14,12 @@ test('check redirecting', async () => {
   renderWithWrapper(<Search mode="main" />);
   const searchInput = screen.getByPlaceholderText(/search/i);
   const searchBtn = screen.getByRole('button', { name: /search/i });
-  userEvent.type(searchInput, SearchQueries.MultiSearch);
+  await userEvent.type(searchInput, SearchQueries.MultiSearch);
   userEvent.click(searchBtn);
   await waitFor(() => {
     expect(window.location.pathname).toBe('/search');
   });
+  expect(new URLSearchParams(window.location.search).get('query')).toBe(SearchQueries.MultiSearch);
 });
 
 test('check error handling', async () => {
