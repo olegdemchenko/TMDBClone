@@ -19,13 +19,13 @@ const statisticsWrapperStyles = css({
 function Results() {
   const [params] = useSearchParams();
   const searchQuery = params.get('query');
-  const page = params.get('page');
+  const page = Number(params.get('page')) as number;
   const {
     data,
     error,
     isFetching,
     isError,
-  } = useGetMultiSearchQuery({ query: searchQuery as string, page: Number(page) as number });
+  } = useGetMultiSearchQuery({ query: searchQuery as string, page });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
@@ -64,7 +64,7 @@ function Results() {
           />
           <div className="d-flex justify-content-center">
             <Pagination
-              currentPage={data.page}
+              selectedPage={page}
               total={data.total_pages}
             />
           </div>
