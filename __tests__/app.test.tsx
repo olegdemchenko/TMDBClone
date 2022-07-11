@@ -11,7 +11,6 @@ import '../src/i18n';
 import App from '../src/app/App';
 import { renderWithWrapper } from '../src/common/utils';
 import {
-  SearchQueries,
   movieListResult,
 } from '../__mocks__/server/handlers/getMultiSearch';
 import {
@@ -20,26 +19,6 @@ import {
   UserScore,
   UserVotes,
 } from '../src/components/filter/constants';
-
-test('check successful search', async () => {
-  renderWithWrapper(<App />);
-  const searchInput = screen.getByPlaceholderText(/search/i);
-  const searchBtn = screen.getByRole('button', { name: /search/i });
-  await userEvent.type(searchInput, SearchQueries.MultiSearch);
-  await userEvent.click(searchBtn);
-  await screen.findByRole('heading', { name: /search results/i });
-  const secondPageLink = await screen.findByTestId(2);
-  await userEvent.click(secondPageLink);
-  await waitFor(() => {
-    expect(new URL(window.location.href).searchParams.get('page')).toBe('2');
-  });
-  const firstPageLink = await screen.findByTestId(1);
-  await userEvent.click(firstPageLink);
-  await waitFor(() => {
-    expect(new URL(window.location.href).searchParams.get('page')).toBe('1');
-  });
-  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
-});
 
 test('check movies tab scroll behavior', async () => {
   renderWithWrapper(<App />);
