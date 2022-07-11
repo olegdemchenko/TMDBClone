@@ -33,25 +33,12 @@ test('check successful search', async () => {
   await waitFor(() => {
     expect(new URL(window.location.href).searchParams.get('page')).toBe('2');
   });
-  expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
   const firstPageLink = await screen.findByTestId(1);
   await userEvent.click(firstPageLink);
   await waitFor(() => {
     expect(new URL(window.location.href).searchParams.get('page')).toBe('1');
   });
   expect(await screen.findAllByText(movieListResult.title as string)).not.toHaveLength(0);
-});
-
-test('check error handling after search request is sent', async () => {
-  renderWithWrapper(<App />);
-  const searchInput = screen.getByPlaceholderText(/search/i);
-  const searchBtn = screen.getByRole('button', { name: /search/i });
-  await userEvent.type(searchInput, SearchQueries.MultiSearchError);
-  await userEvent.click(searchBtn);
-  await waitFor(() => {
-    expect(window.location.pathname).toBe('/search');
-  });
-  await screen.findByRole('alert');
 });
 
 test('check movies tab scroll behavior', async () => {
