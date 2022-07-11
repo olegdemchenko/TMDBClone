@@ -3,6 +3,7 @@ import search from './search.json';
 import results from './results.json';
 import movies from './movies.json';
 import collection from './collection.json';
+import pagination from './pagination.json';
 
 export default {
   main,
@@ -10,4 +11,5 @@ export default {
   results,
   movies,
   collection,
+  pagination,
 };
