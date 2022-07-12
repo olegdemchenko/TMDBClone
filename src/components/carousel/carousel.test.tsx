@@ -9,7 +9,7 @@ import { store } from '../../app/store/store';
 import { tmdbApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { renderWithWrapper } from '../../common/utils';
-import { movie, movieList } from '../../../__mocks__/server/handlers/getPopularMovies';
+import { movie, moviesPerPage } from '../../../__mocks__/server/handlers/getPopularMovies';
 import Carousel from './index';
 
 test('check fetching movies', async () => {
@@ -23,7 +23,7 @@ test('check fetching movies', async () => {
     </Provider>,
   );
   await waitFor(() => {
-    expect(screen.getAllByText(movie.title as string)).toHaveLength(movieList.results.length);
+    expect(screen.getAllByText(movie.title as string)).toHaveLength(moviesPerPage);
   });
 });
 

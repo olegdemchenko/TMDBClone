@@ -26,9 +26,9 @@ export const movie: MovieListItem = {
   vote_average: 5.91
 }
 
-const moviesPerPage = 20;
+export const moviesPerPage = 20;
 
-export const movieList: MovieListResult = {
+const movieList: MovieListResult = {
   page: 1,
   results: Array(moviesPerPage).fill(movie).map((movie) => ({ ...movie, id: Math.random() })),
   total_pages: 1,
@@ -36,6 +36,13 @@ export const movieList: MovieListResult = {
 }
 
 export default rest.get(paths.popularMovies, (req, res, ctx) => {
+  const movieList: MovieListResult = {
+    page: 1,
+    results: Array(moviesPerPage).fill(movie).map((movie) => ({ ...movie, id: Math.random() })),
+    total_pages: 1,
+    total_results: moviesPerPage
+  }
+
   return res(
     ctx.status(200),
     ctx.json(movieList)
