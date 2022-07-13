@@ -6,7 +6,7 @@ export enum SortAlg {
   releaseDateDesc = 'releaseDateDesc',
   releaseDateAsc = 'releaseDateAsc',
   titleAZ = 'titleAZ',
-  titleZA = 'titleAZ',
+  titleZA = 'titleZA',
 }
 
 export enum Languages {
