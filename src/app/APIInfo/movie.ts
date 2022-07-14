@@ -3,7 +3,6 @@ export interface MovieListItem {
   adult?: boolean;
   overview?: string;
   release_date?: string;
-  original_date?: string;
   genre_ids?: number[];
   id: number;
   original_language?: string;
