@@ -2,6 +2,10 @@ import { SortAlg } from './constants';
 
 export interface FilterState {
   sortAlg: SortAlg | null;
+  dates: {
+    from: Date | null;
+    to: Date | null;
+  } | null;
 }
 
 export type ActionTypes = 'SETSORTALG';
@@ -13,6 +17,7 @@ export type ReducerAction = {
 
 export const initialState: FilterState = {
   sortAlg: null,
+  dates: null,
 };
 
 export function reducer(state: FilterState, action: ReducerAction) {

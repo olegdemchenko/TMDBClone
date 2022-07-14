@@ -6,11 +6,11 @@ import { SortAlg } from '../../filter/constants';
 import filter from './filterUtilities';
 import {
   TestMovie,
-  getRandomReleaseDate,
+  getSubsequentStringDate,
   sortItems,
 } from './testUtilities';
 
-const movieList:TestMovie[] = Array(20).fill({}).map(() => ({
+const movieList: TestMovie[] = Array(20).fill({}).map((empty, index) => ({
   poster_path: '/lFSSLTlFozwpaGlO31OoUeirBgQ.jpg',
   adult: false,
   overview: 'The most dangerous former operative of the CIA is drawn out of hiding to uncover hidden truths about his past.',
@@ -27,7 +27,7 @@ const movieList:TestMovie[] = Array(20).fill({}).map(() => ({
   popularity: Math.random() * 100,
   vote_average: _.random(9.999),
   title: _.uniqueId(),
-  release_date: getRandomReleaseDate(),
+  release_date: getSubsequentStringDate(index),
 }));
 
 test.each([
@@ -40,5 +40,7 @@ test.each([
   [SortAlg.titleAZ, [...movieList].sort(sortItems('title', 'asc'))],
   [SortAlg.titleZA, [...movieList].sort(sortItems('title', 'desc'))],
 ])('test sorting alg:%s', (sortAlg: SortAlg, presortedMovies: TestMovie[]) => {
-  expect(filter({ sortAlg }, (movieList as unknown) as MovieListItem[])).toEqual(presortedMovies);
+  expect(
+    filter({ sortAlg, dates: null }, (movieList as unknown) as MovieListItem[]),
+  ).toEqual(presortedMovies);
 });
