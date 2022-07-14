@@ -9,6 +9,7 @@ import {
 } from '../../../common/styles';
 import arrowRight from '../../../assets/img/arrowRight.png';
 import arrowDown from '../../../assets/img/arrowDown.png';
+// eslint-disable-next-line import/no-cycle
 import SortTypes from './SortTypes';
 import Dates from './Dates';
 import Genres from './Genres';
@@ -81,7 +82,7 @@ function Filter() {
       <Accordion.Item eventKey="0">
         <Accordion.Header>{t('filter.sort.name')}</Accordion.Header>
         <Accordion.Body>
-          <SortTypes />
+          <SortTypes dispatch={dispatch} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
