@@ -38,10 +38,12 @@ export function getSubsequentStringDate(index: number) {
 export type PropertiesKeys = keyof MovieListItem;
 
 export type TestMovie = {
-  [Key in keyof MovieListItem as string]-?: NonNullable<MovieListItem[Key]>
+  [Key in keyof MovieListItem]-?: NonNullable<MovieListItem[Key]>
 };
 
-export function compare(firstValue: TestMovie[string], secondValue: TestMovie[string]) {
+type TestMovieValues = TestMovie[PropertiesKeys];
+
+export function compare(firstValue: TestMovieValues, secondValue: TestMovieValues) {
   if (!Array.isArray(firstValue)) {
     if (firstValue > secondValue) {
       return 1;
