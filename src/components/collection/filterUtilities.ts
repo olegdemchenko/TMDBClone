@@ -50,7 +50,7 @@ const Algs: AlgorithmsMap = {
   ),
 };
 
-function filter({ sortAlg }: FilterState, movies: MovieListItem[]) {
+export function filter({ sortAlg }: FilterState, movies: MovieListItem[]) {
   return movies.sort(sortAlg ? Algs[sortAlg] : undefined);
 }
 

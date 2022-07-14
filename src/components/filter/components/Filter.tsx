@@ -1,4 +1,4 @@
-import React, { useReducer, Reducer } from 'react';
+import React, { useReducer, Reducer, useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
@@ -61,6 +61,10 @@ export type ReducerAction = {
   payload: SortAlg,
 };
 
+export const initialState: FilterState = {
+  sortAlg: null,
+};
+
 function reducer(state: FilterState, action: ReducerAction) {
   switch (action.type) {
     case 'SETSORTALG':
@@ -70,12 +74,20 @@ function reducer(state: FilterState, action: ReducerAction) {
   }
 }
 
-function Filter() {
+interface FilterProps {
+  setState: React.Dispatch<React.SetStateAction<FilterState>>
+}
+
+function Filter({ setState }: FilterProps) {
   const { t } = useTranslation('collection');
   const [
     state,
     dispatch,
-  ] = useReducer<Reducer<FilterState, ReducerAction>>(reducer, { sortAlg: null });
+  ] = useReducer<Reducer<FilterState, ReducerAction>>(reducer, initialState);
+
+  useEffect(() => {
+    setState(state);
+  }, [state]);
 
   return (
     <Accordion defaultActiveKey={['0']} alwaysOpen css={accordionCustomStyles}>
