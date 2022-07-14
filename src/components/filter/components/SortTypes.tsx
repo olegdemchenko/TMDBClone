@@ -7,8 +7,7 @@ import {
   noBorderStyles,
 } from '../styles';
 import { SortAlg } from '../constants';
-// eslint-disable-next-line import/no-cycle
-import { ReducerAction } from './Filter';
+import { ReducerAction } from '../state';
 
 interface SortTypesProps {
   dispatch: React.Dispatch<ReducerAction>

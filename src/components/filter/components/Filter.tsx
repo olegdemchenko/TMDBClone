@@ -2,21 +2,24 @@ import React, { useReducer, Reducer, useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
-import { FilterState } from '../FilterState';
+import {
+  FilterState,
+  initialState,
+  reducer,
+  ReducerAction,
+} from '../state';
 import {
   ThemeColors,
   BorderRadiuses,
 } from '../../../common/styles';
 import arrowRight from '../../../assets/img/arrowRight.png';
 import arrowDown from '../../../assets/img/arrowDown.png';
-// eslint-disable-next-line import/no-cycle
 import SortTypes from './SortTypes';
 import Dates from './Dates';
 import Genres from './Genres';
 import Languages from './Languages';
 import AgeLimitations from './AgeLimitations';
 import UserRatings from './UserRatings';
-import { SortAlg } from '../constants';
 
 const accordionCustomStyles = css({
   '& .according-header': {
@@ -53,26 +56,6 @@ const accordionCustomStyles = css({
     },
   },
 });
-
-export type ActionTypes = 'SETSORTALG';
-
-export type ReducerAction = {
-  type: ActionTypes,
-  payload: SortAlg,
-};
-
-export const initialState: FilterState = {
-  sortAlg: null,
-};
-
-function reducer(state: FilterState, action: ReducerAction) {
-  switch (action.type) {
-    case 'SETSORTALG':
-      return { ...state, sortAlg: action.payload };
-    default:
-      throw new Error(`Unknown action type: ${action.type}`);
-  }
-}
 
 interface FilterProps {
   setState: React.Dispatch<React.SetStateAction<FilterState>>

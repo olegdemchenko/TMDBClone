@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import { MovieListItem } from '../../app/APIInfo';
 import GalleryItemsList from '../gallery/GalleryItemsList';
-import Filter, { initialState } from '../filter/components/Filter';
-import { FilterState } from '../filter/FilterState';
+import Filter from '../filter/components/Filter';
+import {
+  FilterState,
+  initialState,
+} from '../filter/state';
 import { filter } from './filterUtilities';
 
 interface ContentProps {
