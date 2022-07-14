@@ -7,7 +7,7 @@ import {
   FilterState,
   initialState,
 } from '../filter/state';
-import { filter } from './filterUtilities';
+import filter from './filterUtilities';
 
 interface ContentProps {
   heading: string
