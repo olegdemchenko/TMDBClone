@@ -2,6 +2,7 @@ import {
   MovieListItem,
 } from '../../../app/APIInfo';
 import { releasesStartDate } from '../../filter/constants';
+import { FilterState } from '../../filter/state';
 
 export function addZeroToDate(date:number) {
   return date < 10 ? `0${date}` : String(date);
@@ -66,4 +67,16 @@ export function sortItems(key: PropertiesKeys, direction: 'asc' | 'desc') {
     const valueB = getPrimitiveValue(key, b);
     return direction === 'asc' ? compare(valueA, valueB) : compare(valueB, valueA);
   };
+}
+
+export function filterByReleaseDate(dates: NonNullable<FilterState['dates']>, movies: TestMovie[]) {
+  return movies.filter((movie) => {
+    if (dates.from && dates.to) {
+      return (
+        (dates.from.valueOf() <= stringToDate(movie.release_date).valueOf())
+        && (stringToDate(movie.release_date).valueOf() <= dates.to.valueOf())
+      );
+    }
+    return true;
+  });
 }

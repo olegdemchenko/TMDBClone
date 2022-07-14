@@ -1,16 +1,20 @@
 import _ from 'lodash';
 import {
-  MovieListItem,
-} from '../../../app/APIInfo';
-import { SortAlg } from '../../filter/constants';
+  SortAlg,
+  releasesStartDate,
+} from '../../filter/constants';
 import filter from './filterUtilities';
 import {
   TestMovie,
   getSubsequentStringDate,
   sortItems,
+  stringToDate,
+  filterByReleaseDate,
 } from './testUtilities';
 
-const movieList: TestMovie[] = Array(20).fill({}).map((empty, index) => ({
+const testItemsAmount = 20;
+
+const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index) => ({
   poster_path: '/lFSSLTlFozwpaGlO31OoUeirBgQ.jpg',
   adult: false,
   overview: 'The most dangerous former operative of the CIA is drawn out of hiding to uncover hidden truths about his past.',
@@ -30,6 +34,17 @@ const movieList: TestMovie[] = Array(20).fill({}).map((empty, index) => ({
   release_date: getSubsequentStringDate(index),
 }));
 
+const testReleaseDates = {
+  beforeStart: {
+    from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount * 2, 1, 1),
+    to: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount, 1, 1),
+  },
+  afterStart: {
+    from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount / 2, 1, 1),
+    to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 2, 1, 1),
+  },
+};
+
 test.each([
   [SortAlg.popularityAsc, [...movieList].sort(sortItems('popularity', 'asc'))],
   [SortAlg.popularityDesc, [...movieList].sort(sortItems('popularity', 'desc'))],
@@ -43,4 +58,19 @@ test.each([
   expect(
     filter({ sortAlg, dates: null }, movieList),
   ).toEqual(presortedMovies);
+});
+
+test.only.each([
+  [
+    testReleaseDates.beforeStart,
+    filterByReleaseDate(testReleaseDates.beforeStart, movieList),
+  ],
+  [
+    testReleaseDates.afterStart,
+    filterByReleaseDate(testReleaseDates.afterStart, movieList),
+  ],
+])('test filtering by release dates: %j', (dates, filteredMovies) => {
+  expect(
+    filter({ sortAlg: null, dates }, movieList),
+  ).toEqual(filteredMovies);
 });
