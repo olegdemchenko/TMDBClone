@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useReducer, Reducer } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
+import { FilterState } from '../FilterState';
 import {
   ThemeColors,
   BorderRadiuses,
@@ -14,6 +15,7 @@ import Genres from './Genres';
 import Languages from './Languages';
 import AgeLimitations from './AgeLimitations';
 import UserRatings from './UserRatings';
+import { SortAlg } from '../constants';
 
 const accordionCustomStyles = css({
   '& .according-header': {
@@ -51,8 +53,29 @@ const accordionCustomStyles = css({
   },
 });
 
+export type ActionTypes = 'SETSORTALG';
+
+export type ReducerAction = {
+  type: ActionTypes,
+  payload: SortAlg,
+};
+
+function reducer(state: FilterState, action: ReducerAction) {
+  switch (action.type) {
+    case 'SETSORTALG':
+      return { ...state, sortAlg: action.payload };
+    default:
+      throw new Error(`Unknown action type: ${action.type}`);
+  }
+}
+
 function Filter() {
   const { t } = useTranslation('collection');
+  const [
+    state,
+    dispatch,
+  ] = useReducer<Reducer<FilterState, ReducerAction>>(reducer, { sortAlg: null });
+
   return (
     <Accordion defaultActiveKey={['0']} alwaysOpen css={accordionCustomStyles}>
       <Accordion.Item eventKey="0">
