@@ -3,7 +3,7 @@ import {
   MovieListItem,
 } from '../../app/APIInfo';
 import { SortAlg } from '../filter/constants';
-import filter from './filter';
+import filter from './filterUtilities';
 
 function addZeroToDate(date:number) {
   return date < 10 ? `0${date}` : String(date);

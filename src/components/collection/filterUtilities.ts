@@ -2,10 +2,7 @@ import {
   MovieListItem,
 } from '../../app/APIInfo';
 import { SortAlg } from '../filter/constants';
-
-interface FilterParams {
-  sortAlg: SortAlg | null
-}
+import { FilterState } from '../filter/FilterState';
 
 type MovieData = {
   [Key in keyof MovieListItem as string]: MovieListItem[Key]
@@ -53,7 +50,7 @@ const Algs: AlgorithmsMap = {
   ),
 };
 
-function filter({ sortAlg }: FilterParams, movies: MovieListItem[]) {
+function filter({ sortAlg }: FilterState, movies: MovieListItem[]) {
   return movies.sort(sortAlg ? Algs[sortAlg] : undefined);
 }
 
