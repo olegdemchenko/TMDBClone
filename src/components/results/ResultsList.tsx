@@ -13,7 +13,7 @@ function ResultsList({ results }:Pick<MultiSearchResults, 'results'>) {
               key={res.id}
               title={res.media_type === MediaTypes.movie ? res.title : res.name}
               logo={res.poster_path}
-              date={res.media_type === MediaTypes.movie ? res.original_date : res.first_air_date}
+              date={res.media_type === MediaTypes.movie ? res.release_date : res.first_air_date}
               description={res.overview}
             />
           );
