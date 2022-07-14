@@ -3,6 +3,7 @@ import {
 } from '../../../app/APIInfo';
 import { SortAlg } from '../../filter/constants';
 import { FilterState } from '../../filter/state';
+import { stringToDate } from './testUtilities';
 
 type MovieData = {
   [Key in keyof MovieListItem as string]: MovieListItem[Key]
@@ -50,8 +51,20 @@ const Algs: AlgorithmsMap = {
   ),
 };
 
-function filter({ sortAlg }: FilterState, movies: MovieListItem[]) {
-  return movies.sort(sortAlg ? Algs[sortAlg] : undefined);
+function doesMovieBelongToTime(movie: MovieListItem, dates: FilterState['dates']) {
+  if (!dates || (!dates.from || !dates.to) || !movie.release_date) {
+    return true;
+  }
+  const movieDate = stringToDate(movie.release_date);
+  return (
+    (dates.from.valueOf() <= movieDate.valueOf()) && (movieDate.valueOf() <= dates.to.valueOf())
+  );
+}
+
+function filter({ sortAlg, dates }: FilterState, movies: MovieListItem[]) {
+  return movies
+    .sort(sortAlg ? Algs[sortAlg] : undefined)
+    .filter((movie) => doesMovieBelongToTime(movie, dates));
 }
 
 export default filter;
