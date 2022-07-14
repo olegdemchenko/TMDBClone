@@ -1,8 +1,8 @@
 import {
   MovieListItem,
-} from '../../app/APIInfo';
-import { SortAlg } from '../filter/constants';
-import { FilterState } from '../filter/state';
+} from '../../../app/APIInfo';
+import { SortAlg } from '../../filter/constants';
+import { FilterState } from '../../filter/state';
 
 type MovieData = {
   [Key in keyof MovieListItem as string]: MovieListItem[Key]

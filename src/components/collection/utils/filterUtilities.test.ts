@@ -1,27 +1,14 @@
 import _ from 'lodash';
 import {
   MovieListItem,
-} from '../../app/APIInfo';
-import { SortAlg } from '../filter/constants';
+} from '../../../app/APIInfo';
+import { SortAlg } from '../../filter/constants';
 import filter from './filterUtilities';
-
-function addZeroToDate(date:number) {
-  return date < 10 ? `0${date}` : String(date);
-}
-
-function normalizeMonth(month: number) {
-  return month + 1;
-}
-
-function getRandomReleaseDate() {
-  const timestamp = Number(Math.random().toFixed(13)) * 10000000000000;
-  const date = new Date(timestamp);
-  return `${date.getFullYear()}-${addZeroToDate(normalizeMonth(date.getMonth()))}-${addZeroToDate(date.getDate())}`;
-}
-
-type TestMovie = {
-  [Key in keyof MovieListItem as string]-?: NonNullable<MovieListItem[Key]>
-};
+import {
+  TestMovie,
+  getRandomReleaseDate,
+  sortItems,
+} from './testUtilities';
 
 const movieList:TestMovie[] = Array(20).fill({}).map(() => ({
   poster_path: '/lFSSLTlFozwpaGlO31OoUeirBgQ.jpg',
@@ -42,31 +29,6 @@ const movieList:TestMovie[] = Array(20).fill({}).map(() => ({
   title: _.uniqueId(),
   release_date: getRandomReleaseDate(),
 }));
-
-type PropertiesKeys = keyof MovieListItem;
-
-function compare(firstValue: TestMovie[string], secondValue: TestMovie[string]) {
-  if (!Array.isArray(firstValue)) {
-    if (firstValue > secondValue) {
-      return 1;
-    }
-    if (firstValue < secondValue) {
-      return -1;
-    }
-    return 0;
-  }
-  return 0;
-}
-
-function getPrimitiveValue(key: PropertiesKeys, container: TestMovie) {
-  return key === 'release_date' ? new Date(container[key] as string).valueOf() : container[key];
-}
-
-const sortItems = (key: PropertiesKeys, direction: 'asc' | 'desc') => (a: TestMovie, b: TestMovie) => {
-  const valueA = getPrimitiveValue(key, a);
-  const valueB = getPrimitiveValue(key, b);
-  return direction === 'asc' ? compare(valueA, valueB) : compare(valueB, valueA);
-};
 
 test.each([
   [SortAlg.popularityAsc, [...movieList].sort(sortItems('popularity', 'asc'))],
