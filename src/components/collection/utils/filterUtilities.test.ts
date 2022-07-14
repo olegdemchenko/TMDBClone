@@ -56,11 +56,11 @@ test.each([
   [SortAlg.titleZA, [...movieList].sort(sortItems('title', 'desc'))],
 ])('test sorting alg:%s', (sortAlg: SortAlg, presortedMovies: TestMovie[]) => {
   expect(
-    filter({ sortAlg, dates: null }, movieList),
+    filter({ sortAlg, dates: null }, [...movieList]),
   ).toEqual(presortedMovies);
 });
 
-test.only.each([
+test.each([
   [
     testReleaseDates.beforeStart,
     filterByReleaseDate(testReleaseDates.beforeStart, movieList),
