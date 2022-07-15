@@ -31,7 +31,7 @@ export function reducer(state: FilterState, action: ReducerAction) {
     case ActionTypes.sortAlg:
       return { ...state, sortAlg: action.payload };
     case ActionTypes.dates:
-      return { ...state, dates: action.payload };
+      return { ...state, dates: { ...state.dates, ...action.payload } };
     default:
       throw new Error('Unknown action type');
   }
