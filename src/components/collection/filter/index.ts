@@ -52,13 +52,21 @@ const Algs: AlgorithmsMap = {
 };
 
 function doesMovieBelongToTime(movie: MovieListItem, dates: FilterState['dates']) {
-  if (!dates || (!dates.from || !dates.to) || !movie.release_date) {
+  if (!dates || !movie.release_date) {
     return true;
   }
   const movieDate = stringToDate(movie.release_date);
-  return (
-    (dates.from.valueOf() <= movieDate.valueOf()) && (movieDate.valueOf() <= dates.to.valueOf())
-  );
+  if (dates.from && !dates.to) {
+    return dates.from.valueOf() <= movieDate.valueOf();
+  }
+  if (!dates.from && dates.to) {
+    return movieDate.valueOf() <= dates.to.valueOf();
+  }
+  if (dates.to && dates.from) {
+    return (dates.from.valueOf() <= movieDate.valueOf())
+    && (movieDate.valueOf() <= dates.to.valueOf());
+  }
+  return true;
 }
 
 function filter({ sortAlg, dates }: FilterState, movies: MovieListItem[]) {
