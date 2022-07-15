@@ -8,9 +8,9 @@ import {
   TestMovie,
   getSubsequentStringDate,
   sortItems,
-  stringToDate,
   filterByReleaseDate,
 } from './testUtilities';
+import { stringToDate } from '../../../common/utils';
 
 const testItemsAmount = 20;
 

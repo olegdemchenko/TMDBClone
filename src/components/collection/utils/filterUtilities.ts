@@ -3,7 +3,7 @@ import {
 } from '../../../app/APIInfo';
 import { SortAlg } from '../../filter/constants';
 import { FilterState } from '../../filter/state';
-import { stringToDate } from './testUtilities';
+import { stringToDate } from '../../../common/utils';
 
 type MovieData = {
   [Key in keyof MovieListItem as string]: MovieListItem[Key]
