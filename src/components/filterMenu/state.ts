@@ -1,13 +1,13 @@
 import { SortAlg } from './constants';
 
-type Dates = {
+export type Dates = {
   from?: Date;
   to?: Date;
 };
 
 export interface FilterState {
   sortAlg: SortAlg | null;
-  dates: Dates | null;
+  dates: Dates;
 }
 
 export enum ActionTypes {
