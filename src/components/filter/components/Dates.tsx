@@ -91,6 +91,12 @@ function Dates() {
           <input
             css={dateInputStyles}
             type="date"
+            onClick={(e) => {
+              const dateInput = e.target as HTMLInputElement & {
+                showPicker: () => {}
+              };
+              dateInput.showPicker();
+            }}
           />
         </div>
       </div>
@@ -98,7 +104,10 @@ function Dates() {
         <label css={labelsStyles} htmlFor="dateTo">{t('filter.filters.dates.to')}</label>
         <div css={datesWrapperStyles}>
           <input css={textInputStyles} id="dateTo" value="" />
-          <input css={dateInputStyles} type="date" />
+          <input
+            css={dateInputStyles}
+            type="date"
+          />
         </div>
       </div>
     </form>

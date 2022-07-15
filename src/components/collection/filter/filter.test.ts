@@ -3,13 +3,13 @@ import {
   SortAlg,
   releasesStartDate,
 } from '../../filter/constants';
-import filter from './filterUtilities';
+import filter from '.';
 import {
   TestMovie,
   getSubsequentStringDate,
   sortItems,
   filterByReleaseDate,
-} from './testUtilities';
+} from './helpers';
 import { stringToDate } from '../../../common/utils';
 
 const testItemsAmount = 20;
