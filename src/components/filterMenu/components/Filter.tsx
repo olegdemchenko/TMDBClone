@@ -83,7 +83,10 @@ function Filter({ setState }: FilterProps) {
       <Accordion.Item eventKey="1">
         <Accordion.Header>{t('filter.filters.name')}</Accordion.Header>
         <Accordion.Body>
-          <Dates />
+          <Dates
+            dispatch={dispatch}
+            dates={state.dates}
+          />
           <Genres />
           <Languages />
           <AgeLimitations />

@@ -5,6 +5,10 @@ import {
   ThemeColors,
   BorderRadiuses,
 } from '../../../common/styles';
+import {
+  dateToString,
+  stringToDate,
+} from '../../../common/utils';
 
 const labelsStyles = css({
   fontSize: '0.9rem',
@@ -72,9 +76,22 @@ const dateInputStyles = css({
 
 interface DateInputProps {
   label: string;
+  date?: Date;
+  setDate: (date: Date) => void
 }
 
-function DateInput({ label }: DateInputProps) {
+function DateInput({
+  label,
+  date,
+  setDate,
+}: DateInputProps) {
+  const handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement & {
+      value: string
+    };
+    setDate(stringToDate(target.value));
+  };
+
   return (
     <form className="d-flex justify-content-between">
       <label css={labelsStyles} htmlFor={label}>{label}</label>
@@ -82,17 +99,18 @@ function DateInput({ label }: DateInputProps) {
         <input
           css={textInputStyles}
           id={label}
-          value=""
         />
         <input
           css={dateInputStyles}
           type="date"
+          value={date ? dateToString(date) : ''}
           onClick={(e) => {
             const dateInput = e.target as HTMLInputElement & {
               showPicker: () => {}
             };
             dateInput.showPicker();
           }}
+          onChange={handleChange}
         />
       </div>
     </form>
