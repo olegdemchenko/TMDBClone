@@ -1,8 +1,8 @@
 import { SortAlg } from './constants';
 
 type Dates = {
-  from: Date | null;
-  to: Date | null;
+  from?: Date;
+  to?: Date;
 };
 
 export interface FilterState {
@@ -12,21 +12,27 @@ export interface FilterState {
 
 export enum ActionTypes {
   sortAlg = 'SETSORTALG',
+  dates = 'SETDATES',
 }
 
 export type ReducerAction =
-| { type: ActionTypes.sortAlg, payload: SortAlg };
+| { type: ActionTypes.sortAlg, payload: SortAlg }
+| { type: ActionTypes.dates, payload: Dates };
 
 export const initialState: FilterState = {
   sortAlg: null,
-  dates: null,
+  dates: {
+    to: new Date(),
+  },
 };
 
 export function reducer(state: FilterState, action: ReducerAction) {
   switch (action.type) {
     case ActionTypes.sortAlg:
       return { ...state, sortAlg: action.payload };
+    case ActionTypes.dates:
+      return { ...state, dates: action.payload };
     default:
-      throw new Error(`Unknown action type: ${action.type}`);
+      throw new Error('Unknown action type');
   }
 }

@@ -44,12 +44,10 @@ const testReleaseDates = {
     to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 2, 1, 1),
   },
   withoutFrom: {
-    from: null,
     to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 4, 1, 1),
   },
   withoutTo: {
     from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount / 4, 1, 1),
-    to: null,
   },
 };
 
