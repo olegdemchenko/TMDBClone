@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import {
   SortAlg,
-  releasesStartDate,
 } from '../../filterMenu/constants';
 import filter from '.';
 import {
@@ -9,6 +8,7 @@ import {
   getSubsequentStringDate,
   sortItems,
   filterByReleaseDate,
+  releasesStartDate,
 } from './helpers';
 import { stringToDate } from '../../../common/utils';
 
@@ -43,6 +43,14 @@ const testReleaseDates = {
     from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount / 2, 1, 1),
     to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 2, 1, 1),
   },
+  withoutFrom: {
+    from: null,
+    to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 4, 1, 1),
+  },
+  withoutTo: {
+    from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount / 4, 1, 1),
+    to: null,
+  },
 };
 
 test.each([
@@ -68,6 +76,14 @@ test.each([
   [
     testReleaseDates.afterStart,
     filterByReleaseDate(testReleaseDates.afterStart, movieList),
+  ],
+  [
+    testReleaseDates.withoutFrom,
+    filterByReleaseDate(testReleaseDates.withoutFrom, movieList),
+  ],
+  [
+    testReleaseDates.withoutTo,
+    filterByReleaseDate(testReleaseDates.withoutTo, movieList),
   ],
 ])('test filtering by release dates: %j', (dates, filteredMovies) => {
   expect(

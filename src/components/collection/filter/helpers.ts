@@ -7,7 +7,7 @@ import {
   dateToString,
 } from '../../../common/utils';
 
-const releasesStartDate = '1930-01-01';
+export const releasesStartDate = '1930-01-01';
 
 export function getSubsequentStringDate(index: number) {
   const startDate = stringToDate(releasesStartDate);
@@ -50,11 +50,18 @@ export function sortItems(key: PropertiesKeys, direction: 'asc' | 'desc') {
 
 export function filterByReleaseDate(dates: NonNullable<FilterState['dates']>, movies: TestMovie[]) {
   return movies.filter((movie) => {
+    const releaseDate = stringToDate(movie.release_date);
     if (dates.from && dates.to) {
       return (
-        (dates.from.valueOf() <= stringToDate(movie.release_date).valueOf())
-        && (stringToDate(movie.release_date).valueOf() <= dates.to.valueOf())
+        (dates.from.valueOf() <= releaseDate.valueOf())
+        && (releaseDate.valueOf() <= dates.to.valueOf())
       );
+    }
+    if (dates.from) {
+      return dates.from.valueOf() <= releaseDate.valueOf();
+    }
+    if (dates.to) {
+      return releaseDate.valueOf() <= dates.to.valueOf();
     }
     return true;
   });
