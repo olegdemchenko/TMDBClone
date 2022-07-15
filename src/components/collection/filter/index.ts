@@ -1,8 +1,8 @@
 import {
   MovieListItem,
 } from '../../../app/APIInfo';
-import { SortAlg } from '../../filter/constants';
-import { FilterState } from '../../filter/state';
+import { SortAlg } from '../../filterMenu/constants';
+import { FilterState } from '../../filterMenu/state';
 import { stringToDate } from '../../../common/utils';
 
 type MovieData = {

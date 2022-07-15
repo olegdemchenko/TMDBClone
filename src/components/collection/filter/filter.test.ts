@@ -2,7 +2,7 @@ import _ from 'lodash';
 import {
   SortAlg,
   releasesStartDate,
-} from '../../filter/constants';
+} from '../../filterMenu/constants';
 import filter from '.';
 import {
   TestMovie,

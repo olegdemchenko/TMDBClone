@@ -1,8 +1,8 @@
 import {
   MovieListItem,
 } from '../../../app/APIInfo';
-import { releasesStartDate } from '../../filter/constants';
-import { FilterState } from '../../filter/state';
+import { releasesStartDate } from '../../filterMenu/constants';
+import { FilterState } from '../../filterMenu/state';
 import {
   stringToDate,
   dateToString,
