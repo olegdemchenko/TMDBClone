@@ -21,8 +21,6 @@ export enum Languages {
   in = 'indonesian',
 }
 
-export const releasesStartDate = '1930-01-01';
-
 export enum UserVotes {
   min = 0,
   max = 500,

@@ -1,12 +1,13 @@
 import {
   MovieListItem,
 } from '../../../app/APIInfo';
-import { releasesStartDate } from '../../filterMenu/constants';
 import { FilterState } from '../../filterMenu/state';
 import {
   stringToDate,
   dateToString,
 } from '../../../common/utils';
+
+const releasesStartDate = '1930-01-01';
 
 export function getSubsequentStringDate(index: number) {
   const startDate = stringToDate(releasesStartDate);
