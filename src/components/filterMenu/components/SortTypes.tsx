@@ -7,7 +7,10 @@ import {
   noBorderStyles,
 } from '../styles';
 import { SortAlg } from '../constants';
-import { ReducerAction } from '../state';
+import {
+  ReducerAction,
+  ActionTypes,
+} from '../state';
 
 interface SortTypesProps {
   dispatch: React.Dispatch<ReducerAction>
@@ -23,7 +26,7 @@ function SortTypes({ dispatch }: SortTypesProps) {
         const target = e.target as (HTMLSelectElement & {
           value: SortAlg
         });
-        dispatch({ type: 'SETSORTALG', payload: target.value });
+        dispatch({ type: ActionTypes.sortAlg, payload: target.value });
       }}
     >
       <label css={headingStyles} htmlFor="sortOptions">{t('filter.sort.heading')}</label>
