@@ -4,7 +4,7 @@ import {
 import { FilterState } from '../../filterMenu/state';
 import {
   stringToDate,
-  dateToString,
+  dateToStringWithDash,
 } from '../../../common/utils';
 
 export const releasesStartDate = '1930-01-01';
@@ -12,7 +12,7 @@ export const releasesStartDate = '1930-01-01';
 export function getSubsequentStringDate(index: number) {
   const startDate = stringToDate(releasesStartDate);
   startDate.setFullYear(startDate.getFullYear() + index);
-  return dateToString(startDate);
+  return dateToStringWithDash(startDate);
 }
 
 export type PropertiesKeys = keyof MovieListItem;

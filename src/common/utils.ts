@@ -32,7 +32,7 @@ function normalizeMonth(month: number) {
   return month + 1;
 }
 
-function dateToString(date: Date) {
+function dateToStringWithDash(date: Date) {
   return `${date.getFullYear()}-${addZeroToDate(normalizeMonth(date.getMonth()))}-${addZeroToDate(date.getDate())}`;
 }
 
@@ -50,10 +50,41 @@ function stringToDate(dateStr: string) {
   return transformedDate;
 }
 
+function dateToStringWithDot(date?: Date) {
+  if (!date) {
+    return '';
+  }
+  const stringifiedDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+  return stringifiedDate;
+}
+
+const dateRegex = /(?<day>[0-9]{1,2}).(?<month>[0-9]{1,2}).(?<year>[0-9]{4})/;
+
+function validateDate(date: string) {
+  if (!dateRegex.test(date)) {
+    return false;
+  }
+  const maxDay = 31;
+  const maxMonth = 12;
+  const maxYear = 2022;
+  const { day, month, year } = date
+    .match(dateRegex)?.groups as { day: string, month: string, year: string };
+  return Number(day) <= maxDay && Number(month) <= maxMonth && Number(year) <= maxYear;
+}
+
+function parseDate(date: string) {
+  const { day, month, year } = date
+    .match(dateRegex)?.groups as { day: string, month: string, year: string };
+  return new Date(Number(year), Number(month), Number(day));
+}
+
 export {
   capitalize,
   isDataDefined,
   renderWithWrapper,
-  dateToString,
+  dateToStringWithDash,
+  dateToStringWithDot,
+  validateDate,
+  parseDate,
   stringToDate,
 };

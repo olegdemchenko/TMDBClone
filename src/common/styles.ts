@@ -3,6 +3,7 @@ export enum ThemeColors {
   lightBlue = '#08bcd5',
   lightGray = '#d4d9de',
   gray = '#83888e',
+  red = '#dc3545',
 }
 
 export enum BorderRadiuses {

@@ -1,38 +1,13 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import calendar from '../../../assets/img/calendar.svg';
 import {
   ThemeColors,
-  BorderRadiuses,
 } from '../../../common/styles';
 import {
-  dateToString,
+  dateToStringWithDash,
   stringToDate,
 } from '../../../common/utils';
-
-const labelsStyles = css({
-  fontSize: '0.9rem',
-  color: ThemeColors.gray,
-});
-
-const datesWrapperStyles = css({
-  width: 150,
-  position: 'relative',
-  borderRadius: BorderRadiuses.small,
-});
-
-const textInputStyles = css({
-  width: '100%',
-  position: 'relative',
-  border: `2px solid ${ThemeColors.lightGray}`,
-  borderRadius: BorderRadiuses.small,
-  outline: 'none',
-  backgroundColor: 'transparent',
-  '&:focus': {
-    border: `2px solid ${ThemeColors.lightBlue}`,
-  },
-  zIndex: 1,
-});
+import calendar from '../../../assets/img/calendar.svg';
 
 const dateInputStyles = css({
   position: 'absolute',
@@ -74,46 +49,36 @@ const dateInputStyles = css({
   },
 });
 
-interface DateInputProps {
-  label: string;
-  date?: Date;
-  setDate: (date: Date) => void
+export interface DateInputProps {
+  date? : Date;
+  setDate: (newDate: Date) => void;
 }
 
 function DateInput({
-  label,
   date,
   setDate,
 }: DateInputProps) {
-  const handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+  const handleDateChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement & {
       value: string
     };
-    setDate(stringToDate(target.value));
+    const parsedDate = stringToDate(target.value);
+    setDate(parsedDate);
   };
 
   return (
-    <form className="d-flex justify-content-between">
-      <label css={labelsStyles} htmlFor={label}>{label}</label>
-      <div css={datesWrapperStyles}>
-        <input
-          css={textInputStyles}
-          id={label}
-        />
-        <input
-          css={dateInputStyles}
-          type="date"
-          value={date ? dateToString(date) : ''}
-          onClick={(e) => {
-            const dateInput = e.target as HTMLInputElement & {
-              showPicker: () => {}
-            };
-            dateInput.showPicker();
-          }}
-          onChange={handleChange}
-        />
-      </div>
-    </form>
+    <input
+      css={dateInputStyles}
+      type="date"
+      value={date ? dateToStringWithDash(date) : ''}
+      onClick={(e) => {
+        const dateInput = e.target as HTMLInputElement & {
+          showPicker: () => {}
+        };
+        dateInput.showPicker();
+      }}
+      onChange={handleDateChange}
+    />
   );
 }
 

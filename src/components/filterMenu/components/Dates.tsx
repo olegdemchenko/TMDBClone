@@ -9,7 +9,7 @@ import {
   headingStyles,
   containerStyles,
 } from '../styles';
-import DateInput from './DateInput';
+import DateForm from './DateForm';
 
 interface DatesProps {
   dispatch: React.Dispatch<ReducerAction>
@@ -24,16 +24,20 @@ export default function ({
   return (
     <div css={containerStyles}>
       <p css={headingStyles}>{t('filter.filters.dates.name')}</p>
-      <DateInput
+      <DateForm
         label={t('filter.filters.dates.from')}
         date={dates.from}
-        setDate={(date: Date) => dispatch({ type: ActionTypes.dates, payload: { from: date } })}
+        setDate={(newDate: Date) => {
+          dispatch({ type: ActionTypes.dates, payload: { from: newDate } });
+        }}
       />
       <div className="pb-2" />
-      <DateInput
+      <DateForm
         label={t('filter.filters.dates.to')}
         date={dates.to}
-        setDate={(date: Date) => dispatch({ type: ActionTypes.dates, payload: { to: date } })}
+        setDate={(newDate: Date) => {
+          dispatch({ type: ActionTypes.dates, payload: { to: newDate } });
+        }}
       />
     </div>
   );
