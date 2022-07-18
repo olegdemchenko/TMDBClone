@@ -46,7 +46,7 @@ function stringToDate(dateStr: string) {
     month,
     day,
   } = dateStr.match(dateRegex)!.groups as { year: string, month: string, day: string };
-  const transformedDate = new Date(Number(year), Number(month), Number(day));
+  const transformedDate = new Date(Number(year), Number(month) - 1, Number(day));
   return transformedDate;
 }
 
@@ -54,7 +54,7 @@ function dateToStringWithDot(date?: Date) {
   if (!date) {
     return '';
   }
-  const stringifiedDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+  const stringifiedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
   return stringifiedDate;
 }
 
@@ -75,7 +75,7 @@ function validateDate(date: string) {
 function parseDate(date: string) {
   const { day, month, year } = date
     .match(dateRegex)?.groups as { day: string, month: string, year: string };
-  return new Date(Number(year), Number(month), Number(day));
+  return new Date(Number(year), Number(month) - 1, Number(day));
 }
 
 export {
