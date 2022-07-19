@@ -6,7 +6,7 @@ import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from './Spinner';
 import ErrorMessage from './ErrorMessage';
 import Button from './Button';
-import Content from './Content';
+import Filter from './filter/components/Filter';
 
 interface MovieCollectionProps {
   heading: string,
@@ -30,7 +30,7 @@ function MovieCollection({
     <Wrapper mode="screen">
       { isFetching ? <Spinner /> : null }
       { isError ? <ErrorMessage message={error?.message ?? 'Unknown error has happened.'} /> : null }
-      <Content
+      <Filter
         heading={heading}
         list={data}
       />

@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import {
   SortAlg,
-} from '../../filterMenu/constants';
-import filter from '.';
+} from './constants';
+import filter from './filter';
 import {
   TestMovie,
   getSubsequentStringDate,

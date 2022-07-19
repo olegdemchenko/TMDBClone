@@ -1,7 +1,7 @@
 import {
   MovieListItem,
 } from '../../../app/APIInfo';
-import { FilterState } from '../../filterMenu/state';
+import { FilterState } from './state';
 import {
   dateToStringWithDash,
   parseDate,
