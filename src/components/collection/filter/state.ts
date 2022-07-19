@@ -8,7 +8,7 @@ export type Dates = {
 export interface FilterState {
   sortAlg: SortAlg | null;
   dates: Dates;
-  genres: [],
+  genres: number[],
 }
 
 export enum ActionTypes {
