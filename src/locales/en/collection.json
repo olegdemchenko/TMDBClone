@@ -41,7 +41,7 @@
         "tvMovie": "TV Movie",
         "thriller": "Thriller",
         "horror": "Horror",
-        "sci-fi": "Science-Fiction",
+        "scienceFiction": "Science-Fiction",
         "fantasy": "Fantasy"
       },
       "languages": {
