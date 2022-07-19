@@ -22,6 +22,7 @@ import AgeLimitations from './AgeLimitations';
 import UserRatings from './UserRatings';
 import { MovieListItem } from '../../../../app/APIInfo';
 import GalleryItemsList from '../../../gallery/GalleryItemsList';
+import Container from './Container';
 import filter from '../filter';
 
 const filterWrapperStyles = css({
@@ -82,9 +83,8 @@ function Filter({
   ] = useReducer<Reducer<FilterState, ReducerAction>>(reducer, initialState);
 
   return (
-    <>
-      <h3 className="m-0 pb-4">{heading}</h3>
-      <div className="d-flex">
+    <Container heading={heading}>
+      <>
         <div css={filterWrapperStyles}>
           <Accordion defaultActiveKey={['0']} alwaysOpen css={accordionCustomStyles}>
             <Accordion.Item eventKey="0">
@@ -113,8 +113,8 @@ function Filter({
           heading={heading}
           list={filter(state, list)}
         />
-      </div>
-    </>
+      </>
+    </Container>
   );
 }
 
