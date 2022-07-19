@@ -66,3 +66,7 @@ export function filterByReleaseDate(dates: NonNullable<FilterState['dates']>, mo
     return true;
   });
 }
+
+export function filterByGenres(genres: number[], movies: TestMovie[]) {
+  return movies.filter((movie) => genres.every((genre) => movie.genre_ids.includes(genre)));
+}

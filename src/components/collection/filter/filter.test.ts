@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import {
+  genres,
   SortAlg,
 } from './constants';
 import filter from './filter';
@@ -8,22 +9,28 @@ import {
   getSubsequentStringDate,
   sortItems,
   filterByReleaseDate,
+  filterByGenres,
   releasesStartDate,
 } from './helpers';
-import { FilterState } from './state';
+import {
+  FilterState,
+  initialState,
+} from './state';
 import {
   parseDate,
 } from '../../../common/utils';
 
 const testItemsAmount = 20;
+const genresIds = Object.values(genres);
 
 const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index) => ({
   poster_path: '/lFSSLTlFozwpaGlO31OoUeirBgQ.jpg',
   adult: false,
   overview: 'The most dangerous former operative of the CIA is drawn out of hiding to uncover hidden truths about his past.',
   genre_ids: [
-    28,
-    53,
+    genresIds[_.random(0, genresIds.length - 1)],
+    genresIds[_.random(genresIds.length / 2, genresIds.length - 1)],
+    genresIds[_.random(0, genresIds.length / 2)],
   ],
   original_title: 'Jason Bourne',
   original_language: 'en',
@@ -37,7 +44,7 @@ const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index
   release_date: getSubsequentStringDate(index),
 }));
 
-const basicState: FilterState = { sortAlg: null, dates: {} };
+const basicState: FilterState = { ...initialState };
 
 const testReleaseDates = {
   beforeStart: {
@@ -92,4 +99,14 @@ test.each([
   expect(
     filter({ ...basicState, dates }, movieList),
   ).toEqual(filteredMovies);
+});
+
+const testGenresIds = genresIds.map((genre, index, genreArr) => genreArr.slice(index));
+
+test.each(
+  testGenresIds.map((currGenres) => [currGenres, filterByGenres(currGenres, movieList)]),
+)('test filtering by genres: %d', (genresArr, prefilteredMovies) => {
+  expect(
+    filter({ ...basicState, genres: genresArr as number[] }, movieList),
+  ).toEqual(prefilteredMovies);
 });
