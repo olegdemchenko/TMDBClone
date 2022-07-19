@@ -10,6 +10,7 @@ import {
   filterByReleaseDate,
   releasesStartDate,
 } from './helpers';
+import { FilterState } from './state';
 import {
   parseDate,
 } from '../../../common/utils';
@@ -35,6 +36,8 @@ const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index
   title: _.uniqueId(),
   release_date: getSubsequentStringDate(index),
 }));
+
+const basicState: FilterState = { sortAlg: null, dates: {} };
 
 const testReleaseDates = {
   beforeStart: {
@@ -64,7 +67,7 @@ test.each([
   [SortAlg.titleZA, [...movieList].sort(sortItems('title', 'desc'))],
 ])('test sorting alg:%s', (sortAlg: SortAlg, presortedMovies: TestMovie[]) => {
   expect(
-    filter({ sortAlg, dates: {} }, [...movieList]),
+    filter({ ...basicState, sortAlg }, [...movieList]),
   ).toEqual(presortedMovies);
 });
 
@@ -87,6 +90,6 @@ test.each([
   ],
 ])('test filtering by release dates: %j', (dates, filteredMovies) => {
   expect(
-    filter({ sortAlg: null, dates }, movieList),
+    filter({ ...basicState, dates }, movieList),
   ).toEqual(filteredMovies);
 });
