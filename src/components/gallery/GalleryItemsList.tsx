@@ -13,6 +13,7 @@ const listGap = 25;
 const commonStyles = css({
   display: 'flex',
   gap: listGap,
+  flexGrow: 1,
   alignContent: 'start',
 });
 
