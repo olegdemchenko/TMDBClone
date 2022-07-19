@@ -8,11 +8,13 @@ export type Dates = {
 export interface FilterState {
   sortAlg: SortAlg | null;
   dates: Dates;
+  genres: [],
 }
 
 export enum ActionTypes {
   sortAlg = 'SETSORTALG',
   dates = 'SETDATES',
+  setGenres = 'SETGENRES',
 }
 
 export type ReducerAction =
@@ -24,6 +26,7 @@ export const initialState: FilterState = {
   dates: {
     to: new Date(),
   },
+  genres: [],
 };
 
 export function reducer(state: FilterState, action: ReducerAction) {
