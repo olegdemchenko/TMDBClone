@@ -13,6 +13,7 @@ const listGap = 25;
 const commonStyles = css({
   display: 'flex',
   gap: listGap,
+  alignContent: 'start',
 });
 
 const RowListStyles = css({
