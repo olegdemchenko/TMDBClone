@@ -3,14 +3,14 @@ import {
 } from '../../../app/APIInfo';
 import { FilterState } from '../../filterMenu/state';
 import {
-  stringToDate,
   dateToStringWithDash,
+  parseDate,
 } from '../../../common/utils';
 
 export const releasesStartDate = '1930-01-01';
 
 export function getSubsequentStringDate(index: number) {
-  const startDate = stringToDate(releasesStartDate);
+  const startDate = parseDate(releasesStartDate, 'dash');
   startDate.setFullYear(startDate.getFullYear() + index);
   return dateToStringWithDash(startDate);
 }
@@ -50,7 +50,7 @@ export function sortItems(key: PropertiesKeys, direction: 'asc' | 'desc') {
 
 export function filterByReleaseDate(dates: NonNullable<FilterState['dates']>, movies: TestMovie[]) {
   return movies.filter((movie) => {
-    const releaseDate = stringToDate(movie.release_date);
+    const releaseDate = parseDate(movie.release_date, 'dash');
     if (dates.from && dates.to) {
       return (
         (dates.from.valueOf() <= releaseDate.valueOf())

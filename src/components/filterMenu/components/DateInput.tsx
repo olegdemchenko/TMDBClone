@@ -5,7 +5,7 @@ import {
 } from '../../../common/styles';
 import {
   dateToStringWithDash,
-  stringToDate,
+  parseDate,
 } from '../../../common/utils';
 import calendar from '../../../assets/img/calendar.svg';
 
@@ -62,7 +62,7 @@ function DateInput({
     const target = e.target as HTMLInputElement & {
       value: string
     };
-    const parsedDate = stringToDate(target.value);
+    const parsedDate = parseDate(target.value, 'dash');
     setDate(parsedDate);
   };
 

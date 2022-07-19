@@ -50,7 +50,7 @@ function TextDateInput({
     const isDateValid = validateDate(target.value);
     setEnteredDateValidity(isDateValid);
     if (isDateValid) {
-      const parsedDate = parseDate(target.value);
+      const parsedDate = parseDate(target.value, 'dot');
       setDate(parsedDate);
     }
   };

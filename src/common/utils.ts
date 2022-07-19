@@ -28,26 +28,26 @@ function addZeroToDate(date:number) {
   return date < 10 ? `0${date}` : String(date);
 }
 
-function normalizeMonth(month: number) {
-  return month + 1;
-}
-
 function dateToStringWithDash(date: Date) {
-  return `${date.getFullYear()}-${addZeroToDate(normalizeMonth(date.getMonth()))}-${addZeroToDate(date.getDate())}`;
+  return `${date.getFullYear()}-${addZeroToDate(date.getMonth() + 1)}-${addZeroToDate(date.getDate())}`;
 }
 
-function stringToDate(dateStr: string) {
-  const dateRegex = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
-  if (!dateRegex.test(dateStr)) {
+type DatesTypes = 'dash' | 'dot';
+
+function parseDate(dateStr: string, dateType: DatesTypes) {
+  const regexMap: { [Key in DatesTypes]: RegExp } = {
+    dot: /(?<day>[0-9]{1,2}).(?<month>[0-9]{1,2}).(?<year>[0-9]{4})/,
+    dash: /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/,
+  };
+  if (!regexMap[dateType].test(dateStr)) {
     throw new Error(`Incorrect string date format: ${dateStr}`);
   }
   const {
     year,
     month,
     day,
-  } = dateStr.match(dateRegex)!.groups as { year: string, month: string, day: string };
-  const transformedDate = new Date(Number(year), Number(month) - 1, Number(day));
-  return transformedDate;
+  } = dateStr.match(regexMap[dateType])!.groups as { year: string, month: string, day: string };
+  return new Date(Number(year), Number(month) - 1, Number(day));
 }
 
 function dateToStringWithDot(date?: Date) {
@@ -58,24 +58,18 @@ function dateToStringWithDot(date?: Date) {
   return stringifiedDate;
 }
 
-const dateRegex = /(?<day>[0-9]{1,2}).(?<month>[0-9]{1,2}).(?<year>[0-9]{4})/;
-
 function validateDate(date: string) {
-  if (!dateRegex.test(date)) {
+  const maxDay = 31;
+  const maxMonth = 11;
+  const maxYear = 2022;
+  try {
+    const parsedDate = parseDate(date, 'dot');
+    return parsedDate.getDate() <= maxDay
+      && parsedDate.getMonth() <= maxMonth
+      && parsedDate.getFullYear() <= maxYear;
+  } catch (e) {
     return false;
   }
-  const maxDay = 31;
-  const maxMonth = 12;
-  const maxYear = 2022;
-  const { day, month, year } = date
-    .match(dateRegex)?.groups as { day: string, month: string, year: string };
-  return Number(day) <= maxDay && Number(month) <= maxMonth && Number(year) <= maxYear;
-}
-
-function parseDate(date: string) {
-  const { day, month, year } = date
-    .match(dateRegex)?.groups as { day: string, month: string, year: string };
-  return new Date(Number(year), Number(month) - 1, Number(day));
 }
 
 export {
@@ -86,5 +80,4 @@ export {
   dateToStringWithDot,
   validateDate,
   parseDate,
-  stringToDate,
 };

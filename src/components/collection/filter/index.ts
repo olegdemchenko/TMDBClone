@@ -3,7 +3,9 @@ import {
 } from '../../../app/APIInfo';
 import { SortAlg } from '../../filterMenu/constants';
 import { FilterState } from '../../filterMenu/state';
-import { stringToDate } from '../../../common/utils';
+import {
+  parseDate,
+} from '../../../common/utils';
 
 type MovieData = {
   [Key in keyof MovieListItem as string]: MovieListItem[Key]
@@ -55,7 +57,7 @@ function doesMovieBelongToTime(movie: MovieListItem, dates: FilterState['dates']
   if (!dates || !movie.release_date) {
     return true;
   }
-  const movieDate = stringToDate(movie.release_date);
+  const movieDate = parseDate(movie.release_date, 'dash');
   if (dates.from && !dates.to) {
     return dates.from.valueOf() <= movieDate.valueOf();
   }

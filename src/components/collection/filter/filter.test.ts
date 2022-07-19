@@ -10,7 +10,9 @@ import {
   filterByReleaseDate,
   releasesStartDate,
 } from './helpers';
-import { stringToDate } from '../../../common/utils';
+import {
+  parseDate,
+} from '../../../common/utils';
 
 const testItemsAmount = 20;
 
@@ -36,18 +38,18 @@ const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index
 
 const testReleaseDates = {
   beforeStart: {
-    from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount * 2, 1, 1),
-    to: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount, 1, 1),
+    from: new Date(parseDate(releasesStartDate, 'dash').getFullYear() - testItemsAmount * 2, 1, 1),
+    to: new Date(parseDate(releasesStartDate, 'dash').getFullYear() - testItemsAmount, 1, 1),
   },
   afterStart: {
-    from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount / 2, 1, 1),
-    to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 2, 1, 1),
+    from: new Date(parseDate(releasesStartDate, 'dash').getFullYear() - testItemsAmount / 2, 1, 1),
+    to: new Date(parseDate(releasesStartDate, 'dash').getFullYear() + testItemsAmount / 2, 1, 1),
   },
   withoutFrom: {
-    to: new Date(stringToDate(releasesStartDate).getFullYear() + testItemsAmount / 4, 1, 1),
+    to: new Date(parseDate(releasesStartDate, 'dash').getFullYear() + testItemsAmount / 4, 1, 1),
   },
   withoutTo: {
-    from: new Date(stringToDate(releasesStartDate).getFullYear() - testItemsAmount / 4, 1, 1),
+    from: new Date(parseDate(releasesStartDate, 'dash').getFullYear() - testItemsAmount / 4, 1, 1),
   },
 };
 
