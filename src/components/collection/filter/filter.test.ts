@@ -105,7 +105,7 @@ const testGenresIds = genresIds.map((genre, index, genreArr) => genreArr.slice(i
 
 test.each(
   testGenresIds.map((currGenres) => [currGenres, filterByGenres(currGenres, movieList)]),
-)('test filtering by genres: %d', (genresArr, prefilteredMovies) => {
+)('test filtering by genres ids: %o', (genresArr, prefilteredMovies) => {
   expect(
     filter({ ...basicState, genres: genresArr as number[] }, movieList),
   ).toEqual(prefilteredMovies);
