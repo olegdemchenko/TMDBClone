@@ -9,17 +9,17 @@ export enum SortAlg {
   titleZA = 'titleZA',
 }
 
-export enum Languages {
-  en = 'english',
-  zh = 'chinese',
-  hi = 'hindi',
-  es = 'spanish',
-  fr = 'French',
-  ar = 'arabic',
-  ru = 'russian',
-  pt = 'portuguese',
-  in = 'indonesian',
-}
+export const languages = {
+  english: 'en',
+  german: 'de',
+  french: 'fr',
+  spanish: 'es',
+  japanese: 'ja',
+  portuguese: 'pt',
+  italian: 'it',
+  russian: 'ru',
+  chinese: 'zh',
+};
 
 export enum UserVotes {
   min = 0,

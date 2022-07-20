@@ -47,15 +47,15 @@
       "languages": {
         "name": "Languages",
         "none": "None selected",
-        "en": "English",
-        "zh": "Chinese",
-        "hi": "Hindi",
-        "es": "Spanish",
-        "fr": "French",
-        "ar": "Arabic",
-        "ru": "Russian",
-        "pt": "Portuguese",
-        "in": "Indonesian"
+        "english": "English",
+        "german": "German",
+        "french": "French",
+        "spanish": "Spanish",
+        "japanese": "Japanese",
+        "portuguese": "Portuguese",
+        "italian": "Italian",
+        "russian": "Russian",
+        "chinese": "Chinese"
       },
       "age": {
         "name": "Age",
