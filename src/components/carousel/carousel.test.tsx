@@ -6,7 +6,7 @@ import {
 } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../app/store/store';
-import { tmdbApi } from '../../app/store/api';
+import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { renderWithWrapper } from '../../common/utils';
 import { movie, moviesPerPage } from '../../../__mocks__/server/handlers/getPopularMovies';
@@ -18,7 +18,7 @@ test('check fetching movies', async () => {
     <Provider store={store}>
       <Carousel
         heading={heading}
-        sendQuery={useCachedQueryData(tmdbApi.endpoints.getPopularMovies)}
+        sendQuery={useCachedQueryData(moviesApi.endpoints.getPopularMovies)}
       />
     </Provider>,
   );
@@ -33,7 +33,7 @@ test('check error handling', async () => {
     <Provider store={store}>
       <Carousel
         heading={heading}
-        sendQuery={useCachedQueryData(tmdbApi.endpoints.getUpcomingMovies)}
+        sendQuery={useCachedQueryData(moviesApi.endpoints.getUpcomingMovies)}
       />
     </Provider>,
   );

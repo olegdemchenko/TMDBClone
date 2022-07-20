@@ -10,7 +10,7 @@ import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { store } from '../../app/store/store';
 import i18n from '../../i18n';
-import { tmdbApi } from '../../app/store/api';
+import { moviesApi } from '../../app/store/api';
 import { renderWithWrapper } from '../../common/utils';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import MovieCollection from '.';
@@ -25,7 +25,7 @@ test('check fetching on scroll', async () => {
         heading="Popular"
         sendQuery={
           useCachedQueryData(
-            tmdbApi.endpoints.getPopularMovies,
+            moviesApi.endpoints.getPopularMovies,
           )
         }
       />

@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign, import/no-cycle */
 import { configureStore } from '@reduxjs/toolkit/';
-import { tmdbApi } from './api';
+import { baseApi } from './api/base';
 
 export const store = configureStore({
   reducer: {
-    [tmdbApi.reducerPath]: tmdbApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) => (
-    getDefaultMiddleware().concat(tmdbApi.middleware)
+    getDefaultMiddleware().concat(baseApi.middleware)
   ),
 });
 

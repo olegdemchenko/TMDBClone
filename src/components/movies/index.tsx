@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { tmdbApi } from '../../app/store/api';
+import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import MovieCollection from '../collection';
 
@@ -16,7 +16,7 @@ function MoviesRoutes() {
             heading={t('popular')}
             sendQuery={
               useCachedQueryData(
-                tmdbApi.endpoints.getPopularMovies,
+                moviesApi.endpoints.getPopularMovies,
               )
             }
           />
@@ -29,7 +29,7 @@ function MoviesRoutes() {
             heading={t('upcoming')}
             sendQuery={
               useCachedQueryData(
-                tmdbApi.endpoints.getUpcomingMovies,
+                moviesApi.endpoints.getUpcomingMovies,
               )
             }
           />
@@ -42,7 +42,7 @@ function MoviesRoutes() {
             heading={t('top')}
             sendQuery={
               useCachedQueryData(
-                tmdbApi.endpoints.getTopRatedMovies,
+                moviesApi.endpoints.getTopRatedMovies,
               )
             }
           />
@@ -55,7 +55,7 @@ function MoviesRoutes() {
             heading={t('playing')}
             sendQuery={
               useCachedQueryData(
-                tmdbApi.endpoints.getNowPlayingMovies,
+                moviesApi.endpoints.getNowPlayingMovies,
               )
             }
           />
