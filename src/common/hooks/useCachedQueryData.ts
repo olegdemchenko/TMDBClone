@@ -5,8 +5,12 @@ import { ApiEndpointQuery } from '@reduxjs/toolkit/dist/query/core/module';
 import { useSelector } from 'react-redux';
 import {
   MovieListResult,
+  TVListResult,
 } from '../../app/TMDBAPIInterfaces';
-import { moviesApi } from '../../app/store/api';
+import {
+  moviesApi,
+  TVApi,
+} from '../../app/store/api';
 import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
 
 type QueryHookParams = number;
@@ -17,12 +21,25 @@ typeof axiosBaseQuery,
 any,
 MovieListResult>;
 
+type TVQuery = QueryDefinition<
+QueryHookParams,
+typeof axiosBaseQuery,
+any,
+TVListResult>;
+
 export type SendQuery = ReturnType<typeof useCachedQueryData>;
 
-type Endpoint = ApiEndpointQuery<
+type MovieEndpoint = ApiEndpointQuery<
 MovieQuery,
 { [K in keyof typeof moviesApi.endpoints]: MovieQuery }
 > & QueryHooks<MovieQuery>;
+
+type TVEndpoint = ApiEndpointQuery<
+TVQuery,
+{ [K in keyof typeof TVApi.endpoints]: TVQuery }
+> & QueryHooks<TVQuery>;
+
+type Endpoint = MovieEndpoint | TVEndpoint;
 
 const selectCachedData = (endpoint: Endpoint, page: number) => {
   const selectors = Array.from(
