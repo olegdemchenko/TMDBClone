@@ -1,4 +1,7 @@
-import { SortAlg } from './constants';
+import {
+  SortAlg,
+  UserRate,
+} from './constants';
 
 export type Dates = {
   from?: Date;
@@ -10,6 +13,7 @@ export interface FilterState {
   dates: Dates;
   genres: number[];
   language: string;
+  rate: number;
 }
 
 export enum ActionTypes {
@@ -18,6 +22,7 @@ export enum ActionTypes {
   addGenre = 'ADDGENRE',
   deleteGenre = 'DELETEGENRE',
   selectLanguage = 'SELECTLANGUAGE',
+  setRate = 'SETRATE',
 }
 
 export type ReducerAction =
@@ -25,7 +30,8 @@ export type ReducerAction =
 | { type: ActionTypes.dates, payload: Dates }
 | { type: ActionTypes.deleteGenre, payload: number }
 | { type: ActionTypes.addGenre, payload: number }
-| { type: ActionTypes.selectLanguage, payload: string };
+| { type: ActionTypes.selectLanguage, payload: string }
+| { type: ActionTypes.setRate, payload: number };
 
 export const initialState: FilterState = {
   sortAlg: null,
@@ -34,6 +40,7 @@ export const initialState: FilterState = {
   },
   genres: [],
   language: '',
+  rate: UserRate.max / 2,
 };
 
 export function reducer(state: FilterState, action: ReducerAction) {
@@ -48,6 +55,8 @@ export function reducer(state: FilterState, action: ReducerAction) {
       return { ...state, genres: state.genres.filter((genre) => genre !== action.payload) };
     case ActionTypes.selectLanguage:
       return { ...state, language: action.payload };
+    case ActionTypes.setRate:
+      return { ...state, rate: action.payload };
     default:
       throw new Error('Unknown action type');
   }

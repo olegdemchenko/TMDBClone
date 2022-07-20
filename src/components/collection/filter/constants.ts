@@ -22,12 +22,7 @@ export const languages = {
   none: '',
 };
 
-export enum UserVotes {
-  min = 0,
-  max = 500,
-}
-
-export enum UserScore {
+export enum UserRate {
   min = 0,
   max = 10,
 }
