@@ -19,5 +19,5 @@ export interface MovieListResult {
   page: number;
   total_pages: number;
   total_results: number;
-  results: (MovieListItem)[]
+  results: MovieListItem[];
 }
