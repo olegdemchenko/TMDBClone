@@ -77,3 +77,7 @@ export function filterByLanguage(language: string, movies: TestMovie[]) {
   }
   return movies.filter((movie) => movie.original_language === language);
 }
+
+export function filterByRate(rate: number, movies: TestMovie[]) {
+  return movies.filter((movie) => movie.vote_average >= rate);
+}

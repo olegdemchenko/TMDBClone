@@ -2,6 +2,7 @@ import _ from 'lodash';
 import {
   genres,
   SortAlg,
+  UserRate,
   languages,
 } from './constants';
 import filter from './filter';
@@ -12,6 +13,7 @@ import {
   filterByReleaseDate,
   filterByGenres,
   filterByLanguage,
+  filterByRate,
   releasesStartDate,
 } from './helpers';
 import {
@@ -42,7 +44,7 @@ const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index
   video: false,
   id: Math.random(),
   popularity: Math.random() * 100,
-  vote_average: _.random(9.999),
+  vote_average: _.random(UserRate.min, UserRate.max),
   title: _.uniqueId(),
   release_date: getSubsequentStringDate(index),
 }));
@@ -119,5 +121,15 @@ test.each(
 )('test filtering by language: %s', (language, filteredMovies) => {
   expect(
     filter({ ...basicState, language }, movieList),
+  ).toEqual(filteredMovies);
+});
+
+test.only.each([
+  [UserRate.min, filterByRate(UserRate.min, movieList)],
+  [UserRate.max, filterByRate(UserRate.max, movieList)],
+  [UserRate.max / 2, filterByRate(UserRate.max / 2, movieList)],
+])('test filtering by user rate: %d', (rate, filteredMovies) => {
+  expect(
+    filter({ ...basicState, rate }, movieList),
   ).toEqual(filteredMovies);
 });
