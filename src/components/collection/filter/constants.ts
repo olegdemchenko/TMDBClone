@@ -19,6 +19,7 @@ export const languages = {
   italian: 'it',
   russian: 'ru',
   chinese: 'zh',
+  none: '',
 };
 
 export enum UserVotes {

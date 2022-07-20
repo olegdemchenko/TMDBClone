@@ -78,15 +78,24 @@ function isMovieRelToGenres(movie: MovieListItem, genres: number[]) {
   return genres.every((genreId) => movie.genre_ids?.includes(genreId));
 }
 
+function doesMovieHaveLang(language: string, movie: MovieListItem) {
+  if (!language) {
+    return true;
+  }
+  return movie.original_language === language;
+}
+
 function filter({
   sortAlg,
   dates,
   genres,
+  language,
 }: FilterState, movies: MovieListItem[]) {
   return movies
     .sort(sortAlg ? Algs[sortAlg] : undefined)
     .filter((movie) => doesMovieBelongToTime(movie, dates))
-    .filter((movie) => isMovieRelToGenres(movie, genres));
+    .filter((movie) => isMovieRelToGenres(movie, genres))
+    .filter((movie) => doesMovieHaveLang(language, movie));
 }
 
 export default filter;

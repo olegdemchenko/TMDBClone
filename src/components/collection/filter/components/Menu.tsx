@@ -97,7 +97,12 @@ function Menu({
                 (genre: number) => dispatch({ type: ActionTypes.deleteGenre, payload: genre })
               }
             />
-            <Languages />
+            <Languages
+              currentLanguage={state.language}
+              setLanguage={
+                (lang: string) => dispatch({ type: ActionTypes.selectLanguage, payload: lang })
+              }
+            />
             <AgeLimitations />
             <UserRatings />
           </Accordion.Body>
