@@ -1,7 +1,7 @@
 import {
   MovieListItem,
 } from '../../../app/APIInfo';
-import { SortAlg } from './constants';
+import { SortAlg, UserRate } from './constants';
 import { FilterState } from './state';
 import {
   parseDate,
@@ -85,17 +85,23 @@ function doesMovieHaveLang(language: string, movie: MovieListItem) {
   return movie.original_language === language;
 }
 
+function doesMovieHaveRate(rate: number, movie: MovieListItem) {
+  return (movie.vote_average ?? UserRate.max) >= rate;
+}
+
 function filter({
   sortAlg,
   dates,
   genres,
   language,
+  rate,
 }: FilterState, movies: MovieListItem[]) {
   return movies
     .sort(sortAlg ? Algs[sortAlg] : undefined)
     .filter((movie) => doesMovieBelongToTime(movie, dates))
     .filter((movie) => isMovieRelToGenres(movie, genres))
-    .filter((movie) => doesMovieHaveLang(language, movie));
+    .filter((movie) => doesMovieHaveLang(language, movie))
+    .filter((movie) => doesMovieHaveRate(rate, movie));
 }
 
 export default filter;

@@ -102,7 +102,10 @@ function Menu({
                 (lang: string) => dispatch({ type: ActionTypes.selectLanguage, payload: lang })
               }
             />
-            <UserRatings />
+            <UserRatings
+              currentRate={state.rate}
+              setRate={(rate: number) => dispatch({ type: ActionTypes.setRate, payload: rate })}
+            />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
