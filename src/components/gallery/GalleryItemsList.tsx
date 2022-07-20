@@ -1,10 +1,17 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { MovieListItem } from '../../app/TMDBAPIInterfaces';
+import {
+  MovieListItem,
+  TVListItem,
+} from '../../app/TMDBAPIInterfaces';
+import {
+  getReleaseDate,
+  getTitle,
+} from '../../common/utils';
 import GalleryItem from './GalleryItem';
 
 interface GalleryListItemsProps {
-  list: MovieListItem[];
+  list: MovieListItem[] | TVListItem[];
   heading: string,
   mode: 'row' | 'multiline',
 }
@@ -52,10 +59,10 @@ function GalleryItemsList({
           key={elem.id}
           data={{
             poster: elem.poster_path,
-            title: elem.title,
-            date: elem.release_date,
+            title: getTitle(elem),
+            date: getReleaseDate(elem),
             rate: elem.vote_average,
-            alt: `${heading}: ${elem.title ?? ''}`,
+            alt: `${heading}: ${getTitle(elem) ?? ''}`,
           }}
           size={mode === 'row' ? 'medium' : 'large'}
         />

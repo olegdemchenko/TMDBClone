@@ -6,6 +6,8 @@ import { SortAlg, UserRate } from './constants';
 import { FilterState } from './state';
 import {
   parseDate,
+  getReleaseDate,
+  getTitle,
 } from '../../../common/utils';
 
 type Movie = {
@@ -40,20 +42,6 @@ type ListItem = MovieListItem | TVListItem;
 type AlgorithmsMap = {
   [key in SortAlg]: (a: ListItem, b: ListItem) => number;
 };
-
-function getTitle(elem: ListItem) {
-  if ('name' in elem) {
-    return elem.name;
-  }
-  return (elem as MovieListItem).title;
-}
-
-function getReleaseDate(elem: ListItem) {
-  if ('release_date' in elem) {
-    return elem.release_date;
-  }
-  return (elem as TVListItem).first_air_date;
-}
 
 const Algs: AlgorithmsMap = {
   [SortAlg.popularityAsc]: (a, b) => compareValuesByAsc(a?.popularity, b?.popularity),

@@ -1,5 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
+import {
+  MovieListItem,
+  TVListItem,
+} from '../app/TMDBAPIInterfaces';
 
 const renderWithWrapper = (ui: JSX.Element, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
@@ -72,6 +76,20 @@ function validateDate(date: string) {
   }
 }
 
+function getTitle(elem: MovieListItem | TVListItem) {
+  if ('name' in elem) {
+    return elem.name;
+  }
+  return (elem as MovieListItem).title;
+}
+
+function getReleaseDate(elem: MovieListItem | TVListItem) {
+  if ('release_date' in elem) {
+    return elem.release_date;
+  }
+  return (elem as TVListItem).first_air_date;
+}
+
 export {
   capitalize,
   isDataDefined,
@@ -80,4 +98,6 @@ export {
   dateToStringWithDot,
   validateDate,
   parseDate,
+  getTitle,
+  getReleaseDate,
 };
