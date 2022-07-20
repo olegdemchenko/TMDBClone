@@ -8,7 +8,8 @@ export type Dates = {
 export interface FilterState {
   sortAlg: SortAlg | null;
   dates: Dates;
-  genres: number[],
+  genres: number[];
+  language: string;
 }
 
 export enum ActionTypes {
@@ -16,13 +17,15 @@ export enum ActionTypes {
   dates = 'SETDATES',
   addGenre = 'ADDGENRE',
   deleteGenre = 'DELETEGENRE',
+  selectLanguage = 'SELECTLANGUAGE',
 }
 
 export type ReducerAction =
 | { type: ActionTypes.sortAlg, payload: SortAlg }
 | { type: ActionTypes.dates, payload: Dates }
 | { type: ActionTypes.deleteGenre, payload: number }
-| { type: ActionTypes.addGenre, payload: number };
+| { type: ActionTypes.addGenre, payload: number }
+| { type: ActionTypes.selectLanguage, payload: string };
 
 export const initialState: FilterState = {
   sortAlg: null,
@@ -30,6 +33,7 @@ export const initialState: FilterState = {
     to: new Date(),
   },
   genres: [],
+  language: '',
 };
 
 export function reducer(state: FilterState, action: ReducerAction) {
@@ -42,6 +46,8 @@ export function reducer(state: FilterState, action: ReducerAction) {
       return { ...state, genres: [...state.genres, action.payload] };
     case ActionTypes.deleteGenre:
       return { ...state, genres: state.genres.filter((genre) => genre !== action.payload) };
+    case ActionTypes.selectLanguage:
+      return { ...state, language: action.payload };
     default:
       throw new Error('Unknown action type');
   }
