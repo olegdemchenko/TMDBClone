@@ -1,6 +1,6 @@
 import {
   MovieListItem,
-} from '../../../app/APIInfo';
+} from '../../../app/TMDBAPIInterfaces';
 import { FilterState } from './state';
 import {
   dateToStringWithDash,

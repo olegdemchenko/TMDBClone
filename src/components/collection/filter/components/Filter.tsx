@@ -5,7 +5,7 @@ import {
   reducer,
   ReducerAction,
 } from '../state';
-import { MovieListItem } from '../../../../app/APIInfo';
+import { MovieListItem } from '../../../../app/TMDBAPIInterfaces';
 import GalleryItemsList from '../../../gallery/GalleryItemsList';
 import Container from './Container';
 import filter from '../filter';

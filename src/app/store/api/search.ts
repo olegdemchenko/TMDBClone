@@ -1,5 +1,5 @@
 import { baseApi } from './base';
-import { MultiSearchResults } from '../../APIInfo';
+import { MultiSearchResults } from '../../TMDBAPIInterfaces';
 
 type MultiSearchRequest = {
   query: string;

@@ -10,7 +10,7 @@ import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
 import Pagination from '../pagination';
-import { MultiSearchResults } from '../../app/APIInfo';
+import { MultiSearchResults } from '../../app/TMDBAPIInterfaces';
 
 const statisticsWrapperStyles = css({
   width: 260,

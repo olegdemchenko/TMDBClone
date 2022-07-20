@@ -3,7 +3,7 @@ import {
   MultiSearchResults,
   MediaTypes,
   MovieListItemMedia
-} from '../../../src/app/APIInfo';
+} from '../../../src/app/TMDBAPIInterfaces';
 import { error } from './commonData';
 import { paths } from '../../../src/routes/routes';
 

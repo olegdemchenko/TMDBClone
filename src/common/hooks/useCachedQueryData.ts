@@ -5,7 +5,7 @@ import { ApiEndpointQuery } from '@reduxjs/toolkit/dist/query/core/module';
 import { useSelector } from 'react-redux';
 import {
   MovieListResult,
-} from '../../app/APIInfo';
+} from '../../app/TMDBAPIInterfaces';
 import { moviesApi } from '../../app/store/api';
 import axiosBaseQuery from '../../app/store/api/axiosBaseQuery';
 

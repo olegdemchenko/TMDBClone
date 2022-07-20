@@ -2,7 +2,7 @@ import { rest } from 'msw';
 import {
   MovieListItem,
   MovieListResult
-} from '../../../src/app/APIInfo';
+} from '../../../src/app/TMDBAPIInterfaces';
 import { paths } from '../../../src/routes/routes';
 
 export const movie: MovieListItem = {

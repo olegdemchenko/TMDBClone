@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { MovieListItem } from '../../app/APIInfo';
+import { MovieListItem } from '../../app/TMDBAPIInterfaces';
 import GalleryItem from './GalleryItem';
 
 interface GalleryListItemsProps {

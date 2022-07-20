@@ -5,7 +5,7 @@ import {
   MovieListItemMedia,
   TVListItemMedia,
   MediaTypes,
-} from '../../app/APIInfo';
+} from '../../app/TMDBAPIInterfaces';
 import { BorderRadiuses } from '../../common/styles';
 import noAvatar from '../../assets/img/noAvatar.jpg';
 import { imagePaths } from '../../routes/routes';

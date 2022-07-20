@@ -1,4 +1,4 @@
-import { Error} from '../../../src/app/APIInfo';
+import { Error} from '../../../src/app/TMDBAPIInterfaces';
 
 export const error: Error = {
   status_code: 404,

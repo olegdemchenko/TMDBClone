@@ -1,5 +1,5 @@
 import { baseApi } from './base';
-import { TVListResult } from '../../APIInfo';
+import { TVListResult } from '../../TMDBAPIInterfaces';
 
 export const TVApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

@@ -8,7 +8,7 @@ import {
   PersonListItemMedia,
   TVListItemMedia,
   MediaTypes,
-} from '../../app/APIInfo';
+} from '../../app/TMDBAPIInterfaces';
 import {
   ThemeColors,
   BorderRadiuses,

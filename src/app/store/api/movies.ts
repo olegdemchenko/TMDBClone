@@ -1,5 +1,5 @@
 import { baseApi } from './base';
-import { MovieListResult } from '../../APIInfo';
+import { MovieListResult } from '../../TMDBAPIInterfaces';
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

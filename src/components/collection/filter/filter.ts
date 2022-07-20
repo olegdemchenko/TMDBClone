@@ -1,6 +1,6 @@
 import {
   MovieListItem,
-} from '../../../app/APIInfo';
+} from '../../../app/TMDBAPIInterfaces';
 import { SortAlg, UserRate } from './constants';
 import { FilterState } from './state';
 import {
