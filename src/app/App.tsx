@@ -9,6 +9,7 @@ import Root from '../components/layout/Layout';
 import Main from '../components/main/Main';
 import Results from '../components/results/Results';
 import Movies from '../components/movies';
+import TVShows from '../components/tvShows';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="search" element={<Results />} />
           <Route path="movie/*" element={<Movies />} />
+          <Route path="tv/*" element={<TVShows />} />
         </Route>
       </Routes>
     </Provider>
