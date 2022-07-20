@@ -33,13 +33,10 @@ function makeMeasurementsScalesStyle(min:number, max:number) {
 function UserRatings() {
   const { t } = useTranslation('collection');
   const scoresMeasurementsScaleStyles = makeMeasurementsScalesStyle(0, 10);
-  const votesMeasurementsScaleStyles = makeMeasurementsScalesStyle(0, 500);
   return (
     <form css={[containerStyles, noBorderStyles]}>
       <label css={headingStyles} htmlFor="userScore">{t('filter.filters.userScore')}</label>
       <input css={[commonRangeStyles, scoresMeasurementsScaleStyles]} type="range" name="" id="userScore" />
-      <label css={headingStyles} htmlFor="userVotes">{t('filter.filters.userVotes')}</label>
-      <input css={[commonRangeStyles, votesMeasurementsScaleStyles]} type="range" name="" id="userVotes" />
     </form>
   );
 }

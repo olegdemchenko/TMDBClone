@@ -11,7 +11,6 @@ import SortTypes from './SortTypes';
 import Dates from './Dates';
 import Genres from './Genres';
 import Languages from './Languages';
-import AgeLimitations from './AgeLimitations';
 import UserRatings from './UserRatings';
 import {
   ThemeColors,
@@ -103,7 +102,6 @@ function Menu({
                 (lang: string) => dispatch({ type: ActionTypes.selectLanguage, payload: lang })
               }
             />
-            <AgeLimitations />
             <UserRatings />
           </Accordion.Body>
         </Accordion.Item>
