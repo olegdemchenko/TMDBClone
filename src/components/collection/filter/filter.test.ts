@@ -124,7 +124,7 @@ test.each(
   ).toEqual(filteredMovies);
 });
 
-test.only.each([
+test.each([
   [UserRate.min, filterByRate(UserRate.min, movieList)],
   [UserRate.max, filterByRate(UserRate.max, movieList)],
   [UserRate.max / 2, filterByRate(UserRate.max / 2, movieList)],
