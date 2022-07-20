@@ -5,7 +5,10 @@ import {
   reducer,
   ReducerAction,
 } from '../state';
-import { MovieListItem } from '../../../../app/TMDBAPIInterfaces';
+import {
+  MovieListItem,
+  TVListItem,
+} from '../../../../app/TMDBAPIInterfaces';
 import GalleryItemsList from '../../../gallery/GalleryItemsList';
 import Container from './Container';
 import filter from '../filter';
@@ -13,7 +16,7 @@ import Menu from './Menu';
 
 interface FilterProps {
   heading: string;
-  list: MovieListItem[];
+  list: MovieListItem[] | TVListItem[];
 }
 
 function Filter({
