@@ -71,10 +71,22 @@ function doesMovieBelongToTime(movie: MovieListItem, dates: FilterState['dates']
   return true;
 }
 
-function filter({ sortAlg, dates }: FilterState, movies: MovieListItem[]) {
+function isMovieRelToGenres(movie: MovieListItem, genres: number[]) {
+  if (genres.length === 0) {
+    return true;
+  }
+  return genres.every((genreId) => movie.genre_ids?.includes(genreId));
+}
+
+function filter({
+  sortAlg,
+  dates,
+  genres,
+}: FilterState, movies: MovieListItem[]) {
   return movies
     .sort(sortAlg ? Algs[sortAlg] : undefined)
-    .filter((movie) => doesMovieBelongToTime(movie, dates));
+    .filter((movie) => doesMovieBelongToTime(movie, dates))
+    .filter((movie) => isMovieRelToGenres(movie, genres));
 }
 
 export default filter;

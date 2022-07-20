@@ -14,12 +14,15 @@ export interface FilterState {
 export enum ActionTypes {
   sortAlg = 'SETSORTALG',
   dates = 'SETDATES',
-  setGenres = 'SETGENRES',
+  addGenre = 'ADDGENRE',
+  deleteGenre = 'DELETEGENRE',
 }
 
 export type ReducerAction =
 | { type: ActionTypes.sortAlg, payload: SortAlg }
-| { type: ActionTypes.dates, payload: Dates };
+| { type: ActionTypes.dates, payload: Dates }
+| { type: ActionTypes.deleteGenre, payload: number }
+| { type: ActionTypes.addGenre, payload: number };
 
 export const initialState: FilterState = {
   sortAlg: null,
@@ -35,6 +38,10 @@ export function reducer(state: FilterState, action: ReducerAction) {
       return { ...state, sortAlg: action.payload };
     case ActionTypes.dates:
       return { ...state, dates: { ...state.dates, ...action.payload } };
+    case ActionTypes.addGenre:
+      return { ...state, genres: [...state.genres, action.payload] };
+    case ActionTypes.deleteGenre:
+      return { ...state, genres: state.genres.filter((genre) => genre !== action.payload) };
     default:
       throw new Error('Unknown action type');
   }

@@ -1,11 +1,14 @@
 import React from 'react';
+import _ from 'lodash';
 import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import {
   headingStyles,
   containerStyles,
   buttonStyles,
+  buttonSelectedStyles,
 } from '../styles';
+import { genres } from '../constants';
 
 const buttonWrapperStyles = css({
   display: 'flex',
@@ -13,32 +16,60 @@ const buttonWrapperStyles = css({
   gap: 10,
 });
 
-function Genres() {
+const checkboxStyles = css({
+  display: 'none',
+});
+
+interface GenresProps {
+  selectedGenres: number[];
+  addGenre: (genre: number) => void;
+  deleteGenre: (genre: number) => void;
+}
+
+function Genres({
+  selectedGenres,
+  addGenre,
+  deleteGenre,
+}: GenresProps) {
   const { t } = useTranslation('collection');
+  const handleChange = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement & {
+      value: number;
+    };
+    const genreId = Number(target.value);
+    const isGenreAlreadySelected = selectedGenres.includes(genreId);
+    if (isGenreAlreadySelected) {
+      deleteGenre(genreId);
+    } else {
+      addGenre(genreId);
+    }
+  };
+
   return (
     <div css={containerStyles}>
       <p css={headingStyles}>{t('filter.filters.genres.name')}</p>
-      <div css={buttonWrapperStyles}>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.action')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.adventure')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.animation')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.western')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.war')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.mystery')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.documentary')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.drama')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.history')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.comedy')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.crime')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.romance')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.musical')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.family')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.tvMovie')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.thriller')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.horror')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.sci-fi')}</button>
-        <button css={buttonStyles} type="button">{t('filter.filters.genres.fantasy')}</button>
-      </div>
+      <form css={buttonWrapperStyles} onChange={handleChange}>
+        {Object.entries(genres).map(([genreKey, genreId]) => {
+          const inputId = `${genreKey}-input`;
+          const selectedStyle = selectedGenres.includes(genreId) ? buttonSelectedStyles : {};
+          return (
+            <div key={_.uniqueId()}>
+              <label
+                htmlFor={inputId}
+                css={[buttonStyles, selectedStyle]}
+              >
+                {t(`filter.filters.genres.${genreKey}`)}
+              </label>
+              <input
+                css={checkboxStyles}
+                type="checkbox"
+                id={inputId}
+                value={genreId}
+              />
+            </div>
+          );
+        })}
+      </form>
     </div>
   );
 }

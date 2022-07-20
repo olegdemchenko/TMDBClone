@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import {
   FilterState,
   ReducerAction,
+  ActionTypes,
 } from '../state';
 import SortTypes from './SortTypes';
 import Dates from './Dates';
@@ -87,7 +88,15 @@ function Menu({
               dispatch={dispatch}
               dates={state.dates}
             />
-            <Genres />
+            <Genres
+              selectedGenres={state.genres}
+              addGenre={
+                (genre: number) => dispatch({ type: ActionTypes.addGenre, payload: genre })
+              }
+              deleteGenre={
+                (genre: number) => dispatch({ type: ActionTypes.deleteGenre, payload: genre })
+              }
+            />
             <Languages />
             <AgeLimitations />
             <UserRatings />
