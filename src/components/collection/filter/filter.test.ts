@@ -114,7 +114,7 @@ test.each(
   ).toEqual(prefilteredMovies);
 });
 
-test.only.each(
+test.each(
   languagesAbbreviations.map((lang) => [lang, filterByLanguage(lang, movieList)] as const),
 )('test filtering by language: %s', (language, filteredMovies) => {
   expect(

@@ -72,5 +72,8 @@ export function filterByGenres(genres: number[], movies: TestMovie[]) {
 }
 
 export function filterByLanguage(language: string, movies: TestMovie[]) {
+  if (!language) {
+    return movies;
+  }
   return movies.filter((movie) => movie.original_language === language);
 }
