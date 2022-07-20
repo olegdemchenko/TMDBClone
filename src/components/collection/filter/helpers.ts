@@ -70,3 +70,7 @@ export function filterByReleaseDate(dates: NonNullable<FilterState['dates']>, mo
 export function filterByGenres(genres: number[], movies: TestMovie[]) {
   return movies.filter((movie) => genres.every((genre) => movie.genre_ids.includes(genre)));
 }
+
+export function filterByLanguage(language: string, movies: TestMovie[]) {
+  return movies.filter((movie) => movie.original_language === language);
+}

@@ -2,6 +2,7 @@ import _ from 'lodash';
 import {
   genres,
   SortAlg,
+  languages,
 } from './constants';
 import filter from './filter';
 import {
@@ -10,6 +11,7 @@ import {
   sortItems,
   filterByReleaseDate,
   filterByGenres,
+  filterByLanguage,
   releasesStartDate,
 } from './helpers';
 import {
@@ -22,6 +24,7 @@ import {
 
 const testItemsAmount = 20;
 const genresIds = Object.values(genres);
+const languagesAbbreviations = Object.values(languages);
 
 const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index) => ({
   poster_path: '/lFSSLTlFozwpaGlO31OoUeirBgQ.jpg',
@@ -33,7 +36,7 @@ const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index
     genresIds[_.random(0, genresIds.length / 2)],
   ],
   original_title: 'Jason Bourne',
-  original_language: 'en',
+  original_language: languagesAbbreviations[_.random(0, genresIds.length - 1)],
   backdrop_path: '/AoT2YrJUJlg5vKE3iMOLvHlTd3m.jpg',
   vote_count: 649,
   video: false,
@@ -104,9 +107,17 @@ test.each([
 const testGenresIds = genresIds.map((genre, index, genreArr) => genreArr.slice(index));
 
 test.each(
-  testGenresIds.map((currGenres) => [currGenres, filterByGenres(currGenres, movieList)]),
+  testGenresIds.map((currGenres) => [currGenres, filterByGenres(currGenres, movieList)] as const),
 )('test filtering by genres ids: %o', (genresArr, prefilteredMovies) => {
   expect(
-    filter({ ...basicState, genres: genresArr as number[] }, movieList),
+    filter({ ...basicState, genres: genresArr }, movieList),
   ).toEqual(prefilteredMovies);
+});
+
+test.only.each(
+  languagesAbbreviations.map((lang) => [lang, filterByLanguage(lang, movieList)] as const),
+)('test filtering by language: %s', (language, filteredMovies) => {
+  expect(
+    filter({ ...basicState, language }, movieList),
+  ).toEqual(filteredMovies);
 });
