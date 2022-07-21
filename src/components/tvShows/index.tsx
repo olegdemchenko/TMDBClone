@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { TVApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
+import { tvShowsPaths } from '../../common/constants';
 import MovieCollection from '../collection';
 
 function TVShowsRoutes() {
@@ -10,7 +11,7 @@ function TVShowsRoutes() {
   return (
     <Routes>
       <Route
-        index
+        path={tvShowsPaths.popular}
         element={(
           <MovieCollection
             heading={t('popular')}
@@ -23,7 +24,7 @@ function TVShowsRoutes() {
         )}
       />
       <Route
-        path="airing-today"
+        path={tvShowsPaths['airing today']}
         element={(
           <MovieCollection
             heading={t('airing')}
@@ -36,7 +37,7 @@ function TVShowsRoutes() {
         )}
       />
       <Route
-        path="on-the-air"
+        path={tvShowsPaths['on tv']}
         element={(
           <MovieCollection
             heading={t('onTv')}
@@ -49,7 +50,7 @@ function TVShowsRoutes() {
         )}
       />
       <Route
-        path="top-rated"
+        path={tvShowsPaths['top rated']}
         element={(
           <MovieCollection
             heading={t('top')}

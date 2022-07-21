@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
+import { moviesPaths } from '../../common/constants';
 import MovieCollection from '../collection';
 
 function MoviesRoutes() {
@@ -10,7 +11,7 @@ function MoviesRoutes() {
   return (
     <Routes>
       <Route
-        index
+        path={moviesPaths.popular}
         element={(
           <MovieCollection
             heading={t('popular')}
@@ -23,7 +24,7 @@ function MoviesRoutes() {
         )}
       />
       <Route
-        path="upcoming"
+        path={moviesPaths.upcoming}
         element={(
           <MovieCollection
             heading={t('upcoming')}
@@ -36,7 +37,7 @@ function MoviesRoutes() {
         )}
       />
       <Route
-        path="top-rated"
+        path={moviesPaths['top rated']}
         element={(
           <MovieCollection
             heading={t('top')}
@@ -49,7 +50,7 @@ function MoviesRoutes() {
         )}
       />
       <Route
-        path="now-playing"
+        path={moviesPaths['now playing']}
         element={(
           <MovieCollection
             heading={t('playing')}

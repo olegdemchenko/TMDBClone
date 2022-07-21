@@ -3,24 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import _ from 'lodash';
 import { capitalize } from '../../common/utils';
+import {
+  dropdownPaths,
+} from '../../common/constants';
 
 interface DropdownProps {
-  path: string,
-  name: string,
-  list: string[],
-}
-
-function getDropdownItemPath(path: string, dropdownItem: string) {
-  if (dropdownItem === 'popular') {
-    return `/${path}/`;
-  }
-  return `/${path}/${dropdownItem.replace(/ /g, '-')}`;
+  name: keyof typeof dropdownPaths,
 }
 
 function DropdownMenu({
   name,
-  list,
-  path,
 }: DropdownProps) {
   const navigate = useNavigate();
   return (
@@ -29,12 +21,12 @@ function DropdownMenu({
         {capitalize(name)}
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        {list.map((item) => (
+        {Object.entries(dropdownPaths[name]).map(([menuItem, path]) => (
           <Dropdown.Item
             key={_.uniqueId()}
-            onClick={() => navigate(getDropdownItemPath(path, item))}
+            onClick={() => navigate(path)}
           >
-            {capitalize(item)}
+            {capitalize(menuItem)}
           </Dropdown.Item>
         ))}
       </Dropdown.Menu>
