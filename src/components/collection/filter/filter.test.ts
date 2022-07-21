@@ -24,7 +24,7 @@ import {
   parseDate,
 } from '../../../common/utils';
 
-const testItemsAmount = 20;
+const testItemsAmount = 2;
 const genresIds = Object.values(genres);
 const languagesAbbreviations = Object.values(languages);
 
@@ -49,7 +49,7 @@ const movieList: TestMovie[] = Array(testItemsAmount).fill({}).map((empty, index
   release_date: getSubsequentStringDate(index),
 }));
 
-const basicState: FilterState = { ...initialState };
+const basicState: FilterState = { ...initialState, rate: 0 };
 
 const testReleaseDates = {
   beforeStart: {
