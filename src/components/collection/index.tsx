@@ -9,32 +9,27 @@ import Button from './Button';
 import Filter from './filter/components/Filter';
 
 interface MovieCollectionProps {
-  heading: string,
-  sendQuery: SendQuery
+  heading: string;
+  sendQuery: SendQuery;
 }
 
-function MovieCollection({
-  heading,
-  sendQuery,
-}: MovieCollectionProps) {
+function MovieCollection({ heading, sendQuery }: MovieCollectionProps) {
   const { t } = useTranslation('collection');
   const [isLoadingActive, activateLoading] = useState<boolean>(false);
   const page = useUpdatePageAfterScroll(isLoadingActive);
-  const {
-    isError,
-    isFetching,
-    error,
-    data,
-  } = sendQuery(page);
+  const { isError, isFetching, error, data } = sendQuery(page);
   return (
-    <Wrapper mode="screen">
-      { isFetching ? <Spinner /> : null }
-      { isError ? <ErrorMessage message={error?.message ?? 'Unknown error has happened.'} /> : null }
-      <Filter
-        heading={heading}
-        list={data}
-      />
-      { isLoadingActive ? null : <Button text={t('loadMore')} onClick={() => activateLoading(true)} /> }
+    <Wrapper mode='screen'>
+      {isFetching ? <Spinner /> : null}
+      {isError ? (
+        <ErrorMessage
+          message={error?.message ?? 'Unknown error has happened.'}
+        />
+      ) : null}
+      <Filter heading={heading} list={data} />
+      {isLoadingActive ? null : (
+        <Button text={t('loadMore')} onClick={() => activateLoading(true)} />
+      )}
     </Wrapper>
   );
 }

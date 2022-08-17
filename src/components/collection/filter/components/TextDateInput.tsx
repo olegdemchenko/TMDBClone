@@ -1,9 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { css } from '@emotion/react';
-import {
-  ThemeColors,
-  BorderRadiuses,
-} from '../../../../common/styles';
+import { ThemeColors, BorderRadiuses } from '../../../../common/styles';
 import {
   dateToStringWithDot,
   validateDate,
@@ -30,21 +27,20 @@ const errorInputStyles = css({
   },
 });
 
-function TextDateInput({
-  date,
-  setDate,
-}: DateInputProps) {
+function TextDateInput({ date, setDate }: DateInputProps) {
   const inputRef = useRef(null);
   const [enteredDate, saveEnteredDate] = useState(dateToStringWithDot(date));
   const [isEnteredDateValid, setEnteredDateValidity] = useState(true);
 
   function selectValue(propsDate?: Date, localDate?: string) {
-    return document.activeElement === inputRef.current ? localDate : dateToStringWithDot(propsDate);
+    return document.activeElement === inputRef.current
+      ? localDate
+      : dateToStringWithDot(propsDate);
   }
 
   const handleTextChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement & {
-      value: string
+      value: string;
     };
     saveEnteredDate(target.value);
     const isDateValid = validateDate(target.value);
@@ -59,7 +55,7 @@ function TextDateInput({
   return (
     <input
       css={[textInputStyles, isEnteredDateValid ? {} : errorInputStyles]}
-      placeholder="DD.MM.YYYY"
+      placeholder='DD.MM.YYYY'
       value={currentValue}
       onChange={handleTextChange}
       onFocus={() => {

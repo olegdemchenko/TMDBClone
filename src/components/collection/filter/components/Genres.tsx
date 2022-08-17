@@ -26,11 +26,7 @@ interface GenresProps {
   deleteGenre: (genre: number) => void;
 }
 
-function Genres({
-  selectedGenres,
-  addGenre,
-  deleteGenre,
-}: GenresProps) {
+function Genres({ selectedGenres, addGenre, deleteGenre }: GenresProps) {
   const { t } = useTranslation('collection');
   const handleChange = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement & {
@@ -51,18 +47,17 @@ function Genres({
       <form css={buttonWrapperStyles} onChange={handleChange}>
         {Object.entries(genres).map(([genreKey, genreId]) => {
           const inputId = `${genreKey}-input`;
-          const selectedStyle = selectedGenres.includes(genreId) ? buttonSelectedStyles : {};
+          const selectedStyle = selectedGenres.includes(genreId)
+            ? buttonSelectedStyles
+            : {};
           return (
             <div key={_.uniqueId()}>
-              <label
-                htmlFor={inputId}
-                css={[buttonStyles, selectedStyle]}
-              >
+              <label htmlFor={inputId} css={[buttonStyles, selectedStyle]}>
                 {t(`filter.filters.genres.${genreKey}`)}
               </label>
               <input
                 css={checkboxStyles}
-                type="checkbox"
+                type='checkbox'
                 id={inputId}
                 value={genreId}
               />

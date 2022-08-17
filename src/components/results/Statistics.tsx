@@ -9,14 +9,11 @@ import {
   TVListItemMedia,
   MediaTypes,
 } from '../../app/TMDBAPIInterfaces';
-import {
-  ThemeColors,
-  BorderRadiuses,
-} from '../../common/styles';
+import { ThemeColors, BorderRadiuses } from '../../common/styles';
 import { capitalize } from '../../common/utils';
 
 interface StatisticsProps {
-  searchData: (MovieListItemMedia | PersonListItemMedia | TVListItemMedia)[]
+  searchData: (MovieListItemMedia | PersonListItemMedia | TVListItemMedia)[];
 }
 
 const statisticsContainerStyles = css({
@@ -54,12 +51,12 @@ const primaryCategoryStyles = css({
   },
 });
 
-function Statistics({
-  searchData,
-}: StatisticsProps) {
+function Statistics({ searchData }: StatisticsProps) {
   const [params] = useSearchParams();
   const { t } = useTranslation('results');
-  const categories = t('categories', { returnObjects: true }) as { [Key in MediaTypes]: string };
+  const categories = t('categories', { returnObjects: true }) as {
+    [Key in MediaTypes]: string;
+  };
   const primaryMediaType = searchData[0]?.media_type ?? 'movie';
   const orderedCategoriesByPrimaryType = [
     categories[primaryMediaType],
@@ -67,28 +64,32 @@ function Statistics({
   ];
 
   const categoriesCounts = {
-    [categories[MediaTypes.person]]: searchData.filter((elem) => (
-      elem.media_type === MediaTypes.person)).length,
-    [categories[MediaTypes.movie]]: searchData.filter((elem) => (
-      elem.media_type === MediaTypes.movie)).length,
-    [categories[MediaTypes.tv]]: searchData.filter((elem) => (
-      elem.media_type === MediaTypes.tv)).length,
+    [categories[MediaTypes.person]]: searchData.filter(
+      (elem) => elem.media_type === MediaTypes.person
+    ).length,
+    [categories[MediaTypes.movie]]: searchData.filter(
+      (elem) => elem.media_type === MediaTypes.movie
+    ).length,
+    [categories[MediaTypes.tv]]: searchData.filter(
+      (elem) => elem.media_type === MediaTypes.tv
+    ).length,
   };
 
   return (
-    <div className="pb-3" css={statisticsContainerStyles}>
-      <h6 className="fw-bold p-4 text-white" css={statisticsHeaderStyles}>{`${t('searchResults')}: ${params.get('page')}`}</h6>
+    <div className='pb-3' css={statisticsContainerStyles}>
+      <h6 className='fw-bold p-4 text-white' css={statisticsHeaderStyles}>{`${t(
+        'searchResults'
+      )}: ${params.get('page')}`}</h6>
       {orderedCategoriesByPrimaryType.map((category, index) => (
         <div
           key={_.uniqueId()}
-          className="d-flex justify-content-between px-4 py-2"
-          css={css(
-            categoryStyles,
-            index === 0 ? primaryCategoryStyles : {},
-          )}
+          className='d-flex justify-content-between px-4 py-2'
+          css={css(categoryStyles, index === 0 ? primaryCategoryStyles : {})}
         >
-          <span className="category-name">{capitalize(category)}</span>
-          <span className="category-count" css={categoryCountStyles}>{categoriesCounts[category]}</span>
+          <span className='category-name'>{capitalize(category)}</span>
+          <span className='category-count' css={categoryCountStyles}>
+            {categoriesCounts[category]}
+          </span>
         </div>
       ))}
     </div>

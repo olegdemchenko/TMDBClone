@@ -3,10 +3,7 @@ import { css } from '@emotion/react';
 import Progressbar from 'react-js-progressbar';
 import notFound from '../../assets/img/notFound.png';
 import { imagePaths } from '../../routes/routes';
-import {
-  ThemeColors,
-  BorderRadiuses,
-} from '../../common/styles';
+import { ThemeColors, BorderRadiuses } from '../../common/styles';
 
 interface GalleryItemProps {
   data: {
@@ -15,8 +12,8 @@ interface GalleryItemProps {
     date?: string;
     rate?: number;
     alt: string;
-  },
-  size: 'medium' | 'large'
+  };
+  size: 'medium' | 'large';
 }
 
 const containerStyles = {
@@ -59,16 +56,12 @@ const progressbarContainerStyles = css({
 });
 
 function GalleryItem({
-  data: {
-    poster,
-    title,
-    date,
-    rate = 0,
-    alt,
-  },
+  data: { poster, title, date, rate = 0, alt },
   size,
 }: GalleryItemProps) {
-  const icon = poster ? `${imagePaths.gallerySlidePoster[size]}${poster}` : notFound;
+  const icon = poster
+    ? `${imagePaths.gallerySlidePoster[size]}${poster}`
+    : notFound;
   return (
     <div css={containerStyles[size]}>
       <div>
@@ -86,8 +79,8 @@ function GalleryItem({
         />
       </div>
       <div css={textStyles[size]}>
-        <p className="m-0 mt-4 fw-bolder">{title}</p>
-        <p className="m-0 text-secondary">{date}</p>
+        <p className='m-0 mt-4 fw-bolder'>{title}</p>
+        <p className='m-0 text-secondary'>{date}</p>
       </div>
     </div>
   );

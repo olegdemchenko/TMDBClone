@@ -11,7 +11,7 @@ export interface TVListItem {
   original_language?: string;
   vote_count?: number;
   name?: string;
-  original_name?:string;
+  original_name?: string;
 }
 
 export interface TVListResult {

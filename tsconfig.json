@@ -17,9 +17,8 @@
     "index.d.ts",
     "webpack.config.js",
     "testsSetup/**/*",
-    "__mocks__/**/*", "setup",
+    "__mocks__/**/*",
+    "setup"
   ],
-  "exclude": [
-    "node_modules",
-  ]
+  "exclude": ["node_modules"]
 }

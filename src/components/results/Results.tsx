@@ -20,28 +20,29 @@ function Results() {
   const [params] = useSearchParams();
   const searchQuery = params.get('query');
   const page = Number(params.get('page')) as number;
-  const {
-    data,
-    error,
-    isFetching,
-    isError,
-  } = useGetMultiSearchQuery({ query: searchQuery as string, page });
+  const { data, error, isFetching, isError } = useGetMultiSearchQuery({
+    query: searchQuery as string,
+    page,
+  });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
   if (isFetching) {
     return (
-      <Container fluid="lg" className="d-flex vh-100 justify-content-center align-items-center">
-        <Spinner animation="border" />
+      <Container
+        fluid='lg'
+        className='d-flex vh-100 justify-content-center align-items-center'
+      >
+        <Spinner animation='border' />
       </Container>
     );
   }
 
   if (isError) {
     return (
-      <Container fluid="lg" className="py-4">
-        <Alert className="m-0" variant="danger">{`Error: ${error}`}</Alert>
+      <Container fluid='lg' className='py-4'>
+        <Alert className='m-0' variant='danger'>{`Error: ${error}`}</Alert>
       </Container>
     );
   }
@@ -49,24 +50,19 @@ function Results() {
   isDataDefined<MultiSearchResults>(data);
   return (
     <div>
-      <div className="border-bottom">
-        <Container fluid="lg" className="px-4">
-          <Search mode="results" />
+      <div className='border-bottom'>
+        <Container fluid='lg' className='px-4'>
+          <Search mode='results' />
         </Container>
       </div>
-      <Container fluid="lg" className="p-4 d-flex">
-        <div className="flex-shrink-0" css={statisticsWrapperStyles}>
+      <Container fluid='lg' className='p-4 d-flex'>
+        <div className='flex-shrink-0' css={statisticsWrapperStyles}>
           <Statistics searchData={data.results} />
         </div>
-        <div className="flex-grow-1 overflow-hidden">
-          <ResultsList
-            results={data.results}
-          />
-          <div className="d-flex justify-content-center">
-            <Pagination
-              selectedPage={page}
-              total={data.total_pages}
-            />
+        <div className='flex-grow-1 overflow-hidden'>
+          <ResultsList results={data.results} />
+          <div className='d-flex justify-content-center'>
+            <Pagination selectedPage={page} total={data.total_pages} />
           </div>
         </div>
       </Container>

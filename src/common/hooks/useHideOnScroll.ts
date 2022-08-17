@@ -8,7 +8,7 @@ export function useHideOnScroll() {
     if (ref.current && window.scrollY < ref.current.clientHeight) {
       return;
     }
-    const isMoveUp = (window.scrollY - position) < 0;
+    const isMoveUp = window.scrollY - position < 0;
     setVisibility(isMoveUp);
     setPosition(window.scrollY);
   };

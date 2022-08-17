@@ -1,19 +1,13 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import {
-  MovieListItem,
-  TVListItem,
-} from '../../app/TMDBAPIInterfaces';
-import {
-  getReleaseDate,
-  getTitle,
-} from '../../common/utils';
+import { MovieListItem, TVListItem } from '../../app/TMDBAPIInterfaces';
+import { getReleaseDate, getTitle } from '../../common/utils';
 import GalleryItem from './GalleryItem';
 
 interface GalleryListItemsProps {
   list: MovieListItem[] | TVListItem[];
-  heading: string,
-  mode: 'row' | 'multiline',
+  heading: string;
+  mode: 'row' | 'multiline';
 }
 
 const listGap = 25;
@@ -46,11 +40,7 @@ const multilineListStyles = css({
   },
 });
 
-function GalleryItemsList({
-  list,
-  heading,
-  mode,
-}: GalleryListItemsProps) {
+function GalleryItemsList({ list, heading, mode }: GalleryListItemsProps) {
   const changeableStyles = mode === 'row' ? RowListStyles : multilineListStyles;
   return (
     <div css={css(commonStyles, changeableStyles)}>

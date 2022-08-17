@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 
 interface WrapperProps {
   mode: 'row' | 'screen';
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const innerShadowStyles = css({
@@ -25,26 +25,20 @@ const hiddenVerticalScrollbarStyles = css({
   overflowY: 'hidden',
 });
 
-function Wrapper({
-  children,
-  mode,
-}: WrapperProps) {
+function Wrapper({ children, mode }: WrapperProps) {
   return (
     <Container
-      fluid="lg"
+      fluid='lg'
       className={cn('p-4', { 'pe-0': mode === 'row' })}
       css={mode === 'row' ? innerShadowStyles : {}}
     >
-      { mode === 'row'
-        ? (
-          <div
-            className="pb-4"
-            css={hiddenVerticalScrollbarStyles}
-          >
-            {children}
-          </div>
-        )
-        : children }
+      {mode === 'row' ? (
+        <div className='pb-4' css={hiddenVerticalScrollbarStyles}>
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </Container>
   );
 }

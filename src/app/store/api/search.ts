@@ -9,13 +9,13 @@ type MultiSearchRequest = {
 export const searchApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getMultiSearch: builder.query<MultiSearchResults, MultiSearchRequest>({
-      query: ({ query, page }) => (
-        { url: '/search/multi', method: 'get', params: { query, page } }
-      ),
+      query: ({ query, page }) => ({
+        url: '/search/multi',
+        method: 'get',
+        params: { query, page },
+      }),
     }),
   }),
 });
 
-export const {
-  useGetMultiSearchQuery,
-} = searchApi;
+export const { useGetMultiSearchQuery } = searchApi;

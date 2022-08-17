@@ -19,7 +19,12 @@ const spinnerSizeStyles = css({
 function CollectionSpinner() {
   return (
     <Modal css={modalStyles} show centered>
-      <Spinner css={spinnerSizeStyles} animation="border" variant="primary" data-testid="collectionSpinner" />
+      <Spinner
+        css={spinnerSizeStyles}
+        animation='border'
+        variant='primary'
+        data-testid='collectionSpinner'
+      />
     </Modal>
   );
 }

@@ -13,8 +13,8 @@ const footerStyles = css({
 
 function Footer() {
   return (
-    <footer className="p-4" css={footerStyles}>
-      <img src={logo} alt="footer logo" />
+    <footer className='p-4' css={footerStyles}>
+      <img src={logo} alt='footer logo' />
     </footer>
   );
 }

@@ -7,43 +7,33 @@ import GalleryItemsList from '../gallery/GalleryItemsList';
 import Wrapper from '../gallery/GalleryWrapper';
 
 interface CarouselProps {
-  heading: string,
-  sendQuery: SendQuery
+  heading: string;
+  sendQuery: SendQuery;
 }
 
-function Carousel({
-  heading,
-  sendQuery,
-}:CarouselProps) {
-  const {
-    isError,
-    isFetching,
-    error,
-    data,
-  } = sendQuery(1);
+function Carousel({ heading, sendQuery }: CarouselProps) {
+  const { isError, isFetching, error, data } = sendQuery(1);
   if (isFetching) {
     return (
-      <Wrapper mode="row">
+      <Wrapper mode='row'>
         <Spinner />
       </Wrapper>
     );
   }
   if (isError) {
     return (
-      <Wrapper mode="row">
-        <Alert variant="danger">{ error?.message ?? 'Unknown error has happened.' }</Alert>
+      <Wrapper mode='row'>
+        <Alert variant='danger'>
+          {error?.message ?? 'Unknown error has happened.'}
+        </Alert>
       </Wrapper>
     );
   }
   isDataDefined(data);
   return (
-    <Wrapper mode="row">
+    <Wrapper mode='row'>
       <h4>{heading}</h4>
-      <GalleryItemsList
-        mode="row"
-        heading={heading}
-        list={data}
-      />
+      <GalleryItemsList mode='row' heading={heading} list={data} />
     </Wrapper>
   );
 }

@@ -9,7 +9,7 @@ function MainPage() {
   const { t } = useTranslation('main');
   return (
     <>
-      <Search mode="main" />
+      <Search mode='main' />
       <Carousel
         heading={t('movies.popular')}
         sendQuery={useCachedQueryData(moviesApi.endpoints.getPopularMovies)}

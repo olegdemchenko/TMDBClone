@@ -8,7 +8,8 @@
     "test": "jest",
     "test-coverage": "jest --coverage",
     "lint": "npx eslint .",
-    "start": "npx webpack serve"
+    "start": "npx webpack serve",
+    "prettify": "prettier --write ."
   },
   "repository": {
     "type": "git",

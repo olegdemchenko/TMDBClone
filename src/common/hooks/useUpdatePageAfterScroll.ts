@@ -5,8 +5,9 @@ export function useUpdatePageAfterScroll(active: boolean) {
   useEffect(() => {
     function fetchExtraMovies() {
       const bottomPadding = 200;
-      const isBottom = (window.innerHeight + window.scrollY)
-        > (document.body.offsetHeight - bottomPadding);
+      const isBottom =
+        window.innerHeight + window.scrollY >
+        document.body.offsetHeight - bottomPadding;
       if (isBottom && active) {
         setPage((currPage: number) => currPage + 1);
       }

@@ -40,7 +40,7 @@ function Header() {
 
   const headerStyles = css(
     headerBasicStyle,
-    isVisible ? headerVisibleStyle : headerInvisibleStyle,
+    isVisible ? headerVisibleStyle : headerInvisibleStyle
   );
 
   return (
@@ -49,20 +49,20 @@ function Header() {
       css={headerStyles}
       data-visibility={isVisible ? 'visible' : 'invisible'}
     >
-      <Container fluid="lg">
-        <Nav className="p-3">
+      <Container fluid='lg'>
+        <Nav className='p-3'>
           <Nav.Item>
-            <Link to="/">
+            <Link to='/'>
               <img
-                className="align-bottom"
+                className='align-bottom'
                 css={logoStyles}
                 src={Logo}
-                alt="logo"
+                alt='logo'
               />
             </Link>
           </Nav.Item>
-          <Row className="justify-content-between flex-grow-1">
-            <Col className="d-flex align-items-end">
+          <Row className='justify-content-between flex-grow-1'>
+            <Col className='d-flex align-items-end'>
               <Nav.Item>
                 <Menu />
               </Nav.Item>

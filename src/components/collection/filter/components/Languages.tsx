@@ -1,11 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
-import {
-  selectStyles,
-  headingStyles,
-  containerStyles,
-} from '../styles';
+import { selectStyles, headingStyles, containerStyles } from '../styles';
 import { languages } from '../constants';
 
 interface LanguagesProps {
@@ -13,16 +9,15 @@ interface LanguagesProps {
   setLanguage: (lang: string) => void;
 }
 
-function Languages({
-  currentLanguage,
-  setLanguage,
-}: LanguagesProps) {
+function Languages({ currentLanguage, setLanguage }: LanguagesProps) {
   const { t } = useTranslation('collection');
   return (
     <form css={containerStyles}>
-      <label css={headingStyles} htmlFor="languages">{t('filter.filters.languages.name')}</label>
+      <label css={headingStyles} htmlFor='languages'>
+        {t('filter.filters.languages.name')}
+      </label>
       <select
-        id="languages"
+        id='languages'
         css={selectStyles}
         onChange={(e) => {
           setLanguage(e.target.value);

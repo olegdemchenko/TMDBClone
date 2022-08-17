@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import findVisiblePages from './utils';
 
 interface PaginationProps {
-  selectedPage?: number
+  selectedPage?: number;
   total: number;
 }
 
@@ -30,10 +30,7 @@ const pageLinkStyles = css({
   },
 });
 
-function CustomPagination({
-  selectedPage = 1,
-  total,
-}: PaginationProps) {
+function CustomPagination({ selectedPage = 1, total }: PaginationProps) {
   if (total === 1) {
     return null;
   }
@@ -48,31 +45,37 @@ function CustomPagination({
     setCurrentPage(page);
   };
 
-  const next = currentPage < total
-    ? <Pagination.Next onClick={handleClick(currentPage + 1)}>{t('next')}</Pagination.Next>
-    : null;
-  const prev = currentPage > 1
-    ? <Pagination.Prev onClick={handleClick(currentPage - 1)}>{t('prev')}</Pagination.Prev>
-    : null;
-  const paginationComponents = visiblePages.reduce((acc, page, index, pages) => {
-    const paginationPage = (
-      <Pagination.Item
-        active={page === currentPage}
-        css={pageItemStyles}
-        onClick={handleClick(page)}
-        data-testid={page}
-      >
-        {page}
-      </Pagination.Item>
-    );
-    if ((page !== pages[index - 1] + 1) && page !== 1) {
-      return [...acc,
-        <Pagination.Ellipsis />,
-        paginationPage,
-      ];
-    }
-    return [...acc, paginationPage];
-  }, []);
+  const next =
+    currentPage < total ? (
+      <Pagination.Next onClick={handleClick(currentPage + 1)}>
+        {t('next')}
+      </Pagination.Next>
+    ) : null;
+  const prev =
+    currentPage > 1 ? (
+      <Pagination.Prev onClick={handleClick(currentPage - 1)}>
+        {t('prev')}
+      </Pagination.Prev>
+    ) : null;
+  const paginationComponents = visiblePages.reduce(
+    (acc, page, index, pages) => {
+      const paginationPage = (
+        <Pagination.Item
+          active={page === currentPage}
+          css={pageItemStyles}
+          onClick={handleClick(page)}
+          data-testid={page}
+        >
+          {page}
+        </Pagination.Item>
+      );
+      if (page !== pages[index - 1] + 1 && page !== 1) {
+        return [...acc, <Pagination.Ellipsis />, paginationPage];
+      }
+      return [...acc, paginationPage];
+    },
+    []
+  );
   return (
     <Pagination css={pageLinkStyles}>
       {prev}

@@ -25,26 +25,23 @@ const photoStyles = css({
   },
 });
 
-function PersonInfo({
-  name,
-  avatar,
-  works,
-}: PersonInfoProps) {
+function PersonInfo({ name, avatar, works }: PersonInfoProps) {
   const { t } = useTranslation('results');
   const photo = avatar ? `${imagePaths.searchResIcon}${avatar}` : noAvatar;
   return (
-    <div className="d-flex mb-3">
-      <div className="flex-shrink-0 overflow-hidden" css={photoStyles}>
-        <img src={photo} alt="icon" />
+    <div className='d-flex mb-3'>
+      <div className='flex-shrink-0 overflow-hidden' css={photoStyles}>
+        <img src={photo} alt='icon' />
       </div>
-      <div className="d-flex flex-column info flex-grow-1 ps-3 justify-content-center">
-        <h6 className="fw-bold m-0 name">{name}</h6>
-        <div className="movies">
-          {t('acting')}
-          :
-          {works.map((elem) => (
-            elem.media_type === MediaTypes.movie ? elem.title : elem.name
-          )).join(', ')}
+      <div className='d-flex flex-column info flex-grow-1 ps-3 justify-content-center'>
+        <h6 className='fw-bold m-0 name'>{name}</h6>
+        <div className='movies'>
+          {t('acting')}:
+          {works
+            .map((elem) =>
+              elem.media_type === MediaTypes.movie ? elem.title : elem.name
+            )
+            .join(', ')}
         </div>
       </div>
     </div>

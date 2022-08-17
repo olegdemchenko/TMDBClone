@@ -12,55 +12,45 @@ function MoviesRoutes() {
     <Routes>
       <Route
         path={moviesPaths.popular}
-        element={(
+        element={
           <MovieCollection
             heading={t('popular')}
-            sendQuery={
-              useCachedQueryData(
-                moviesApi.endpoints.getPopularMovies,
-              )
-            }
+            sendQuery={useCachedQueryData(moviesApi.endpoints.getPopularMovies)}
           />
-        )}
+        }
       />
       <Route
         path={moviesPaths.upcoming}
-        element={(
+        element={
           <MovieCollection
             heading={t('upcoming')}
-            sendQuery={
-              useCachedQueryData(
-                moviesApi.endpoints.getUpcomingMovies,
-              )
-            }
+            sendQuery={useCachedQueryData(
+              moviesApi.endpoints.getUpcomingMovies
+            )}
           />
-        )}
+        }
       />
       <Route
         path={moviesPaths['top rated']}
-        element={(
+        element={
           <MovieCollection
             heading={t('top')}
-            sendQuery={
-              useCachedQueryData(
-                moviesApi.endpoints.getTopRatedMovies,
-              )
-            }
+            sendQuery={useCachedQueryData(
+              moviesApi.endpoints.getTopRatedMovies
+            )}
           />
-        )}
+        }
       />
       <Route
         path={moviesPaths['now playing']}
-        element={(
+        element={
           <MovieCollection
             heading={t('playing')}
-            sendQuery={
-              useCachedQueryData(
-                moviesApi.endpoints.getNowPlayingMovies,
-              )
-            }
+            sendQuery={useCachedQueryData(
+              moviesApi.endpoints.getNowPlayingMovies
+            )}
           />
-        )}
+        }
       />
     </Routes>
   );

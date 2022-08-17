@@ -1,9 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import '../../i18n';
 import { store } from '../../app/store/store';
@@ -26,10 +23,12 @@ test('check successful results fetching', async () => {
     <Provider store={store}>
       <Results />
     </Provider>,
-    { route: getRoute(SearchQueries.MultiSearch) },
+    { route: getRoute(SearchQueries.MultiSearch) }
   );
   await waitFor(() => {
-    expect(screen.getAllByText(movieListResult.title as string)).not.toHaveLength(0);
+    expect(
+      screen.getAllByText(movieListResult.title as string)
+    ).not.toHaveLength(0);
   });
 });
 
@@ -38,7 +37,7 @@ test('check error handling', async () => {
     <Provider store={store}>
       <Results />
     </Provider>,
-    { route: getRoute(SearchQueries.MultiSearchError) },
+    { route: getRoute(SearchQueries.MultiSearchError) }
   );
   await waitFor(() => {
     expect(screen.getByRole('alert')).toBeInTheDocument();

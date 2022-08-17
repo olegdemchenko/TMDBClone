@@ -5,7 +5,7 @@ import Footer from '../footer/Footer';
 
 function Root() {
   return (
-    <div className="d-flex min-vh-100 flex-column justify-content-between">
+    <div className='d-flex min-vh-100 flex-column justify-content-between'>
       <div>
         <Header />
         <Outlet />

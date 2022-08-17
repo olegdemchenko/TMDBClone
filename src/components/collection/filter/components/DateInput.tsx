@@ -1,12 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import {
-  ThemeColors,
-} from '../../../../common/styles';
-import {
-  dateToStringWithDash,
-  parseDate,
-} from '../../../../common/utils';
+import { ThemeColors } from '../../../../common/styles';
+import { dateToStringWithDash, parseDate } from '../../../../common/utils';
 import calendar from '../../../../assets/img/calendar.svg';
 
 const dateInputStyles = css({
@@ -50,17 +45,14 @@ const dateInputStyles = css({
 });
 
 export interface DateInputProps {
-  date? : Date;
+  date?: Date;
   setDate: (newDate: Date) => void;
 }
 
-function DateInput({
-  date,
-  setDate,
-}: DateInputProps) {
+function DateInput({ date, setDate }: DateInputProps) {
   const handleDateChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement & {
-      value: string
+      value: string;
     };
     const parsedDate = parseDate(target.value, 'dash');
     setDate(parsedDate);
@@ -69,11 +61,11 @@ function DateInput({
   return (
     <input
       css={dateInputStyles}
-      type="date"
+      type='date'
       value={date ? dateToStringWithDash(date) : ''}
       onClick={(e) => {
         const dateInput = e.target as HTMLInputElement & {
-          showPicker: () => {}
+          showPicker: () => {};
         };
         dateInput.showPicker();
       }}

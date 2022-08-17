@@ -1,10 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  screen,
-  waitFor,
-  fireEvent,
-} from '@testing-library/react';
+import { screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithWrapper } from '../../common/utils';
 import '../../i18n';
@@ -14,7 +10,7 @@ test('check hiding on scroll', async () => {
   renderWithWrapper(
     <div style={{ height: '2000px' }}>
       <Header />
-    </div>,
+    </div>
   );
   const header = screen.getByRole('banner');
   expect(header).toBeInTheDocument();

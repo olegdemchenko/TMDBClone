@@ -1,9 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import {
-  MovieListItem,
-  TVListItem,
-} from '../app/TMDBAPIInterfaces';
+import { MovieListItem, TVListItem } from '../app/TMDBAPIInterfaces';
 
 const renderWithWrapper = (ui: JSX.Element, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
@@ -19,21 +16,26 @@ function isDataDefined<T>(data: T | undefined | null): asserts data is T {
   }
 }
 
-function capitalize(phrase:string) {
-  return phrase.split(' ').map((word) => {
-    if (word === 'tv' || word === 'api') {
-      return word.toUpperCase();
-    }
-    return `${word[0].toUpperCase()}${word.slice(1)}`;
-  }).join(' ');
+function capitalize(phrase: string) {
+  return phrase
+    .split(' ')
+    .map((word) => {
+      if (word === 'tv' || word === 'api') {
+        return word.toUpperCase();
+      }
+      return `${word[0].toUpperCase()}${word.slice(1)}`;
+    })
+    .join(' ');
 }
 
-function addZeroToDate(date:number) {
+function addZeroToDate(date: number) {
   return date < 10 ? `0${date}` : String(date);
 }
 
 function dateToStringWithDash(date: Date) {
-  return `${date.getFullYear()}-${addZeroToDate(date.getMonth() + 1)}-${addZeroToDate(date.getDate())}`;
+  return `${date.getFullYear()}-${addZeroToDate(
+    date.getMonth() + 1
+  )}-${addZeroToDate(date.getDate())}`;
 }
 
 type DatesTypes = 'dash' | 'dot';
@@ -46,11 +48,11 @@ function parseDate(dateStr: string, dateType: DatesTypes) {
   if (!regexMap[dateType].test(dateStr)) {
     throw new Error(`Incorrect string date format: ${dateStr}`);
   }
-  const {
-    year,
-    month,
-    day,
-  } = dateStr.match(regexMap[dateType])!.groups as { year: string, month: string, day: string };
+  const { year, month, day } = dateStr.match(regexMap[dateType])!.groups as {
+    year: string;
+    month: string;
+    day: string;
+  };
   return new Date(Number(year), Number(month) - 1, Number(day));
 }
 
@@ -58,7 +60,9 @@ function dateToStringWithDot(date?: Date) {
   if (!date) {
     return '';
   }
-  const stringifiedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+  const stringifiedDate = `${date.getDate()}.${
+    date.getMonth() + 1
+  }.${date.getFullYear()}`;
   return stringifiedDate;
 }
 
@@ -68,9 +72,11 @@ function validateDate(date: string) {
   const maxYear = 2022;
   try {
     const parsedDate = parseDate(date, 'dot');
-    return parsedDate.getDate() <= maxDay
-      && parsedDate.getMonth() <= maxMonth
-      && parsedDate.getFullYear() <= maxYear;
+    return (
+      parsedDate.getDate() <= maxDay &&
+      parsedDate.getMonth() <= maxMonth &&
+      parsedDate.getFullYear() <= maxYear
+    );
   } catch (e) {
     return false;
   }

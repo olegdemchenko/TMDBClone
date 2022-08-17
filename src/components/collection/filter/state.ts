@@ -1,7 +1,4 @@
-import {
-  SortAlg,
-  UserRate,
-} from './constants';
+import { SortAlg, UserRate } from './constants';
 
 export type Dates = {
   from?: Date;
@@ -26,12 +23,12 @@ export enum ActionTypes {
 }
 
 export type ReducerAction =
-| { type: ActionTypes.sortAlg, payload: SortAlg }
-| { type: ActionTypes.dates, payload: Dates }
-| { type: ActionTypes.deleteGenre, payload: number }
-| { type: ActionTypes.addGenre, payload: number }
-| { type: ActionTypes.selectLanguage, payload: string }
-| { type: ActionTypes.setRate, payload: number };
+  | { type: ActionTypes.sortAlg; payload: SortAlg }
+  | { type: ActionTypes.dates; payload: Dates }
+  | { type: ActionTypes.deleteGenre; payload: number }
+  | { type: ActionTypes.addGenre; payload: number }
+  | { type: ActionTypes.selectLanguage; payload: string }
+  | { type: ActionTypes.setRate; payload: number };
 
 export const initialState: FilterState = {
   sortAlg: null,
@@ -52,7 +49,10 @@ export function reducer(state: FilterState, action: ReducerAction) {
     case ActionTypes.addGenre:
       return { ...state, genres: [...state.genres, action.payload] };
     case ActionTypes.deleteGenre:
-      return { ...state, genres: state.genres.filter((genre) => genre !== action.payload) };
+      return {
+        ...state,
+        genres: state.genres.filter((genre) => genre !== action.payload),
+      };
     case ActionTypes.selectLanguage:
       return { ...state, language: action.payload };
     case ActionTypes.setRate:

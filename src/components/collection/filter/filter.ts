@@ -1,21 +1,14 @@
-import {
-  MovieListItem,
-  TVListItem,
-} from '../../../app/TMDBAPIInterfaces';
+import { MovieListItem, TVListItem } from '../../../app/TMDBAPIInterfaces';
 import { SortAlg, UserRate } from './constants';
 import { FilterState } from './state';
-import {
-  parseDate,
-  getReleaseDate,
-  getTitle,
-} from '../../../common/utils';
+import { parseDate, getReleaseDate, getTitle } from '../../../common/utils';
 
 type Movie = {
-  [Key in keyof MovieListItem as string]: MovieListItem[Key]
+  [Key in keyof MovieListItem as string]: MovieListItem[Key];
 };
 
 type TV = {
-  [Key in keyof TVListItem as string]: TVListItem[Key]
+  [Key in keyof TVListItem as string]: TVListItem[Key];
 };
 
 type MovieValues = Movie[string];
@@ -44,24 +37,26 @@ type AlgorithmsMap = {
 };
 
 const Algs: AlgorithmsMap = {
-  [SortAlg.popularityAsc]: (a, b) => compareValuesByAsc(a?.popularity, b?.popularity),
-  [SortAlg.popularityDesc]: (a, b) => compareValuesByAsc(b?.popularity, a?.popularity),
-  [SortAlg.ratingAsc]: (a, b) => compareValuesByAsc(a?.vote_average, b?.vote_average),
-  [SortAlg.ratingDesc]: (a, b) => compareValuesByAsc(b?.vote_average, a?.vote_average),
+  [SortAlg.popularityAsc]: (a, b) =>
+    compareValuesByAsc(a?.popularity, b?.popularity),
+  [SortAlg.popularityDesc]: (a, b) =>
+    compareValuesByAsc(b?.popularity, a?.popularity),
+  [SortAlg.ratingAsc]: (a, b) =>
+    compareValuesByAsc(a?.vote_average, b?.vote_average),
+  [SortAlg.ratingDesc]: (a, b) =>
+    compareValuesByAsc(b?.vote_average, a?.vote_average),
   [SortAlg.titleAZ]: (a, b) => compareValuesByAsc(getTitle(a), getTitle(b)),
   [SortAlg.titleZA]: (a, b) => compareValuesByAsc(getTitle(b), getTitle(a)),
-  [SortAlg.releaseDateAsc]: (a, b) => (
+  [SortAlg.releaseDateAsc]: (a, b) =>
     compareValuesByAsc(
       new Date(getReleaseDate(a) ?? 0).valueOf(),
-      new Date(getReleaseDate(b) ?? 0).valueOf(),
-    )
-  ),
-  [SortAlg.releaseDateDesc]: (a, b) => (
+      new Date(getReleaseDate(b) ?? 0).valueOf()
+    ),
+  [SortAlg.releaseDateDesc]: (a, b) =>
     compareValuesByAsc(
       new Date(getReleaseDate(b) ?? 0).valueOf(),
-      new Date(getReleaseDate(a) ?? 0).valueOf(),
-    )
-  ),
+      new Date(getReleaseDate(a) ?? 0).valueOf()
+    ),
 };
 
 function doesMovieBelongToTime(movie: ListItem, dates: FilterState['dates']) {
@@ -77,8 +72,10 @@ function doesMovieBelongToTime(movie: ListItem, dates: FilterState['dates']) {
     return movieDate.valueOf() <= dates.to.valueOf();
   }
   if (dates.to && dates.from) {
-    return (dates.from.valueOf() <= movieDate.valueOf())
-    && (movieDate.valueOf() <= dates.to.valueOf());
+    return (
+      dates.from.valueOf() <= movieDate.valueOf() &&
+      movieDate.valueOf() <= dates.to.valueOf()
+    );
   }
   return true;
 }
@@ -101,13 +98,10 @@ function doesMovieHaveRate(rate: number, movie: ListItem) {
   return (movie.vote_average ?? UserRate.max) >= rate;
 }
 
-function filter({
-  sortAlg,
-  dates,
-  genres,
-  language,
-  rate,
-}: FilterState, movies: ListItem[]) {
+function filter(
+  { sortAlg, dates, genres, language, rate }: FilterState,
+  movies: ListItem[]
+) {
   return movies
     .sort(sortAlg ? Algs[sortAlg] : undefined)
     .filter((movie) => doesMovieBelongToTime(movie, dates))

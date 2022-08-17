@@ -22,13 +22,10 @@ interface ButtonProps {
   text: string;
 }
 
-function LoadMore({
-  onClick,
-  text,
-}: ButtonProps) {
+function LoadMore({ onClick, text }: ButtonProps) {
   return (
     <BootstrapButton
-      variant="primary"
+      variant='primary'
       css={ButtonStyles}
       onClick={() => onClick()}
     >

@@ -12,55 +12,39 @@ function TVShowsRoutes() {
     <Routes>
       <Route
         path={tvShowsPaths.popular}
-        element={(
+        element={
           <MovieCollection
             heading={t('popular')}
-            sendQuery={
-              useCachedQueryData(
-                TVApi.endpoints.getPopularTVShows,
-              )
-            }
+            sendQuery={useCachedQueryData(TVApi.endpoints.getPopularTVShows)}
           />
-        )}
+        }
       />
       <Route
         path={tvShowsPaths['airing today']}
-        element={(
+        element={
           <MovieCollection
             heading={t('airing')}
-            sendQuery={
-              useCachedQueryData(
-                TVApi.endpoints.getAiringTVShows,
-              )
-            }
+            sendQuery={useCachedQueryData(TVApi.endpoints.getAiringTVShows)}
           />
-        )}
+        }
       />
       <Route
         path={tvShowsPaths['on tv']}
-        element={(
+        element={
           <MovieCollection
             heading={t('onTv')}
-            sendQuery={
-              useCachedQueryData(
-                TVApi.endpoints.getOnTVShows,
-              )
-            }
+            sendQuery={useCachedQueryData(TVApi.endpoints.getOnTVShows)}
           />
-        )}
+        }
       />
       <Route
         path={tvShowsPaths['top rated']}
-        element={(
+        element={
           <MovieCollection
             heading={t('top')}
-            sendQuery={
-              useCachedQueryData(
-                TVApi.endpoints.getTopRatedTVShows,
-              )
-            }
+            sendQuery={useCachedQueryData(TVApi.endpoints.getTopRatedTVShows)}
           />
-        )}
+        }
       />
     </Routes>
   );
