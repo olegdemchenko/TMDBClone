@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import i18n from '../../i18n';
+import i18n from '../../locales';
 import { renderWithWrapper } from '../../common/utils';
 import { SearchQueries } from '../../../__mocks__/server/handlers/getMultiSearch';
 import Search from './Search';

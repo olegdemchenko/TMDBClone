@@ -9,7 +9,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { store } from '../../app/store/store';
-import i18n from '../../i18n';
+import i18n from '../../locales';
 import { moviesApi } from '../../app/store/api';
 import { renderWithWrapper } from '../../common/utils';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';

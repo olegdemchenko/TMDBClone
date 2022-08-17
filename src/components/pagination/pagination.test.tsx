@@ -6,7 +6,7 @@ import {
   waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import i18n from '../../i18n';
+import i18n from '../../locales';
 import { renderWithWrapper } from '../../common/utils';
 import Pagination from './index';
 
