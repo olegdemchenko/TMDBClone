@@ -7,7 +7,7 @@ import {
   MediaTypes,
 } from '../../app/TMDBAPIInterfaces';
 import { BorderRadiuses } from '../../common/styles';
-import noAvatar from '../../assets/img/noAvatar.jpg';
+import noAvatar from './assets/img/noAvatar.jpg';
 import { imagePaths } from '../../routes/routes';
 
 interface PersonInfoProps {

@@ -3,5 +3,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "auto-rename-tag.activationOnLanguage": ["html", "typescriptreact"],
+  "npm-intellisense.importES6": true,
+  "npm-intellisense.importQuotes": "'",
+  "npm-intellisense.importLinebreak": ";\r\n",
+  "npm-intellisense.importDeclarationType": "const"
 }

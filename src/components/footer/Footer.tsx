@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { ThemeColors } from '../../common/styles';
-import logo from '../../assets/img/footerLogo.svg';
+import logo from './assets/img/footerLogo.svg';
 
 const footerStyles = css({
   backgroundColor: ThemeColors.darkBlue,

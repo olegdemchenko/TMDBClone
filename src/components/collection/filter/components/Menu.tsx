@@ -9,8 +9,8 @@ import Genres from './Genres';
 import Languages from './Languages';
 import UserRatings from './UserRatings';
 import { ThemeColors, BorderRadiuses } from '../../../../common/styles';
-import arrowRight from '../../../../assets/img/arrowRight.png';
-import arrowDown from '../../../../assets/img/arrowDown.png';
+import arrowRight from '../../assets/img/arrowRight.png';
+import arrowDown from '../../assets/img/arrowDown.png';
 
 interface MenuProps {
   state: FilterState;

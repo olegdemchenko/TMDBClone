@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import notFound from '../../assets/img/notFound.png';
+import notFound from './assets/img/notFound.png';
 import { imagePaths } from '../../routes/routes';
 import { ThemeColors, BorderRadiuses } from '../../common/styles';
 
