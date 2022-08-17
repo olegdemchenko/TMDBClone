@@ -14,7 +14,7 @@
   "include": [
     ".eslintrc.js",
     "src/**/*",
-    "index.d.ts",
+    "global.d.ts",
     "webpack.config.js",
     "testsSetup/**/*",
     "__mocks__/**/*",
