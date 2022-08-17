@@ -3,10 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'airbnb',
-    'airbnb-typescript',
-  ],
+  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -16,11 +13,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'jest-dom',
-  ],
+  plugins: ['react', '@typescript-eslint', 'jest-dom', 'prettier'],
   overrides: [
     {
       files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
@@ -28,6 +21,7 @@ module.exports = {
     },
   ],
   rules: {
+    'prettier/prettier': 'error',
     'linebreak-style': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/require-default-props': 'off',
