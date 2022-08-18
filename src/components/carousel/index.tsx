@@ -2,7 +2,7 @@ import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
-import Spinner from '../spinner';
+import Spinner from '../Spinner';
 import GalleryItemsList from '../Gallery';
 import Wrapper from '../GalleryWrapper';
 
