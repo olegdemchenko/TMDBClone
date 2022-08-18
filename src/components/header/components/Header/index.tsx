@@ -6,8 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Logo from './assets/img/headerLogo.svg';
-import Menu from './NavBar';
-import { useHideOnScroll } from '../../common/hooks';
+import Menu from '../NavBar';
+import { useHideOnScroll } from '../../../../common/hooks';
 import {
   headerBasicStyle,
   headerVisibleStyle,

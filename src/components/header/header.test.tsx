@@ -4,7 +4,7 @@ import { screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithWrapper } from '../../common/utils';
 import '../../translations';
-import Header from '.';
+import Header from './components/Header';
 
 test('check hiding on scroll', async () => {
   renderWithWrapper(

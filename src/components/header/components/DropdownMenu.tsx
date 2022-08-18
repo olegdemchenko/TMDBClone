@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import _ from 'lodash';
-import { capitalize } from '../../common/utils';
-import { dropdownPaths } from '../../common/constants';
+import { capitalize } from '../../../common/utils';
+import { dropdownPaths } from '../../../common/constants';
 
 interface DropdownProps {
   name: keyof typeof dropdownPaths;

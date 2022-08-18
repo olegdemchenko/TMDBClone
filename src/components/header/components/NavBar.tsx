@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { dropdownPaths } from '../../common/constants';
+import { dropdownPaths } from '../../../common/constants';
 import DropdownMenu from './DropdownMenu';
 
 function Menu() {

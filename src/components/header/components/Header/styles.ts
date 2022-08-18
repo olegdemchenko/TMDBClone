@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { ThemeColors } from '../../common/styles';
+import { ThemeColors } from '../../../../common/styles';
 
 export const headerBasicStyle = css({
   position: 'sticky',
