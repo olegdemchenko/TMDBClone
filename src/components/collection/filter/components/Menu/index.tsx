@@ -2,15 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Accordion from 'react-bootstrap/Accordion';
 import { css } from '@emotion/react';
-import { FilterState, ReducerAction, ActionTypes } from '../state';
-import SortTypes from './SortTypes';
-import Dates from './Dates';
-import Genres from './Genres';
-import Languages from './Languages';
-import UserRatings from './UserRatings';
-import { ThemeColors, BorderRadiuses } from '../../../../common/styles';
-import arrowRight from '../../assets/img/arrowRight.png';
-import arrowDown from '../../assets/img/arrowDown.png';
+import { FilterState, ReducerAction, ActionTypes } from '../../state';
+import SortTypes from '../SortTypes';
+import Dates from '../Dates';
+import Genres from '../Genres';
+import Languages from '../Languages';
+import UserRatings from '../UserRatings';
+import { ThemeColors, BorderRadiuses } from '../../../../../common/styles';
+import arrowRight from './assets/img/arrowRight.png';
+import arrowDown from './assets/img/arrowDown.png';
 
 interface MenuProps {
   state: FilterState;
