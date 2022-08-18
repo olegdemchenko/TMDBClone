@@ -1,20 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { css } from '@emotion/react';
 import Spinner from 'react-bootstrap/Spinner';
-
-const modalStyles = css({
-  '& .modal-content': {
-    backgroundColor: 'transparent',
-    alignItems: 'center',
-    border: 'none',
-  },
-});
-
-const spinnerSizeStyles = css({
-  width: '5rem',
-  height: '5rem',
-});
+import { modalStyles, spinnerSizeStyles } from './styles';
 
 function CollectionSpinner() {
   return (
