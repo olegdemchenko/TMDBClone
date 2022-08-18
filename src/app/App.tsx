@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import Root from '../components/layout/Layout';
+import Root from '../components/Layout';
 import Main from '../components/main/Main';
 import Results from '../components/results/Results';
 import Movies from '../components/movies';
