@@ -9,7 +9,7 @@ import { isDataDefined } from '../../common/utils';
 import Search from '../search/Search';
 import Statistics from './Statistics';
 import ResultsList from './ResultsList';
-import Pagination from '../pagination';
+import Pagination from '../Pagination';
 import { MultiSearchResults } from '../../app/TMDBAPIInterfaces';
 
 const statisticsWrapperStyles = css({
