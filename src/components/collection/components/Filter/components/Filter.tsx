@@ -1,7 +1,10 @@
 import React, { useReducer, Reducer } from 'react';
 import { FilterState, initialState, reducer, ReducerAction } from '../state';
-import { MovieListItem, TVListItem } from '../../../../app/TMDBAPIInterfaces';
-import GalleryItemsList from '../../../gallery/GalleryItemsList';
+import {
+  MovieListItem,
+  TVListItem,
+} from '../../../../../app/TMDBAPIInterfaces';
+import GalleryItemsList from '../../../../gallery/GalleryItemsList';
 import Container from './Container';
 import filter from '../filterUtils';
 import Menu from './Menu';

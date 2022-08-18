@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import Wrapper from '../gallery/GalleryWrapper';
-import Spinner from './Spinner';
-import ErrorMessage from './ErrorMessage';
-import Button from './Button';
-import Filter from './Filter/components/Filter';
+import Spinner from './components/Spinner';
+import ErrorMessage from './components/ErrorMessage';
+import Button from './components/Button';
+import Filter from './components/Filter/components/Filter';
 
 interface MovieCollectionProps {
   heading: string;

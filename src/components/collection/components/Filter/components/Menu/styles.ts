@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { ThemeColors, BorderRadiuses } from '../../../../../common/styles';
+import { ThemeColors, BorderRadiuses } from '../../../../../../common/styles';
 import arrowRight from './assets/img/arrowRight.png';
 import arrowDown from './assets/img/arrowDown.png';
 

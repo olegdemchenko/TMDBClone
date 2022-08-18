@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { ThemeColors, BorderRadiuses } from '../../../common/styles';
+import { ThemeColors, BorderRadiuses } from '../../../../common/styles';
 
 export const headingStyles = css({
   display: 'block',

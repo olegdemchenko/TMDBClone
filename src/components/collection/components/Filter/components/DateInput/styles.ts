@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { ThemeColors } from '../../../../../common/styles';
+import { ThemeColors } from '../../../../../../common/styles';
 import calendar from './assets/img/calendar.svg';
 
 export const dateInputStyles = css({

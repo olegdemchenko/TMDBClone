@@ -3,7 +3,7 @@ import {
   dateToStringWithDot,
   validateDate,
   parseDate,
-} from '../../../../../common/utils';
+} from '../../../../../../common/utils';
 import { DateInputProps } from '../DateInput';
 import { inputStyles, errorStyles } from './styles';
 

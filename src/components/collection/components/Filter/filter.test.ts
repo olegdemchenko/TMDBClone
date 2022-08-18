@@ -12,7 +12,7 @@ import {
   releasesStartDate,
 } from './helpers';
 import { FilterState, initialState } from './state';
-import { parseDate } from '../../../common/utils';
+import { parseDate } from '../../../../common/utils';
 
 const testItemsAmount = 2;
 const genresIds = Object.values(genres);

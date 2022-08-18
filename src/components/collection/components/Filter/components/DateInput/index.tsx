@@ -1,5 +1,8 @@
 import React from 'react';
-import { dateToStringWithDash, parseDate } from '../../../../../common/utils';
+import {
+  dateToStringWithDash,
+  parseDate,
+} from '../../../../../../common/utils';
 import { dateInputStyles } from './styles';
 
 export interface DateInputProps {

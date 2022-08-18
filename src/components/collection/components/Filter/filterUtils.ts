@@ -1,7 +1,7 @@
-import { MovieListItem, TVListItem } from '../../../app/TMDBAPIInterfaces';
+import { MovieListItem, TVListItem } from '../../../../app/TMDBAPIInterfaces';
 import { SortAlg, UserRate } from './constants';
 import { FilterState } from './state';
-import { parseDate, getReleaseDate, getTitle } from '../../../common/utils';
+import { parseDate, getReleaseDate, getTitle } from '../../../../common/utils';
 
 type Movie = {
   [Key in keyof MovieListItem as string]: MovieListItem[Key];

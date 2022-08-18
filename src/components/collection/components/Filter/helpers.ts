@@ -1,6 +1,6 @@
-import { MovieListItem } from '../../../app/TMDBAPIInterfaces';
+import { MovieListItem } from '../../../../app/TMDBAPIInterfaces';
 import { FilterState } from './state';
-import { dateToStringWithDash, parseDate } from '../../../common/utils';
+import { dateToStringWithDash, parseDate } from '../../../../common/utils';
 
 export const releasesStartDate = '1930-01-01';
 
