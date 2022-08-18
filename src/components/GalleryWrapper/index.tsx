@@ -1,29 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
-import { css } from '@emotion/react';
+import { innerShadowStyles, hiddenVerticalScrollbarStyles } from './styles';
 
 interface WrapperProps {
   mode: 'row' | 'screen';
   children: React.ReactNode;
 }
-
-const innerShadowStyles = css({
-  position: 'relative',
-  '&::after': {
-    position: 'absolute',
-    content: '""',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: '4rem',
-    backgroundImage: 'linear-gradient(to right, transparent 93%, white)',
-  },
-});
-
-const hiddenVerticalScrollbarStyles = css({
-  overflowY: 'hidden',
-});
 
 function Wrapper({ children, mode }: WrapperProps) {
   return (
