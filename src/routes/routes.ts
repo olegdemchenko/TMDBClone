@@ -1,4 +1,5 @@
 const origin = 'https://api.themoviedb.org/3';
+const imagesOrigin = 'https://image.tmdb.org/t/p';
 
 export const searchPathNames = {
   multiSearch: '/search/multi',
@@ -22,9 +23,9 @@ export const paths = [searchPathNames, moviesPathNames]
 };
 
 export const imagePaths = {
-  searchResIcon: 'https://image.tmdb.org/t/p/w92/',
+  searchResIcon: `${imagesOrigin}/w92/`,
   gallerySlidePoster: {
-    medium: 'https://image.tmdb.org/t/p/w154/',
-    large: 'https://image.tmdb.org/t/p/w300/',
+    medium: `${imagesOrigin}/w154/`,
+    large: `${imagesOrigin}/w300/`,
   },
 };
