@@ -3,9 +3,8 @@ import { FormikProps } from 'formik';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
-import { ThemeColors } from '../../common/styles';
+import { searchStyles, sloganStyles, buttonStyles } from './styles';
 
 export interface SearchFormValues {
   searchQuery: string;
@@ -14,35 +13,6 @@ export type SearchUIProps = Pick<
   FormikProps<SearchFormValues>,
   'handleSubmit' | 'handleChange' | 'errors'
 >;
-
-const searchStyles = css({
-  position: 'relative',
-  paddingTop: '5rem',
-  paddingBottom: '5rem',
-  backgroundColor: ThemeColors.darkBlue,
-  color: 'white',
-  '&:after': {
-    position: 'absolute',
-    top: -100,
-    left: 0,
-    content: '""',
-    width: '100%',
-    height: 100,
-    backgroundColor: ThemeColors.darkBlue,
-  },
-});
-
-const sloganStyles = css({
-  paddingBottom: '4rem',
-});
-
-const buttonStyles = css({
-  backgroundColor: ThemeColors.lightBlue,
-  '&:hover': {
-    backgroundColor: ThemeColors.lightBlue,
-    color: 'black',
-  },
-});
 
 function MainPageSearch({ handleChange, handleSubmit, errors }: SearchUIProps) {
   const { t } = useTranslation('search');
