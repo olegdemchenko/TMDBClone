@@ -1,9 +1,8 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import notFound from './assets/img/notFound.png';
-import { imagePaths } from '../../routes/routes';
-import { ThemeColors, BorderRadiuses } from '../../common/styles';
+import { imagePaths } from '../../../routes/routes';
+import { movieInfoStyle, logoWrapperStyle, infoWrapperStyle } from './styles';
 
 interface ResultElemProps {
   title?: string;
@@ -11,21 +10,6 @@ interface ResultElemProps {
   date?: string;
   description?: string;
 }
-
-const movieInfoStyle = css({
-  borderRadius: BorderRadiuses.medium,
-  border: `2px solid ${ThemeColors.lightGray}`,
-});
-
-const logoWrapperStyle = css({
-  width: 92,
-  height: 138,
-  borderRadius: `${BorderRadiuses.medium}px 0 0 ${BorderRadiuses.medium}px`,
-});
-
-const infoWrapperStyle = css({
-  padding: '15px 15px 0 15px',
-});
 
 function MovieInfo({ title, logo, date, description }: ResultElemProps) {
   const icon = logo ? `${imagePaths.searchResIcon}${logo}` : notFound;
