@@ -1,9 +1,14 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import Progressbar from 'react-js-progressbar';
 import notFound from './assets/img/notFound.png';
-import { imagePaths } from '../../routes/routes';
-import { ThemeColors, BorderRadiuses } from '../../common/styles';
+import { imagePaths } from '../../../routes/routes';
+import { ThemeColors } from '../../../common/styles';
+import {
+  containerStyles,
+  iconStyles,
+  textStyles,
+  progressbarContainerStyles,
+} from './styles';
 
 interface GalleryItemProps {
   data: {
@@ -15,45 +20,6 @@ interface GalleryItemProps {
   };
   size: 'medium' | 'large';
 }
-
-const containerStyles = {
-  medium: css({
-    position: 'relative',
-    width: 154,
-  }),
-  large: css({
-    position: 'relative',
-    borderRadius: BorderRadiuses.medium,
-    border: `2px solid ${ThemeColors.lightGray}`,
-  }),
-};
-
-const iconStyles = {
-  medium: css({
-    borderRadius: BorderRadiuses.medium,
-  }),
-  large: css({
-    width: '100%',
-    borderRadius: `${BorderRadiuses.medium}px ${BorderRadiuses.medium}px 0 0`,
-  }),
-};
-
-const textStyles = {
-  medium: {},
-  large: css({
-    padding: 15,
-  }),
-};
-
-const progressbarContainerStyles = css({
-  position: 'absolute',
-  transform: 'translate(30%, -50%)',
-  width: 40,
-  height: 40,
-  padding: 2,
-  backgroundColor: ThemeColors.darkBlue,
-  borderRadius: '50%',
-});
 
 function GalleryItem({
   data: { poster, title, date, rate = 0, alt },
