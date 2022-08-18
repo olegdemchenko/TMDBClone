@@ -1,19 +1,7 @@
 import React, { useState } from 'react';
-import { css } from '@emotion/react';
-import { ThemeColors, BorderRadiuses } from '../../../../common/styles';
-import DateInput from './DateInput';
-import TextDateInput from './TextDateInput';
-
-const labelsStyles = css({
-  fontSize: '0.9rem',
-  color: ThemeColors.gray,
-});
-
-const datesWrapperStyles = css({
-  width: 150,
-  position: 'relative',
-  borderRadius: BorderRadiuses.small,
-});
+import DateInput from '../DateInput';
+import TextDateInput from '../TextDateInput';
+import { labelsStyles, datesWrapperStyles } from './styles';
 
 interface DateInputProps {
   label: string;
