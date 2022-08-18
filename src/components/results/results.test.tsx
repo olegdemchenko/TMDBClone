@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import '../../i18n';
+import '../../translations';
 import { store } from '../../app/store/store';
 import { renderWithWrapper } from '../../common/utils';
 import Results from './Results';

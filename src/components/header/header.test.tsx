@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithWrapper } from '../../common/utils';
-import '../../i18n';
+import '../../translations';
 import Header from './Header';
 
 test('check hiding on scroll', async () => {
