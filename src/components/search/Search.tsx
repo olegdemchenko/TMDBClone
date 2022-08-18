@@ -2,8 +2,8 @@ import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useFormik, FormikErrors } from 'formik';
-import MainPageSearch, { SearchFormValues } from './MainPageSearch';
-import ResultsPageSearch from './ResultsPageSearch';
+import MainPageSearch, { SearchFormValues } from './components/MainPageSearch';
+import ResultsPageSearch from './components/ResultsPageSearch';
 
 interface SearchProps {
   mode: 'main' | 'results';
