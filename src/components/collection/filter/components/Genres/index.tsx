@@ -1,24 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
-import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import {
   headingStyles,
   containerStyles,
   buttonStyles,
   buttonSelectedStyles,
-} from '../styles';
-import { genres } from '../constants';
-
-const buttonWrapperStyles = css({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: 10,
-});
-
-const checkboxStyles = css({
-  display: 'none',
-});
+} from '../../styles';
+import { genres } from '../../constants';
+import { buttonWrapperStyles, checkboxStyles } from './styles';
 
 interface GenresProps {
   selectedGenres: number[];
