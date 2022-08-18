@@ -7,33 +7,13 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Logo from './assets/img/headerLogo.svg';
 import Menu from './Menu';
-import { ThemeColors } from '../../common/styles';
 import { useHideOnScroll } from '../../common/hooks';
-
-const headerBasicStyle = css({
-  position: 'sticky',
-  top: 0,
-  left: 0,
-  backgroundColor: ThemeColors.darkBlue,
-  color: 'white',
-  zIndex: 1000,
-});
-
-const headerVisibleStyle = css({
-  transform: 'translateY(0%)',
-  transitionProperty: 'transform',
-  transitionDuration: '0.5s',
-});
-
-const headerInvisibleStyle = css({
-  transform: 'translateY(-100%)',
-  transitionProperty: 'transform',
-  transitionDuration: '0.5s',
-});
-
-const logoStyles = css({
-  width: 120,
-});
+import {
+  headerBasicStyle,
+  headerVisibleStyle,
+  headerInvisibleStyle,
+  logoStyles,
+} from './styles';
 
 function Header() {
   const [headerRef, isVisible] = useHideOnScroll();
