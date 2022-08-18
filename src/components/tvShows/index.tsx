@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { TVApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { tvShowsPaths } from '../../common/constants';
-import MovieCollection from '../collection';
+import MovieCollection from '../Collection';
 
 function TVShowsRoutes() {
   const { t } = useTranslation('shows');
