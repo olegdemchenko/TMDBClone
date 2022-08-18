@@ -6,7 +6,7 @@ import Root from '../components/Layout';
 import Main from '../components/Main';
 import Results from '../components/Results';
 import Movies from '../components/Movies';
-import TVShows from '../components/tvShows';
+import TVShows from '../components/TvShows';
 
 function App() {
   return (
