@@ -8,48 +8,19 @@ import {
   PersonListItemMedia,
   TVListItemMedia,
   MediaTypes,
-} from '../../app/TMDBAPIInterfaces';
-import { ThemeColors, BorderRadiuses } from '../../common/styles';
-import { capitalize } from '../../common/utils';
+} from '../../../app/TMDBAPIInterfaces';
+import { capitalize } from '../../../common/utils';
+import {
+  statisticsContainerStyles,
+  statisticsHeaderStyles,
+  categoryCountStyles,
+  primaryCategoryStyles,
+  categoryStyles,
+} from './styles';
 
 interface StatisticsProps {
   searchData: (MovieListItemMedia | PersonListItemMedia | TVListItemMedia)[];
 }
-
-const statisticsContainerStyles = css({
-  borderRadius: BorderRadiuses.medium,
-  border: `2px solid ${ThemeColors.lightGray}`,
-});
-
-const statisticsHeaderStyles = css({
-  borderRadius: `${BorderRadiuses.medium}px ${BorderRadiuses.medium}px 0 0`,
-  backgroundColor: ThemeColors.lightBlue,
-});
-
-const categoryCountStyles = css({
-  backgroundColor: ThemeColors.lightGray,
-  padding: '0 10px',
-  borderRadius: BorderRadiuses.small,
-});
-
-const categoryStyles = css({
-  '&:hover': {
-    backgroundColor: ThemeColors.lightGray,
-    '.category-count': {
-      backgroundColor: 'white',
-    },
-  },
-});
-
-const primaryCategoryStyles = css({
-  backgroundColor: ThemeColors.lightGray,
-  '.category-name': {
-    fontWeight: 'bold',
-  },
-  '.category-count': {
-    backgroundColor: 'white',
-  },
-});
 
 function Statistics({ searchData }: StatisticsProps) {
   const [params] = useSearchParams();
