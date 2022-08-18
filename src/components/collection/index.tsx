@@ -6,7 +6,7 @@ import Wrapper from '../gallery/GalleryWrapper';
 import Spinner from './Spinner';
 import ErrorMessage from './ErrorMessage';
 import Button from './Button';
-import Filter from './filter/components/Filter';
+import Filter from './Filter/components/Filter';
 
 interface MovieCollectionProps {
   heading: string;

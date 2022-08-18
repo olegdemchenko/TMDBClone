@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { genres, SortAlg, UserRate, languages } from './constants';
-import filter from './filter';
+import filter from './filterUtils';
 import {
   TestMovie,
   getSubsequentStringDate,

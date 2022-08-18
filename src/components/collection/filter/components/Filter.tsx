@@ -3,7 +3,7 @@ import { FilterState, initialState, reducer, ReducerAction } from '../state';
 import { MovieListItem, TVListItem } from '../../../../app/TMDBAPIInterfaces';
 import GalleryItemsList from '../../../gallery/GalleryItemsList';
 import Container from './Container';
-import filter from '../filter';
+import filter from '../filterUtils';
 import Menu from './Menu';
 
 interface FilterProps {
