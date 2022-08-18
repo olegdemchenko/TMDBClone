@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { MovieListItem, TVListItem } from '../../app/TMDBAPIInterfaces';
 import { getReleaseDate, getTitle } from '../../common/utils';
-import GalleryItem from './GalleryItem';
+import GalleryItem from './Item';
 
 interface GalleryListItemsProps {
   list: MovieListItem[] | TVListItem[];
