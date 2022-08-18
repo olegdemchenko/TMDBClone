@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
-import Wrapper from '../gallery/GalleryWrapper';
+import Wrapper from '../Gallery/GalleryWrapper';
 import Spinner from './components/Spinner';
 import ErrorMessage from './components/ErrorMessage';
 import Button from './components/Button';

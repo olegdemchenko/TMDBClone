@@ -3,8 +3,8 @@ import Alert from 'react-bootstrap/Alert';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
 import Spinner from '../spinner';
-import GalleryItemsList from '../gallery/GalleryItemsList';
-import Wrapper from '../gallery/GalleryWrapper';
+import GalleryItemsList from '../Gallery/GalleryItemsList';
+import Wrapper from '../Gallery/GalleryWrapper';
 
 interface CarouselProps {
   heading: string;

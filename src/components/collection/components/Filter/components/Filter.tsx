@@ -4,7 +4,7 @@ import {
   MovieListItem,
   TVListItem,
 } from '../../../../../app/TMDBAPIInterfaces';
-import GalleryItemsList from '../../../../gallery/GalleryItemsList';
+import GalleryItemsList from '../../../../Gallery/GalleryItemsList';
 import Container from './Container';
 import filter from '../filterUtils';
 import Menu from './Menu';
