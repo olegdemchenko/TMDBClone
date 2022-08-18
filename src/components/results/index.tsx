@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMultiSearchQuery } from '../../app/store/api';
 import { isDataDefined } from '../../common/utils';
-import Search from '../search/Search';
+import Search from '../Search';
 import Statistics from './components/Statistics';
 import ResultsList from './components/List';
 import Pagination from '../Pagination';

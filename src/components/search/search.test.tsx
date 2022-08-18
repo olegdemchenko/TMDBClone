@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import i18n from '../../translations';
 import { renderWithWrapper } from '../../common/utils';
 import { SearchQueries } from '../../../__mocks__/server/handlers/getMultiSearch';
-import Search from './Search';
+import Search from '.';
 
 test('check redirecting', async () => {
   renderWithWrapper(<Search mode='main' />);
