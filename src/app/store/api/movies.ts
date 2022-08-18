@@ -1,32 +1,33 @@
 import { baseApi } from './base';
 import { MovieListResult } from '../../TMDBAPIInterfaces';
+import { pathNames } from '../../../routes/routes';
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getPopularMovies: builder.query<MovieListResult, number>({
       query: (page) => ({
-        url: '/movie/popular',
+        url: pathNames.popularMovies,
         method: 'get',
         params: { page },
       }),
     }),
     getNowPlayingMovies: builder.query<MovieListResult, number>({
       query: (page) => ({
-        url: '/movie/now_playing',
+        url: pathNames.nowPlayingMovies,
         method: 'get',
         params: { page },
       }),
     }),
     getTopRatedMovies: builder.query<MovieListResult, number>({
       query: (page) => ({
-        url: '/movie/top_rated',
+        url: pathNames.topRatedMovies,
         method: 'get',
         params: { page },
       }),
     }),
     getUpcomingMovies: builder.query<MovieListResult, number>({
       query: (page) => ({
-        url: '/movie/upcoming',
+        url: pathNames.upcomingMovies,
         method: 'get',
         params: { page },
       }),

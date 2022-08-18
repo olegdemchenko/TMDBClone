@@ -1,11 +1,17 @@
 const origin = 'https://api.themoviedb.org/3';
 
-export const paths = {
-  multiSearch: `${origin}/search/multi`,
-  popularMovies: `${origin}/movie/popular`,
-  nowPlayingMovies: `${origin}/movie/now_playing`,
-  topRatedMovies: `${origin}/movie/top_rated`,
-  upcomingMovies: `${origin}/movie/upcoming`,
+export const pathNames = {
+  multiSearch: '/search/multi',
+  popularMovies: '/movie/popular',
+  nowPlayingMovies: '/movie/now_playing',
+  topRatedMovies: '/movie/top_rated',
+  upcomingMovies: '/movie/upcoming',
+};
+
+export const paths = Object.entries(pathNames)
+  .map(([key, value]) => [key, `${origin}${value}`])
+  .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {}) as {
+  [Key in keyof typeof pathNames]: string;
 };
 
 export const imagePaths = {
