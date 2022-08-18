@@ -4,7 +4,7 @@ import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
 import Spinner from '../spinner';
 import GalleryItemsList from '../Gallery/GalleryItemsList';
-import Wrapper from '../Gallery/GalleryWrapper';
+import Wrapper from '../GalleryWrapper';
 
 interface CarouselProps {
   heading: string;
