@@ -1,5 +1,4 @@
 const origin = 'https://api.themoviedb.org/3';
-const APIKey = '93e4398b13ae3ceac59da26477413183';
 
 export const paths = {
   multiSearch: `${origin}/search/multi`,
@@ -28,11 +27,6 @@ function setSearchParam(url: URL, name: string, value: string) {
   return url;
 }
 
-function addKey(routesFunc: RouteFunc) {
-  return (...params: (string | number | null)[]) =>
-    setSearchParam(routesFunc(...params), 'api_key', APIKey).toString();
-}
-
 const routes: Routes = {
   getMultiSearch: (query: string, page: number) =>
     setSearchParam(
@@ -50,11 +44,4 @@ const routes: Routes = {
     setSearchParam(new URL(paths.upcomingMovies), 'page', String(page)),
 };
 
-const ApiKeyRoutes = Object.fromEntries(
-  Object.entries(routes).map(([funcName, funcBody]) => [
-    funcName,
-    addKey(funcBody),
-  ])
-);
-
-export default ApiKeyRoutes;
+export default routes;
