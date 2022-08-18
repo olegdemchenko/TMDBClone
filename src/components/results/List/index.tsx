@@ -1,7 +1,7 @@
 import React from 'react';
-import { MultiSearchResults, MediaTypes } from '../../app/TMDBAPIInterfaces';
-import MovieInfo from './MovieInfo';
-import PersonInfo from './PersonInfo';
+import { MultiSearchResults, MediaTypes } from '../../../app/TMDBAPIInterfaces';
+import MovieInfo from '../MovieInfo';
+import PersonInfo from '../PersonInfo';
 
 function ResultsList({ results }: Pick<MultiSearchResults, 'results'>) {
   return (
