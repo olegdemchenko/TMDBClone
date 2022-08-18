@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import '../../translations';
 import { store } from '../../app/store/store';
 import { renderWithWrapper } from '../../common/utils';
-import Results from './Results';
+import Results from '.';
 import {
   SearchQueries,
   movieListResult,
