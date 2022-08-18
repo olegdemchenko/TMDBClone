@@ -8,8 +8,8 @@ import {
   PersonListItemMedia,
   TVListItemMedia,
   MediaTypes,
-} from '../../../app/TMDBAPIInterfaces';
-import { capitalize } from '../../../common/utils';
+} from '../../../../app/TMDBAPIInterfaces';
+import { capitalize } from '../../../../common/utils';
 import {
   statisticsContainerStyles,
   statisticsHeaderStyles,

@@ -5,10 +5,10 @@ import {
   MovieListItemMedia,
   TVListItemMedia,
   MediaTypes,
-} from '../../../app/TMDBAPIInterfaces';
-import { BorderRadiuses } from '../../../common/styles';
+} from '../../../../app/TMDBAPIInterfaces';
+import { BorderRadiuses } from '../../../../common/styles';
 import noAvatar from './assets/img/noAvatar.jpg';
-import { imagePaths } from '../../../routes/routes';
+import { imagePaths } from '../../../../routes/routes';
 
 interface PersonInfoProps {
   name: string;

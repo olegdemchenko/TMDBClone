@@ -1,7 +1,7 @@
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import notFound from './assets/img/notFound.png';
-import { imagePaths } from '../../../routes/routes';
+import { imagePaths } from '../../../../routes/routes';
 import { movieInfoStyle, logoWrapperStyle, infoWrapperStyle } from './styles';
 
 interface ResultElemProps {
