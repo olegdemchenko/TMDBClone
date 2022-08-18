@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import Search from '../search/Search';
-import Carousel from '../carousel';
+import Carousel from '../Carousel';
 
 function MainPage() {
   const { t } = useTranslation('main');
