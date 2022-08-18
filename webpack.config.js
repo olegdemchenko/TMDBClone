@@ -24,7 +24,7 @@ module.exports = {
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({ template: './src/app/index.html' }),
     new MiniCSSExtractPlugin(),
     new NodePolyfillPlugin(),
   ],
