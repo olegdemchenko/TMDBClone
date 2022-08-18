@@ -1,5 +1,6 @@
 import { baseApi } from './base';
 import { MultiSearchResults } from '../../TMDBAPIInterfaces';
+import { searchPathNames } from '../../../routes/routes';
 
 type MultiSearchRequest = {
   query: string;
@@ -10,7 +11,7 @@ export const searchApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getMultiSearch: builder.query<MultiSearchResults, MultiSearchRequest>({
       query: ({ query, page }) => ({
-        url: '/search/multi',
+        url: searchPathNames.multiSearch,
         method: 'get',
         params: { query, page },
       }),
