@@ -1,12 +1,12 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Spinner from 'react-bootstrap/Spinner';
+import BootstrapSpinner from 'react-bootstrap/Spinner';
 import { modalStyles, spinnerSizeStyles } from './styles';
 
-function CollectionSpinner() {
+function Spinner() {
   return (
     <Modal css={modalStyles} show centered>
-      <Spinner
+      <BootstrapSpinner
         css={spinnerSizeStyles}
         animation='border'
         variant='primary'
@@ -16,4 +16,4 @@ function CollectionSpinner() {
   );
 }
 
-export default CollectionSpinner;
+export default Spinner;
