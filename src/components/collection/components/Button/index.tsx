@@ -7,7 +7,7 @@ interface ButtonProps {
   text: string;
 }
 
-function LoadMore({ onClick, text }: ButtonProps) {
+function Button({ onClick, text }: ButtonProps) {
   return (
     <BootstrapButton
       variant='primary'
@@ -19,4 +19,4 @@ function LoadMore({ onClick, text }: ButtonProps) {
   );
 }
 
-export default LoadMore;
+export default Button;
