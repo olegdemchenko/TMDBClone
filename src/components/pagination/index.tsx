@@ -1,34 +1,14 @@
 import React, { useState } from 'react';
-import { css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import Pagination from 'react-bootstrap/Pagination';
 import { useSearchParams } from 'react-router-dom';
 import findVisiblePages from './utils';
+import { pageItemStyles, pageLinkStyles } from './styles';
 
 interface PaginationProps {
   selectedPage?: number;
   total: number;
 }
-
-const pageItemStyles = css({
-  '&.active .page-link': {
-    border: '2px solid black',
-    backgroundColor: 'white',
-    color: 'black',
-    fontWeight: 'normal',
-  },
-  '&:first-child .page-link': {
-    borderRadius: 0,
-  },
-});
-
-const pageLinkStyles = css({
-  '& .page-link': {
-    border: 'none',
-    color: 'black',
-    fontWeight: 'bold',
-  },
-});
 
 function CustomPagination({ selectedPage = 1, total }: PaginationProps) {
   if (total === 1) {
