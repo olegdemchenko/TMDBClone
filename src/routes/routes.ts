@@ -12,6 +12,13 @@ export const moviesPathNames = {
   upcomingMovies: '/movie/upcoming',
 };
 
+export const tvPathsNames = {
+  popularShows: '/tv/popular',
+  airingTodayShows: '/tv/airing_today',
+  onTVShows: '/tv/on_the_air',
+  topRatedShows: '/tv/top_rated',
+};
+
 type PathsKeys = keyof typeof searchPathNames | keyof typeof moviesPathNames;
 
 export const paths = [searchPathNames, moviesPathNames]
