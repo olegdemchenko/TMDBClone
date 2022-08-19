@@ -8,12 +8,12 @@ import ErrorMessage from './components/ErrorMessage';
 import Button from './components/Button';
 import Filter from './components/Filter/components/Filter';
 
-interface MovieCollectionProps {
+interface CollectionProps {
   heading: string;
   sendQuery: SendQuery;
 }
 
-function MovieCollection({ heading, sendQuery }: MovieCollectionProps) {
+function Collection({ heading, sendQuery }: CollectionProps) {
   const { t } = useTranslation('collection');
   const [isLoadingActive, activateLoading] = useState<boolean>(false);
   const page = useUpdatePageAfterScroll(isLoadingActive);
@@ -34,4 +34,4 @@ function MovieCollection({ heading, sendQuery }: MovieCollectionProps) {
   );
 }
 
-export default MovieCollection;
+export default Collection;
