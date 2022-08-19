@@ -8,7 +8,7 @@ import { useGetMultiSearchQuery } from '../../app/store/api';
 import { isDataDefined } from '../../common/utils';
 import Search from '../Search';
 import Statistics from './components/Statistics';
-import ResultsList from './components/List';
+import ResultsList from './components/ResultsList';
 import Pagination from '../Pagination';
 import { MultiSearchResults } from '../../app/TMDBAPIInterfaces';
 
