@@ -1,12 +1,12 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner';
+import BootstrapSpinner from 'react-bootstrap/Spinner';
 
-function GallerySpinner() {
+function Spinner() {
   return (
     <div className='d-flex justify-content-center align-items-center py-3'>
-      <Spinner animation='grow' />
+      <BootstrapSpinner animation='grow' />
     </div>
   );
 }
 
-export default GallerySpinner;
+export default Spinner;
