@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { paths } from '../../../src/routes/routes';
+import { paths } from '../../../src/routes';
 import { error } from './commonData';
 
 export default rest.get(paths.upcomingMovies, (req, res, ctx) => {

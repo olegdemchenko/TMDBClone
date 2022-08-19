@@ -1,6 +1,6 @@
 import { baseApi } from './base';
 import { MovieListResult } from '../../TMDBAPIInterfaces';
-import { moviesPathNames } from '../../../routes/routes';
+import { moviesPathNames } from '../../../routes';
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

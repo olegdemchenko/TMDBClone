@@ -5,7 +5,7 @@ import {
   MovieListItemMedia,
 } from '../../../src/app/TMDBAPIInterfaces';
 import { error } from './commonData';
-import { paths } from '../../../src/routes/routes';
+import { paths } from '../../../src/routes';
 
 export const movieListResult: MovieListItemMedia = {
   poster_path: '/lIv1QinFqz4dlp5U4lQ6HaiskOZ.jpg',

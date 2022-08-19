@@ -1,7 +1,7 @@
 import React from 'react';
 import Progressbar from 'react-js-progressbar';
 import notFound from './assets/img/notFound.png';
-import { imagePaths } from '../../../routes/routes';
+import { imagePaths } from '../../../routes';
 import { ThemeColors } from '../../../common/styles';
 import {
   containerStyles,

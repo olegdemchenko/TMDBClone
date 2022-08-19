@@ -1,6 +1,6 @@
 import { baseApi } from './base';
 import { MultiSearchResults } from '../../TMDBAPIInterfaces';
-import { searchPathNames } from '../../../routes/routes';
+import { searchPathNames } from '../../../routes';
 
 type MultiSearchRequest = {
   query: string;

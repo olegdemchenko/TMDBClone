@@ -3,7 +3,7 @@ import {
   MovieListItem,
   MovieListResult,
 } from '../../../src/app/TMDBAPIInterfaces';
-import { paths } from '../../../src/routes/routes';
+import { paths } from '../../../src/routes';
 
 export const movie: MovieListItem = {
   poster_path: '/e1mjopzAS2KNsvpbpahQ1a6SkSn.jpg',

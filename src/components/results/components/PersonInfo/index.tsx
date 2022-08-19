@@ -8,7 +8,7 @@ import {
 } from '../../../../app/TMDBAPIInterfaces';
 import { BorderRadiuses } from '../../../../common/styles';
 import noAvatar from './assets/img/noAvatar.jpg';
-import { imagePaths } from '../../../../routes/routes';
+import { imagePaths } from '../../../../routes';
 
 interface PersonInfoProps {
   name: string;
