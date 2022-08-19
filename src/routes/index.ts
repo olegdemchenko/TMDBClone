@@ -19,9 +19,16 @@ export const tvPathsNames = {
   topRatedShows: '/tv/top_rated',
 };
 
-type PathsKeys = keyof typeof searchPathNames | keyof typeof moviesPathNames;
+export const peoplePathNames = {
+  popularPeople: '/person/popular',
+};
 
-export const paths = [searchPathNames, moviesPathNames]
+type PathsKeys =
+  | keyof typeof searchPathNames
+  | keyof typeof moviesPathNames
+  | keyof typeof peoplePathNames;
+
+export const paths = [searchPathNames, moviesPathNames, peoplePathNames]
   .map((pathMap) => Object.entries(pathMap))
   .flat()
   .map(([key, value]) => [key, `${origin}${value}`])
