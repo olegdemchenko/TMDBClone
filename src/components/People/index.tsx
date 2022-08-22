@@ -1,23 +1,38 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useGetPopularPeopleQuery } from '../../app/store/api';
+import ErrorMessage from '../Collection/components/ErrorMessage';
+import Spinner from '../Spinner';
 import CustomPagination from '../Pagination';
+import Wrapper from '../GalleryWrapper';
+import List from './components/List/index.';
 
 function People() {
+  const { t } = useTranslation('people');
   const [searchParams] = useSearchParams();
   const selectedPage = Number(searchParams.get('page')) || 1;
-  const { data, isLoading, error } = useGetPopularPeopleQuery(selectedPage);
+  const { data, isLoading, isError, error } =
+    useGetPopularPeopleQuery(selectedPage);
   if (isLoading) {
-    return <h3>Please wait!</h3>;
+    return <Spinner />;
+  }
+  if (isError) {
+    return (
+      <ErrorMessage message={error?.message ?? 'Unknown error has happened.'} />
+    );
   }
   return (
-    <div>
-      <p>{JSON.stringify(data?.results)}</p>
-      <CustomPagination
-        selectedPage={selectedPage}
-        total={data?.total_pages ?? 1}
-      />
-    </div>
+    <Wrapper mode='screen'>
+      <h3 className='m-0 pb-4'>{t('mainHeading')}</h3>
+      <List people={data?.results ?? []} />
+      <div className='d-flex justify-content-center'>
+        <CustomPagination
+          selectedPage={selectedPage}
+          total={data?.total_pages ?? 1}
+        />
+      </div>
+    </Wrapper>
   );
 }
 

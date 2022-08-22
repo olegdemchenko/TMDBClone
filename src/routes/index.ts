@@ -42,4 +42,7 @@ export const imagePaths = {
     medium: `${imagesOrigin}/w154/`,
     large: `${imagesOrigin}/w300/`,
   },
+  peoplePosters: {
+    medium: `${imagesOrigin}/w185/`,
+  },
 };
