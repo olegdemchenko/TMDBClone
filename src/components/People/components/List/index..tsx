@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { PopularPerson, MediaTypes } from '../../../../app/TMDBAPIInterfaces';
+import { PopularPerson } from '../../../../app/TMDBAPIInterfaces';
 import ListItem from '../ListItem';
 import { listStyles } from './styles';
 
@@ -15,12 +15,7 @@ function List({ people }: ListProps) {
         <ListItem
           key={_.uniqueId()}
           name={name}
-          knownFor={known_for.map((personWork) => {
-            if (personWork.media_type === MediaTypes.movie) {
-              return personWork.title ?? 'unknown';
-            }
-            return personWork.name ?? 'unknown';
-          })}
+          knownFor={known_for}
           photo={profile_path}
         />
       ))}

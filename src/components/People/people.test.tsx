@@ -19,14 +19,18 @@ test('check rendering list of popular people', async () => {
     </Provider>
   );
   await waitFor(() => {
-    expect(screen.getAllByText(popularPerson.name).length).toBe(peoplePerPage);
+    expect(screen.getAllByText(popularPerson.name as string).length).toBe(
+      peoplePerPage
+    );
   });
 
   const lastPage = screen.getByRole('button', { name: String(pagesCount) });
   userEvent.click(lastPage);
 
   await waitFor(() => {
-    expect(screen.getAllByText(popularPerson.name).length).toBe(peoplePerPage);
+    expect(screen.getAllByText(popularPerson.name as string).length).toBe(
+      peoplePerPage
+    );
   });
   expect(window.location.search).toBe(`?page=${pagesCount}`);
 });

@@ -1,12 +1,12 @@
 import { MovieListItemMedia, TVListItemMedia } from './search';
 
 export interface PopularPerson {
-  profile_path: string;
-  adult: boolean;
+  profile_path?: string;
+  adult?: boolean;
   id: number;
-  known_for: (MovieListItemMedia | TVListItemMedia)[];
-  name: string;
-  popularity: number;
+  known_for?: (MovieListItemMedia | TVListItemMedia)[];
+  name?: string;
+  popularity?: number;
 }
 
 export interface PopularPeopleResult {
