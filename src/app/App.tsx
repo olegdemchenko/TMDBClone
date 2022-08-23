@@ -5,8 +5,8 @@ import { store } from './store/store';
 import Root from '../components/Layout';
 import Main from '../components/MainPage';
 import Results from '../components/Results';
-import Movies from '../components/Movies';
-import TVShows from '../components/TvShows';
+import Movies from '../components/MoviesTab';
+import TVShows from '../components/TvShowsTab';
 import People from '../components/People';
 
 function App() {
