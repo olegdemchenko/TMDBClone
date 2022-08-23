@@ -19,7 +19,7 @@ function Collection({ heading, sendQuery }: CollectionProps) {
   const page = useUpdatePageAfterScroll(isLoadingActive);
   const { isError, isFetching, error, data } = sendQuery(page);
   return (
-    <Wrapper mode='screen'>
+    <Wrapper>
       {isFetching ? <Spinner /> : null}
       {isError ? (
         <ErrorMessage

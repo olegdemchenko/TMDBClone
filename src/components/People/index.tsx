@@ -23,7 +23,7 @@ function People() {
     );
   }
   return (
-    <Wrapper mode='screen'>
+    <Wrapper>
       <h3 className='m-0 pb-4'>{t('mainHeading')}</h3>
       <List people={data?.results ?? []} />
       <div className='d-flex justify-content-center'>
