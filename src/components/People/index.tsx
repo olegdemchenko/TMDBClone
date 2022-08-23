@@ -5,7 +5,7 @@ import { useGetPopularPeopleQuery } from '../../app/store/api';
 import ErrorMessage from '../Collection/components/ErrorMessage';
 import Spinner from '../Spinner';
 import CustomPagination from '../Pagination';
-import Wrapper from '../GalleryWrapper';
+import CenteredContainer from '../CenteredContainer';
 import List from './components/List/index.';
 
 function People() {
@@ -23,7 +23,7 @@ function People() {
     );
   }
   return (
-    <Wrapper>
+    <CenteredContainer>
       <h3 className='m-0 pb-4'>{t('mainHeading')}</h3>
       <List people={data?.results ?? []} />
       <div className='d-flex justify-content-center'>
@@ -32,7 +32,7 @@ function People() {
           total={data?.total_pages ?? 1}
         />
       </div>
-    </Wrapper>
+    </CenteredContainer>
   );
 }
 

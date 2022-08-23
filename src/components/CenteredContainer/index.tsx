@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
-interface WrapperProps {
+interface CenteredContainerProps {
   children: React.ReactNode;
 }
 
-function Wrapper({ children }: WrapperProps) {
+function CenteredContainer({ children }: CenteredContainerProps) {
   return (
     <Container fluid='lg' className='p-4'>
       {children}
@@ -13,4 +13,4 @@ function Wrapper({ children }: WrapperProps) {
   );
 }
 
-export default Wrapper;
+export default CenteredContainer;

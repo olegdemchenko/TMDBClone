@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
-import Wrapper from '../GalleryWrapper';
+import CenteredContainer from '../CenteredContainer';
 import Spinner from './components/Spinner';
 import ErrorMessage from './components/ErrorMessage';
 import Button from './components/Button';
@@ -19,7 +19,7 @@ function Collection({ heading, sendQuery }: CollectionProps) {
   const page = useUpdatePageAfterScroll(isLoadingActive);
   const { isError, isFetching, error, data } = sendQuery(page);
   return (
-    <Wrapper>
+    <CenteredContainer>
       {isFetching ? <Spinner /> : null}
       {isError ? (
         <ErrorMessage
@@ -30,7 +30,7 @@ function Collection({ heading, sendQuery }: CollectionProps) {
       {isLoadingActive ? null : (
         <Button text={t('loadMore')} onClick={() => activateLoading(true)} />
       )}
-    </Wrapper>
+    </CenteredContainer>
   );
 }
 
