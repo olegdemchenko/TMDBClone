@@ -21,3 +21,61 @@ export interface MovieListResult {
   total_results: number;
   results: MovieListItem[];
 }
+
+type MovieStatus =
+  | 'Rumored'
+  | 'Planned'
+  | 'In Production'
+  | 'Post Production'
+  | 'Released'
+  | 'Canceled';
+
+interface MovieGenre {
+  id: number;
+  name: string;
+}
+
+interface ProductionCompanies {
+  id: number;
+  name: string;
+  logo_path: string | null;
+  origin_country: string;
+}
+
+interface ProductionCountries {
+  iso_3166_1: string;
+  name: string;
+}
+
+interface SpokenLanguages {
+  iso_639_1: string;
+  name: string;
+}
+
+export interface MovieDetails {
+  adult?: boolean;
+  backdrop_path?: string | null;
+  belongs_to_collection?: {} | null;
+  budget?: number;
+  genres?: MovieGenre[];
+  homepage?: string | null;
+  id: number;
+  imdb_id?: number;
+  original_language?: string;
+  original_title?: string;
+  overview?: string | null;
+  popularity?: number;
+  poster_path?: string | null;
+  production_companies?: ProductionCompanies[];
+  production_countries?: ProductionCountries[];
+  release_date?: string;
+  revenue?: number;
+  runtime?: number;
+  spoken_languages?: SpokenLanguages[];
+  status?: MovieStatus;
+  tagline?: string | null;
+  title?: string;
+  video?: boolean;
+  vote_average?: number;
+  vote_count?: number;
+}
