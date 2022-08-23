@@ -5,13 +5,13 @@ import { getReleaseDate, getTitle } from '../../common/utils';
 import GalleryItem from './components/Item';
 import { commonStyles, rowListStyles, multilineListStyles } from './styles';
 
-interface GalleryListItemsProps {
+interface GalleryProps {
   list: MovieListItem[] | TVListItem[];
   heading: string;
   mode: 'row' | 'multiline';
 }
 
-function GalleryItemsList({ list, heading, mode }: GalleryListItemsProps) {
+function Gallery({ list, heading, mode }: GalleryProps) {
   const changeableStyles = mode === 'row' ? rowListStyles : multilineListStyles;
   return (
     <div css={css(commonStyles, changeableStyles)}>
@@ -32,4 +32,4 @@ function GalleryItemsList({ list, heading, mode }: GalleryListItemsProps) {
   );
 }
 
-export default GalleryItemsList;
+export default Gallery;

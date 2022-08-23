@@ -4,7 +4,7 @@ import {
   MovieListItem,
   TVListItem,
 } from '../../../../../app/TMDBAPIInterfaces';
-import GalleryItemsList from '../../../../Gallery';
+import Gallery from '../../../../Gallery';
 import Container from './Container';
 import filter from '../filterUtils';
 import Menu from './Menu';
@@ -23,11 +23,7 @@ function Filter({ heading, list }: FilterProps) {
   return (
     <Container heading={heading}>
       <Menu state={state} dispatch={dispatch} />
-      <GalleryItemsList
-        mode='multiline'
-        heading={heading}
-        list={filter(state, list)}
-      />
+      <Gallery mode='multiline' heading={heading} list={filter(state, list)} />
     </Container>
   );
 }

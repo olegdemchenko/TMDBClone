@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
 import Spinner from '../Spinner';
-import GalleryItemsList from '../Gallery';
+import Gallery from '../Gallery';
 import CarouselContainerProps from './components/Container';
 
 interface CarouselProps {
@@ -33,7 +33,7 @@ function Carousel({ heading, sendQuery }: CarouselProps) {
   return (
     <CarouselContainerProps>
       <h4>{heading}</h4>
-      <GalleryItemsList mode='row' heading={heading} list={data} />
+      <Gallery mode='row' heading={heading} list={data} />
     </CarouselContainerProps>
   );
 }
