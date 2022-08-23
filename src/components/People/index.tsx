@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useGetPopularPeopleQuery } from '../../app/store/api';
-import ErrorMessage from '../CategoryContent/components/ErrorMessage';
+import ErrorMessage from '../ErrorMessage';
 import Spinner from '../Spinner';
 import CustomPagination from '../Pagination';
 import CenteredContainer from '../CenteredContainer';

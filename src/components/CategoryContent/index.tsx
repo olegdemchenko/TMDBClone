@@ -4,7 +4,7 @@ import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import CenteredContainer from '../CenteredContainer';
 import Spinner from './components/Spinner';
-import ErrorMessage from './components/ErrorMessage';
+import ErrorMessage from '../ErrorMessage';
 import Button from './components/Button';
 import Filter from './components/Filter/components/Filter';
 
