@@ -77,10 +77,8 @@ export const pagesCount = 5;
 export default rest.get(paths.popularPeople, (req, res, ctx) => {
   const popularPeopleRes: PopularPeopleResult = {
     page: 1,
-    results: Array(peoplePerPage * pagesCount)
-      .fill({
-        popularPerson,
-      })
+    results: Array(peoplePerPage)
+      .fill(popularPerson)
       .map((person) => ({ ...person, id: Math.random() })),
     total_pages: pagesCount,
     total_results: peoplePerPage * pagesCount,
