@@ -8,12 +8,12 @@ import ErrorMessage from './components/ErrorMessage';
 import Button from './components/Button';
 import Filter from './components/Filter/components/Filter';
 
-interface CollectionProps {
+interface CategoryContentProps {
   heading: string;
   sendQuery: SendQuery;
 }
 
-function Collection({ heading, sendQuery }: CollectionProps) {
+function CategoryContent({ heading, sendQuery }: CategoryContentProps) {
   const { t } = useTranslation('collection');
   const [isLoadingActive, activateLoading] = useState<boolean>(false);
   const page = useUpdatePageAfterScroll(isLoadingActive);
@@ -34,4 +34,4 @@ function Collection({ heading, sendQuery }: CollectionProps) {
   );
 }
 
-export default Collection;
+export default CategoryContent;

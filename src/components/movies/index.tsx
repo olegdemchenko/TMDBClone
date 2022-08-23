@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { moviesPaths } from '../../common/constants';
-import MovieCollection from '../Collection';
+import MovieCategoryContent from '../CategoryContent';
 
 function MoviesRoutes() {
   const { t } = useTranslation('movies');
@@ -13,7 +13,7 @@ function MoviesRoutes() {
       <Route
         path={moviesPaths.popular}
         element={
-          <MovieCollection
+          <MovieCategoryContent
             heading={t('popular')}
             sendQuery={useCachedQueryData(moviesApi.endpoints.getPopularMovies)}
           />
@@ -22,7 +22,7 @@ function MoviesRoutes() {
       <Route
         path={moviesPaths.upcoming}
         element={
-          <MovieCollection
+          <MovieCategoryContent
             heading={t('upcoming')}
             sendQuery={useCachedQueryData(
               moviesApi.endpoints.getUpcomingMovies
@@ -33,7 +33,7 @@ function MoviesRoutes() {
       <Route
         path={moviesPaths['top rated']}
         element={
-          <MovieCollection
+          <MovieCategoryContent
             heading={t('top')}
             sendQuery={useCachedQueryData(
               moviesApi.endpoints.getTopRatedMovies
@@ -44,7 +44,7 @@ function MoviesRoutes() {
       <Route
         path={moviesPaths['now playing']}
         element={
-          <MovieCollection
+          <MovieCategoryContent
             heading={t('playing')}
             sendQuery={useCachedQueryData(
               moviesApi.endpoints.getNowPlayingMovies

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { TVApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { tvShowsPaths } from '../../common/constants';
-import MovieCollection from '../Collection';
+import ShowsCategoryContent from '../CategoryContent';
 
 function TVShowsRoutes() {
   const { t } = useTranslation('shows');
@@ -13,7 +13,7 @@ function TVShowsRoutes() {
       <Route
         path={tvShowsPaths.popular}
         element={
-          <MovieCollection
+          <ShowsCategoryContent
             heading={t('popular')}
             sendQuery={useCachedQueryData(TVApi.endpoints.getPopularTVShows)}
           />
@@ -22,7 +22,7 @@ function TVShowsRoutes() {
       <Route
         path={tvShowsPaths['airing today']}
         element={
-          <MovieCollection
+          <ShowsCategoryContent
             heading={t('airing')}
             sendQuery={useCachedQueryData(TVApi.endpoints.getAiringTVShows)}
           />
@@ -31,7 +31,7 @@ function TVShowsRoutes() {
       <Route
         path={tvShowsPaths['on tv']}
         element={
-          <MovieCollection
+          <ShowsCategoryContent
             heading={t('onTv')}
             sendQuery={useCachedQueryData(TVApi.endpoints.getOnTVShows)}
           />
@@ -40,7 +40,7 @@ function TVShowsRoutes() {
       <Route
         path={tvShowsPaths['top rated']}
         element={
-          <MovieCollection
+          <ShowsCategoryContent
             heading={t('top')}
             sendQuery={useCachedQueryData(TVApi.endpoints.getTopRatedTVShows)}
           />

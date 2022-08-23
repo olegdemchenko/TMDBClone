@@ -13,13 +13,13 @@ import i18n from '../../translations';
 import { moviesApi } from '../../app/store/api';
 import { renderWithWrapper } from '../../common/utils';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
-import MovieCollection from '.';
+import MovieCategoryContent from '.';
 import { movie } from '../../../__mocks__/server/handlers/getPopularMovies';
 
 test('check fetching on scroll', async () => {
   renderWithWrapper(
     <Provider store={store}>
-      <MovieCollection
+      <MovieCategoryContent
         heading='Popular'
         sendQuery={useCachedQueryData(moviesApi.endpoints.getPopularMovies)}
       />
