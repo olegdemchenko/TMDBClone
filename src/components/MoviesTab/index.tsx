@@ -6,7 +6,7 @@ import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { moviesPaths } from '../../common/constants';
 import MovieCategoryContent from '../CategoryContent';
 
-function MoviesRoutes() {
+function MoviesTab() {
   const { t } = useTranslation('movies');
   return (
     <Routes>
@@ -56,4 +56,4 @@ function MoviesRoutes() {
   );
 }
 
-export default MoviesRoutes;
+export default MoviesTab;

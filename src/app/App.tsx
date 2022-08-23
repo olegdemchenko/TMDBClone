@@ -5,8 +5,8 @@ import { store } from './store/store';
 import Root from '../components/Layout';
 import Main from '../components/MainPage';
 import Results from '../components/Results';
-import Movies from '../components/MoviesTab';
-import TVShows from '../components/TvShowsTab';
+import MoviesTab from '../components/MoviesTab';
+import TVShowsTab from '../components/TvShowsTab';
 import People from '../components/People';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
         <Route path='/' element={<Root />}>
           <Route index element={<Main />} />
           <Route path='search' element={<Results />} />
-          <Route path='movie/*' element={<Movies />} />
-          <Route path='tv/*' element={<TVShows />} />
+          <Route path='movie/*' element={<MoviesTab />} />
+          <Route path='tv/*' element={<TVShowsTab />} />
           <Route path='people/*' element={<People />} />
         </Route>
       </Routes>
