@@ -74,7 +74,7 @@ export const popularPerson: PopularPerson = {
 export const peoplePerPage = 20;
 export const pagesCount = 5;
 
-rest.get(paths.popularPeople, (req, res, ctx) => {
+export default rest.get(paths.popularPeople, (req, res, ctx) => {
   const popularPeopleRes: PopularPeopleResult = {
     page: 1,
     results: Array(peoplePerPage * pagesCount)
