@@ -25,7 +25,7 @@ type TVQuery = QueryDefinition<
 
 export type SendQuery = ReturnType<typeof useCachedQueryData>;
 
-type MovieEndpoint = ApiEndpointQuery<
+export type MovieEndpoint = ApiEndpointQuery<
   MovieQuery,
   { [K in keyof typeof moviesApi.endpoints]: MovieQuery }
 > &

@@ -2,7 +2,10 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { moviesApi } from '../../app/store/api';
-import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
+import {
+  useCachedQueryData,
+  MovieEndpoint,
+} from '../../common/hooks/useCachedQueryData';
 import { moviesPaths } from '../../common/constants';
 import MovieCategoryContent from '../CategoryContent';
 
@@ -15,7 +18,9 @@ function MoviesTab() {
         element={
           <MovieCategoryContent
             heading={t('popular')}
-            sendQuery={useCachedQueryData(moviesApi.endpoints.getPopularMovies)}
+            sendQuery={useCachedQueryData(
+              moviesApi.endpoints.getPopularMovies as MovieEndpoint
+            )}
           />
         }
       />
@@ -25,7 +30,7 @@ function MoviesTab() {
           <MovieCategoryContent
             heading={t('upcoming')}
             sendQuery={useCachedQueryData(
-              moviesApi.endpoints.getUpcomingMovies
+              moviesApi.endpoints.getUpcomingMovies as MovieEndpoint
             )}
           />
         }
@@ -36,7 +41,7 @@ function MoviesTab() {
           <MovieCategoryContent
             heading={t('top')}
             sendQuery={useCachedQueryData(
-              moviesApi.endpoints.getTopRatedMovies
+              moviesApi.endpoints.getTopRatedMovies as MovieEndpoint
             )}
           />
         }
@@ -47,7 +52,7 @@ function MoviesTab() {
           <MovieCategoryContent
             heading={t('playing')}
             sendQuery={useCachedQueryData(
-              moviesApi.endpoints.getNowPlayingMovies
+              moviesApi.endpoints.getNowPlayingMovies as MovieEndpoint
             )}
           />
         }
