@@ -36,6 +36,10 @@ export const paths = [searchPathNames, moviesPathNames, peoplePathNames]
   [Key in PathsKeys]: string;
 };
 
+export const dynamicPaths = {
+  movieDetails: (movieId: number) => `${origin}/movie/${movieId}`,
+};
+
 export const imagePaths = {
   searchResIcon: `${imagesOrigin}/w92/`,
   gallerySlidePoster: {

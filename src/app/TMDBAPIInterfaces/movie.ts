@@ -60,7 +60,7 @@ export interface MovieDetails {
   genres?: MovieGenre[];
   homepage?: string | null;
   id: number;
-  imdb_id?: number;
+  imdb_id?: string | null;
   original_language?: string;
   original_title?: string;
   overview?: string | null;

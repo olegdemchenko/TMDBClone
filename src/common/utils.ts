@@ -96,6 +96,10 @@ function getReleaseDate(elem: MovieListItem | TVListItem) {
   return (elem as TVListItem).first_air_date;
 }
 
+function getMovieDetailsPath(movieId: number, movieTitle: string) {
+  return `${movieId}-${movieTitle.split(' ').join('-')}`;
+}
+
 export {
   capitalize,
   isDataDefined,
@@ -106,4 +110,5 @@ export {
   parseDate,
   getTitle,
   getReleaseDate,
+  getMovieDetailsPath,
 };
