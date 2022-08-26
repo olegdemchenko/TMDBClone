@@ -11,6 +11,10 @@ interface GalleryProps {
   mode: 'row' | 'multiline';
 }
 
+function isMovie(media: MovieListItem | TVListItem): media is MovieListItem {
+  return (media as MovieListItem).title !== undefined;
+}
+
 function Gallery({ list, heading, mode }: GalleryProps) {
   const changeableStyles = mode === 'row' ? rowListStyles : multilineListStyles;
   return (
@@ -19,6 +23,7 @@ function Gallery({ list, heading, mode }: GalleryProps) {
         <GalleryItem
           key={elem.id}
           data={{
+            id: elem.id,
             poster: elem.poster_path,
             title: getTitle(elem),
             date: getReleaseDate(elem),
@@ -26,6 +31,7 @@ function Gallery({ list, heading, mode }: GalleryProps) {
             alt: `${heading}: ${getTitle(elem) ?? ''}`,
           }}
           size={mode === 'row' ? 'medium' : 'large'}
+          contentType={isMovie(elem) ? 'movie' : 'tv'}
         />
       ))}
     </div>
