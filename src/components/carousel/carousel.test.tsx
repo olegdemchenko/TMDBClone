@@ -10,6 +10,7 @@ import {
   movie,
   moviesPerPage,
 } from '../../../__mocks__/server/handlers/getPopularMovies';
+
 import Carousel from './index';
 
 test('check fetching movies', async () => {
