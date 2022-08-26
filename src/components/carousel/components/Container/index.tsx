@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import { innerShadowStyles, hiddenVerticalScrollbarStyles } from './styles';
+import { hiddenVerticalScrollbarStyles } from './styles';
 
 interface CarouselContainerProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface CarouselContainerProps {
 
 function CarouselContainer({ children }: CarouselContainerProps) {
   return (
-    <Container fluid='lg' className='p-4 pe-0' css={innerShadowStyles}>
+    <Container fluid='lg' className='p-4 pe-0'>
       <div className='pb-4' css={hiddenVerticalScrollbarStyles}>
         {children}
       </div>
