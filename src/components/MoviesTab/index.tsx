@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
-import { moviesPaths } from '../../common/constants';
+import { moviesPathNames } from '../../routes';
 import MovieCategoryContent from '../CategoryContent';
 import MovieDetails from '../MovieDetails';
 
@@ -12,7 +12,7 @@ function MoviesTab() {
   return (
     <Routes>
       <Route
-        path={moviesPaths.popular}
+        path={moviesPathNames.popularMovies}
         element={
           <MovieCategoryContent
             heading={t('popular')}
@@ -21,7 +21,7 @@ function MoviesTab() {
         }
       />
       <Route
-        path={moviesPaths.upcoming}
+        path={moviesPathNames.upcomingMovies}
         element={
           <MovieCategoryContent
             heading={t('upcoming')}
@@ -32,7 +32,7 @@ function MoviesTab() {
         }
       />
       <Route
-        path={moviesPaths['top rated']}
+        path={moviesPathNames.topRatedMovies}
         element={
           <MovieCategoryContent
             heading={t('top')}
@@ -43,7 +43,7 @@ function MoviesTab() {
         }
       />
       <Route
-        path={moviesPaths['now playing']}
+        path={moviesPathNames.nowPlayingMovies}
         element={
           <MovieCategoryContent
             heading={t('playing')}
