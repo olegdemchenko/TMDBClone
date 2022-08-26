@@ -2,9 +2,10 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { renderWithWrapper, getMovieDetailsPath } from '../../common/utils';
+import { renderWithWrapper } from '../../common/utils';
 import { store } from '../../app/store/store';
 import { movieDetails as mockedDetails } from '../../../__mocks__/server/handlers/getMovieDetails';
+import { detailsPaths } from '../../routes';
 
 import MovieDetails from '.';
 
@@ -14,10 +15,10 @@ test('check MovieDetails base content presence', async () => {
       <MovieDetails />
     </Provider>,
     {
-      route: `/${getMovieDetailsPath(
+      route: detailsPaths.movie(
         mockedDetails.id,
         mockedDetails.title as string
-      )}`,
+      ),
     }
   );
   expect(

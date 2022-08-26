@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Progressbar from 'react-js-progressbar';
 import notFound from './assets/img/notFound.png';
-import { imagePaths } from '../../../../routes';
+import { imagePaths, detailsPaths } from '../../../../routes';
 import { ThemeColors } from '../../../../common/styles';
 import {
   containerStyles,
@@ -10,7 +10,6 @@ import {
   textStyles,
   progressbarContainerStyles,
 } from './styles';
-import { getMovieDetailsPath } from '../../../../common/utils';
 
 type MediaTypes = 'tv' | 'movie';
 
@@ -27,13 +26,6 @@ interface GalleryItemProps {
   contentType: MediaTypes;
 }
 
-function getLinkToDetails(contentType: MediaTypes, id: number, title = '') {
-  const detailsPath = getMovieDetailsPath(id, title || '');
-  return contentType === 'movie'
-    ? `/movie/${detailsPath}`
-    : `/tv/${detailsPath}`;
-}
-
 function GalleryItem({
   data: { id, poster, title, date, rate = 0, alt },
   size,
@@ -43,7 +35,7 @@ function GalleryItem({
     ? `${imagePaths.gallerySlidePoster[size]}${poster}`
     : notFound;
   return (
-    <Link to={getLinkToDetails(contentType, id, title)}>
+    <Link to={detailsPaths[contentType](id, title ?? '')}>
       <div css={containerStyles[size]}>
         <div>
           <img src={icon} alt={alt} css={iconStyles[size]} />

@@ -50,3 +50,16 @@ export const imagePaths = {
     medium: `${imagesOrigin}/w185/`,
   },
 };
+
+function convertMediaParamsToPathSegment(id: number, name: string) {
+  return `${id}-${name.split(' ').join('-')}`;
+}
+
+export const detailsPaths = {
+  movie: (id: number, title: string) =>
+    `/movie/${convertMediaParamsToPathSegment(id, title)}`,
+  tv: (id: number, title: string) =>
+    `/tv/${convertMediaParamsToPathSegment(id, title)}`,
+  people: (id: number, name: string) =>
+    `/person/${convertMediaParamsToPathSegment(id, name)}`,
+};
