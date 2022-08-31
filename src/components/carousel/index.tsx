@@ -2,7 +2,7 @@ import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
-import Spinner from '../Spinner';
+import Spinner from './components/Spinner';
 import Gallery from '../Gallery';
 import CarouselContainerProps from './components/Container';
 

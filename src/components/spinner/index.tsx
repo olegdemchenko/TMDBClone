@@ -1,11 +1,18 @@
 import React from 'react';
+import Modal from 'react-bootstrap/Modal';
 import BootstrapSpinner from 'react-bootstrap/Spinner';
+import { modalStyles, spinnerSizeStyles } from './styles';
 
 function Spinner() {
   return (
-    <div className='d-flex justify-content-center align-items-center py-3'>
-      <BootstrapSpinner animation='grow' />
-    </div>
+    <Modal css={modalStyles} show centered>
+      <BootstrapSpinner
+        css={spinnerSizeStyles}
+        animation='border'
+        variant='primary'
+        data-testid='collectionSpinner'
+      />
+    </Modal>
   );
 }
 

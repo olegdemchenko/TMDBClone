@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useUpdatePageAfterScroll } from '../../common/hooks';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import CenteredContainer from '../CenteredContainer';
-import Spinner from './components/Spinner';
+import Spinner from '../Spinner';
 import ErrorMessage from '../ErrorMessage';
 import Button from './components/Button';
 import Filter from './components/Filter/components/Filter';
