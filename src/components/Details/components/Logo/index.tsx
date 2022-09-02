@@ -1,42 +1,43 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import notFound from './assets/notFound.svg';
-import { BorderRadiuses } from '../../../../common/styles';
-import { imagePaths } from '../../../../routes';
+import {
+  commonImgStyles,
+  commonWrapperStyles,
+  imgWidthStyles,
+  wrapperBackgroundStyles,
+} from './styles';
 
 interface LogoProps {
-  path: string | null | undefined;
+  path: string;
+  imgName: string | null | undefined;
   width: number;
   height: number;
 }
 
-function Logo({ path, width, height }: LogoProps) {
-  const commonStyles = css({
-    width,
-    height,
-    borderRadius: BorderRadiuses.medium,
-    overflow: 'hidden',
-  });
+function Logo({ path, imgName, width, height }: LogoProps) {
+  const wrapperSizeStyles = css({ width, height });
 
-  if (!path) {
+  if (!imgName) {
     return (
       <div
         css={css([
-          commonStyles,
-          {
-            backgroundColor: 'rgba(219, 219, 219)',
-            textAlign: 'center',
-            verticalAlign: 'middle',
-          },
+          commonWrapperStyles,
+          wrapperSizeStyles,
+          wrapperBackgroundStyles,
         ])}
       >
-        <img src={notFound} css={css({ width: '50%' })} alt='Logo' />
+        <img
+          src={notFound}
+          css={css([commonImgStyles, imgWidthStyles])}
+          alt='Logo'
+        />
       </div>
     );
   }
   return (
-    <div css={commonStyles}>
-      <img src={`${imagePaths.detailsPosters.medium}/${path}`} alt='Logo' />
+    <div css={[commonWrapperStyles, wrapperSizeStyles]}>
+      <img css={commonImgStyles} src={`${path}${imgName}`} alt='Logo' />
     </div>
   );
 }
