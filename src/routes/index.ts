@@ -12,13 +12,6 @@ export const moviesPathNames = {
   upcomingMovies: '/movie/upcoming',
 };
 
-export const moviesPathsSegments = Object.fromEntries(
-  Object.entries(moviesPathNames).map(([key, path]) => [
-    key,
-    path.replace(/^\/[a-z]+\//, ''),
-  ])
-);
-
 export const tvPathsNames = {
   popularShows: '/tv/popular',
   airingTodayShows: '/tv/airing_today',
@@ -33,9 +26,24 @@ export const peoplePathNames = {
 type PathsKeys =
   | keyof typeof searchPathNames
   | keyof typeof moviesPathNames
-  | keyof typeof peoplePathNames;
+  | keyof typeof peoplePathNames
+  | keyof typeof tvPathsNames;
 
-export const paths = [searchPathNames, moviesPathNames, peoplePathNames]
+export const pathsSegments = Object.fromEntries(
+  [moviesPathNames, tvPathsNames, peoplePathNames, tvPathsNames]
+    .map((coll) => Object.entries(coll))
+    .flat()
+    .map(([key, path]) => [key, path.replace(/^\/[a-z]+\//, '')])
+) as {
+  [Key in PathsKeys]: string;
+};
+
+export const paths = [
+  searchPathNames,
+  moviesPathNames,
+  peoplePathNames,
+  tvPathsNames,
+]
   .map((pathMap) => Object.entries(pathMap))
   .flat()
   .map(([key, value]) => [key, `${origin}${value}`])

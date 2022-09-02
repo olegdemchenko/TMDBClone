@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { TVApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
-import { tvPathsNames } from '../../routes';
+import { pathsSegments } from '../../routes';
 import ShowsCategoryContent from '../CategoryContent';
 
 function TVShowsTab() {
@@ -11,7 +11,7 @@ function TVShowsTab() {
   return (
     <Routes>
       <Route
-        path={tvPathsNames.popularShows}
+        path={pathsSegments.popularShows}
         element={
           <ShowsCategoryContent
             heading={t('popular')}
@@ -20,7 +20,7 @@ function TVShowsTab() {
         }
       />
       <Route
-        path={tvPathsNames.airingTodayShows}
+        path={pathsSegments.airingTodayShows}
         element={
           <ShowsCategoryContent
             heading={t('airing')}
@@ -29,7 +29,7 @@ function TVShowsTab() {
         }
       />
       <Route
-        path={tvPathsNames.onTVShows}
+        path={pathsSegments.onTVShows}
         element={
           <ShowsCategoryContent
             heading={t('onTv')}
@@ -38,7 +38,7 @@ function TVShowsTab() {
         }
       />
       <Route
-        path={tvPathsNames.topRatedShows}
+        path={pathsSegments.topRatedShows}
         element={
           <ShowsCategoryContent
             heading={t('top')}
