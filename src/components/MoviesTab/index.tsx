@@ -12,7 +12,7 @@ function MoviesTab() {
   return (
     <Routes>
       <Route
-        path='popular'
+        path={moviesPathsSegments.popularMovies}
         element={
           <MovieCategoryContent
             heading={t('popular')}

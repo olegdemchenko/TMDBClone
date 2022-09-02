@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { renderWithWrapper } from '../../common/utils';
 import '../../translations';
 import Header from '.';
+import { moviesPathNames } from '../../routes';
 
 test('check hiding on scroll', async () => {
   renderWithWrapper(
@@ -25,6 +26,6 @@ test('check redirecting', async () => {
   await userEvent.click(screen.getByRole('button', { name: /movies/i }));
   userEvent.click(screen.getByRole('button', { name: /popular/i }));
   await waitFor(() => {
-    expect(window.location.pathname).toBe('/movie/');
+    expect(window.location.pathname).toBe(moviesPathNames.popularMovies);
   });
 });
