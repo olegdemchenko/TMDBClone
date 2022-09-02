@@ -15,7 +15,7 @@ function Company({ name, logo }: CompanyProps) {
         width={100}
         height={100}
         imgName={logo}
-        path={imagePaths.detailsPosters.small}
+        path={imagePaths.searchResIcon}
       />
       <p>{name}</p>
     </div>
