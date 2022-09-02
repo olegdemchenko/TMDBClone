@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProductionCompanies } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
-import Logo from '../../../Logo';
+import Logo from '../../../../../Logo';
 
 interface CompanyProps {
   name?: ProductionCompanies['name'];

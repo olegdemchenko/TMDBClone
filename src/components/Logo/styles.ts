@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { BorderRadiuses } from '../../../../common/styles';
+import { BorderRadiuses } from '../../common/styles';
 
 export const commonWrapperStyles = css({
   display: 'flex',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
-import Logo from '../Logo';
+import Logo from '../../../Logo';
 import Heading from '../Heading';
 import UserRating from '../UserRating';
 import Overview from '../Overview';
