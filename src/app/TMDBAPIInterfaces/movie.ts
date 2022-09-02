@@ -35,14 +35,14 @@ interface MovieGenre {
   name: string;
 }
 
-interface ProductionCompanies {
+export interface ProductionCompanies {
   id: number;
   name: string;
   logo_path: string | null;
   origin_country: string;
 }
 
-interface ProductionCountries {
+export interface ProductionCountries {
   iso_3166_1: string;
   name: string;
 }

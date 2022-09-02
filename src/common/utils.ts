@@ -66,6 +66,14 @@ function dateToStringWithDot(date?: Date) {
   return stringifiedDate;
 }
 
+export function dateToStringWithSlash(date: Date) {
+  return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+}
+
+export function extractYearFromDate(date: Date) {
+  return new Date(date).getFullYear();
+}
+
 function validateDate(date: string) {
   const maxDay = 31;
   const maxMonth = 11;

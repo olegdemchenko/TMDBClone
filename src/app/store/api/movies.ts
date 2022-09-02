@@ -41,4 +41,4 @@ export const moviesApi = baseApi.injectEndpoints({
   }),
 });
 
-// export const { useGetMovieDetailsQuery } = moviesApi;
+export const { useGetMovieDetailsQuery } = moviesApi;

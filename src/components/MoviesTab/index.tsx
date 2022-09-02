@@ -3,16 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
-import { moviesPathNames } from '../../routes';
+import { moviesPathsSegments } from '../../routes';
 import MovieCategoryContent from '../CategoryContent';
-import MovieDetails from '../MovieDetails';
+import MovieDetails from '../Details';
 
 function MoviesTab() {
   const { t } = useTranslation('movies');
   return (
     <Routes>
       <Route
-        path={moviesPathNames.popularMovies}
+        path='popular'
         element={
           <MovieCategoryContent
             heading={t('popular')}
@@ -21,7 +21,7 @@ function MoviesTab() {
         }
       />
       <Route
-        path={moviesPathNames.upcomingMovies}
+        path={moviesPathsSegments.upcomingMovies}
         element={
           <MovieCategoryContent
             heading={t('upcoming')}
@@ -32,7 +32,7 @@ function MoviesTab() {
         }
       />
       <Route
-        path={moviesPathNames.topRatedMovies}
+        path={moviesPathsSegments.topRatedMovies}
         element={
           <MovieCategoryContent
             heading={t('top')}
@@ -43,7 +43,7 @@ function MoviesTab() {
         }
       />
       <Route
-        path={moviesPathNames.nowPlayingMovies}
+        path={moviesPathsSegments.nowPlayingMovies}
         element={
           <MovieCategoryContent
             heading={t('playing')}
@@ -53,7 +53,7 @@ function MoviesTab() {
           />
         }
       />
-      <Route path=':movieId' element={<MovieDetails />} />
+      <Route path=':movieCredentials' element={<MovieDetails />} />
     </Routes>
   );
 }

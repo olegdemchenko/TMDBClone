@@ -1,4 +1,4 @@
-const origin = 'https://api.themoviedb.org/3';
+export const origin = 'https://api.themoviedb.org/3';
 const imagesOrigin = 'https://image.tmdb.org/t/p';
 
 export const searchPathNames = {
@@ -11,6 +11,13 @@ export const moviesPathNames = {
   topRatedMovies: '/movie/top_rated',
   upcomingMovies: '/movie/upcoming',
 };
+
+export const moviesPathsSegments = Object.fromEntries(
+  Object.entries(moviesPathNames).map(([key, path]) => [
+    key,
+    path.replace(/^\/[a-z]+\//, ''),
+  ])
+);
 
 export const tvPathsNames = {
   popularShows: '/tv/popular',
@@ -37,7 +44,7 @@ export const paths = [searchPathNames, moviesPathNames, peoplePathNames]
 };
 
 export const dynamicPaths = {
-  movieDetails: (movieId: number) => `${origin}/movie/${movieId}`,
+  movieDetails: (movieId: number) => `/movie/${movieId}`,
 };
 
 export const imagePaths = {
@@ -49,10 +56,18 @@ export const imagePaths = {
   peoplePosters: {
     medium: `${imagesOrigin}/w185/`,
   },
+  detailsPosters: {
+    medium: `${imagesOrigin}/w300/`,
+    large: `${imagesOrigin}/original/`,
+  },
 };
 
-function convertMediaParamsToPathSegment(id: number, name: string) {
+export function convertMediaParamsToPathSegment(id: number, name: string) {
   return `${id}-${name.split(' ').join('-')}`;
+}
+
+export function extractIDFromMediaPath(path?: string) {
+  return path?.match(/^([0-9]+)-/)?.[1] ?? 0;
 }
 
 export const detailsPaths = {

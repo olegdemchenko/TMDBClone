@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 import { MovieDetails } from '../../../src/app/TMDBAPIInterfaces';
-import { dynamicPaths } from '../../../src/routes';
+import { dynamicPaths, origin } from '../../../src/routes';
 
 export const movieDetails: MovieDetails = {
   adult: false,
@@ -91,7 +91,7 @@ export const movieDetails: MovieDetails = {
 };
 
 export default rest.get(
-  dynamicPaths.movieDetails(movieDetails.id),
+  `${origin}${dynamicPaths.movieDetails(movieDetails.id)}`,
   (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(movieDetails));
   }

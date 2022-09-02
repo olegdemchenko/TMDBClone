@@ -6,6 +6,7 @@ import shows from './tvShows.json';
 import collection from './collection.json';
 import pagination from './pagination.json';
 import people from './people.json';
+import details from './details.json';
 
 export default {
   main,
@@ -16,4 +17,5 @@ export default {
   collection,
   pagination,
   people,
+  details,
 };
