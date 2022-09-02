@@ -11,22 +11,12 @@ import {
 interface LogoProps {
   path: string;
   imgName: string | null | undefined;
-  width: number;
-  height: number;
 }
 
-function Logo({ path, imgName, width, height }: LogoProps) {
-  const wrapperSizeStyles = css({ width, height });
-
+function Logo({ path, imgName }: LogoProps) {
   if (!imgName) {
     return (
-      <div
-        css={css([
-          commonWrapperStyles,
-          wrapperSizeStyles,
-          wrapperBackgroundStyles,
-        ])}
-      >
+      <div css={css([commonWrapperStyles, wrapperBackgroundStyles])}>
         <img
           src={notFound}
           css={css([commonImgStyles, imgWidthStyles])}
@@ -36,7 +26,7 @@ function Logo({ path, imgName, width, height }: LogoProps) {
     );
   }
   return (
-    <div css={[commonWrapperStyles, wrapperSizeStyles]}>
+    <div css={[commonWrapperStyles]}>
       <img css={commonImgStyles} src={`${path}${imgName}`} alt='Logo' />
     </div>
   );

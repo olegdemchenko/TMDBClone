@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import React from 'react';
 import { ProductionCompanies } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
@@ -11,12 +12,9 @@ interface CompanyProps {
 function Company({ name, logo }: CompanyProps) {
   return (
     <div className='d-flex flex-column align-items-center pe-4'>
-      <Logo
-        width={100}
-        height={100}
-        imgName={logo}
-        path={imagePaths.searchResIcon}
-      />
+      <div css={css({ width: 100, height: 100 })}>
+        <Logo imgName={logo} path={imagePaths.searchResIcon} />
+      </div>
       <p>{name}</p>
     </div>
   );

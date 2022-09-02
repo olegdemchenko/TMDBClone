@@ -4,6 +4,7 @@ import Progressbar from 'react-js-progressbar';
 import notFound from './assets/img/notFound.png';
 import { imagePaths, detailsPaths } from '../../../../routes';
 import { ThemeColors } from '../../../../common/styles';
+import Logo from '../../../Logo';
 import {
   containerStyles,
   iconStyles,

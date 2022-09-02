@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { BorderRadiuses } from '../../common/styles';
 
 export const commonWrapperStyles = css({
+  height: '100%',
   display: 'flex',
   justifyContent: 'center',
   borderRadius: BorderRadiuses.medium,

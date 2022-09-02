@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
 import Logo from '../../../Logo';
 import Heading from '../Heading';
@@ -14,12 +15,10 @@ interface DescriptionProps {
 function Description({ details }: DescriptionProps) {
   return (
     <div className='d-flex text-light'>
-      <div className='flex-shrink-0'>
+      <div className='flex-shrink-0' css={css({ width: 300, height: 450 })}>
         <Logo
           path={imagePaths.detailsPosters.medium}
           imgName={details.poster_path}
-          width={300}
-          height={450}
         />
       </div>
       <div className='flex-grow-1 ps-4'>
