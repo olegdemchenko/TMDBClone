@@ -21,8 +21,8 @@ function ProductionInfo({
     <div>
       <p className='m-0 fs-5 fw-bold'>{t('companies')}</p>
       <div className='d-flex flex-wrap'>
-        {companies.map(({ name, id }) => (
-          <Company key={id} name={name} />
+        {companies.map(({ name, id, logo_path }) => (
+          <Company key={id} name={name} logo={logo_path} />
         ))}
       </div>
       <div className='d-flex flex-wrap'>
