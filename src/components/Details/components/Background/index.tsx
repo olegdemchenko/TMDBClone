@@ -12,8 +12,6 @@ function Background({ imagePath, children }: WrapperProps) {
     <div
       css={css({
         backgroundImage: `linear-gradient(rgba(95,137,179,0.9), rgba(95,137,179,0.9)), url(${imagePaths.detailsPosters.large}${imagePath})`,
-        height: '500px',
-        width: '100%',
       })}
     >
       {children}
