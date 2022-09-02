@@ -25,6 +25,7 @@ function ProductionInfo({
           <Company key={id} name={name} logo={logo_path} />
         ))}
       </div>
+      <p className='m-0 fs-5 fw-bold'>{t('countries')}</p>
       <div className='d-flex flex-wrap'>
         {countries.map(({ name, iso_3166_1 }) => (
           <Country key={iso_3166_1} name={name} />
