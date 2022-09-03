@@ -13,16 +13,6 @@ export const containerStyles = {
   }),
 };
 
-export const iconStyles = {
-  medium: css({
-    borderRadius: BorderRadiuses.medium,
-  }),
-  large: css({
-    width: '100%',
-    borderRadius: `${BorderRadiuses.medium}px ${BorderRadiuses.medium}px 0 0`,
-  }),
-};
-
 export const textStyles = {
   medium: {},
   large: css({

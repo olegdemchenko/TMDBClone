@@ -33,7 +33,7 @@ function Carousel({ heading, sendQuery }: CarouselProps) {
   return (
     <CarouselContainerProps>
       <h4>{heading}</h4>
-      <Gallery mode='row' heading={heading} list={data} />
+      <Gallery mode='row' list={data} />
     </CarouselContainerProps>
   );
 }

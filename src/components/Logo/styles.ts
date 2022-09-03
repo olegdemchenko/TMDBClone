@@ -14,6 +14,7 @@ export const wrapperBackgroundStyles = css({
 });
 
 export const commonImgStyles = css({
+  width: '100%',
   alignSelf: 'center',
 });
 

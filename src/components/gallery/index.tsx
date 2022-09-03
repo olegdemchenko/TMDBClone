@@ -7,7 +7,6 @@ import { commonStyles, rowListStyles, multilineListStyles } from './styles';
 
 interface GalleryProps {
   list: MovieListItem[] | TVListItem[];
-  heading: string;
   mode: 'row' | 'multiline';
 }
 
@@ -15,7 +14,7 @@ function isMovie(media: MovieListItem | TVListItem): media is MovieListItem {
   return (media as MovieListItem).title !== undefined;
 }
 
-function Gallery({ list, heading, mode }: GalleryProps) {
+function Gallery({ list, mode }: GalleryProps) {
   const changeableStyles = mode === 'row' ? rowListStyles : multilineListStyles;
   return (
     <div css={css(commonStyles, changeableStyles)}>
@@ -28,7 +27,6 @@ function Gallery({ list, heading, mode }: GalleryProps) {
             title: getTitle(elem),
             date: getReleaseDate(elem),
             rate: elem.vote_average,
-            alt: `${heading}: ${getTitle(elem) ?? ''}`,
           }}
           size={mode === 'row' ? 'medium' : 'large'}
           contentType={isMovie(elem) ? 'movie' : 'tv'}

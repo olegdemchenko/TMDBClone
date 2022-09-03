@@ -23,7 +23,7 @@ function Filter({ heading, list }: FilterProps) {
   return (
     <Container heading={heading}>
       <Menu state={state} dispatch={dispatch} />
-      <Gallery mode='multiline' heading={heading} list={filter(state, list)} />
+      <Gallery mode='multiline' list={filter(state, list)} />
     </Container>
   );
 }

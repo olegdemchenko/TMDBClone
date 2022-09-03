@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Progressbar from 'react-js-progressbar';
-import notFound from './assets/img/notFound.png';
 import { imagePaths, detailsPaths } from '../../../../routes';
 import { ThemeColors } from '../../../../common/styles';
 import Logo from '../../../Logo';
 import {
   containerStyles,
-  iconStyles,
   textStyles,
   progressbarContainerStyles,
 } from './styles';
@@ -21,25 +19,21 @@ interface GalleryItemProps {
     title?: string;
     date?: string;
     rate?: number;
-    alt: string;
   };
   size: 'medium' | 'large';
   contentType: MediaTypes;
 }
 
 function GalleryItem({
-  data: { id, poster, title, date, rate = 0, alt },
+  data: { id, poster, title, date, rate = 0 },
   size,
   contentType,
 }: GalleryItemProps) {
-  const icon = poster
-    ? `${imagePaths.gallerySlidePoster[size]}${poster}`
-    : notFound;
   return (
     <Link to={detailsPaths[contentType](id, title ?? '')}>
       <div css={containerStyles[size]}>
         <div>
-          <img src={icon} alt={alt} css={iconStyles[size]} />
+          <Logo path={imagePaths.gallerySlidePoster[size]} imgName={poster} />
         </div>
         <div css={progressbarContainerStyles}>
           <Progressbar
