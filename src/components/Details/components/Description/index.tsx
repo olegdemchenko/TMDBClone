@@ -20,6 +20,7 @@ function Description({ details }: DescriptionProps) {
           type='media'
           path={imagePaths.detailsPosters.medium}
           imgName={details.poster_path}
+          borderRadius='all'
         />
       </div>
       <div className='flex-grow-1 ps-4'>

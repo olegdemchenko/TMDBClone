@@ -11,7 +11,7 @@ import {
   worksListStyles,
   textWrapperStyles,
 } from './styles';
-import noAvatar from './assets/img/noAvatar.jpg';
+import Logo from '../../../Logo';
 
 interface ListItemProps {
   name?: string;
@@ -20,14 +20,15 @@ interface ListItemProps {
 }
 
 function ListItem({ name = 'unknown', knownFor = [], photo }: ListItemProps) {
-  const iconPath = photo
-    ? `${imagePaths.peoplePosters.medium}${photo}`
-    : noAvatar;
-
   return (
     <div css={listItemStyles}>
       <div css={photoWrapperStyles}>
-        <img src={iconPath} alt={name} />
+        <Logo
+          type='person'
+          borderRadius='none'
+          path={imagePaths.peoplePosters.medium}
+          imgName={photo}
+        />
       </div>
       <div className='p-2' css={textWrapperStyles}>
         <h6 className='fw-bold m-0'>{name}</h6>

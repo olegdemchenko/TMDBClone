@@ -10,10 +10,6 @@ export const listItemStyles = css({
 
 export const photoWrapperStyles = css({
   height: '230px',
-  overflow: 'hidden',
-  '& img': {
-    marginTop: '-20px',
-  },
 });
 
 export const worksListStyles = css({

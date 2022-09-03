@@ -35,6 +35,7 @@ function GalleryItem({
         <div>
           <Logo
             type='media'
+            borderRadius={size === 'medium' ? 'all' : 'top'}
             path={imagePaths.gallerySlidePoster[size]}
             imgName={poster}
           />

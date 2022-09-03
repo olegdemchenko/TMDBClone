@@ -13,6 +13,19 @@ export const wrapperBackgroundStyles = css({
   backgroundColor: 'rgba(219, 219, 219)',
 });
 
+export const wrapperBorderStyles = {
+  all: css({ borderRadius: BorderRadiuses.medium }),
+  none: css({}),
+  left: css({
+    borderRadius: `${BorderRadiuses.medium} 0 0 ${BorderRadiuses.medium}`,
+  }),
+  top: css({
+    borderRadius: `${BorderRadiuses.medium} ${BorderRadiuses.medium} 0 0`,
+  }),
+};
+
+export type BorderRadiusTypes = keyof typeof wrapperBorderStyles;
+
 export const commonImgStyles = css({
   width: '100%',
   alignSelf: 'center',
