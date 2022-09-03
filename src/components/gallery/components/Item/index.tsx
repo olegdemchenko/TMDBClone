@@ -33,7 +33,11 @@ function GalleryItem({
     <Link to={detailsPaths[contentType](id, title ?? '')}>
       <div css={containerStyles[size]}>
         <div>
-          <Logo path={imagePaths.gallerySlidePoster[size]} imgName={poster} />
+          <Logo
+            type='media'
+            path={imagePaths.gallerySlidePoster[size]}
+            imgName={poster}
+          />
         </div>
         <div css={progressbarContainerStyles}>
           <Progressbar

@@ -13,7 +13,7 @@ function Company({ name, logo }: CompanyProps) {
   return (
     <div className='d-flex flex-column align-items-center pe-4'>
       <div css={css({ width: 100, height: 100 })}>
-        <Logo imgName={logo} path={imagePaths.searchResIcon} />
+        <Logo type='media' imgName={logo} path={imagePaths.searchResIcon} />
       </div>
       <p>{name}</p>
     </div>

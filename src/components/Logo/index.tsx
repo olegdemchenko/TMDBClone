@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import notFound from './assets/notFound.svg';
+import noAvatar from './assets/noAvatar.svg';
 import {
   commonImgStyles,
   commonWrapperStyles,
@@ -9,16 +10,17 @@ import {
 } from './styles';
 
 interface LogoProps {
+  type: 'media' | 'person';
   path: string;
   imgName: string | null | undefined;
 }
 
-function Logo({ path, imgName }: LogoProps) {
+function Logo({ path, imgName, type }: LogoProps) {
   if (!imgName) {
     return (
       <div css={css([commonWrapperStyles, wrapperBackgroundStyles])}>
         <img
-          src={notFound}
+          src={type === 'media' ? notFound : noAvatar}
           css={css([commonImgStyles, imgWidthStyles])}
           alt='Logo'
         />
