@@ -5,7 +5,6 @@ export const commonWrapperStyles = css({
   height: '100%',
   display: 'flex',
   justifyContent: 'center',
-  borderRadius: BorderRadiuses.medium,
   overflow: 'hidden',
 });
 
@@ -17,10 +16,10 @@ export const wrapperBorderStyles = {
   all: css({ borderRadius: BorderRadiuses.medium }),
   none: css({}),
   left: css({
-    borderRadius: `${BorderRadiuses.medium} 0 0 ${BorderRadiuses.medium}`,
+    borderRadius: `${BorderRadiuses.medium}px 0 0 ${BorderRadiuses.medium}px`,
   }),
   top: css({
-    borderRadius: `${BorderRadiuses.medium} ${BorderRadiuses.medium} 0 0`,
+    borderRadius: `${BorderRadiuses.medium}px ${BorderRadiuses.medium}px 0 0`,
   }),
 };
 
