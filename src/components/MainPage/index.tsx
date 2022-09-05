@@ -4,11 +4,15 @@ import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import Search from '../Search';
 import Carousel from '../Carousel';
+import AppContainer from '../AppContainer';
+import Header from '../Header';
+import Footer from '../Footer';
 
 function MainPage() {
   const { t } = useTranslation('main');
   return (
-    <>
+    <AppContainer>
+      <Header />
       <Search mode='main' />
       <Carousel
         heading={t('movies.popular')}
@@ -26,7 +30,8 @@ function MainPage() {
         heading={t('movies.playing')}
         sendQuery={useCachedQueryData(moviesApi.endpoints.getNowPlayingMovies)}
       />
-    </>
+      <Footer />
+    </AppContainer>
   );
 }
 

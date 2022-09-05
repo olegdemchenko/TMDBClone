@@ -11,6 +11,9 @@ import Statistics from './components/Statistics';
 import ResultsList from './components/ResultsList';
 import Pagination from '../Pagination';
 import { MultiSearchResults } from '../../app/TMDBAPIInterfaces';
+import AppContainer from '../AppContainer';
+import Header from '../Header';
+import Footer from '../Footer';
 
 const statisticsWrapperStyles = css({
   width: 260,
@@ -30,26 +33,35 @@ function Results() {
 
   if (isFetching) {
     return (
-      <Container
-        fluid='lg'
-        className='d-flex vh-100 justify-content-center align-items-center'
-      >
-        <Spinner animation='border' />
-      </Container>
+      <AppContainer>
+        <Header />
+        <Container
+          fluid='lg'
+          className='d-flex vh-100 justify-content-center align-items-center'
+        >
+          <Spinner animation='border' />
+        </Container>
+        <Footer />
+      </AppContainer>
     );
   }
 
   if (isError) {
     return (
-      <Container fluid='lg' className='py-4'>
-        <Alert className='m-0' variant='danger'>{`Error: ${error}`}</Alert>
-      </Container>
+      <AppContainer>
+        <Header />
+        <Container fluid='lg' className='py-4'>
+          <Alert className='m-0' variant='danger'>{`Error: ${error}`}</Alert>
+        </Container>
+        <Footer />
+      </AppContainer>
     );
   }
 
   isDataDefined<MultiSearchResults>(data);
   return (
-    <div>
+    <AppContainer>
+      <Header />
       <div className='border-bottom'>
         <Container fluid='lg' className='px-4'>
           <Search mode='results' />
@@ -66,7 +78,8 @@ function Results() {
           </div>
         </div>
       </Container>
-    </div>
+      <Footer />
+    </AppContainer>
   );
 }
 

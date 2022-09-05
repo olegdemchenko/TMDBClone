@@ -7,6 +7,9 @@ import CenteredContainer from '../CenteredContainer';
 import Spinner from '../Spinner';
 import MovieInfo from './components/MovieInfo';
 import { MovieDetails } from '../../app/TMDBAPIInterfaces';
+import AppContainer from '../AppContainer';
+import Header from '../Header';
+import Footer from '../Footer';
 
 function Details() {
   const { movieCredentials } = useParams<'movieCredentials'>();
@@ -15,16 +18,31 @@ function Details() {
     Number(movieId)
   );
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <AppContainer>
+        <Header />
+        <Spinner />
+        <Footer />
+      </AppContainer>
+    );
   }
   if (isError) {
-    <CenteredContainer>
-      <Alert variant='danger'>
-        {error?.message ?? 'Unknown error has happened.'}
-      </Alert>
-    </CenteredContainer>;
+    <AppContainer>
+      <Header />
+      <CenteredContainer>
+        <Alert variant='danger'>
+          {error?.message ?? 'Unknown error has happened.'}
+        </Alert>
+      </CenteredContainer>
+      <Footer />
+    </AppContainer>;
   }
-  return <MovieInfo info={data as MovieDetails} />;
+  return (
+    <AppContainer>
+      <Header />
+      <MovieInfo info={data as MovieDetails} /> <Footer />
+    </AppContainer>
+  );
 }
 
 export default Details;
