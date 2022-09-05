@@ -7,7 +7,7 @@ import { pathsSegments } from '../../routes';
 import MovieCategoryContent from '../CategoryContent';
 import MovieDetails from '../Details';
 
-function MoviesTab() {
+function MoviesRouter() {
   const { t } = useTranslation('movies');
   return (
     <Routes>
@@ -58,4 +58,4 @@ function MoviesTab() {
   );
 }
 
-export default MoviesTab;
+export default MoviesRouter;

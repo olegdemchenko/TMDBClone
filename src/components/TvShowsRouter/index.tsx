@@ -6,7 +6,7 @@ import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { pathsSegments } from '../../routes';
 import ShowsCategoryContent from '../CategoryContent';
 
-function TVShowsTab() {
+function TVShowsRouter() {
   const { t } = useTranslation('shows');
   return (
     <Routes>
@@ -50,4 +50,4 @@ function TVShowsTab() {
   );
 }
 
-export default TVShowsTab;
+export default TVShowsRouter;
