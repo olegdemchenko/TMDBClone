@@ -7,8 +7,7 @@ import Spinner from '../Spinner';
 import ErrorMessage from '../ErrorMessage';
 import Button from './components/Button';
 import Filter from './components/Filter/components/Filter';
-import AppContainer from '../AppContainer';
-import Footer from '../Footer';
+import FooterContainer from '../FooterContainer';
 import Header from '../Header';
 
 interface CategoryContentProps {
@@ -22,7 +21,7 @@ function CategoryContent({ heading, sendQuery }: CategoryContentProps) {
   const page = useUpdatePageAfterScroll(isLoadingActive);
   const { isError, isFetching, error, data } = sendQuery(page);
   return (
-    <AppContainer>
+    <FooterContainer>
       <Header />
       <CenteredContainer>
         {isFetching ? <Spinner /> : null}
@@ -36,8 +35,7 @@ function CategoryContent({ heading, sendQuery }: CategoryContentProps) {
           <Button text={t('loadMore')} onClick={() => activateLoading(true)} />
         )}
       </CenteredContainer>
-      <Footer />
-    </AppContainer>
+    </FooterContainer>
   );
 }
 

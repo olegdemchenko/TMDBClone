@@ -1,15 +1,17 @@
 import React from 'react';
+import Footer from '../Footer';
 
-interface AppContainerProps {
+interface FooterContainerProps {
   children: React.ReactNode;
 }
 
-function AppContainer({ children }: AppContainerProps) {
+function FooterContainer({ children }: FooterContainerProps) {
   return (
     <div className='d-flex min-vh-100 flex-column justify-content-between'>
       <div>{children}</div>
+      <Footer />
     </div>
   );
 }
 
-export default AppContainer;
+export default FooterContainer;

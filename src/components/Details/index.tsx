@@ -7,9 +7,8 @@ import CenteredContainer from '../CenteredContainer';
 import Spinner from '../Spinner';
 import MovieInfo from './components/MovieInfo';
 import { MovieDetails } from '../../app/TMDBAPIInterfaces';
-import AppContainer from '../AppContainer';
+import FooterContainer from '../FooterContainer';
 import Header from '../Header';
-import Footer from '../Footer';
 
 function Details() {
   const { movieCredentials } = useParams<'movieCredentials'>();
@@ -19,29 +18,27 @@ function Details() {
   );
   if (isLoading) {
     return (
-      <AppContainer>
+      <FooterContainer>
         <Header />
         <Spinner />
-        <Footer />
-      </AppContainer>
+      </FooterContainer>
     );
   }
   if (isError) {
-    <AppContainer>
+    <FooterContainer>
       <Header />
       <CenteredContainer>
         <Alert variant='danger'>
           {error?.message ?? 'Unknown error has happened.'}
         </Alert>
       </CenteredContainer>
-      <Footer />
-    </AppContainer>;
+    </FooterContainer>;
   }
   return (
-    <AppContainer>
+    <FooterContainer>
       <Header />
-      <MovieInfo info={data as MovieDetails} /> <Footer />
-    </AppContainer>
+      <MovieInfo info={data as MovieDetails} />
+    </FooterContainer>
   );
 }
 

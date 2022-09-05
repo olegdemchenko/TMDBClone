@@ -7,9 +7,8 @@ import Spinner from '../Spinner';
 import CustomPagination from '../Pagination';
 import CenteredContainer from '../CenteredContainer';
 import List from './components/List/index.';
-import AppContainer from '../AppContainer';
+import FooterContainer from '../FooterContainer';
 import Header from '../Header';
-import Footer from '../Footer';
 
 function People() {
   const { t } = useTranslation('people');
@@ -19,26 +18,24 @@ function People() {
     useGetPopularPeopleQuery(selectedPage);
   if (isLoading) {
     return (
-      <AppContainer>
+      <FooterContainer>
         <Header />
         <Spinner />
-        <Footer />
-      </AppContainer>
+      </FooterContainer>
     );
   }
   if (isError) {
     return (
-      <AppContainer>
+      <FooterContainer>
         <Header />
         <ErrorMessage
           message={error?.message ?? 'Unknown error has happened.'}
         />
-        <Footer />
-      </AppContainer>
+      </FooterContainer>
     );
   }
   return (
-    <AppContainer>
+    <FooterContainer>
       <Header />
       <CenteredContainer>
         <h3 className='m-0 pb-4'>{t('mainHeading')}</h3>
@@ -50,8 +47,7 @@ function People() {
           />
         </div>
       </CenteredContainer>
-      <Footer />
-    </AppContainer>
+    </FooterContainer>
   );
 }
 
