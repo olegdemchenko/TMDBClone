@@ -18,7 +18,7 @@ function Description({ details }: DescriptionProps) {
       <div className='flex-shrink-0' css={css({ width: 300, height: 450 })}>
         <Logo
           type='media'
-          path={imagePaths.detailsPosters.medium}
+          path={imagePaths.moviePosters.detailsDescription}
           imgName={details.poster_path}
           borderRadius='all'
         />

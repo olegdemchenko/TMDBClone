@@ -57,16 +57,14 @@ export const dynamicPaths = {
 
 export const imagePaths = {
   searchResIcon: `${imagesOrigin}/w92/`,
-  gallerySlidePoster: {
-    medium: `${imagesOrigin}/w154/`,
-    large: `${imagesOrigin}/w300/`,
+  moviePosters: {
+    mainPagePreview: `${imagesOrigin}/w154/`,
+    filterPreview: `${imagesOrigin}/w300/`,
+    detailsBackground: `${imagesOrigin}/original/`,
+    detailsDescription: `${imagesOrigin}/w300/`,
   },
   peoplePosters: {
-    medium: `${imagesOrigin}/w185/`,
-  },
-  detailsPosters: {
-    medium: `${imagesOrigin}/w300/`,
-    large: `${imagesOrigin}/original/`,
+    galleryPreview: `${imagesOrigin}/w185/`,
   },
 };
 

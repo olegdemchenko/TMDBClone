@@ -26,7 +26,7 @@ function ListItem({ name = 'unknown', knownFor = [], photo }: ListItemProps) {
         <Logo
           type='person'
           borderRadius='none'
-          path={imagePaths.peoplePosters.medium}
+          path={imagePaths.peoplePosters.galleryPreview}
           imgName={photo}
         />
       </div>

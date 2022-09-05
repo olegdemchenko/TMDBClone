@@ -36,7 +36,11 @@ function GalleryItem({
           <Logo
             type='media'
             borderRadius={size === 'medium' ? 'all' : 'top'}
-            path={imagePaths.gallerySlidePoster[size]}
+            path={
+              size === 'medium'
+                ? imagePaths.moviePosters.mainPagePreview
+                : imagePaths.moviePosters.filterPreview
+            }
             imgName={poster}
           />
         </div>
