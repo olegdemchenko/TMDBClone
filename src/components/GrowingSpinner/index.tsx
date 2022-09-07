@@ -1,7 +1,7 @@
 import React from 'react';
 import BootstrapSpinner from 'react-bootstrap/Spinner';
 
-function Spinner() {
+function GrowingSpinner() {
   return (
     <div className='d-flex justify-content-center align-items-center py-3'>
       <BootstrapSpinner animation='grow' />
@@ -9,4 +9,4 @@ function Spinner() {
   );
 }
 
-export default Spinner;
+export default GrowingSpinner;
