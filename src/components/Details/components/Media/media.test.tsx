@@ -8,14 +8,14 @@ import Media from '.';
 test('check changing current content type', async () => {
   const currentTabAttr = 'data-selected';
   render(<Media id={666} />);
-  const videoTab = screen.getByRole('listitem', {
+  const videoTab = screen.getByRole('button', {
     name: i18n.t('details:videos'),
   });
   expect(videoTab).toHaveAttribute(currentTabAttr);
-  const backdropTab = screen.getByRole('listitem', {
+  const backdropTab = screen.getByRole('button', {
     name: i18n.t('details:backdrops'),
   });
-  userEvent.click(backdropTab);
+  await userEvent.click(backdropTab);
   expect(backdropTab).toHaveAttribute(currentTabAttr);
   expect(videoTab).not.toHaveAttribute(currentTabAttr);
 });

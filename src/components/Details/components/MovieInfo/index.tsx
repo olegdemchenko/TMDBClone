@@ -3,6 +3,7 @@ import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
 import CenteredContainer from '../../../CenteredContainer';
 import Background from '../Background';
 import Description from '../Description';
+import Media from '../Media';
 
 interface MovieInfoProps {
   info: MovieDetails;
@@ -10,11 +11,16 @@ interface MovieInfoProps {
 
 function MovieInfo({ info }: MovieInfoProps) {
   return (
-    <Background imagePath={info.backdrop_path}>
+    <div>
+      <Background imagePath={info.backdrop_path}>
+        <CenteredContainer>
+          <Description details={info} />
+        </CenteredContainer>
+      </Background>
       <CenteredContainer>
-        <Description details={info} />
+        <Media id={info.id} />
       </CenteredContainer>
-    </Background>
+    </div>
   );
 }
 
