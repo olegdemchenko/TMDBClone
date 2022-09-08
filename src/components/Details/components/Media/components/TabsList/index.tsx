@@ -12,13 +12,13 @@ function TabsList({ items, selectedItem, selectItem }: TabsListProps) {
   const { t } = useTranslation('details');
 
   return (
-    <div>
+    <div className='pb-4'>
       <h4 className='d-inline-block'>{t('media')}</h4>
       <div className='d-inline-block' css={selectedTabStyles}>
         {items.map((item) => (
           <button
             type='button'
-            className='ms-5 border-0'
+            className='ms-5 border-0 bg-light'
             key={item}
             data-selected={item === selectedItem ? true : undefined}
             onClick={() => selectItem(item)}
