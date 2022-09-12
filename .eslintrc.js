@@ -34,5 +34,6 @@ module.exports = {
     'jest-dom/prefer-to-have-value': 'error',
     'jest-dom/prefer-empty': 'error',
     'jest-dom/prefer-enabled-disabled': 'error',
+    'jsx-a11y/control-has-associated-label': 'off',
   },
 };

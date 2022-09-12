@@ -1,5 +1,9 @@
 import { baseApi } from './base';
-import { MovieListResult, MovieDetails } from '../../TMDBAPIInterfaces';
+import {
+  MovieListResult,
+  MovieDetails,
+  VideosResults,
+} from '../../TMDBAPIInterfaces';
 import { dynamicPaths, moviesPathNames } from '../../../routes';
 
 export const moviesApi = baseApi.injectEndpoints({
@@ -38,7 +42,13 @@ export const moviesApi = baseApi.injectEndpoints({
         method: 'get',
       }),
     }),
+    getMovieVideos: builder.query<VideosResults, number>({
+      query: (movieId) => ({
+        url: dynamicPaths.movieVideos(movieId),
+        method: 'get',
+      }),
+    }),
   }),
 });
 
-export const { useGetMovieDetailsQuery } = moviesApi;
+export const { useGetMovieDetailsQuery, useGetMovieVideosQuery } = moviesApi;
