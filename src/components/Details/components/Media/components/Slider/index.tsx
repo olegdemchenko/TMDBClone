@@ -10,7 +10,6 @@ interface SliderProps {
 const sliderStyles = css({
   display: 'flex',
   flexWrap: 'nowrap',
-  overflowX: 'scroll',
 });
 
 function Slider({ children, slideWidth }: SliderProps) {

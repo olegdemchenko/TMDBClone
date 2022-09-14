@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TabsList from './components/TabsList';
 import Videos from './components/Videos';
+import ShadowWrapper from '../../../ShadowWrapper';
 
 interface MediaProps {
   id: number;
@@ -17,7 +18,11 @@ function Media({ id }: MediaProps) {
         selectItem={setSelected}
         selectedItem={selectedTab}
       />
-      {selectedTab === 'videos' ? <Videos entityId={id} /> : null}
+      {selectedTab === 'videos' ? (
+        <ShadowWrapper>
+          <Videos entityId={id} />
+        </ShadowWrapper>
+      ) : null}
     </div>
   );
 }
