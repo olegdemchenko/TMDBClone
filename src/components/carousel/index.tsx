@@ -1,10 +1,11 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
+import Container from 'react-bootstrap/Container';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
 import Spinner from '../GrowingSpinner';
 import Gallery from '../Gallery';
-import CarouselContainerProps from './components/Container';
+import ShadowWrapper from '../ShadowWrapper';
 
 interface CarouselProps {
   heading: string;
@@ -15,26 +16,28 @@ function Carousel({ heading, sendQuery }: CarouselProps) {
   const { isError, isFetching, error, data } = sendQuery(1);
   if (isFetching) {
     return (
-      <CarouselContainerProps>
+      <Container fluid='lg' className='p-4 pe-0'>
         <Spinner />
-      </CarouselContainerProps>
+      </Container>
     );
   }
   if (isError) {
     return (
-      <CarouselContainerProps>
+      <Container fluid='lg' className='p-4 pe-0'>
         <Alert variant='danger'>
           {error?.message ?? 'Unknown error has happened.'}
         </Alert>
-      </CarouselContainerProps>
+      </Container>
     );
   }
   isDataDefined(data);
   return (
-    <CarouselContainerProps>
+    <Container fluid='lg' className='p-4 pe-0'>
       <h4>{heading}</h4>
-      <Gallery mode='row' list={data} />
-    </CarouselContainerProps>
+      <ShadowWrapper>
+        <Gallery mode='row' list={data} />
+      </ShadowWrapper>
+    </Container>
   );
 }
 
