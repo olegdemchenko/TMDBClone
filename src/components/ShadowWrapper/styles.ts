@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const outerContainerStyles = css({
+export const containerStyles = css({
   position: 'relative',
   '&::after': {
     position: 'absolute',
@@ -18,8 +18,4 @@ export const outerContainerStyles = css({
   '&.hidden::after': {
     opacity: 0,
   },
-});
-
-export const innerContainerStyles = css({
-  overflowY: 'hidden',
 });

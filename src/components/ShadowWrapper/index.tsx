@@ -1,40 +1,32 @@
 import React, { useEffect, useRef } from 'react';
-import { outerContainerStyles, innerContainerStyles } from './styles';
+import { containerStyles } from './styles';
 
 interface ShadowWrapperProps {
   children: React.ReactNode;
 }
 
 function ShadowWrapper({ children }: ShadowWrapperProps) {
-  const outerContainerRef = useRef<HTMLDivElement | null>(null);
-  const innerContainerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const outerContainer = outerContainerRef.current;
-    const innerContainer = innerContainerRef.current;
-
-    function hideShadow() {
-      if (!outerContainer || !innerContainer) {
-        return;
-      }
-      if (innerContainer.scrollLeft > 30) {
-        outerContainer.classList.add('hidden');
+    function handleScroll(e: Event) {
+      const target = e.target as HTMLBodyElement;
+      const currentTarget = e.currentTarget as HTMLDivElement;
+      if (target.scrollLeft > 30) {
+        currentTarget.classList.add('hidden');
       } else {
-        outerContainer.classList.remove('hidden');
+        currentTarget.classList.remove('hidden');
       }
     }
-
-    innerContainer?.addEventListener('scroll', hideShadow);
+    containerRef.current?.addEventListener('scroll', handleScroll, true);
     return () => {
-      innerContainer?.removeEventListener('scroll', hideShadow);
+      containerRef.current?.removeEventListener('scroll', handleScroll, true);
     };
   }, []);
 
   return (
-    <div ref={outerContainerRef} css={outerContainerStyles}>
-      <div ref={innerContainerRef} css={innerContainerStyles}>
-        {children}
-      </div>
+    <div ref={containerRef} css={containerStyles}>
+      {children}
     </div>
   );
 }
