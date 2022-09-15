@@ -34,7 +34,7 @@ function Videos({ entityId }: VideosProps) {
     );
   }
   return (
-    <Slider slideWidth='medium'>
+    <Slider slideSize='video'>
       {(data as VideosResults).results.map(({ id, key, site, name }) => {
         if (key && site === 'YouTube') {
           return <YoutubePlayer key={id} videoKey={key} name={name} />;

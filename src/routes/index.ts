@@ -54,6 +54,7 @@ export const paths = [
 export const dynamicPaths = {
   movieDetails: (movieId: number) => `/movie/${movieId}`,
   movieVideos: (movieId: number) => `/movie/${movieId}/videos`,
+  movieImages: (movieId: number) => `/movie/${movieId}/images`,
   youtubeEmbeddedVideo: (videoKey: string) =>
     `https://www.youtube.com/embed/${videoKey}`,
 };
@@ -65,6 +66,8 @@ export const imagePaths = {
     filterPreview: `${imagesOrigin}/w300/`,
     detailsBackground: `${imagesOrigin}/original/`,
     detailsDescription: `${imagesOrigin}/w300/`,
+    detailsBackdrops: `${imagesOrigin}/w780/`,
+    detailsPosters: `${imagesOrigin}/w300/`,
   },
   peoplePosters: {
     galleryPreview: `${imagesOrigin}/w185/`,

@@ -1,6 +1,7 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
+import { css } from '@emotion/react';
 import { SendQuery } from '../../common/hooks/useCachedQueryData';
 import { isDataDefined } from '../../common/utils';
 import Spinner from '../GrowingSpinner';
@@ -35,7 +36,9 @@ function Carousel({ heading, sendQuery }: CarouselProps) {
     <Container fluid='lg' className='p-4 pe-0'>
       <h4>{heading}</h4>
       <ShadowWrapper>
-        <Gallery mode='row' list={data} />
+        <div css={css({ paddingBottom: 20, overflowY: 'hidden' })}>
+          <Gallery mode='row' list={data} />
+        </div>
       </ShadowWrapper>
     </Container>
   );

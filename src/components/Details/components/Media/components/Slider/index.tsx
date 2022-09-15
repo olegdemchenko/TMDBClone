@@ -4,22 +4,31 @@ import { css } from '@emotion/react';
 
 interface SliderProps {
   children: React.ReactNode[];
-  slideWidth: 'small' | 'medium';
+  slideSize: keyof typeof slideTypesSizes;
 }
 
 const sliderStyles = css({
   display: 'flex',
   flexWrap: 'nowrap',
+  overflowY: 'hidden',
 });
 
-function Slider({ children, slideWidth }: SliderProps) {
+export type SlideTypes = 'video' | 'backdrop' | 'poster';
+
+const slideTypesSizes = {
+  video: 300,
+  backdrop: 450,
+  poster: 200,
+};
+
+function Slider({ children, slideSize }: SliderProps) {
   return (
     <div css={sliderStyles}>
       {children.map((elem) => (
         <div
           key={_.uniqueId()}
           css={css({
-            width: slideWidth === 'small' ? 150 : 300,
+            width: slideTypesSizes[slideSize],
             height: 200,
             flexShrink: 0,
           })}

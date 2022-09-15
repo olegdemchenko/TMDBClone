@@ -3,6 +3,7 @@ import {
   MovieListResult,
   MovieDetails,
   VideosResults,
+  ImagesResults,
 } from '../../TMDBAPIInterfaces';
 import { dynamicPaths, moviesPathNames } from '../../../routes';
 
@@ -48,7 +49,17 @@ export const moviesApi = baseApi.injectEndpoints({
         method: 'get',
       }),
     }),
+    getMovieImages: builder.query<ImagesResults, number>({
+      query: (movieId) => ({
+        url: dynamicPaths.movieImages(movieId),
+        method: 'get',
+      }),
+    }),
   }),
 });
 
-export const { useGetMovieDetailsQuery, useGetMovieVideosQuery } = moviesApi;
+export const {
+  useGetMovieDetailsQuery,
+  useGetMovieVideosQuery,
+  useGetMovieImagesQuery,
+} = moviesApi;
