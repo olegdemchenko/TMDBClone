@@ -6,5 +6,8 @@
   "media": "Media",
   "videos": "Videos",
   "backdrops": "Backdrops",
-  "posters": "Posters"
+  "posters": "Posters",
+  "noVideos": "Unfortunately, there are no videos related to this movie",
+  "noBackdrops": "Unfortunately, there are no backdrops related to this movie",
+  "noPosters": "Unfortunately, there are no posters related to this movie"
 }

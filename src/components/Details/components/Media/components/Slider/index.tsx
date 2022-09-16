@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { css } from '@emotion/react';
+import { useTranslation } from 'react-i18next';
 import { containerStyles } from '../../styles';
 
 interface SliderProps {
@@ -23,20 +24,32 @@ const slideTypesSizes = {
 };
 
 function Slider({ children, slideSize }: SliderProps) {
+  const { t } = useTranslation('details');
+  const messages = {
+    video: t('noVideos'),
+    backdrop: t('noBackdrops'),
+    poster: t('noPosters'),
+  };
   return (
     <div css={[sliderStyles, containerStyles]}>
-      {children.map((elem) => (
-        <div
-          key={_.uniqueId()}
-          css={css({
-            width: slideTypesSizes[slideSize],
-            height: '100%',
-            flexShrink: 0,
-          })}
-        >
-          {elem}
+      {children.length > 0 ? (
+        children.map((elem) => (
+          <div
+            key={_.uniqueId()}
+            css={css({
+              width: slideTypesSizes[slideSize],
+              height: '100%',
+              flexShrink: 0,
+            })}
+          >
+            {elem}
+          </div>
+        ))
+      ) : (
+        <div className='d-flex align-items-center'>
+          <p className='fs-5'>{messages[slideSize]}</p>
         </div>
-      ))}
+      )}
     </div>
   );
 }
