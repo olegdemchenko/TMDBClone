@@ -1,25 +1,16 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMovieImagesQuery } from '../../../../../../app/store/api';
 import Slider, { SlideTypes } from '../Slider';
 import GrowingSpinner from '../../../../../GrowingSpinner';
 import { ImagesResults } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
+import { containerStyles, imagesStyles } from '../../styles';
 
 interface ImagesProps {
   movieId: number;
   type: Exclude<keyof ImagesResults, 'id'>;
 }
-
-const containerStyles = css({
-  height: '100%',
-});
-
-const imgStyles = css({
-  width: '100%',
-  height: '100%',
-});
 
 function Images({ movieId, type }: ImagesProps) {
   const { data, isLoading, isError, error } = useGetMovieImagesQuery(movieId);
@@ -55,7 +46,7 @@ function Images({ movieId, type }: ImagesProps) {
       {(data as ImagesResults)[type].map(({ file_path }) =>
         file_path ? (
           <img
-            css={imgStyles}
+            css={imagesStyles}
             src={`${imagesSrc[type]}${file_path}`}
             alt='backdrop'
           />

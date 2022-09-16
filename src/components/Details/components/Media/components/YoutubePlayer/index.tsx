@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { dynamicPaths, imagePaths } from '../../../../../../routes';
 import Arrow from '../Arrow';
 import { containerStyles, modalStyles } from './styles';
+import { imagesStyles } from '../../styles';
 
 interface YoutubePlayerProps {
   videoKey: string;
@@ -19,6 +20,7 @@ function YoutubePlayer({ videoKey, name = '' }: YoutubePlayerProps) {
     <div>
       <div css={containerStyles}>
         <img
+          css={imagesStyles}
           src={imagePaths.youtubeThumbnails.getLinkToMq(videoKey)}
           alt={videoKey}
         />

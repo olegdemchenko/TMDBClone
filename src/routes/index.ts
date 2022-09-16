@@ -74,7 +74,7 @@ export const imagePaths = {
   },
   youtubeThumbnails: {
     getLinkToMq: (key: string) =>
-      `https://img.youtube.com/vi/${key}/mqdefault.jpg`,
+      `https://img.youtube.com/vi/${key}/hqdefault.jpg`,
   },
 };
 
