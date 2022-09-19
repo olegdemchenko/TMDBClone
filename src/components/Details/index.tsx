@@ -5,7 +5,7 @@ import { useGetMovieDetailsQuery } from '../../app/store/api/movies';
 import { extractIDFromMediaPath } from '../../routes';
 import CenteredContainer from '../CenteredContainer';
 import Spinner from '../Spinner';
-import MovieInfo from './components/MovieInfo';
+import Content from './components/Content';
 import { MovieDetails } from '../../app/TMDBAPIInterfaces';
 import FooterContainer from '../FooterContainer';
 import Header from '../Header';
@@ -37,7 +37,7 @@ function Details() {
   return (
     <FooterContainer>
       <Header />
-      <MovieInfo info={data as MovieDetails} />
+      <Content info={data as MovieDetails} />
     </FooterContainer>
   );
 }

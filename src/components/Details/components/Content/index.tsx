@@ -6,11 +6,11 @@ import Description from '../Description';
 import Media from '../Media';
 import Recommendations from '../Recommendations';
 
-interface MovieInfoProps {
+interface ContentProps {
   info: MovieDetails;
 }
 
-function MovieInfo({ info }: MovieInfoProps) {
+function Content({ info }: ContentProps) {
   return (
     <div>
       <Background imagePath={info.backdrop_path}>
@@ -19,12 +19,17 @@ function MovieInfo({ info }: MovieInfoProps) {
         </CenteredContainer>
       </Background>
       <CenteredContainer>
-        <Media id={info.id} />
-        <hr />
-        <Recommendations movieId={info.id} />
+        <div className='d-flex'>
+          <div className='w-75'>
+            <Media id={info.id} />
+            <hr />
+            <Recommendations movieId={info.id} />
+          </div>
+          <div className='w-25' />
+        </div>
       </CenteredContainer>
     </div>
   );
 }
 
-export default MovieInfo;
+export default Content;
