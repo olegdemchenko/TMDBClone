@@ -9,5 +9,7 @@
   "posters": "Posters",
   "noVideos": "Unfortunately, there are no videos related to this movie",
   "noBackdrops": "Unfortunately, there are no backdrops related to this movie",
-  "noPosters": "Unfortunately, there are no posters related to this movie"
+  "noPosters": "Unfortunately, there are no posters related to this movie",
+  "recommendations": "Recommendations",
+  "noRecommendations": "Unfortunately, there are no posters related to this movie"
 }

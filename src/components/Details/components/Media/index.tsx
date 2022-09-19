@@ -23,7 +23,7 @@ function Media({ id }: MediaProps) {
   } as { [key: string]: React.ReactNode };
 
   return (
-    <div>
+    <div className='pb-4'>
       <TabsList
         items={tabsKeys}
         selectItem={setSelected}

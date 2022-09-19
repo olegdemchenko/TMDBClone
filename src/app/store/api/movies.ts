@@ -55,6 +55,13 @@ export const moviesApi = baseApi.injectEndpoints({
         method: 'get',
       }),
     }),
+    getMovieRecommendations: builder.query<MovieListResult, [number, number]>({
+      query: ([movieId, page]) => ({
+        url: dynamicPaths.movieRecommendations(movieId),
+        method: 'get',
+        params: { page },
+      }),
+    }),
   }),
 });
 
@@ -62,4 +69,5 @@ export const {
   useGetMovieDetailsQuery,
   useGetMovieVideosQuery,
   useGetMovieImagesQuery,
+  useGetMovieRecommendationsQuery,
 } = moviesApi;

@@ -4,6 +4,7 @@ import CenteredContainer from '../../../CenteredContainer';
 import Background from '../Background';
 import Description from '../Description';
 import Media from '../Media';
+import Recommendations from '../Recommendations';
 
 interface MovieInfoProps {
   info: MovieDetails;
@@ -19,6 +20,8 @@ function MovieInfo({ info }: MovieInfoProps) {
       </Background>
       <CenteredContainer>
         <Media id={info.id} />
+        <hr />
+        <Recommendations movieId={info.id} />
       </CenteredContainer>
     </div>
   );

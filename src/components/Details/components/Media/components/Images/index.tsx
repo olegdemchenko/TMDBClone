@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMovieImagesQuery } from '../../../../../../app/store/api';
 import Slider, { SlideTypes } from '../Slider';
@@ -49,6 +50,7 @@ function Images({ movieId, type }: ImagesProps) {
             css={imagesStyles}
             src={`${imagesSrc[type]}${file_path}`}
             alt='backdrop'
+            key={_.uniqueId()}
           />
         ) : null
       )}
