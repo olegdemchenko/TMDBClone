@@ -11,5 +11,18 @@
   "noBackdrops": "Unfortunately, there are no backdrops related to this movie",
   "noPosters": "Unfortunately, there are no posters related to this movie",
   "recommendations": "Recommendations",
-  "noRecommendations": "Unfortunately, there are no posters related to this movie"
+  "noRecommendations": "Unfortunately, there are no recommendations related to this movie",
+  "status": "Status",
+  "statuses": {
+    "NoStatus": "No Status",
+    "Rumored": "Rumored",
+    "Planned": "Planned",
+    "In Production": "In Production",
+    "Post Production": "Post Production",
+    "Released": "Released",
+    "Canceled": "Canceled"
+  },
+  "origLanguage": "Original Language",
+  "budget": "Budget",
+  "revenue": "Revenue"
 }
