@@ -22,7 +22,7 @@ export interface MovieListResult {
   results: MovieListItem[];
 }
 
-type MovieStatus =
+export type MovieStatus =
   | 'Rumored'
   | 'Planned'
   | 'In Production'
