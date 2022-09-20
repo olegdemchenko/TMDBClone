@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import close from './assets/img/close.png';
 
 export const containerStyles = css({
+  width: 500,
   position: 'relative',
 });
 

@@ -2,11 +2,11 @@ import React from 'react';
 import _ from 'lodash';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMovieImagesQuery } from '../../../../../../app/store/api';
-import Slider, { SlideTypes } from '../Slider';
 import GrowingSpinner from '../../../../../GrowingSpinner';
 import { ImagesResults } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
 import { containerStyles, imagesStyles } from '../../styles';
+import { slideSizes, sliderStyles } from './styles';
 
 interface ImagesProps {
   movieId: number;
@@ -20,11 +20,6 @@ function Images({ movieId, type }: ImagesProps) {
     backdrops: imagePaths.moviePosters.detailsBackdrops,
     posters: imagePaths.moviePosters.detailsPosters,
   };
-
-  const slideSizes = {
-    backdrops: 'backdrop',
-    posters: 'poster',
-  } as { [Key in ImagesProps['type']]: SlideTypes };
 
   if (isLoading) {
     return (
@@ -43,18 +38,23 @@ function Images({ movieId, type }: ImagesProps) {
     );
   }
   return (
-    <Slider slideSize={slideSizes[type]}>
+    <div css={[sliderStyles, containerStyles]}>
       {(data as ImagesResults)[type].map(({ file_path }) =>
         file_path ? (
-          <img
-            css={imagesStyles}
-            src={`${imagesSrc[type]}${file_path}`}
-            alt='backdrop'
+          <div
+            className='flex-shrink-0'
+            css={slideSizes[type]}
             key={_.uniqueId()}
-          />
+          >
+            <img
+              css={imagesStyles}
+              src={`${imagesSrc[type]}${file_path}`}
+              alt='backdrop'
+            />
+          </div>
         ) : null
       )}
-    </Slider>
+    </div>
   );
 }
 

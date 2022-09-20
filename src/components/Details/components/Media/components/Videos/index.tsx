@@ -2,10 +2,10 @@ import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMovieVideosQuery } from '../../../../../../app/store/api';
 import GrowingSpinner from '../../../../../GrowingSpinner';
-import Slider from '../Slider';
 import { VideosResults } from '../../../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
 import { containerStyles } from '../../styles';
+import { sliderStyles } from './styles';
 
 interface VideosProps {
   entityId: number;
@@ -30,14 +30,14 @@ function Videos({ entityId }: VideosProps) {
     );
   }
   return (
-    <Slider slideSize='video'>
+    <div css={sliderStyles}>
       {(data as VideosResults).results.map(({ id, key, site, name }) => {
         if (key && site === 'YouTube') {
           return <YoutubePlayer key={id} videoKey={key} name={name} />;
         }
         return null;
       })}
-    </Slider>
+    </div>
   );
 }
 
