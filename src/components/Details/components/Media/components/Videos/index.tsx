@@ -5,7 +5,7 @@ import GrowingSpinner from '../../../../../GrowingSpinner';
 import { VideosResults } from '../../../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
 import { containerStyles } from '../../styles';
-import { sliderStyles } from './styles';
+import Slider from '../../../Slider';
 
 interface VideosProps {
   entityId: number;
@@ -30,14 +30,14 @@ function Videos({ entityId }: VideosProps) {
     );
   }
   return (
-    <div css={sliderStyles}>
+    <Slider>
       {(data as VideosResults).results.map(({ id, key, site, name }) => {
         if (key && site === 'YouTube') {
           return <YoutubePlayer key={id} videoKey={key} name={name} />;
         }
         return null;
       })}
-    </div>
+    </Slider>
   );
 }
 

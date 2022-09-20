@@ -8,16 +8,11 @@ import GrowingSpinner from '../../../GrowingSpinner';
 import { MovieListResult } from '../../../../app/TMDBAPIInterfaces';
 import Recommendation from './components/Recommendation';
 import ShadowWrapper from '../../../ShadowWrapper';
+import Slider from '../Slider';
 
 interface RecommendationsProps {
   movieId: number;
 }
-
-const listWrapperStyles = css({
-  display: 'flex',
-  flexWrap: 'nowrap',
-  overflowY: 'hidden',
-});
 
 const emptyContainerStyles = css({
   height: 200,
@@ -52,7 +47,7 @@ function Recommendations({ movieId }: RecommendationsProps) {
       <h4 className='pb-3'>{t('recommendations')}</h4>
       {(data?.results ?? []).length > 0 ? (
         <ShadowWrapper>
-          <div css={listWrapperStyles}>
+          <Slider>
             {(data as MovieListResult).results.map(
               ({ id, title, release_date, backdrop_path, vote_average }) => (
                 <Recommendation
@@ -65,7 +60,7 @@ function Recommendations({ movieId }: RecommendationsProps) {
                 />
               )
             )}
-          </div>
+          </Slider>
         </ShadowWrapper>
       ) : (
         <div css={emptyContainerStyles}>

@@ -1,17 +1,23 @@
 import React from 'react';
 import _ from 'lodash';
 import Alert from 'react-bootstrap/Alert';
+import { css } from '@emotion/react';
 import { useGetMovieImagesQuery } from '../../../../../../app/store/api';
 import GrowingSpinner from '../../../../../GrowingSpinner';
 import { ImagesResults } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
 import { containerStyles, imagesStyles } from '../../styles';
-import { slideSizes, sliderStyles } from './styles';
+import Slider from '../../../Slider';
 
 interface ImagesProps {
   movieId: number;
   type: Exclude<keyof ImagesResults, 'id'>;
 }
+
+export const slideSizes = {
+  backdrops: css({ width: 500 }),
+  posters: css({ width: 200 }),
+};
 
 function Images({ movieId, type }: ImagesProps) {
   const { data, isLoading, isError, error } = useGetMovieImagesQuery(movieId);
@@ -38,12 +44,12 @@ function Images({ movieId, type }: ImagesProps) {
     );
   }
   return (
-    <div css={[sliderStyles, containerStyles]}>
+    <Slider>
       {(data as ImagesResults)[type].map(({ file_path }) =>
         file_path ? (
           <div
             className='flex-shrink-0'
-            css={slideSizes[type]}
+            css={[containerStyles, slideSizes[type]]}
             key={_.uniqueId()}
           >
             <img
@@ -54,7 +60,7 @@ function Images({ movieId, type }: ImagesProps) {
           </div>
         ) : null
       )}
-    </div>
+    </Slider>
   );
 }
 
