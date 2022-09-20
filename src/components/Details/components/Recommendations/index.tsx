@@ -44,7 +44,7 @@ function Recommendations({ movieId }: RecommendationsProps) {
 
   return (
     <div className='py-4'>
-      <h4 className='pb-3'>{t('recommendations')}</h4>
+      <h4 className='m-0 pb-4'>{t('recommendations')}</h4>
       {(data?.results ?? []).length > 0 ? (
         <ShadowWrapper>
           <Slider>

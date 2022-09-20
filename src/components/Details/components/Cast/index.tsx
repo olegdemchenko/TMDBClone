@@ -37,8 +37,8 @@ function Cast({ movieId }: CastProps) {
     );
   }
   return (
-    <div>
-      <h4>{t('cast')}</h4>
+    <div className='pb-4'>
+      <h4 className='m-0'>{t('cast')}</h4>
       {(data?.cast as []).length > 0 ? (
         <ShadowWrapper>
           <Slider>
