@@ -2,10 +2,10 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
 import Logo from '../../../Logo';
-import Heading from '../Heading';
-import UserRating from '../UserRating';
-import Overview from '../Overview';
-import ProductionInfo from '../ProductionInfo';
+import Heading from './components/Heading';
+import UserRating from './components/UserRating';
+import Overview from './components/Overview';
+import ProductionInfo from './components/ProductionInfo';
 import { imagePaths } from '../../../../routes';
 
 interface DescriptionProps {

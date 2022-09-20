@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
 import Cast from '../Cast';
 import CenteredContainer from '../../../CenteredContainer';
-import Background from '../Background';
+import Background from '../Description/components/Background';
 import Description from '../Description';
 import Media from '../Media';
 import MovieInfo from '../MovieInfo';

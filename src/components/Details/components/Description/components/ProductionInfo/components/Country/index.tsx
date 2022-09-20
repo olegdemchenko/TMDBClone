@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductionCountries } from '../../../../../../app/TMDBAPIInterfaces';
+import { ProductionCountries } from '../../../../../../../../app/TMDBAPIInterfaces';
 
 interface CountryProps {
   name?: ProductionCountries['name'];

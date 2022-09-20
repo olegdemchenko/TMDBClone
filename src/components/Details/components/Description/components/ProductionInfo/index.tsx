@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import {
   ProductionCompanies,
   ProductionCountries,
-} from '../../../../app/TMDBAPIInterfaces';
+} from '../../../../../../app/TMDBAPIInterfaces';
 import Company from './components/Company';
 import Country from './components/Country';
 

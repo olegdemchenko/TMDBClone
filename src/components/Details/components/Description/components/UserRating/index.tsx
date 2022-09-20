@@ -1,7 +1,7 @@
 import React from 'react';
 import Progressbar from 'react-js-progressbar';
 import { useTranslation } from 'react-i18next';
-import { ThemeColors } from '../../../../common/styles';
+import { ThemeColors } from '../../../../../../common/styles';
 
 interface UserRatingProps {
   rating?: number;

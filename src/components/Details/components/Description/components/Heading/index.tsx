@@ -1,9 +1,9 @@
 import React from 'react';
-import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
+import { MovieDetails } from '../../../../../../app/TMDBAPIInterfaces';
 import {
   dateToStringWithSlash,
   extractYearFromDate,
-} from '../../../../common/utils';
+} from '../../../../../../common/utils';
 
 interface HeadingProps {
   title?: string;
