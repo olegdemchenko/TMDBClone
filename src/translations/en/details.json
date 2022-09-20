@@ -24,5 +24,7 @@
   },
   "origLanguage": "Original Language",
   "budget": "Budget",
-  "revenue": "Revenue"
+  "revenue": "Revenue",
+  "cast": "Cast",
+  "noCastData": "Unfortunately, there is no information about the cast of the movie"
 }

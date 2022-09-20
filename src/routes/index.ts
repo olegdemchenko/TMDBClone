@@ -55,6 +55,7 @@ export const dynamicPaths = {
   movieDetails: (movieId: number) => `/movie/${movieId}`,
   movieVideos: (movieId: number) => `/movie/${movieId}/videos`,
   movieImages: (movieId: number) => `/movie/${movieId}/images`,
+  movieCredits: (movieId: number) => `/movie/${movieId}/credits`,
   movieRecommendations: (movieId: number) =>
     `/movie/${movieId}/recommendations`,
   youtubeEmbeddedVideo: (videoKey: string) =>
@@ -71,6 +72,7 @@ export const imagePaths = {
     detailsBackdrops: `${imagesOrigin}/w780/`,
     detailsPosters: `${imagesOrigin}/w300/`,
     recommendations: `${imagesOrigin}/w500/`,
+    cast: `${imagesOrigin}/w300/`,
   },
   peoplePosters: {
     galleryPreview: `${imagesOrigin}/w185/`,

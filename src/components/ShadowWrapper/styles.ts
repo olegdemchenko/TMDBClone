@@ -6,7 +6,7 @@ export const containerStyles = css({
     position: 'absolute',
     content: '""',
     top: 0,
-    right: 0,
+    right: -5,
     width: 80,
     height: '100%',
     backgroundImage: 'linear-gradient(to right, transparent, white)',
