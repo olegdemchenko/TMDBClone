@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import close from './assets/img/close.png';
 
-export const containerStyles = css({
+export const imageWrapperStyles = css({
   width: 500,
   position: 'relative',
 });

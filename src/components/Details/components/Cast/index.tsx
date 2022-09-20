@@ -44,11 +44,10 @@ function Cast({ movieId }: CastProps) {
           <Slider>
             {(data?.cast as Actor[]).map(
               ({ name, character, id, profile_path }) => (
-                <div className='py-4'>
+                <div className='py-4' key={id}>
                   <Character
                     name={name}
                     character={character}
-                    key={id}
                     profilePath={profile_path}
                   />
                 </div>

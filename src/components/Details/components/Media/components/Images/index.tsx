@@ -6,7 +6,7 @@ import { useGetMovieImagesQuery } from '../../../../../../app/store/api';
 import GrowingSpinner from '../../../../../GrowingSpinner';
 import { ImagesResults } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
-import { containerStyles, imagesStyles } from '../../styles';
+import { containerStyles, imagesStyles } from '../commonStyles';
 import Slider from '../../../Slider';
 
 interface ImagesProps {

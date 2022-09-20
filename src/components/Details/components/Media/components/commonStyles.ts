@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 export const containerStyles = css({
-  height: 360,
+  height: 330,
 });
 
 export const imagesStyles = css({

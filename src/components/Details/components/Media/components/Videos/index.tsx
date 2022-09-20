@@ -4,7 +4,7 @@ import { useGetMovieVideosQuery } from '../../../../../../app/store/api';
 import GrowingSpinner from '../../../../../GrowingSpinner';
 import { VideosResults } from '../../../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
-import { containerStyles } from '../../styles';
+import { containerStyles } from '../commonStyles';
 import Slider from '../../../Slider';
 
 interface VideosProps {
