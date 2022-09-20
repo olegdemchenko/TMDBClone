@@ -7,10 +7,9 @@ interface CharacterProps {
   name?: string;
   character?: string;
   profilePath?: string | null;
-  id: number;
 }
 
-function Character({ name, character, profilePath, id }: CharacterProps) {
+function Character({ name, character, profilePath }: CharacterProps) {
   return (
     <div className='me-3'>
       <div css={logoSizeStyles}>

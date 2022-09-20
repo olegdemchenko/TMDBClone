@@ -43,7 +43,6 @@ function Cast({ movieId }: CastProps) {
                   name={name}
                   character={character}
                   key={id}
-                  id={id}
                   profilePath={profile_path}
                 />
               )
