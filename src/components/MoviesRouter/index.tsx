@@ -5,7 +5,7 @@ import { moviesApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { pathsSegments } from '../../routes';
 import MovieCategoryContent from '../CategoryContent';
-import MovieDetails from '../Details';
+import MovieDetails from '../MovieDetails';
 
 function MoviesRouter() {
   const { t } = useTranslation('movies');
