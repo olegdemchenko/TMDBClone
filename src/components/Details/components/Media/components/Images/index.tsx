@@ -8,9 +8,9 @@ import { ImagesResults } from '../../../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../../../routes';
 import { containerStyles, imagesStyles } from '../commonStyles';
 import Slider from '../../../Slider';
+import useRetrieveIdFromLocation from '../../../../hooks/useRetrieveIdFromLocation';
 
 interface ImagesProps {
-  movieId: number;
   type: Exclude<keyof ImagesResults, 'id'>;
 }
 
@@ -19,8 +19,9 @@ export const slideSizes = {
   posters: css({ width: 200 }),
 };
 
-function Images({ movieId, type }: ImagesProps) {
-  const { data, isLoading, isError, error } = useGetMovieImagesQuery(movieId);
+function Images({ type }: ImagesProps) {
+  const entityId = useRetrieveIdFromLocation();
+  const { data, isLoading, isError, error } = useGetMovieImagesQuery(entityId);
 
   const imagesSrc = {
     backdrops: imagePaths.moviePosters.detailsBackdrops,

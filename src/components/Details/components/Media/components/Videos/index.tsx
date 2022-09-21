@@ -6,12 +6,10 @@ import { VideosResults } from '../../../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
 import { containerStyles } from '../commonStyles';
 import Slider from '../../../Slider';
+import useRetrieveIdFromLocation from '../../../../hooks/useRetrieveIdFromLocation';
 
-interface VideosProps {
-  entityId: number;
-}
-
-function Videos({ entityId }: VideosProps) {
+function Videos() {
+  const entityId = useRetrieveIdFromLocation();
   const { data, isLoading, isError, error } = useGetMovieVideosQuery(entityId);
   if (isLoading) {
     return (

@@ -25,11 +25,11 @@ function Content({ info }: ContentProps) {
       <CenteredContainer>
         <div className='d-flex'>
           <div css={css({ width: `calc(100% - ${infoWidth}px)` })}>
-            <Cast movieId={info.id} />
+            <Cast />
             <hr />
-            <Media id={info.id} />
+            <Media />
             <hr />
-            <Recommendations movieId={info.id} />
+            <Recommendations />
           </div>
           <div className='px-4' css={css({ width: infoWidth })}>
             <MovieInfo

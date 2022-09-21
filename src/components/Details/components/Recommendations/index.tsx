@@ -9,19 +9,17 @@ import { MovieListResult } from '../../../../app/TMDBAPIInterfaces';
 import Recommendation from './components/Recommendation';
 import ShadowWrapper from '../../../ShadowWrapper';
 import Slider from '../Slider';
-
-interface RecommendationsProps {
-  movieId: number;
-}
+import useRetrieveIdFromLocation from '../../hooks/useRetrieveIdFromLocation';
 
 const emptyContainerStyles = css({
   height: 200,
 });
 
-function Recommendations({ movieId }: RecommendationsProps) {
+function Recommendations() {
+  const entityId = useRetrieveIdFromLocation();
   const { t } = useTranslation('details');
   const { data, isLoading, isError, error } = useGetMovieRecommendationsQuery([
-    movieId,
+    entityId,
     1,
   ]);
 

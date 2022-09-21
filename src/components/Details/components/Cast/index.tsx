@@ -8,18 +8,16 @@ import GrowingSpinner from '../../../GrowingSpinner';
 import Character from './components/Character';
 import ShadowWrapper from '../../../ShadowWrapper';
 import Slider from '../Slider';
-
-interface CastProps {
-  movieId: number;
-}
+import useRetrieveIdFromLocation from '../../hooks/useRetrieveIdFromLocation';
 
 const emptyContainerStyles = css({
   height: 300,
 });
 
-function Cast({ movieId }: CastProps) {
+function Cast() {
+  const entityId = useRetrieveIdFromLocation();
   const { t } = useTranslation('details');
-  const { data, isLoading, isError, error } = useGetMovieCreditsQuery(movieId);
+  const { data, isLoading, isError, error } = useGetMovieCreditsQuery(entityId);
   if (isLoading) {
     return (
       <div css={emptyContainerStyles}>

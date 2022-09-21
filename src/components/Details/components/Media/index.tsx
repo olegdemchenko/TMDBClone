@@ -4,22 +4,18 @@ import Videos from './components/Videos';
 import ShadowWrapper from '../../../ShadowWrapper';
 import Images from './components/Images';
 
-interface MediaProps {
-  id: number;
-}
-
-function Media({ id }: MediaProps) {
+function Media() {
   const tabsKeys = ['videos', 'backdrops', 'posters'];
   const [selectedTab, setSelected] = useState<string>(tabsKeys[0]);
 
   const componentsMap = {
     videos: (
       <ShadowWrapper>
-        <Videos entityId={id} />
+        <Videos />
       </ShadowWrapper>
     ),
-    backdrops: <Images movieId={id} type='backdrops' />,
-    posters: <Images movieId={id} type='posters' />,
+    backdrops: <Images type='backdrops' />,
+    posters: <Images type='posters' />,
   } as { [key: string]: React.ReactNode };
 
   return (

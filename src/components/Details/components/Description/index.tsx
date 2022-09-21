@@ -1,12 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
+import { imagePaths } from '../../../../routes';
 import Logo from '../../../Logo';
 import Heading from './components/Heading';
 import UserRating from './components/UserRating';
 import Overview from './components/Overview';
 import ProductionInfo from './components/ProductionInfo';
-import { imagePaths } from '../../../../routes';
 
 interface DescriptionProps {
   details: MovieDetails;
