@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { imagePaths } from '../../../../../../routes';
+import { imagePaths } from '../../routes';
 
 interface WrapperProps {
   imagePath: string | null | undefined;

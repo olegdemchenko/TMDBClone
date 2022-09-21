@@ -30,7 +30,7 @@ export type MovieStatus =
   | 'Released'
   | 'Canceled';
 
-interface MovieGenre {
+export interface MovieGenre {
   id: number;
   name: string;
 }

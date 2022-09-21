@@ -5,6 +5,7 @@ import { TVApi } from '../../app/store/api';
 import { useCachedQueryData } from '../../common/hooks/useCachedQueryData';
 import { pathsSegments } from '../../routes';
 import ShowsCategoryContent from '../CategoryContent';
+import TVShowDetails from '../TVShowDetails';
 
 function TVShowsRouter() {
   const { t } = useTranslation('shows');
@@ -46,6 +47,7 @@ function TVShowsRouter() {
           />
         }
       />
+      <Route path=':credentials' element={<TVShowDetails />} />
     </Routes>
   );
 }

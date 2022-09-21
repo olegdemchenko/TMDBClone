@@ -3,9 +3,9 @@ import { css } from '@emotion/react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../routes';
 import Logo from '../../../Logo';
-import Heading from './components/Heading';
-import UserRating from './components/UserRating';
-import Overview from './components/Overview';
+import Heading from '../../../Heading';
+import UserRating from '../../../UserRating';
+import Overview from '../../../Overview';
 import ProductionInfo from './components/ProductionInfo';
 
 interface DescriptionProps {

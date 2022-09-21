@@ -60,6 +60,7 @@ export const dynamicPaths = {
     `/movie/${movieId}/recommendations`,
   youtubeEmbeddedVideo: (videoKey: string) =>
     `https://www.youtube.com/embed/${videoKey}`,
+  tvDetails: (tvId: number) => `/tv/${tvId}`,
 };
 
 export const imagePaths = {

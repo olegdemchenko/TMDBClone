@@ -1,6 +1,6 @@
 import { baseApi } from './base';
-import { TVListResult } from '../../TMDBAPIInterfaces';
-import { tvPathsNames } from '../../../routes';
+import { TVDetails, TVListResult } from '../../TMDBAPIInterfaces';
+import { dynamicPaths, tvPathsNames } from '../../../routes';
 
 export const TVApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -32,5 +32,14 @@ export const TVApi = baseApi.injectEndpoints({
         params: { page },
       }),
     }),
+    getTVDetails: builder.query<TVDetails, number>({
+      query: (id) => ({
+        url: dynamicPaths.tvDetails(id),
+        method: 'get',
+        params: { id },
+      }),
+    }),
   }),
 });
+
+export const { useGetTVDetailsQuery } = TVApi;
