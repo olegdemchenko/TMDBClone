@@ -1,18 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMovieDetailsQuery } from '../../app/store/api/movies';
-import { extractIDFromMediaPath } from '../../routes';
 import CenteredContainer from '../CenteredContainer';
 import Spinner from '../Spinner';
 import Content from './components/Content';
 import { MovieDetails } from '../../app/TMDBAPIInterfaces';
 import FooterContainer from '../FooterContainer';
 import Header from '../Header';
+import useRetrieveIdFromLocation from './hooks/useRetrieveIdFromLocation';
 
 function Details() {
-  const { movieCredentials } = useParams<'movieCredentials'>();
-  const movieId = extractIDFromMediaPath(movieCredentials);
+  const movieId = useRetrieveIdFromLocation();
   const { data, isLoading, isError, error } = useGetMovieDetailsQuery(
     Number(movieId)
   );

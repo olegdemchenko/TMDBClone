@@ -53,7 +53,7 @@ function MoviesRouter() {
           />
         }
       />
-      <Route path=':movieCredentials' element={<MovieDetails />} />
+      <Route path=':credentials' element={<MovieDetails />} />
     </Routes>
   );
 }
