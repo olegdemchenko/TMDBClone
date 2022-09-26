@@ -1,11 +1,11 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import { detailsPaths, imagePaths } from '../../../../../../routes';
-import Logo from '../../../../../Logo';
+import { detailsPaths, imagePaths } from '../../../../routes';
+import Logo from '../../../Logo';
 
-import { dateToStringWithSlash } from '../../../../../../common/utils';
-import { BorderRadiuses } from '../../../../../../common/styles';
+import { dateToStringWithSlash } from '../../../../common/utils';
+import { BorderRadiuses } from '../../../../common/styles';
 import { posterWrapperStyles, nameStyles } from './styles';
 
 interface RecommendationProps {

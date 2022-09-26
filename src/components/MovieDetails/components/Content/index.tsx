@@ -7,7 +7,7 @@ import Background from '../../../Background';
 import Description from '../Description';
 import Media from '../../../Media';
 import MovieInfo from '../MovieInfo';
-import Recommendations from '../Recommendations';
+import Recommendations from '../../../Recommendations';
 
 interface ContentProps {
   info: MovieDetails;
@@ -29,7 +29,7 @@ function Content({ info }: ContentProps) {
             <hr />
             <Media mediaType='movie' />
             <hr />
-            <Recommendations />
+            <Recommendations mediaType='movie' />
           </div>
           <div className='px-4' css={css({ width: infoWidth })}>
             <MovieInfo

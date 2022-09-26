@@ -64,6 +64,13 @@ export const TVApi = baseApi.injectEndpoints({
         method: 'get',
       }),
     }),
+    getTVRecommendations: builder.query<TVListResult, [number, number]>({
+      query: ([id, page]) => ({
+        url: dynamicPaths.tvRecommendations(id),
+        method: 'get',
+        params: { page },
+      }),
+    }),
   }),
 });
 
@@ -72,4 +79,5 @@ export const {
   useGetTVCreditsQuery,
   useGetTVVideosQuery,
   useGetTVImagesQuery,
+  useGetTVRecommendationsQuery,
 } = TVApi;
