@@ -7,7 +7,7 @@ import Content from './components/Content';
 import { MovieDetails } from '../../app/TMDBAPIInterfaces';
 import FooterContainer from '../FooterContainer';
 import Header from '../Header';
-import useRetrieveIdFromLocation from './hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../common/hooks';
 
 function Details() {
   const movieId = useRetrieveIdFromLocation();

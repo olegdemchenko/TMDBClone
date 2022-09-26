@@ -17,7 +17,7 @@ import {
 import Recommendation from './components/Recommendation';
 import ShadowWrapper from '../ShadowWrapper';
 import Slider from '../MovieDetails/components/Slider';
-import useRetrieveIdFromLocation from '../MovieDetails/hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../common/hooks';
 import { isDataDefined } from '../../common/utils';
 
 const emptyContainerStyles = css({

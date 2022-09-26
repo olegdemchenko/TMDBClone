@@ -11,7 +11,7 @@ import GrowingSpinner from '../GrowingSpinner';
 import Character from './components/Character';
 import ShadowWrapper from '../ShadowWrapper';
 import Slider from '../MovieDetails/components/Slider';
-import useRetrieveIdFromLocation from '../MovieDetails/hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../common/hooks';
 
 interface CastProps {
   mediaType: 'tv' | 'movie';

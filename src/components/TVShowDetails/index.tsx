@@ -1,7 +1,7 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useGetTVDetailsQuery } from '../../app/store/api';
-import useRetrieveIdFromLocation from '../MovieDetails/hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../common/hooks';
 import FooterContainer from '../FooterContainer';
 import Header from '../Header';
 import Spinner from '../Spinner';

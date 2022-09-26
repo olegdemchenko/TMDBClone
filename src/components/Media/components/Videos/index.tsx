@@ -9,7 +9,7 @@ import { VideosResults } from '../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
 import { containerStyles } from '../commonStyles';
 import Slider from '../../../MovieDetails/components/Slider';
-import useRetrieveIdFromLocation from '../../../MovieDetails/hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 
 interface VideosProps {
   mediaType: 'tv' | 'movie';

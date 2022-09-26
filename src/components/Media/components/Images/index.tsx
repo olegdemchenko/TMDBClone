@@ -11,7 +11,7 @@ import { ImagesResults } from '../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../routes';
 import { containerStyles, imagesStyles } from '../commonStyles';
 import Slider from '../../../MovieDetails/components/Slider';
-import useRetrieveIdFromLocation from '../../../MovieDetails/hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 
 interface ImagesProps {
   type: Exclude<keyof ImagesResults, 'id'>;

@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { extractIDFromMediaPath } from '../../../routes';
+import { extractIDFromMediaPath } from '../../routes';
 
-function useRetrieveIdFromLocation() {
+export function useRetrieveIdFromLocation() {
   const { credentials } = useParams<'credentials'>();
   const id = extractIDFromMediaPath(credentials);
   return Number(id);
 }
-
-export default useRetrieveIdFromLocation;

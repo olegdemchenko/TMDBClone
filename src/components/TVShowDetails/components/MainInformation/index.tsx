@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { css } from '@emotion/react';
 import { TVApi } from '../../../../app/store/api';
 import { RootState } from '../../../../app/store/store';
-import useRetrieveIdFromLocation from '../../../MovieDetails/hooks/useRetrieveIdFromLocation';
+import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 import Logo from '../../../Logo';
 import Heading from '../../../Heading';
 import UserRating from '../../../UserRating';
