@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { dynamicPaths, imagePaths } from '../../../../../../routes';
+import { dynamicPaths, imagePaths } from '../../../../routes';
 import Arrow from '../Arrow';
 import { imageWrapperStyles, modalStyles } from './styles';
 import { containerStyles, imagesStyles } from '../commonStyles';

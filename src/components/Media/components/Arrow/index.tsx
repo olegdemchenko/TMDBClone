@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { ThemeColors } from '../../../../../../common/styles';
+import { ThemeColors } from '../../../../common/styles';
 
 interface ArrowProps {
   width: number;

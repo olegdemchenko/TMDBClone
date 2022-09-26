@@ -5,7 +5,7 @@ import Cast from '../../../Cast';
 import CenteredContainer from '../../../CenteredContainer';
 import Background from '../../../Background';
 import Description from '../Description';
-import Media from '../Media';
+import Media from '../../../Media';
 import MovieInfo from '../MovieInfo';
 import Recommendations from '../Recommendations';
 
@@ -27,7 +27,7 @@ function Content({ info }: ContentProps) {
           <div css={css({ width: `calc(100% - ${infoWidth}px)` })}>
             <Cast mediaType='movie' />
             <hr />
-            <Media />
+            <Media mediaType='movie' />
             <hr />
             <Recommendations />
           </div>

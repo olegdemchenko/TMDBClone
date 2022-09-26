@@ -3,6 +3,8 @@ import {
   TVDetails,
   TVListResult,
   CreditsResults,
+  VideosResults,
+  ImagesResults,
 } from '../../TMDBAPIInterfaces';
 import { dynamicPaths, tvPathsNames } from '../../../routes';
 
@@ -43,14 +45,31 @@ export const TVApi = baseApi.injectEndpoints({
         params: { id },
       }),
     }),
-    getTVAggregateCredits: builder.query<CreditsResults, number>({
+    getTVCredits: builder.query<CreditsResults, number>({
       query: (id) => ({
         url: dynamicPaths.tvCredits(id),
         method: 'get',
         params: { id },
       }),
     }),
+    getTVVideos: builder.query<VideosResults, number>({
+      query: (id) => ({
+        url: dynamicPaths.tvVideos(id),
+        method: 'get',
+      }),
+    }),
+    getTVImages: builder.query<ImagesResults, number>({
+      query: (id) => ({
+        url: dynamicPaths.tvImages(id),
+        method: 'get',
+      }),
+    }),
   }),
 });
 
-export const { useGetTVDetailsQuery, useGetTVAggregateCreditsQuery } = TVApi;
+export const {
+  useGetTVDetailsQuery,
+  useGetTVCreditsQuery,
+  useGetTVVideosQuery,
+  useGetTVImagesQuery,
+} = TVApi;

@@ -62,6 +62,8 @@ export const dynamicPaths = {
     `https://www.youtube.com/embed/${videoKey}`,
   tvDetails: (tvId: number) => `/tv/${tvId}`,
   tvCredits: (tvId: number) => `/tv/${tvId}/credits`,
+  tvVideos: (tvId: number) => `/tv/${tvId}/videos`,
+  tvImages: (tvId: number) => `/tv/${tvId}/images`,
 };
 
 export const imagePaths = {

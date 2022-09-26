@@ -1,16 +1,29 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
-import { useGetMovieVideosQuery } from '../../../../../../app/store/api';
-import GrowingSpinner from '../../../../../GrowingSpinner';
-import { VideosResults } from '../../../../../../app/TMDBAPIInterfaces';
+import {
+  useGetTVVideosQuery,
+  useGetMovieVideosQuery,
+} from '../../../../app/store/api';
+import GrowingSpinner from '../../../GrowingSpinner';
+import { VideosResults } from '../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
 import { containerStyles } from '../commonStyles';
-import Slider from '../../../Slider';
-import useRetrieveIdFromLocation from '../../../../hooks/useRetrieveIdFromLocation';
+import Slider from '../../../MovieDetails/components/Slider';
+import useRetrieveIdFromLocation from '../../../MovieDetails/hooks/useRetrieveIdFromLocation';
 
-function Videos() {
+interface VideosProps {
+  mediaType: 'tv' | 'movie';
+}
+
+function Videos({ mediaType }: VideosProps) {
   const entityId = useRetrieveIdFromLocation();
-  const { data, isLoading, isError, error } = useGetMovieVideosQuery(entityId);
+
+  const queries = {
+    movie: useGetMovieVideosQuery,
+    tv: useGetTVVideosQuery,
+  };
+
+  const { data, isLoading, isError, error } = queries[mediaType](entityId);
   if (isLoading) {
     return (
       <div css={containerStyles}>

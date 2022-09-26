@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
 import { Actor } from '../../app/TMDBAPIInterfaces';
 import {
-  useGetTVAggregateCreditsQuery,
+  useGetTVCreditsQuery,
   useGetMovieCreditsQuery,
 } from '../../app/store/api';
 import GrowingSpinner from '../GrowingSpinner';
@@ -25,7 +25,7 @@ function Cast({ mediaType }: CastProps) {
   const entityId = useRetrieveIdFromLocation();
   const queries = {
     movie: useGetMovieCreditsQuery,
-    tv: useGetTVAggregateCreditsQuery,
+    tv: useGetTVCreditsQuery,
   };
   const { data, isLoading, isError, error } = queries[mediaType](entityId);
 
