@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { MovieDetails } from '../../../../app/TMDBAPIInterfaces';
-import Cast from '../Cast';
+import Cast from '../../../Cast';
 import CenteredContainer from '../../../CenteredContainer';
 import Background from '../../../Background';
 import Description from '../Description';
@@ -25,7 +25,7 @@ function Content({ info }: ContentProps) {
       <CenteredContainer>
         <div className='d-flex'>
           <div css={css({ width: `calc(100% - ${infoWidth}px)` })}>
-            <Cast />
+            <Cast mediaType='movie' />
             <hr />
             <Media />
             <hr />

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { BorderRadiuses, ThemeColors } from '../../../../../../common/styles';
+import { BorderRadiuses, ThemeColors } from '../../../../common/styles';
 
 export const textWrapperStyles = css({
   height: 100,

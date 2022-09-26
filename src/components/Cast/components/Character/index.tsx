@@ -1,6 +1,6 @@
 import React from 'react';
-import { imagePaths } from '../../../../../../routes';
-import Logo from '../../../../../Logo';
+import { imagePaths } from '../../../../routes';
+import Logo from '../../../Logo';
 import { logoSizeStyles, textWrapperStyles } from './styles';
 
 interface CharacterProps {

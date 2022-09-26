@@ -7,6 +7,7 @@ import Header from '../Header';
 import Spinner from '../Spinner';
 import CenteredContainer from '../CenteredContainer';
 import MainInformation from './components/MainInformation';
+import MediaContent from './components/MediaContent';
 
 function TVShowDetails() {
   const tvShowId = useRetrieveIdFromLocation();
@@ -33,6 +34,7 @@ function TVShowDetails() {
     <FooterContainer>
       <Header />
       <MainInformation />
+      <MediaContent />
     </FooterContainer>
   );
 }

@@ -2,22 +2,34 @@ import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
-import { Actor } from '../../../../app/TMDBAPIInterfaces';
-import { useGetMovieCreditsQuery } from '../../../../app/store/api';
-import GrowingSpinner from '../../../GrowingSpinner';
+import { Actor } from '../../app/TMDBAPIInterfaces';
+import {
+  useGetTVAggregateCreditsQuery,
+  useGetMovieCreditsQuery,
+} from '../../app/store/api';
+import GrowingSpinner from '../GrowingSpinner';
 import Character from './components/Character';
-import ShadowWrapper from '../../../ShadowWrapper';
-import Slider from '../Slider';
-import useRetrieveIdFromLocation from '../../hooks/useRetrieveIdFromLocation';
+import ShadowWrapper from '../ShadowWrapper';
+import Slider from '../MovieDetails/components/Slider';
+import useRetrieveIdFromLocation from '../MovieDetails/hooks/useRetrieveIdFromLocation';
+
+interface CastProps {
+  mediaType: 'tv' | 'movie';
+}
 
 const emptyContainerStyles = css({
   height: 300,
 });
 
-function Cast() {
+function Cast({ mediaType }: CastProps) {
   const entityId = useRetrieveIdFromLocation();
+  const queries = {
+    movie: useGetMovieCreditsQuery,
+    tv: useGetTVAggregateCreditsQuery,
+  };
+  const { data, isLoading, isError, error } = queries[mediaType](entityId);
+
   const { t } = useTranslation('details');
-  const { data, isLoading, isError, error } = useGetMovieCreditsQuery(entityId);
   if (isLoading) {
     return (
       <div css={emptyContainerStyles}>
