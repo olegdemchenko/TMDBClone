@@ -100,3 +100,13 @@ export interface TVDetails {
   vote_average: number;
   vote_count: number;
 }
+
+interface Keyword {
+  id: number;
+  name: string;
+}
+
+export interface KeywordsResults {
+  id: number;
+  results: Keyword[];
+}

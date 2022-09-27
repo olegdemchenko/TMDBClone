@@ -46,5 +46,6 @@
     "11": "December"
   },
   "network": "Network",
-  "type": "Type"
+  "type": "Type",
+  "keywords": "Keywords"
 }

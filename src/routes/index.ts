@@ -65,6 +65,7 @@ export const dynamicPaths = {
   tvVideos: (tvId: number) => `/tv/${tvId}/videos`,
   tvImages: (tvId: number) => `/tv/${tvId}/images`,
   tvRecommendations: (tvId: number) => `/tv/${tvId}/recommendations`,
+  tvKeywords: (tvId: number) => `/tv/${tvId}/keywords`,
 };
 
 export const imagePaths = {

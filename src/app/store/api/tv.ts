@@ -5,6 +5,7 @@ import {
   CreditsResults,
   VideosResults,
   ImagesResults,
+  KeywordsResults,
 } from '../../TMDBAPIInterfaces';
 import { dynamicPaths, tvPathsNames } from '../../../routes';
 
@@ -71,6 +72,12 @@ export const TVApi = baseApi.injectEndpoints({
         params: { page },
       }),
     }),
+    getTVKeywords: builder.query<KeywordsResults, number>({
+      query: (id) => ({
+        url: dynamicPaths.tvKeywords(id),
+        method: 'get',
+      }),
+    }),
   }),
 });
 
@@ -80,4 +87,5 @@ export const {
   useGetTVVideosQuery,
   useGetTVImagesQuery,
   useGetTVRecommendationsQuery,
+  useGetTVKeywordsQuery,
 } = TVApi;
