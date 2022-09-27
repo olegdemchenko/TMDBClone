@@ -4,6 +4,7 @@ import CenteredContainer from '../../../CenteredContainer';
 import Cast from '../../../Cast';
 import Media from '../../../Media';
 import Recommendations from '../../../Recommendations';
+import Season from './components/Season';
 
 function MediaContent() {
   const infoWidth = 300;
@@ -12,6 +13,8 @@ function MediaContent() {
       <div className='d-flex'>
         <div css={css({ width: `calc(100% - ${infoWidth}px)` })}>
           <Cast mediaType='tv' />
+          <hr />
+          <Season />
           <hr />
           <Media mediaType='tv' />
           <hr />

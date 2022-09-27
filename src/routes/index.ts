@@ -79,6 +79,9 @@ export const imagePaths = {
     recommendations: `${imagesOrigin}/w500/`,
     cast: `${imagesOrigin}/w300/`,
   },
+  tvPosters: {
+    seasonLogo: `${imagesOrigin}/w154/`,
+  },
   peoplePosters: {
     galleryPreview: `${imagesOrigin}/w185/`,
   },
