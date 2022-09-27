@@ -6,7 +6,7 @@ import Media from '../../../Media';
 import Recommendations from '../../../Recommendations';
 import Season from './components/Season';
 import Facts from './components/Facts';
-import Keywords from './components/Keywords';
+import Keywords from '../../../Keywords';
 
 function MediaContent() {
   const infoWidth = 300;
@@ -24,7 +24,7 @@ function MediaContent() {
         </div>
         <div className='px-4' css={css({ width: infoWidth })}>
           <Facts />
-          <Keywords />
+          <Keywords mediaType='tv' />
         </div>
       </div>
     </CenteredContainer>

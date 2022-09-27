@@ -1,4 +1,9 @@
-import { MovieGenre, ProductionCompanies, ProductionCountries } from './movie';
+import {
+  MovieGenre,
+  ProductionCompanies,
+  ProductionCountries,
+  Keyword,
+} from './movie';
 
 export interface TVListItem {
   poster_path?: string | null;
@@ -101,12 +106,7 @@ export interface TVDetails {
   vote_count: number;
 }
 
-interface Keyword {
-  id: number;
-  name: string;
-}
-
-export interface KeywordsResults {
+export interface TVKeywordsResults {
   id: number;
   results: Keyword[];
 }

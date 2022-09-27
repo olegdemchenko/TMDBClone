@@ -158,3 +158,13 @@ export interface CreditsResults {
   cast: Actor[];
   crew: Crewman[];
 }
+
+export interface Keyword {
+  id: number;
+  name: string;
+}
+
+export interface MovieKeywordsResults {
+  id: number;
+  keywords: Keyword[];
+}

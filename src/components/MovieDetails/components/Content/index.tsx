@@ -8,6 +8,7 @@ import Description from '../Description';
 import Media from '../../../Media';
 import MovieInfo from '../MovieInfo';
 import Recommendations from '../../../Recommendations';
+import Keywords from '../../../Keywords';
 
 interface ContentProps {
   info: MovieDetails;
@@ -38,6 +39,7 @@ function Content({ info }: ContentProps) {
               budget={info.budget}
               status={info.status}
             />
+            <Keywords mediaType='movie' />
           </div>
         </div>
       </CenteredContainer>

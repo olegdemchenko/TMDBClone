@@ -5,6 +5,7 @@ import {
   VideosResults,
   ImagesResults,
   CreditsResults,
+  MovieKeywordsResults,
 } from '../../TMDBAPIInterfaces';
 import { dynamicPaths, moviesPathNames } from '../../../routes';
 
@@ -69,6 +70,12 @@ export const moviesApi = baseApi.injectEndpoints({
         method: 'get',
       }),
     }),
+    getMovieKeywords: builder.query<MovieKeywordsResults, number>({
+      query: (movieId) => ({
+        url: dynamicPaths.movieKeywords(movieId),
+        method: 'get',
+      }),
+    }),
   }),
 });
 
@@ -78,4 +85,5 @@ export const {
   useGetMovieImagesQuery,
   useGetMovieRecommendationsQuery,
   useGetMovieCreditsQuery,
+  useGetMovieKeywordsQuery,
 } = moviesApi;

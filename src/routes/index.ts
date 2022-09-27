@@ -58,6 +58,7 @@ export const dynamicPaths = {
   movieCredits: (movieId: number) => `/movie/${movieId}/credits`,
   movieRecommendations: (movieId: number) =>
     `/movie/${movieId}/recommendations`,
+  movieKeywords: (movieId: number) => `/movie/${movieId}/keywords`,
   youtubeEmbeddedVideo: (videoKey: string) =>
     `https://www.youtube.com/embed/${videoKey}`,
   tvDetails: (tvId: number) => `/tv/${tvId}`,
