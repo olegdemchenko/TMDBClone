@@ -44,5 +44,7 @@
     "9": "October",
     "10": "November",
     "11": "December"
-  }
+  },
+  "network": "Network",
+  "type": "Type"
 }

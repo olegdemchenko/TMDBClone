@@ -5,6 +5,7 @@ import Cast from '../../../Cast';
 import Media from '../../../Media';
 import Recommendations from '../../../Recommendations';
 import Season from './components/Season';
+import Facts from './components/Facts';
 
 function MediaContent() {
   const infoWidth = 300;
@@ -20,7 +21,9 @@ function MediaContent() {
           <hr />
           <Recommendations mediaType='tv' />
         </div>
-        <div className='px-4' css={css({ width: infoWidth })} />
+        <div className='px-4' css={css({ width: infoWidth })}>
+          <Facts />
+        </div>
       </div>
     </CenteredContainer>
   );

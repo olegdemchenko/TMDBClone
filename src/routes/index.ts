@@ -81,6 +81,7 @@ export const imagePaths = {
   },
   tvPosters: {
     seasonLogo: `${imagesOrigin}/w154/`,
+    networkLogo: `${imagesOrigin}/w45/`,
   },
   peoplePosters: {
     galleryPreview: `${imagesOrigin}/w185/`,
