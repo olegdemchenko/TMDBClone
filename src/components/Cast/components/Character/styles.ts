@@ -1,7 +1,10 @@
 import { css } from '@emotion/react';
 import { BorderRadiuses, ThemeColors } from '../../../../common/styles';
 
+const commonWidth = 150;
+
 export const textWrapperStyles = css({
+  width: commonWidth,
   height: 100,
   border: `2px solid ${ThemeColors.lightGray}`,
   borderTop: 'none',
@@ -9,6 +12,6 @@ export const textWrapperStyles = css({
 });
 
 export const logoSizeStyles = css({
-  width: 150,
+  width: commonWidth,
   height: 200,
 });
