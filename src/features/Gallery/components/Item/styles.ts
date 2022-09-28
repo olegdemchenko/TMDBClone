@@ -13,6 +13,33 @@ export const containerStyles = {
   }),
 };
 
+export const logoWrapperSizes = {
+  medium: css({
+    width: 154,
+    height: 230,
+  }),
+  large: css({
+    '@media (min-width: 1400px)': {
+      height: 255,
+    },
+    '@media (max-width: 1400px)': {
+      height: '16vw',
+    },
+    '@media (max-width: 1200px)': {
+      height: '18vw',
+    },
+    '@media (max-width: 1000px)': {
+      height: '27vw',
+    },
+    '@media (max-width: 850px)': {
+      height: '36vw',
+    },
+    '@media (max-width: 700px)': {
+      height: '57vw',
+    },
+  }),
+};
+
 export const textStyles = {
   medium: {},
   large: css({

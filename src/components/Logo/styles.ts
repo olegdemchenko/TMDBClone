@@ -25,9 +25,14 @@ export const wrapperBorderStyles = {
 
 export type BorderRadiusTypes = keyof typeof wrapperBorderStyles;
 
-export const commonImgStyles = css({
+export const defaultImgStyles = css({
   width: '100%',
+  height: '100%',
   alignSelf: 'center',
 });
 
-export const imgWidthStyles = css({ width: '50%' });
+export const emptyImgStyles = css({
+  width: '50%',
+  height: 'auto',
+  alignSelf: 'center',
+});

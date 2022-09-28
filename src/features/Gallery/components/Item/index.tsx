@@ -8,6 +8,7 @@ import {
   containerStyles,
   textStyles,
   progressbarContainerStyles,
+  logoWrapperSizes,
 } from './styles';
 
 type MediaTypes = 'tv' | 'movie';
@@ -32,7 +33,7 @@ function GalleryItem({
   return (
     <Link to={detailsPaths[contentType](id, title ?? '')}>
       <div css={containerStyles[size]}>
-        <div>
+        <div css={logoWrapperSizes[size]}>
           <Logo
             type='media'
             borderRadius={size === 'medium' ? 'all' : 'top'}

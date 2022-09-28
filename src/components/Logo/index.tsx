@@ -4,9 +4,9 @@ import notFound from './assets/notFound.svg';
 import noAvatar from './assets/noAvatar.svg';
 import {
   BorderRadiusTypes,
-  commonImgStyles,
+  defaultImgStyles,
   commonWrapperStyles,
-  imgWidthStyles,
+  emptyImgStyles,
   wrapperBackgroundStyles,
   wrapperBorderStyles,
 } from './styles';
@@ -31,7 +31,7 @@ function Logo({ path, imgName, type, borderRadius }: LogoProps) {
       >
         <img
           src={type === 'media' ? notFound : noAvatar}
-          css={css([commonImgStyles, imgWidthStyles])}
+          css={css([emptyImgStyles])}
           alt='Logo'
         />
       </div>
@@ -39,7 +39,7 @@ function Logo({ path, imgName, type, borderRadius }: LogoProps) {
   }
   return (
     <div css={[commonWrapperStyles, borderRadiusStyles]}>
-      <img css={commonImgStyles} src={`${path}${imgName}`} alt='Logo' />
+      <img css={defaultImgStyles} src={`${path}${imgName}`} alt='Logo' />
     </div>
   );
 }
