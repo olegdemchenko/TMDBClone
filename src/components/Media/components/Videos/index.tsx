@@ -8,7 +8,7 @@ import GrowingSpinner from '../../../GrowingSpinner';
 import { VideosResults } from '../../../../app/TMDBAPIInterfaces';
 import YoutubePlayer from '../YoutubePlayer';
 import { containerStyles } from '../commonStyles';
-import Slider from '../../../MovieDetails/components/Slider';
+import Slider from '../../../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 
 interface VideosProps {

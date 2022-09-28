@@ -2,11 +2,11 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import Main from '../components/MainPage';
-import Results from '../components/Results';
-import MoviesRouter from '../components/MoviesRouter';
-import TVShowsRouter from '../components/TvShowsRouter';
-import People from '../components/People';
+import Main from '../features/MainPage';
+import Results from '../features/Results';
+import MoviesRouter from '../features/MoviesRouter';
+import TVShowsRouter from '../features/TvShowsRouter';
+import People from '../features/People';
 
 function App() {
   return (

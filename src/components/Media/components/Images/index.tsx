@@ -10,7 +10,7 @@ import GrowingSpinner from '../../../GrowingSpinner';
 import { ImagesResults } from '../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../routes';
 import { containerStyles, imagesStyles } from '../commonStyles';
-import Slider from '../../../MovieDetails/components/Slider';
+import Slider from '../../../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 
 interface ImagesProps {

@@ -16,7 +16,7 @@ import {
 } from '../../app/TMDBAPIInterfaces';
 import Recommendation from './components/Recommendation';
 import ShadowWrapper from '../ShadowWrapper';
-import Slider from '../MovieDetails/components/Slider';
+import Slider from '../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../common/hooks';
 import { isDataDefined } from '../../common/utils';
 
