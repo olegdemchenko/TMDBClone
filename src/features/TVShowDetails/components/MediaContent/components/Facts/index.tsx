@@ -22,18 +22,18 @@ function Facts() {
     return null;
   }
   const { t } = useTranslation('details');
-
+  const networks = tvShowDetails?.networks ?? [];
   return (
     <div>
       <h6>{t('status')}</h6>
       <p>{tvShowDetails.status}</p>
       <h6>{t('network')}</h6>
       <div>
-        {tvShowDetails.networks.length > 0 ? (
+        {networks.length > 0 ? (
           <div css={networkWrapperStyles}>
             <Logo
               type='media'
-              imgName={tvShowDetails.networks[0].logo_path}
+              imgName={networks[0].logo_path}
               borderRadius='none'
               path={imagePaths.tvPosters.networkLogo}
             />

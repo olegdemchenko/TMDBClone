@@ -37,7 +37,7 @@ function MainInformation() {
               title={tvShowDetails.name}
               releaseDate={tvShowDetails.first_air_date}
               genres={tvShowDetails.genres}
-              duration={tvShowDetails.episode_run_time[0] ?? 0}
+              duration={tvShowDetails.episode_run_time?.[0] ?? 0}
             />
             <UserRating rating={tvShowDetails.vote_average} />
             <Overview

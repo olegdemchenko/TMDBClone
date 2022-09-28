@@ -8,6 +8,7 @@ import { useRetrieveIdFromLocation } from '../../../../../../common/hooks';
 import { BorderRadiuses, ThemeColors } from '../../../../../../common/styles';
 import Logo from '../../../../../../components/Logo';
 import { imagePaths } from '../../../../../../routes';
+import { Season as SeasonApiResp } from '../../../../../../app/TMDBAPIInterfaces';
 
 const containerStyles = css({
   border: `2px solid ${ThemeColors.lightGray}`,
@@ -19,15 +20,24 @@ const logoSiseStyles = css({
   height: 230,
 });
 
-function extractYearFromDate(date: string) {
+function extractYearFromDate(date?: string) {
+  if (!date) {
+    return 0;
+  }
   return new Date(date).getFullYear();
 }
 
-function extractDayFromDate(date: string) {
+function extractDayFromDate(date?: string) {
+  if (!date) {
+    return 0;
+  }
   return new Date(date).getDate();
 }
 
-function extractMonthFromDate(date: string) {
+function extractMonthFromDate(date?: string) {
+  if (!date) {
+    return 0;
+  }
   return new Date(date).getMonth();
 }
 
@@ -40,9 +50,8 @@ function Season() {
     return null;
   }
   const { status, seasons } = tvShowDetails;
-  const lastSeason = [...seasons].sort(
-    (a, b) => b.season_number - a.season_number
-  )[0];
+  const lastSeason =
+    seasons?.[(seasons?.length ?? 1) - 1] ?? ({} as SeasonApiResp);
   const { t } = useTranslation('details');
   return (
     <div className='py-4'>
