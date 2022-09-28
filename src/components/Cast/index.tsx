@@ -12,6 +12,7 @@ import Character from './components/Character';
 import ShadowWrapper from '../ShadowWrapper';
 import Slider from '../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../common/hooks';
+import { isDataDefined } from '../../common/utils';
 
 interface CastProps {
   mediaType: 'tv' | 'movie';
@@ -46,10 +47,12 @@ function Cast({ mediaType }: CastProps) {
       </div>
     );
   }
+  isDataDefined(data);
+  const cast = data.cast ?? [];
   return (
     <div className='pb-4'>
       <h4 className='m-0'>{t('cast')}</h4>
-      {(data?.cast as []).length > 0 ? (
+      {cast.length > 0 ? (
         <ShadowWrapper>
           <Slider>
             {(data?.cast as Actor[]).map(
@@ -67,7 +70,11 @@ function Cast({ mediaType }: CastProps) {
         </ShadowWrapper>
       ) : (
         <div css={emptyContainerStyles} className='d-flex align-items-center'>
-          <p>{t('noCastData')}</p>
+          <p>
+            {t('noCastData', {
+              mediaType: mediaType === 'movie' ? t('movie') : t('tv'),
+            })}
+          </p>
         </div>
       )}
     </div>

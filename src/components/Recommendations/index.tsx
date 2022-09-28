@@ -84,7 +84,11 @@ function Recommendations({ mediaType }: RecommendationsProps) {
         </ShadowWrapper>
       ) : (
         <div css={emptyContainerStyles}>
-          <p>{t('noRecommendations')}</p>
+          <p>
+            {t('noRecommendations', {
+              mediaType: mediaType === 'movie' ? t('movie') : t('tv'),
+            })}
+          </p>
         </div>
       )}
     </div>
