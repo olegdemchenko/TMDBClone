@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useGetMovieDetailsQuery } from '../../app/store/api/movies';
 import CenteredContainer from '../../components/CenteredContainer';
@@ -14,6 +14,11 @@ function Details() {
   const { data, isLoading, isError, error } = useGetMovieDetailsQuery(
     Number(movieId)
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [movieId]);
+
   if (isLoading) {
     return (
       <FooterContainer>

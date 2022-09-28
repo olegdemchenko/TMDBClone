@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useGetTVDetailsQuery } from '../../app/store/api';
 import { useRetrieveIdFromLocation } from '../../common/hooks';
@@ -12,6 +12,10 @@ import MediaContent from './components/MediaContent';
 function TVShowDetails() {
   const tvShowId = useRetrieveIdFromLocation();
   const { isLoading, isError, error } = useGetTVDetailsQuery(tvShowId);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [tvShowId]);
   if (isLoading) {
     return (
       <FooterContainer>

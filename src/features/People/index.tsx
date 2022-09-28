@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useGetPopularPeopleQuery } from '../../app/store/api';
@@ -16,6 +16,11 @@ function People() {
   const selectedPage = Number(searchParams.get('page')) || 1;
   const { data, isLoading, isError, error } =
     useGetPopularPeopleQuery(selectedPage);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedPage]);
+
   if (isLoading) {
     return (
       <FooterContainer>
