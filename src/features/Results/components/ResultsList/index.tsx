@@ -1,10 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   MultiSearchResults,
   MediaTypes,
+  MovieListItemMedia,
+  TVListItemMedia,
 } from '../../../../app/TMDBAPIInterfaces';
+import { detailsPaths } from '../../../../routes';
 import MovieInfo from '../MovieInfo';
 import PersonInfo from '../PersonInfo';
+
+function isMediaMovie(
+  media: MovieListItemMedia | TVListItemMedia
+): media is MovieListItemMedia {
+  return (media as MovieListItemMedia).media_type === MediaTypes.movie;
+}
 
 function ResultsList({ results }: Pick<MultiSearchResults, 'results'>) {
   return (
@@ -15,26 +25,32 @@ function ResultsList({ results }: Pick<MultiSearchResults, 'results'>) {
           res.media_type === MediaTypes.tv
         ) {
           return (
-            <MovieInfo
-              key={res.id}
-              title={res.media_type === MediaTypes.movie ? res.title : res.name}
-              logo={res.poster_path}
-              date={
-                res.media_type === MediaTypes.movie
-                  ? res.release_date
-                  : res.first_air_date
+            <Link
+              to={
+                isMediaMovie(res)
+                  ? detailsPaths.movie(res.id, res.title ?? '')
+                  : detailsPaths.tv(res.id, res.name ?? '')
               }
-              description={res.overview}
-            />
+            >
+              <MovieInfo
+                key={res.id}
+                title={isMediaMovie(res) ? res.title : res.name}
+                logo={res.poster_path}
+                date={isMediaMovie(res) ? res.release_date : res.first_air_date}
+                description={res.overview}
+              />
+            </Link>
           );
         }
         return (
-          <PersonInfo
-            key={res.id}
-            name={res.name}
-            avatar={res.profile_path}
-            works={res.known_for}
-          />
+          <Link to={detailsPaths.people(res.id, res.name ?? '')}>
+            <PersonInfo
+              key={res.id}
+              name={res.name}
+              avatar={res.profile_path}
+              works={res.known_for}
+            />
+          </Link>
         );
       })}
     </div>
