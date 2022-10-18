@@ -1,6 +1,10 @@
 import { baseApi } from './base';
-import { PopularPeopleResult } from '../../TMDBAPIInterfaces';
-import { peoplePathNames } from '../../../routes';
+import {
+  CombinedCreditsRes,
+  PersonDetails,
+  PopularPeopleResult,
+} from '../../TMDBAPIInterfaces';
+import { dynamicPaths, peoplePathNames } from '../../../routes';
 
 export const peopleApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -11,7 +15,23 @@ export const peopleApi = baseApi.injectEndpoints({
         params: { page },
       }),
     }),
+    getPersonDetails: builder.query<PersonDetails, number>({
+      query: (personId) => ({
+        url: dynamicPaths.personDetails(personId),
+        method: 'get',
+      }),
+    }),
+    getPersonCombinedCredits: builder.query<CombinedCreditsRes, number>({
+      query: (personId) => ({
+        url: dynamicPaths.personCombinedCredits(personId),
+        method: 'get',
+      }),
+    }),
   }),
 });
 
-export const { useGetPopularPeopleQuery } = peopleApi;
+export const {
+  useGetPopularPeopleQuery,
+  useGetPersonDetailsQuery,
+  useGetPersonCombinedCreditsQuery,
+} = peopleApi;

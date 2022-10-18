@@ -6,7 +6,7 @@ import Main from '../features/MainPage';
 import Results from '../features/Results';
 import MoviesRouter from '../features/MoviesRouter';
 import TVShowsRouter from '../features/TvShowsRouter';
-import People from '../features/People';
+import PeopleRouter from '../features/PeopleRouter';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path='search' element={<Results />} />
         <Route path='movie/*' element={<MoviesRouter />} />
         <Route path='tv/*' element={<TVShowsRouter />} />
-        <Route path='person/*' element={<People />} />
+        <Route path='person/*' element={<PeopleRouter />} />
       </Routes>
     </Provider>
   );

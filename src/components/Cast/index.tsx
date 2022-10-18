@@ -2,6 +2,7 @@ import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useTranslation } from 'react-i18next';
 import { css } from '@emotion/react';
+import { Link } from 'react-router-dom';
 import { Actor } from '../../app/TMDBAPIInterfaces';
 import {
   useGetTVCreditsQuery,
@@ -13,6 +14,7 @@ import ShadowWrapper from '../ShadowWrapper';
 import Slider from '../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../common/hooks';
 import { isDataDefined } from '../../common/utils';
+import { detailsPaths } from '../../routes';
 
 interface CastProps {
   mediaType: 'tv' | 'movie';
@@ -57,13 +59,15 @@ function Cast({ mediaType }: CastProps) {
           <Slider>
             {(data?.cast as Actor[]).map(
               ({ name, character, id, profile_path }) => (
-                <div className='py-4' key={id}>
-                  <Character
-                    name={name}
-                    character={character}
-                    profilePath={profile_path}
-                  />
-                </div>
+                <Link to={detailsPaths.people(id, name ?? '')} key={id}>
+                  <div className='py-4'>
+                    <Character
+                      name={name}
+                      character={character}
+                      profilePath={profile_path}
+                    />
+                  </div>
+                </Link>
               )
             )}
           </Slider>

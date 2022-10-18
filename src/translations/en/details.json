@@ -48,5 +48,29 @@
   },
   "network": "Network",
   "type": "Type",
-  "keywords": "Keywords"
+  "keywords": "Keywords",
+  "noName": "Unfortunately, we didn't find this person's name",
+  "biography": "Biography",
+  "noBiography": "Unfortunately, we didn't find this person's biography",
+  "personalInfo": "Personal Info",
+  "knownFor": "Known For",
+  "gender": "Gender",
+  "genders": {
+    "male": "Male",
+    "female": "Female"
+  },
+  "birthday": "Birthday",
+  "deathDay": "Deathday",
+  "placeOfBirth": "Place of Birth",
+  "knownAs": "Also Known As",
+  "acting": "Acting",
+  "episode_one": "Episode",
+  "episode_other": "Episodes",
+  "crew": "Crew",
+  "sound": "Sound",
+  "production": "Production",
+  "directing": "Directing",
+  "lightning": "Lightning",
+  "writing": "Writing",
+  "creator": "Creator"
 }

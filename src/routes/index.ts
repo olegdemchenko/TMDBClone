@@ -67,6 +67,9 @@ export const dynamicPaths = {
   tvImages: (tvId: number) => `/tv/${tvId}/images`,
   tvRecommendations: (tvId: number) => `/tv/${tvId}/recommendations`,
   tvKeywords: (tvId: number) => `/tv/${tvId}/keywords`,
+  personDetails: (personId: number) => `/person/${personId}`,
+  personCombinedCredits: (personId: number) =>
+    `/person/${personId}/combined_credits`,
 };
 
 export const imagePaths = {
@@ -87,6 +90,8 @@ export const imagePaths = {
   },
   peoplePosters: {
     galleryPreview: `${imagesOrigin}/w185/`,
+    detailsPhoto: `${imagesOrigin}/w300/`,
+    playedAt: `${imagesOrigin}/w185/`,
   },
   youtubeThumbnails: {
     getLinkToMq: (key: string) =>
