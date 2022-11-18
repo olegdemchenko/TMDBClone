@@ -10,7 +10,7 @@ import {
 import GrowingSpinner from '../../../GrowingSpinner';
 import { ImagesResults } from '../../../../app/TMDBAPIInterfaces';
 import { imagePaths } from '../../../../routes';
-import { containerStyles, imagesStyles } from '../commonStyles';
+import { imagesStyles } from '../commonStyles';
 import Slider from '../../../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 import { isDataDefined } from '../../../../common/utils';
@@ -41,14 +41,14 @@ function Images({ type, mediaType }: ImagesProps) {
 
   if (isLoading) {
     return (
-      <div css={containerStyles}>
+      <div>
         <GrowingSpinner />
       </div>
     );
   }
   if (isError) {
     return (
-      <div css={containerStyles}>
+      <div>
         <Alert variant='danger'>
           {error?.message ?? 'Unknown error has happened.'}
         </Alert>
@@ -64,7 +64,7 @@ function Images({ type, mediaType }: ImagesProps) {
           file_path ? (
             <div
               className='flex-shrink-0'
-              css={[containerStyles, slideSizes[type]]}
+              css={[slideSizes[type]]}
               key={_.uniqueId()}
             >
               <img
@@ -76,7 +76,7 @@ function Images({ type, mediaType }: ImagesProps) {
           ) : null
         )
       ) : (
-        <div css={containerStyles}>
+        <div>
           <p>
             {t('noImages', {
               mediaType: mediaType === 'movie' ? t('movie') : t('tv'),

@@ -7,7 +7,6 @@ import {
 } from '../../../../app/store/api';
 import GrowingSpinner from '../../../GrowingSpinner';
 import YoutubePlayer from '../YoutubePlayer';
-import { containerStyles } from '../commonStyles';
 import Slider from '../../../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../../../common/hooks';
 import { isDataDefined } from '../../../../common/utils';
@@ -27,14 +26,14 @@ function Videos({ mediaType }: VideosProps) {
   const { data, isLoading, isError, error } = queries[mediaType](entityId);
   if (isLoading) {
     return (
-      <div css={containerStyles}>
+      <div>
         <GrowingSpinner />
       </div>
     );
   }
   if (isError) {
     return (
-      <div css={containerStyles}>
+      <div>
         <Alert variant='danger'>
           {error?.message ?? 'Unknown error has happened.'}
         </Alert>
@@ -53,7 +52,7 @@ function Videos({ mediaType }: VideosProps) {
           return null;
         })
       ) : (
-        <div css={containerStyles}>
+        <div>
           <p>
             {t('noVideos', {
               mediaType: mediaType === 'movie' ? t('movie') : t('tv'),
