@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import Alert from 'react-bootstrap/Alert';
@@ -19,10 +18,6 @@ import ShadowWrapper from '../ShadowWrapper';
 import Slider from '../../features/MovieDetails/components/Slider';
 import { useRetrieveIdFromLocation } from '../../common/hooks';
 import { isDataDefined } from '../../common/utils';
-
-const emptyContainerStyles = css({
-  height: 200,
-});
 
 function isTVShow(result: MovieListItem | TVListItem): result is TVListItem {
   return (result as TVListItem).first_air_date !== undefined;
@@ -49,14 +44,14 @@ function Recommendations({ mediaType }: RecommendationsProps) {
 
   if (isLoading) {
     return (
-      <div className='py-4' css={emptyContainerStyles}>
+      <div className='py-4'>
         <GrowingSpinner />
       </div>
     );
   }
   if (isError) {
     return (
-      <div className='py-4' css={emptyContainerStyles}>
+      <div className='py-4'>
         <Alert variant='danger'>
           {error?.message ?? 'Unknown error has happened.'}
         </Alert>
@@ -83,7 +78,7 @@ function Recommendations({ mediaType }: RecommendationsProps) {
           </Slider>
         </ShadowWrapper>
       ) : (
-        <div css={emptyContainerStyles}>
+        <div>
           <p>
             {t('noRecommendations', {
               mediaType: mediaType === 'movie' ? t('movie') : t('tv'),
