@@ -12,6 +12,13 @@ export const wrapperBackgroundStyles = css({
   backgroundColor: 'rgba(219, 219, 219)',
 });
 
+export const staticBackgroundStyles = (path: string) =>
+  css({
+    backgroundImage: `url(${path})`,
+    backgroundPosition: '50% 50%',
+    backgroundRepeat: 'no-repeat',
+  });
+
 export const wrapperBorderStyles = {
   all: css({ borderRadius: BorderRadiuses.medium }),
   none: css({}),
@@ -35,4 +42,8 @@ export const emptyImgStyles = css({
   width: '50%',
   height: 'auto',
   alignSelf: 'center',
+});
+
+export const hiddenImgStyles = css({
+  display: 'none',
 });

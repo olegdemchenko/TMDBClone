@@ -30,6 +30,7 @@ function PersonInfo({ name, avatar, works }: PersonInfoProps) {
           borderRadius='all'
           path={imagePaths.searchResIcon}
           imgName={avatar}
+          noStretch
         />
       </div>
       <div className='d-flex flex-column info flex-grow-1 ps-3 justify-content-center'>

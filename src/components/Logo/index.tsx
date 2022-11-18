@@ -9,6 +9,8 @@ import {
   emptyImgStyles,
   wrapperBackgroundStyles,
   wrapperBorderStyles,
+  staticBackgroundStyles,
+  hiddenImgStyles,
 } from './styles';
 
 interface LogoProps {
@@ -16,9 +18,10 @@ interface LogoProps {
   path: string;
   imgName: string | null | undefined;
   borderRadius: BorderRadiusTypes;
+  noStretch?: true;
 }
 
-function Logo({ path, imgName, type, borderRadius }: LogoProps) {
+function Logo({ path, imgName, type, borderRadius, noStretch }: LogoProps) {
   const borderRadiusStyles = wrapperBorderStyles[borderRadius];
   if (!imgName) {
     return (
@@ -37,9 +40,20 @@ function Logo({ path, imgName, type, borderRadius }: LogoProps) {
       </div>
     );
   }
+  const imgSrc = `${path}${imgName}`;
   return (
-    <div css={[commonWrapperStyles, borderRadiusStyles]}>
-      <img css={defaultImgStyles} src={`${path}${imgName}`} alt='Logo' />
+    <div
+      css={[
+        commonWrapperStyles,
+        borderRadiusStyles,
+        noStretch ? staticBackgroundStyles(imgSrc) : {},
+      ]}
+    >
+      <img
+        css={[defaultImgStyles, noStretch ? hiddenImgStyles : {}]}
+        src={imgSrc}
+        alt='Logo'
+      />
     </div>
   );
 }

@@ -18,6 +18,7 @@ function Company({ name, logo }: CompanyProps) {
           borderRadius='all'
           imgName={logo}
           path={imagePaths.searchResIcon}
+          noStretch
         />
       </div>
       <p>{name}</p>
