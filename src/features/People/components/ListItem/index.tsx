@@ -28,6 +28,7 @@ function ListItem({ name = 'unknown', knownFor = [], photo }: ListItemProps) {
           borderRadius='none'
           path={imagePaths.peoplePosters.galleryPreview}
           imgName={photo}
+          noStretch
         />
       </div>
       <div className='p-2' css={textWrapperStyles}>
