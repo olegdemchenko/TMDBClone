@@ -1,7 +1,6 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useTranslation } from 'react-i18next';
-import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { Actor } from '../../app/TMDBAPIInterfaces';
 import {
@@ -20,10 +19,6 @@ interface CastProps {
   mediaType: 'tv' | 'movie';
 }
 
-const emptyContainerStyles = css({
-  height: 300,
-});
-
 function Cast({ mediaType }: CastProps) {
   const entityId = useRetrieveIdFromLocation();
   const queries = {
@@ -35,14 +30,14 @@ function Cast({ mediaType }: CastProps) {
   const { t } = useTranslation('details');
   if (isLoading) {
     return (
-      <div css={emptyContainerStyles}>
+      <div>
         <GrowingSpinner />
       </div>
     );
   }
   if (isError) {
     return (
-      <div css={emptyContainerStyles}>
+      <div>
         <Alert variant='danger'>
           {error?.message ?? 'Unknown error has happened.'}
         </Alert>
@@ -73,7 +68,7 @@ function Cast({ mediaType }: CastProps) {
           </Slider>
         </ShadowWrapper>
       ) : (
-        <div css={emptyContainerStyles} className='d-flex align-items-center'>
+        <div className='d-flex align-items-center'>
           <p>
             {t('noCastData', {
               mediaType: mediaType === 'movie' ? t('movie') : t('tv'),
